@@ -49,12 +49,13 @@ const Header = () => {
                   <span className="ps-8 border-r h-3"></span>
                 </li>
 
-                <li className="ps-5">
+                <li className="ps-5 font-semibold text-sm">
                   <p>Sign in</p>
                 </li>
                 <li>
                   <p>
-                    /<span className="ps-3">register</span>
+                    /
+                    <span className="ps-3 font-semibold text-sm">register</span>
                   </p>
                 </li>
               </ul>
