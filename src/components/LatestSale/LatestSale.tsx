@@ -8,7 +8,7 @@ const LatestSale = () => {
   return (
     <Container>
       <div className="mx-auto w-[550px] text-center text-[#2A4766]">
-        <h2 className="mt-20 text-4xl font-semibold">LATEST FOR SALE</h2>
+        <h2 className="mt-28 text-4xl font-semibold">LATEST FOR SALE</h2>
         <p className="mt-2 text-[#ABACB0]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           modi ad, autem quia commodi quisquam deserunt asperiores rerum vero
@@ -20,7 +20,7 @@ const LatestSale = () => {
         <div className="drop-shadow-xl bg-white">
           <Image src={property01} alt="property01"></Image>
           <div className="p-5">
-            <h5 className="text-[#EFA335] font-semibold">For Sale</h5>
+            <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
             <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
               South seller court
             </h4>
@@ -38,10 +38,7 @@ const LatestSale = () => {
                 <span>
                   <b>2</b> Baths
                 </span>
-
-                <span className="ps-3 border-r h-3"></span>
               </li>
-              <li> </li>
             </ul>
           </div>
           <div className="border-t">
@@ -49,7 +46,7 @@ const LatestSale = () => {
               <span className="text-xl">
                 <b>150</b> Sqft
               </span>
-              <h4 className="text-[#EFA335] text-2xl font-semibold">
+              <h4 className="text-[#ffac37] text-2xl font-semibold">
                 $1200.00
               </h4>
             </div>
@@ -59,7 +56,7 @@ const LatestSale = () => {
         <div className="drop-shadow-xl bg-white">
           <Image src={property01} alt="property01"></Image>
           <div className="p-5">
-            <h5 className="text-[#EFA335] font-semibold">For Sale</h5>
+            <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
             <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
               South seller court
             </h4>
@@ -77,10 +74,7 @@ const LatestSale = () => {
                 <span>
                   <b>2</b> Baths
                 </span>
-
-                <span className="ps-3 border-r h-3"></span>
               </li>
-              <li> </li>
             </ul>
           </div>
           <div className="border-t">
@@ -88,7 +82,7 @@ const LatestSale = () => {
               <span className="text-xl">
                 <b>150</b> Sqft
               </span>
-              <h4 className="text-[#EFA335] text-2xl font-semibold">
+              <h4 className="text-[#ffac37] text-2xl font-semibold">
                 $1200.00
               </h4>
             </div>
@@ -98,7 +92,7 @@ const LatestSale = () => {
         <div className="drop-shadow-xl bg-white">
           <Image src={property01} alt="property01"></Image>
           <div className="p-5">
-            <h5 className="text-[#EFA335] font-semibold">For Sale</h5>
+            <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
             <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
               South seller court
             </h4>
@@ -116,10 +110,7 @@ const LatestSale = () => {
                 <span>
                   <b>2</b> Baths
                 </span>
-
-                <span className="ps-3 border-r h-3"></span>
               </li>
-              <li> </li>
             </ul>
           </div>
           <div className="border-t">
@@ -127,7 +118,7 @@ const LatestSale = () => {
               <span className="text-xl">
                 <b>150</b> Sqft
               </span>
-              <h4 className="text-[#EFA335] text-2xl font-semibold">
+              <h4 className="text-[#ffac37] text-2xl font-semibold">
                 $1200.00
               </h4>
             </div>

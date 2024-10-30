@@ -12,10 +12,12 @@ const TopHeader = () => {
         </div>
         <div className="flex gap-10 items-center">
           <div>
-            <p className="text-[#ABACB0] font-semibold">Call for Enquiry</p>
+            <p className="text-[#ABACB0] font-semibold text-sm">
+              Call for Enquiry
+            </p>
             <b className="text-lg text-[#2A4766]">01756-867585</b>
           </div>
-          <button className="border-2 border-[#EFA335] text-[#2A4766] py-1 px-6 font-semibold uppercase rounded-md">
+          <button className="border-2 border-[#ffac37] text-[#2A4766] py-1 px-6 font-bold uppercase rounded-md">
             Live Chat
           </button>
         </div>

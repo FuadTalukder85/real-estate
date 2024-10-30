@@ -10,7 +10,7 @@ import { FaLocationDot } from "react-icons/fa6";
 const FeaturedListing = () => {
   return (
     <Container>
-      <div className="mt-20 flex text-[#2A4766] items-center justify-between">
+      <div className="mt-28 flex text-[#2A4766] items-center justify-between">
         <div className="w-[550px]">
           <h2 className="text-4xl font-semibold">Featured properties</h2>
           <p className="mt-2 text-[#ABACB0]">
@@ -20,7 +20,7 @@ const FeaturedListing = () => {
           </p>
         </div>
         <div>
-          <button className="bg-[#EFA335] text-white py-2 px-6 font-semibold uppercase rounded-sm">
+          <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-sm">
             View all featured
           </button>
         </div>
@@ -32,11 +32,11 @@ const FeaturedListing = () => {
           <Image src={feautredImg} alt="feautredImg" width={300}></Image>
           <div>
             <div className="p-5 pr-5">
-              <div className="flex gap-5 items-center text-[#EFA335]">
-                <h5 className="text-2xl font-semibold">$5000.00</h5>
+              <div className="flex gap-5 items-center text-[#ffac37]">
+                <h5 className="text-xl font-semibold">$5000.00</h5>
                 <span className="">Asking pice</span>
               </div>
-              <h3 className="text-2xl font-semibold text-[#2A4766]">
+              <h3 className="text-xl font-semibold text-[#2A4766]">
                 Ravenslea Cafe London Road For Sale
               </h3>
               <ul className="text-[#ABACB0] mt-5">
@@ -71,11 +71,11 @@ const FeaturedListing = () => {
           <Image src={feautredImg} alt="feautredImg" width={300}></Image>
           <div>
             <div className="p-5 pr-5">
-              <div className="flex gap-5 items-center text-[#EFA335]">
-                <h5 className="text-2xl font-semibold">$5000.00</h5>
+              <div className="flex gap-5 items-center text-[#ffac37]">
+                <h5 className="text-xl font-semibold">$5000.00</h5>
                 <span className="">Asking pice</span>
               </div>
-              <h3 className="text-2xl font-semibold text-[#2A4766]">
+              <h3 className="text-xl font-semibold text-[#2A4766]">
                 Ravenslea Cafe London Road For Sale
               </h3>
               <ul className="text-[#ABACB0] mt-5">
