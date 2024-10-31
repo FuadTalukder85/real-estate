@@ -12,7 +12,7 @@ const TrustedCompany = () => {
   return (
     <Container>
       <div className="-mt-16">
-        <h5 className="font-bold bg-white p-5 w-[350px]">
+        <h5 className="font-bold bg-white p-5 w-[350px] text-[#2A4766]">
           Trusted by over 150+ major companies
         </h5>
         <div className="flex gap-5 justify-between pt-10 bg-white">

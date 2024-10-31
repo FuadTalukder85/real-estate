@@ -17,7 +17,7 @@ const TopHeader = () => {
             </p>
             <b className="text-lg text-[#2A4766]">01756-867585</b>
           </div>
-          <button className="border-2 border-[#ffac37] text-[#2A4766] py-1 px-6 font-bold uppercase rounded-md">
+          <button className="border-2 border-[#ffac37] text-[#2A4766] py-1 px-6 font-bold uppercase rounded-sm">
             Live Chat
           </button>
         </div>
