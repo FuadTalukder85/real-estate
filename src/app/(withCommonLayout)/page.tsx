@@ -4,6 +4,7 @@ import LatestSale from "../../components/LatestSale/LatestSale";
 import FeaturedListing from "../../components/FeaturedListing/FeaturedListing";
 import TrustedCompany from "../../components/TrustedCompany/TrustedCompany";
 import OurService from "../../components/OurService/OurService";
+import Testimonials from "../../components/Testimonials/Testimonials";
 // import HomePage from "./HomePage/page";
 
 const page = () => {
@@ -15,6 +16,7 @@ const page = () => {
       <FeaturedListing></FeaturedListing>
       <OurService></OurService>
       <LatestSale></LatestSale>
+      <Testimonials></Testimonials>
     </div>
   );
 };
