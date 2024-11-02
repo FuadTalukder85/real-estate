@@ -13,7 +13,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="footer-img mt-20">
+    <div className="footer-img">
       <Container>
         <div className="grid grid-cols-12 gap-16 text-white py-24">
           <div className="col-span-4">
