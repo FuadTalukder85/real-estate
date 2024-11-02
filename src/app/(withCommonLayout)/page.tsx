@@ -7,6 +7,7 @@ import OurService from "../../components/OurService/OurService";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import OurTeam from "../../components/OurTeam/OurTeam";
 import PopularPlace from "../../components/PopularPlace/PopularPlace";
+import RecentSell from "../../components/RecentSell/RecentSell";
 // import HomePage from "./HomePage/page";
 
 const page = () => {
@@ -19,6 +20,7 @@ const page = () => {
       <OurService></OurService>
       <LatestSale></LatestSale>
       <Testimonials></Testimonials>
+      <RecentSell></RecentSell>
       <PopularPlace></PopularPlace>
       <OurTeam></OurTeam>
     </div>
