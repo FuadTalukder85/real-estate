@@ -17,7 +17,7 @@ const AgentPage = () => {
     <div>
       <div className="agent-banner py-28">
         <h5 className="text-white text-center font-semibold text-4xl">
-          ~ Agents ~
+          - Agents -
         </h5>
       </div>
       <div className="text-center mt-16">

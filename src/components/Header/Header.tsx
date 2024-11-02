@@ -28,7 +28,7 @@ const Header = () => {
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  Blog
+                  <Link href="/Blog">Blog</Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">Contact</li>
