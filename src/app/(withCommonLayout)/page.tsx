@@ -8,7 +8,6 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import OurTeam from "../../components/OurTeam/OurTeam";
 import PopularPlace from "../../components/PopularPlace/PopularPlace";
 import RecentSell from "../../components/RecentSell/RecentSell";
-import Question from "../../components/Question/Question";
 // import HomePage from "./HomePage/page";
 
 const page = () => {
@@ -24,7 +23,6 @@ const page = () => {
       <RecentSell></RecentSell>
       <PopularPlace></PopularPlace>
       <OurTeam></OurTeam>
-      <Question></Question>
     </div>
   );
 };

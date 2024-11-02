@@ -4,6 +4,7 @@ import Container from "../Container/Container";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -15,15 +16,15 @@ const Header = () => {
             <div>
               <ul className="gap-5 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">
-                  Home
+                  <Link href="/">Home</Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  Property
+                  <Link href="/Property">Property</Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  Members
+                  <Link href="/Agent">Agent</Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
