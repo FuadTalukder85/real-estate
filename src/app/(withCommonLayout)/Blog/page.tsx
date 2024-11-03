@@ -1,5 +1,4 @@
 import React from "react";
-import "./blog.css";
 import Image from "next/image";
 import blogImg from "../../../assets/images/blogImg/blog01.jpg";
 import Container from "../../../components/Container/Container";
@@ -10,7 +9,7 @@ import { FaSearch } from "react-icons/fa";
 const page = () => {
   return (
     <div className="">
-      <div className="blog-banner py-28">
+      <div className="miniBanner py-28">
         <h5 className="text-white text-center font-semibold text-4xl">
           - Blog -
         </h5>

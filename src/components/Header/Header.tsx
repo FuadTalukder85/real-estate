@@ -31,7 +31,9 @@ const Header = () => {
                   <Link href="/Blog">Blog</Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
-                <li className="flex items-center">Contact</li>
+                <li className="flex items-center">
+                  <Link href="/Contact">Contact</Link>
+                </li>
               </ul>
             </div>
             <div>

@@ -1,5 +1,4 @@
 import React from "react";
-import "./agent.css";
 import Container from "../../../components/Container/Container";
 import Image from "next/image";
 import agent01 from "../../../assets/images/teamImg/agent01.jpg";
@@ -15,7 +14,7 @@ import {
 const AgentPage = () => {
   return (
     <div>
-      <div className="agent-banner py-28">
+      <div className="miniBanner py-28">
         <h5 className="text-white text-center font-semibold text-4xl">
           - Agents -
         </h5>
