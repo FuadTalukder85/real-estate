@@ -1,4 +1,5 @@
 .sidebar {
-  background-image: linear-gradient(to top, #fcfdf2, #fcffeb, #fffff7);
+  /* background-image: linear-gradient(to top, #f3f5e9, #fbfcf5, #f3f5e9); */
   /* color: white; */
+  background: white;
 }

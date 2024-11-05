@@ -42,7 +42,7 @@ const Sidebar = () => {
         </li>
         <li
           className={`mt-10 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard" ? "bg-[#ffecd2]" : ""
+            activeLink === "/dashboard" ? "bg-[#fffadc]" : ""
           }`}
         >
           <Link
@@ -55,7 +55,7 @@ const Sidebar = () => {
         </li>
         <li
           className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/Property" ? "bg-[#ffecd2]" : ""
+            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
           }`}
         >
           <Link
@@ -68,7 +68,7 @@ const Sidebar = () => {
         </li>
         <li
           className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/Property" ? "bg-[#ffecd2]" : ""
+            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
           }`}
         >
           <Link

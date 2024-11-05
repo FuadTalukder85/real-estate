@@ -4,11 +4,11 @@ import proImg from "../../assets/images/profileImg01.jpg";
 import { IoIosSearch, IoMdAddCircleOutline } from "react-icons/io";
 const DashboardHeader = () => {
   return (
-    <div className="flex justify-between items-center px-10 py-3 border-b-2">
-      <div className="flex items-center gap-3 px-4 pr-12 font-semibold bg-[#FCFFEB]">
+    <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] flex justify-between items-center px-10 py-3">
+      <div className="flex items-center gap-3 px-4 pr-12 font-semibold bg-[#fffadc] rounded-md">
         <IoIosSearch />
         <input
-          className="py-2 bg-[#FCFFEB] rounded-md outline-none text-sm"
+          className="py-2 bg-[#fffadc] outline-none text-sm"
           placeholder="Search"
         />
       </div>
