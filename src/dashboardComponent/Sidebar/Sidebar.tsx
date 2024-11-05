@@ -7,6 +7,9 @@ import "./Sidebar.css";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { BsHouseCheck } from "react-icons/bs";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { TiMessages } from "react-icons/ti";
+import { GoPeople } from "react-icons/go";
+import { PiUsersThree } from "react-icons/pi";
 
 const Sidebar = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -68,6 +71,19 @@ const Sidebar = () => {
         </li>
         <li
           className={`mt-2 p-2 px-4 rounded-md ${
+            activeLink === "/dashboard/AddProperty" ? "bg-[#fffadc]" : ""
+          }`}
+        >
+          <Link
+            className="flex items-center gap-3"
+            href="/dashboard/AddProperty"
+            onClick={() => handleLinkClick("/dashboard/AddProperty")}
+          >
+            <IoMdAddCircleOutline className="text-xl" /> Add Property
+          </Link>
+        </li>
+        <li
+          className={`mt-2 p-2 px-4 rounded-md ${
             activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
           }`}
         >
@@ -76,7 +92,33 @@ const Sidebar = () => {
             href="/dashboard/Property"
             onClick={() => handleLinkClick("/dashboard/Property")}
           >
-            <IoMdAddCircleOutline className="text-xl" /> Add Property
+            <TiMessages className="text-xl" /> Message
+          </Link>
+        </li>
+        <li
+          className={`mt-2 p-2 px-4 rounded-md ${
+            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+          }`}
+        >
+          <Link
+            className="flex items-center gap-3"
+            href="/dashboard/Property"
+            onClick={() => handleLinkClick("/dashboard/Property")}
+          >
+            <GoPeople className="text-xl" /> Agents
+          </Link>
+        </li>
+        <li
+          className={`mt-2 p-2 px-4 rounded-md ${
+            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+          }`}
+        >
+          <Link
+            className="flex items-center gap-3"
+            href="/dashboard/Property"
+            onClick={() => handleLinkClick("/dashboard/Property")}
+          >
+            <PiUsersThree className="text-xl" /> Users
           </Link>
         </li>
       </ul>
