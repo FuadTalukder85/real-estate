@@ -6,6 +6,7 @@ import logo from "../../assets/images/real-estate-logo.png";
 import "./Sidebar.css";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { BsHouseCheck } from "react-icons/bs";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 const Sidebar = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -63,6 +64,19 @@ const Sidebar = () => {
             onClick={() => handleLinkClick("/dashboard/Property")}
           >
             <BsHouseCheck className="text-xl" /> Property
+          </Link>
+        </li>
+        <li
+          className={`mt-2 p-2 px-4 rounded-md ${
+            activeLink === "/dashboard/Property" ? "bg-[#ffecd2]" : ""
+          }`}
+        >
+          <Link
+            className="flex items-center gap-3"
+            href="/dashboard/Property"
+            onClick={() => handleLinkClick("/dashboard/Property")}
+          >
+            <IoMdAddCircleOutline className="text-xl" /> Add Property
           </Link>
         </li>
       </ul>
