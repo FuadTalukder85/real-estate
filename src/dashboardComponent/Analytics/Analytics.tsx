@@ -9,8 +9,8 @@ import {
 
 const Analytics = () => {
   return (
-    <div className="px-10 mt-10 text-[#2A4766] font-semibold text-lg">
-      <h5>Analytics</h5>
+    <div className="px-10 mt-10 text-[#2A4766]">
+      <h5 className="font-semibold">Analytics</h5>
       <div className="flex gap-5 justify-between mt-5">
         {/* card 01 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
