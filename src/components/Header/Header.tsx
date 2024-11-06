@@ -8,23 +8,49 @@ import { FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import gsap from "gsap";
 import LoginForm from "../Form/LoginForm/LoginForm";
+import RegisterForm from "../Form/RegisterForm/RegisterForm";
 
 const Header = () => {
+  // for sign up
   useEffect(() => {
     const loginBtn = document.querySelector("#login");
     const signupForm = document.querySelector("#loginForm");
     const closeLoginForm = document.querySelector("#loginForm i");
     if (loginBtn && signupForm) {
       const tl = gsap.timeline({ paused: true });
-      tl.to("#loginForm", {
-        opacity: 1,
-        duration: 0.5,
-      });
+      tl.fromTo(
+        "#loginForm",
+        { opacity: 0, visibility: "hidden" },
+        { opacity: 1, visibility: "visible", duration: 0.5 }
+      );
       loginBtn.addEventListener("click", function () {
         tl.play();
       });
       if (closeLoginForm) {
         closeLoginForm.addEventListener("click", function () {
+          tl.reverse();
+        });
+      }
+    }
+  }, []);
+
+  // for register
+  useEffect(() => {
+    const registerBtn = document.querySelector("#register");
+    const registerForm = document.querySelector("#registerForm");
+    const closeRegisterForm = document.querySelector("#registerClose");
+    if (registerBtn && registerForm) {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(
+        "#registerForm",
+        { opacity: 0, visibility: "hidden" },
+        { opacity: 1, visibility: "visible" }
+      );
+      registerBtn.addEventListener("click", function () {
+        tl.play();
+      });
+      if (closeRegisterForm) {
+        closeRegisterForm.addEventListener("click", function () {
           tl.reverse();
         });
       }
@@ -75,8 +101,7 @@ const Header = () => {
                   <FaTwitterSquare />
                   <span className="ps-8 border-r h-3"></span>
                 </li>
-
-                <li className="ps-5 font-semibold text-sm">
+                <li className="text-sm font-semibold">
                   <button
                     className="uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
                     id="login"
@@ -86,11 +111,11 @@ const Header = () => {
                   {/* login modal start */}
                   <div
                     id="loginForm"
-                    className="overflow-hidden absolute right-[360px] opacity-0 bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                    className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
                   >
                     <div>
                       <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
-                        <h5 className="text-[#2A4766] text-lg font-semibold pb-2">
+                        <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
                           Welcome to HD LUXURY
                         </h5>
                         <i className="text-2xl">
@@ -104,13 +129,36 @@ const Header = () => {
                   </div>
                   {/* login modal end */}
                 </li>
-                <li>
-                  <p>
+                <li className="text-sm font-semibold">
+                  <div>
                     /
-                    <span className="ps-3 font-semibold text-sm uppercase">
-                      register
-                    </span>
-                  </p>
+                    <button
+                      className="ps-3 uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
+                      id="register"
+                    >
+                      Register
+                    </button>
+                    {/* register modal start */}
+                    <div
+                      id="registerForm"
+                      className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                    >
+                      <div>
+                        <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
+                          <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
+                            Please Register
+                          </h5>
+                          <div id="registerClose" className="text-2xl">
+                            <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                          </div>
+                        </div>
+                        <div>
+                          <RegisterForm></RegisterForm>
+                        </div>
+                      </div>
+                    </div>
+                    {/* register modal end */}
+                  </div>
                 </li>
               </ul>
             </div>
