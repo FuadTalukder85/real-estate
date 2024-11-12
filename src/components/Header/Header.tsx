@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import TopHeader from "./TopHeader";
 import Container from "../Container/Container";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
@@ -9,8 +9,16 @@ import Link from "next/link";
 import gsap from "gsap";
 import LoginForm from "../Form/LoginForm/LoginForm";
 import RegisterForm from "../Form/RegisterForm/RegisterForm";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   // for sign up
   useEffect(() => {
     const loginBtn = document.querySelector("#login");
@@ -101,67 +109,77 @@ const Header = () => {
                   <FaTwitterSquare />
                   <span className="ps-8 border-r h-3"></span>
                 </li>
-                <li className="ps-5 text-sm font-semibold">
-                  <button
-                    className="uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
-                    id="login"
-                  >
-                    Sign in
+                {user ? (
+                  <button onClick={handleLogout} className="ps-5">
+                    Logout
                   </button>
-                  {/* login modal start */}
-                  <div
-                    id="loginForm"
-                    className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
-                    style={{ opacity: 0, visibility: "hidden" }}
-                  >
-                    <div>
-                      <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
-                        <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
-                          Welcome to HD LUXURY
-                        </h5>
-                        <i className="text-2xl">
-                          <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
-                        </i>
-                      </div>
-                      <div>
-                        <LoginForm></LoginForm>
-                      </div>
-                    </div>
-                  </div>
-                  {/* login modal end */}
-                </li>
-                <li className="text-sm font-semibold">
-                  <div>
-                    /
-                    <button
-                      className="ps-3 uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
-                      id="register"
-                    >
-                      Register
-                    </button>
-                    {/* register modal start */}
-                    <div
-                      id="registerForm"
-                      className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
-                      style={{ opacity: 0, visibility: "hidden" }}
-                    >
-                      <div>
-                        <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
-                          <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
-                            Please Register
-                          </h5>
-                          <div id="registerClose" className="text-2xl">
-                            <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                ) : (
+                  <>
+                    <div className="flex">
+                      <li className="ps-5 text-sm font-semibold">
+                        <button
+                          className="pe-3 uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
+                          id="login"
+                        >
+                          Sign in
+                        </button>
+                        {/* login modal start */}
+                        <div
+                          id="loginForm"
+                          className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                          style={{ opacity: 0, visibility: "hidden" }}
+                        >
+                          <div>
+                            <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
+                              <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
+                                Welcome to HD LUXURY
+                              </h5>
+                              <i className="text-2xl">
+                                <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                              </i>
+                            </div>
+                            <div>
+                              <LoginForm></LoginForm>
+                            </div>
                           </div>
                         </div>
+                        {/* login modal end */}
+                      </li>
+                      <li className="text-sm font-semibold">
                         <div>
-                          <RegisterForm></RegisterForm>
+                          /
+                          <button
+                            className="ps-3 uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
+                            id="register"
+                          >
+                            Register
+                          </button>
+                          {/* register modal start */}
+                          <div
+                            id="registerForm"
+                            className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                            style={{ opacity: 0, visibility: "hidden" }}
+                          >
+                            <div>
+                              <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
+                                <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
+                                  Please Register
+                                </h5>
+                                <div id="registerClose" className="text-2xl">
+                                  <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                                </div>
+                              </div>
+                              <div>
+                                <RegisterForm></RegisterForm>
+                              </div>
+                            </div>
+                          </div>
+                          {/* register modal end */}
                         </div>
-                      </div>
+                      </li>
                     </div>
-                    {/* register modal end */}
-                  </div>
-                </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

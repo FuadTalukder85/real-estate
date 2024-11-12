@@ -10,7 +10,7 @@ const Banner = () => {
     <div className="banner-img">
       <Container>
         <div className="py-32 font-semibold">
-          <h5 className="text-white text-5xl drop-shadow-sm">
+          <h5 className="text-white text-5xl w-[600px]">
             Find your dream house!
           </h5>
           <p className="text-white text-2xl">
