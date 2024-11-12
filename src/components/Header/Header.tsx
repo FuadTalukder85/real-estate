@@ -101,7 +101,7 @@ const Header = () => {
                   <FaTwitterSquare />
                   <span className="ps-8 border-r h-3"></span>
                 </li>
-                <li className="text-sm font-semibold">
+                <li className="ps-5 text-sm font-semibold">
                   <button
                     className="uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
                     id="login"
@@ -112,6 +112,7 @@ const Header = () => {
                   <div
                     id="loginForm"
                     className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                    style={{ opacity: 0, visibility: "hidden" }}
                   >
                     <div>
                       <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
@@ -142,6 +143,7 @@ const Header = () => {
                     <div
                       id="registerForm"
                       className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                      style={{ opacity: 0, visibility: "hidden" }}
                     >
                       <div>
                         <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
