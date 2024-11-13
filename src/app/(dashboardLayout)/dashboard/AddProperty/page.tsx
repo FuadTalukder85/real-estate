@@ -19,7 +19,12 @@ type Inputs = {
 };
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       await postProperty(data);
@@ -38,7 +43,7 @@ const AddProperty: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Property Name
+            Property Name*
           </label>
           <input
             {...register("propertyName", { required: true })}
@@ -46,10 +51,13 @@ const AddProperty: React.FC = () => {
             placeholder="Name"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
           />
+          {errors.propertyName && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Property Image
+            Property Image*
           </label>
           <input
             {...register("propertyImage", { required: true })}
@@ -57,55 +65,70 @@ const AddProperty: React.FC = () => {
             placeholder="Property Image"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
           />
+          {errors.propertyImage && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Price
-          </label>
-          <div className="relative mt-1 rounded-md shadow-sm">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              $
-            </span>
-            <input
-              {...register("price", { required: true })}
-              type="number"
-              placeholder="000"
-              className="block w-full pl-7 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-            />
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Price*
+            </label>
+            <div className="relative mt-1 rounded-md shadow-sm">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                $
+              </span>
+              <input
+                {...register("price", { required: true })}
+                type="number"
+                placeholder="000"
+                className="block w-full pl-7 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+            {errors.price && (
+              <span className="text-red-600">This field is required</span>
+            )}
           </div>
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Property For
+            Property For*
           </label>
           <select
             {...register("propertyFor", { required: true })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
+            <option value="">Sale / Rent</option>
             <option value="Sale">Sale</option>
             <option value="Rent">Rent</option>
-            <option value="Other">Other</option>
           </select>
+          {errors.propertyFor && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Property Categories
+            Property Categories*
           </label>
           <select
             {...register("propertyCategory", { required: true })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
+            <option value="">Select property</option>
             <option value="Apartment">Apartment</option>
             <option value="House">House</option>
             <option value="Office">Office</option>
           </select>
+          {errors.propertyCategory && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Bedroom
+            Bedroom*
           </label>
           <input
             {...register("bedroom", { required: true })}
@@ -113,11 +136,14 @@ const AddProperty: React.FC = () => {
             placeholder="Bedroom"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
+          {errors.bedroom && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Bathroom
+            Bathroom*
           </label>
           <input
             {...register("bathroom", { required: true })}
@@ -125,11 +151,14 @@ const AddProperty: React.FC = () => {
             placeholder="Bathroom"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
+          {errors.bathroom && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Square Foot
+            Square Foot*
           </label>
           <input
             {...register("squareFoot", { required: true })}
@@ -137,11 +166,14 @@ const AddProperty: React.FC = () => {
             placeholder="Square Foot"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
+          {errors.squareFoot && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Floor
+            Floor*
           </label>
           <input
             {...register("floor", { required: true })}
@@ -149,12 +181,15 @@ const AddProperty: React.FC = () => {
             placeholder="Floor"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
+          {errors.floor && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
       </div>
 
       <div>
         <label className="block text-sm font-medium text-gray-700">
-          Property Address
+          Property Address*
         </label>
         <input
           {...register("address", { required: true })}
@@ -162,12 +197,15 @@ const AddProperty: React.FC = () => {
           placeholder="Enter address"
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
         />
+        {errors.address && (
+          <span className="text-red-600">This field is required</span>
+        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Zip-Code
+            Zip-Code*
           </label>
           <input
             {...register("zipCode", { required: true })}
@@ -175,11 +213,14 @@ const AddProperty: React.FC = () => {
             placeholder="zip-code"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
+          {errors.zipCode && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            City
+            City*
           </label>
           <select
             {...register("city", { required: true })}
@@ -189,11 +230,14 @@ const AddProperty: React.FC = () => {
             <option value="City1">City1</option>
             <option value="City2">City2</option>
           </select>
+          {errors.city && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Country
+            Country*
           </label>
           <select
             {...register("country", { required: true })}
@@ -203,6 +247,9 @@ const AddProperty: React.FC = () => {
             <option value="Bangladesh">Bangladesh</option>
             <option value="USA">USA</option>
           </select>
+          {errors.country && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
       </div>
 
