@@ -1,39 +1,37 @@
 "use client";
-import React, { useState } from "react";
-
+import { useForm, SubmitHandler } from "react-hook-form";
+import { usePostPropertyMutation } from "../../../../redux/propertyApi/PropertyApi";
+type Inputs = {
+  example: string;
+  propertyName: string;
+  propertyImage: string;
+  price: number;
+  propertyFor: string;
+  propertyCategory: string;
+  bedroom: number;
+  bathroom: number;
+  squareFoot: number;
+  floor: number;
+  address: string;
+  zipCode: string;
+  city: string;
+  country: string;
+};
 const AddProperty: React.FC = () => {
-  const [formData, setFormData] = useState({
-    propertyImage: "",
-    propertyName: "",
-    price: "",
-    propertyFor: "Other",
-    propertyCategory: "Apartment",
-    bedroom: "",
-    bathroom: "",
-    squareFoot: "",
-    floor: "",
-    address: "",
-    zipCode: "",
-    city: "",
-    country: "",
-  });
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const [postProperty] = usePostPropertyMutation();
+  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await postProperty(data);
+      console.log(data);
+      reset();
+    } catch (error) {
+      console.error("Add property failed:", error);
+    }
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-  };
-
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="space-y-4 mx-10 mt-10 text-[#2A4766] bg-white p-5 rounded-md"
     >
       <h5 className="font-semibold">Property Details</h5>
@@ -43,10 +41,8 @@ const AddProperty: React.FC = () => {
             Property Name
           </label>
           <input
+            {...register("propertyName", { required: true })}
             type="text"
-            name="propertyName"
-            value={formData.propertyName}
-            onChange={handleInputChange}
             placeholder="Name"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
           />
@@ -56,10 +52,8 @@ const AddProperty: React.FC = () => {
             Property Image
           </label>
           <input
+            {...register("propertyImage", { required: true })}
             type="text"
-            name="propertyImage"
-            value={formData.propertyImage}
-            onChange={handleInputChange}
             placeholder="Property Image"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
           />
@@ -73,10 +67,8 @@ const AddProperty: React.FC = () => {
               $
             </span>
             <input
+              {...register("price", { required: true })}
               type="number"
-              name="price"
-              value={formData.price}
-              onChange={handleInputChange}
               placeholder="000"
               className="block w-full pl-7 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
             />
@@ -88,9 +80,7 @@ const AddProperty: React.FC = () => {
             Property For
           </label>
           <select
-            name="propertyFor"
-            value={formData.propertyFor}
-            onChange={handleInputChange}
+            {...register("propertyFor", { required: true })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
             <option value="Sale">Sale</option>
@@ -104,9 +94,7 @@ const AddProperty: React.FC = () => {
             Property Categories
           </label>
           <select
-            name="propertyCategory"
-            value={formData.propertyCategory}
-            onChange={handleInputChange}
+            {...register("propertyCategory", { required: true })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
             <option value="Apartment">Apartment</option>
@@ -120,10 +108,8 @@ const AddProperty: React.FC = () => {
             Bedroom
           </label>
           <input
+            {...register("bedroom", { required: true })}
             type="number"
-            name="bedroom"
-            value={formData.bedroom}
-            onChange={handleInputChange}
             placeholder="Bedroom"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
@@ -134,10 +120,8 @@ const AddProperty: React.FC = () => {
             Bathroom
           </label>
           <input
+            {...register("bathroom", { required: true })}
             type="number"
-            name="bathroom"
-            value={formData.bathroom}
-            onChange={handleInputChange}
             placeholder="Bathroom"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
@@ -148,10 +132,8 @@ const AddProperty: React.FC = () => {
             Square Foot
           </label>
           <input
+            {...register("squareFoot", { required: true })}
             type="number"
-            name="squareFoot"
-            value={formData.squareFoot}
-            onChange={handleInputChange}
             placeholder="Square Foot"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
@@ -162,10 +144,8 @@ const AddProperty: React.FC = () => {
             Floor
           </label>
           <input
+            {...register("floor", { required: true })}
             type="number"
-            name="floor"
-            value={formData.floor}
-            onChange={handleInputChange}
             placeholder="Floor"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
@@ -177,10 +157,8 @@ const AddProperty: React.FC = () => {
           Property Address
         </label>
         <input
+          {...register("address", { required: true })}
           type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleInputChange}
           placeholder="Enter address"
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
         />
@@ -192,10 +170,8 @@ const AddProperty: React.FC = () => {
             Zip-Code
           </label>
           <input
+            {...register("zipCode", { required: true })}
             type="text"
-            name="zipCode"
-            value={formData.zipCode}
-            onChange={handleInputChange}
             placeholder="zip-code"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
@@ -206,9 +182,7 @@ const AddProperty: React.FC = () => {
             City
           </label>
           <select
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
+            {...register("city", { required: true })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
             <option value="">Choose a city</option>
@@ -222,9 +196,7 @@ const AddProperty: React.FC = () => {
             Country
           </label>
           <select
-            name="country"
-            value={formData.country}
-            onChange={handleInputChange}
+            {...register("country", { required: true })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
             <option value="">Choose a country</option>
