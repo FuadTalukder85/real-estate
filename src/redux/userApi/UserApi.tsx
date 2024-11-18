@@ -15,6 +15,13 @@ const UserApi = BaseApi.injectEndpoints({
         body: loggedUser,
       }),
     }),
+    getUser: builder.query({
+      query: () => ({
+        url: "/users",
+        method: "GET",
+      }),
+    }),
   }),
 });
-export const { usePostUserMutation, useLoginUsersMutation } = UserApi;
+export const { usePostUserMutation, useLoginUsersMutation, useGetUserQuery } =
+  UserApi;
