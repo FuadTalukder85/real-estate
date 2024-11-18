@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { usePostUserMutation } from "../../../redux/userApi/UserApi";
 
 type Inputs = {
   name: string;
@@ -9,6 +10,7 @@ type Inputs = {
 };
 
 const LoginForm = () => {
+  const [loggedUser] = usePostUserMutation();
   const { signIn } = useContext(AuthContext); // Get createUser from context
   const { register, handleSubmit } = useForm<Inputs>();
 
@@ -18,6 +20,7 @@ const LoginForm = () => {
       const user = result.user;
       console.log(user);
     });
+    loggedUser(data);
   };
 
   return (

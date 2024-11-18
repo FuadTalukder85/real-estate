@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { usePostUserMutation } from "../../../redux/userApi/UserApi";
 
 type Inputs = {
   name: string;
@@ -9,10 +10,12 @@ type Inputs = {
 };
 
 const RegisterForm = () => {
+  const [postUser] = usePostUserMutation();
   const { createUser } = useContext(AuthContext); // Get createUser from context
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    postUser(data);
     const { email, password } = data;
     createUser(email, password)
       .then((userCredential) => {
