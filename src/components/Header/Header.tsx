@@ -13,7 +13,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -110,7 +110,10 @@ const Header = () => {
                   <span className="ps-8 border-r h-3"></span>
                 </li>
                 {user ? (
-                  <button onClick={handleLogout} className="ps-5">
+                  <button
+                    onClick={handleLogout}
+                    className="ps-5 text-sm font-semibold"
+                  >
                     Logout
                   </button>
                 ) : (

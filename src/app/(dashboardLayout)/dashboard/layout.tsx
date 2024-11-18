@@ -1,18 +1,21 @@
 import React from "react";
 import Sidebar from "../../../dashboardComponent/Sidebar/Sidebar";
 import DashboardHeader from "../../../dashboardComponent/DashboardHeader/DashboardHeader";
+import PrivateRoute from "../../../privateRoute/PrivateRoute";
 
 const layout = ({ children }) => {
   return (
-    <div className="flex">
-      <div className="w-[15%]">
-        <Sidebar></Sidebar>
+    <PrivateRoute>
+      <div className="flex">
+        <div className="w-[15%]">
+          <Sidebar></Sidebar>
+        </div>
+        <div className="w-[85%] bg-[#F9F9FC]">
+          <DashboardHeader></DashboardHeader>
+          {children}
+        </div>
       </div>
-      <div className="w-[85%] bg-[#F9F9FC]">
-        <DashboardHeader></DashboardHeader>
-        {children}
-      </div>
-    </div>
+    </PrivateRoute>
   );
 };
 

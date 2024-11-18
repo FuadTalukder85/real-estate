@@ -1,6 +1,8 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { usePostPropertyMutation } from "../../../../redux/propertyApi/PropertyApi";
+import { useContext } from "react";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 type Inputs = {
   example: string;
   propertyName: string;
@@ -19,6 +21,8 @@ type Inputs = {
 };
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
+  const { user } = useContext(AuthContext);
+  console.log("paisi user", user.email);
   const {
     register,
     handleSubmit,
@@ -27,7 +31,9 @@ const AddProperty: React.FC = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      await postProperty(data);
+      const postBy = user.email;
+      const postedData = { ...data, postBy };
+      await postProperty(postedData);
       console.log(data);
       reset();
     } catch (error) {
