@@ -6,8 +6,19 @@ const PropertyApi = BaseApi.injectEndpoints({
         url: "/property",
         method: "POST",
         body: postProperty,
+        cache: "no-store",
+      }),
+    }),
+    getProperty: builder.query({
+      query: () => ({
+        url: "/property",
+        method: "GET",
+        next: {
+          revalidate: 30,
+        },
+        cache: "no-store",
       }),
     }),
   }),
 });
-export const { usePostPropertyMutation } = PropertyApi;
+export const { usePostPropertyMutation, useGetPropertyQuery } = PropertyApi;

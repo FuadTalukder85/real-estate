@@ -4,9 +4,11 @@ import { usePostPropertyMutation } from "../../../../redux/propertyApi/PropertyA
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 type Inputs = {
-  example: string;
   propertyName: string;
-  propertyImage: string;
+  propertyImage01: string;
+  propertyImage02: string;
+  propertyImage03: string;
+  propertyImage04: string;
   price: number;
   propertyFor: string;
   propertyCategory: string;
@@ -14,15 +16,16 @@ type Inputs = {
   bathroom: number;
   squareFoot: number;
   floor: number;
+  buildYear: number;
   address: string;
   zipCode: string;
   city: string;
   country: string;
+  description: string;
 };
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
   const { user } = useContext(AuthContext);
-  console.log("paisi user", user.email);
   const {
     register,
     handleSubmit,
@@ -34,7 +37,6 @@ const AddProperty: React.FC = () => {
       const postBy = user.email;
       const postedData = { ...data, postBy };
       await postProperty(postedData);
-      console.log(data);
       reset();
     } catch (error) {
       console.error("Add property failed:", error);
@@ -63,38 +65,79 @@ const AddProperty: React.FC = () => {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Property Image*
+            Property Image 01*
           </label>
           <input
-            {...register("propertyImage", { required: true })}
+            {...register("propertyImage01", { required: true })}
             type="text"
             placeholder="Property Image"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
           />
-          {errors.propertyImage && (
+          {errors.propertyImage01 && (
             <span className="text-red-600">This field is required</span>
           )}
         </div>
         <div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Price*
-            </label>
-            <div className="relative mt-1 rounded-md shadow-sm">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                $
-              </span>
-              <input
-                {...register("price", { required: true })}
-                type="number"
-                placeholder="000"
-                className="block w-full pl-7 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-            {errors.price && (
-              <span className="text-red-600">This field is required</span>
-            )}
+          <label className="block text-sm font-medium text-gray-700">
+            Property Image 02*
+          </label>
+          <input
+            {...register("propertyImage02", { required: true })}
+            type="text"
+            placeholder="Property Image"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
+          />
+          {errors.propertyImage02 && (
+            <span className="text-red-600">This field is required</span>
+          )}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Property Image 03*
+          </label>
+          <input
+            {...register("propertyImage03", { required: true })}
+            type="text"
+            placeholder="Property Image"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
+          />
+          {errors.propertyImage03 && (
+            <span className="text-red-600">This field is required</span>
+          )}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Property Image 04*
+          </label>
+          <input
+            {...register("propertyImage04", { required: true })}
+            type="text"
+            placeholder="Property Image"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2"
+          />
+          {errors.propertyImage04 && (
+            <span className="text-red-600">This field is required</span>
+          )}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Price*
+          </label>
+          <div className="relative mt-1 rounded-md shadow-sm">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+              $
+            </span>
+            <input
+              {...register("price", { required: true })}
+              type="number"
+              placeholder="000"
+              className="block w-full pl-7 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+            />
           </div>
+          {errors.price && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
 
         <div>
@@ -193,19 +236,35 @@ const AddProperty: React.FC = () => {
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Property Address*
-        </label>
-        <input
-          {...register("address", { required: true })}
-          type="text"
-          placeholder="Enter address"
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-        />
-        {errors.address && (
-          <span className="text-red-600">This field is required</span>
-        )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Build year*
+          </label>
+          <input
+            {...register("buildYear", { required: true })}
+            type="number"
+            placeholder="Build year"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
+          {errors.floor && (
+            <span className="text-red-600">This field is required</span>
+          )}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Property Address*
+          </label>
+          <input
+            {...register("address", { required: true })}
+            type="text"
+            placeholder="Enter address"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
+          {errors.address && (
+            <span className="text-red-600">This field is required</span>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -233,8 +292,11 @@ const AddProperty: React.FC = () => {
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           >
             <option value="">Choose a city</option>
-            <option value="City1">City1</option>
-            <option value="City2">City2</option>
+            <option value="Faridpur">Faridpur</option>
+            <option value="Mirpur">Mirpur</option>
+            <option value="Gazipur">Gazipur</option>
+            <option value="Narayanganj">Narayanganj</option>
+            <option value="Dhaka">Dhaka</option>
           </select>
           {errors.city && (
             <span className="text-red-600">This field is required</span>
@@ -258,6 +320,15 @@ const AddProperty: React.FC = () => {
           )}
         </div>
       </div>
+      <textarea
+        {...register("description", { required: true })}
+        type="text"
+        placeholder="Description"
+        className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
+      ></textarea>
+      {errors.description && (
+        <span className="text-red-600">This field is required</span>
+      )}
 
       <div className="flex justify-end space-x-4 mt-4">
         <button

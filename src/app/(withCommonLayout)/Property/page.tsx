@@ -1,12 +1,18 @@
-import React from "react";
+"use client";
 import { FaBed, FaChevronDown, FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container/Container";
-import property01 from "../../../assets/images/propertyImg/property01.jpg";
 import Image from "next/image";
+import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 
 const PropertyPage = () => {
+  const { data, refetch } = useGetPropertyQuery("");
+  function handleRefetching() {
+    refetch();
+  }
+
+  console.log(data);
   return (
     <div>
       <div className="bg-[#F7F7F7] mt-10">
@@ -60,226 +66,52 @@ const PropertyPage = () => {
             Short by : recent <FaChevronDown />
           </span>
         </div>
-        <div className="mt-16 flex gap-5">
-          {/* card 01 */}
-          <div className="drop-shadow-xl bg-white">
-            <Image src={property01} alt="property01"></Image>
-            <div className="p-5">
-              <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                South seller court
-              </h4>
-              <div className="flex gap-3 items-center text-[#2A4766]">
-                <FaLocationDot /> <span>Uttor Kashipur, Narayanganj</span>
-              </div>
-              <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                <li className="flex items-center">
-                  <span>
-                    <b>3</b> Beds
-                  </span>
-                  <span className="ps-3 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <span>
-                    <b>2</b> Baths
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t">
-              <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                <span className="text-xl">
-                  <b>150</b> Sqft
-                </span>
-                <h4 className="text-[#ffac37] text-2xl font-semibold">
-                  $1200.00
+        <div className="mt-16 grid grid-cols-3 gap-5">
+          {data?.map((property, index) => (
+            <div key={index} className="drop-shadow-xl bg-white">
+              <Image
+                src={property.propertyImage01}
+                alt="property01"
+                width={400}
+                height={400}
+              ></Image>
+              <div className="p-5">
+                <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
+                <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
+                  {property.propertyName}
                 </h4>
-              </div>
-            </div>
-          </div>
-          {/* card 02 */}
-          <div className="drop-shadow-xl bg-white">
-            <Image src={property01} alt="property01"></Image>
-            <div className="p-5">
-              <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                South seller court
-              </h4>
-              <div className="flex gap-3 items-center text-[#2A4766]">
-                <FaLocationDot /> <span>Uttor Kashipur, Narayanganj</span>
-              </div>
-              <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                <li className="flex items-center">
+                <div className="flex gap-3 items-center text-[#2A4766]">
+                  <FaLocationDot />{" "}
                   <span>
-                    <b>3</b> Beds
+                    {property.address}, {property.city}
                   </span>
-                  <span className="ps-3 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <span>
-                    <b>2</b> Baths
+                </div>
+                <ul className="flex gap-3 mt-2 text-[#2A4766]">
+                  <li className="flex items-center">
+                    <span>
+                      <b>{property.bedroom}</b> Beds
+                    </span>
+                    <span className="ps-3 border-r h-3"></span>
+                  </li>
+                  <li className="flex items-center">
+                    <span>
+                      <b>{property.bathroom}</b> Baths
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div className="border-t">
+                <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
+                  <span className="text-xl">
+                    <b>{property.squareFoot}</b> Sqft
                   </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t">
-              <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                <span className="text-xl">
-                  <b>150</b> Sqft
-                </span>
-                <h4 className="text-[#ffac37] text-2xl font-semibold">
-                  $1200.00
-                </h4>
+                  <h4 className="text-[#ffac37] text-2xl font-semibold">
+                    ${property.price}.00
+                  </h4>
+                </div>
               </div>
             </div>
-          </div>
-          {/* card 03 */}
-          <div className="drop-shadow-xl bg-white">
-            <Image src={property01} alt="property01"></Image>
-            <div className="p-5">
-              <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                South seller court
-              </h4>
-              <div className="flex gap-3 items-center text-[#2A4766]">
-                <FaLocationDot /> <span>Uttor Kashipur, Narayanganj</span>
-              </div>
-              <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                <li className="flex items-center">
-                  <span>
-                    <b>3</b> Beds
-                  </span>
-                  <span className="ps-3 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <span>
-                    <b>2</b> Baths
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t">
-              <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                <span className="text-xl">
-                  <b>150</b> Sqft
-                </span>
-                <h4 className="text-[#ffac37] text-2xl font-semibold">
-                  $1200.00
-                </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/*  */}
-        <div className="mt-5 flex gap-5">
-          {/* card 01 */}
-          <div className="drop-shadow-xl bg-white">
-            <Image src={property01} alt="property01"></Image>
-            <div className="p-5">
-              <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                South seller court
-              </h4>
-              <div className="flex gap-3 items-center text-[#2A4766]">
-                <FaLocationDot /> <span>Uttor Kashipur, Narayanganj</span>
-              </div>
-              <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                <li className="flex items-center">
-                  <span>
-                    <b>3</b> Beds
-                  </span>
-                  <span className="ps-3 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <span>
-                    <b>2</b> Baths
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t">
-              <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                <span className="text-xl">
-                  <b>150</b> Sqft
-                </span>
-                <h4 className="text-[#ffac37] text-2xl font-semibold">
-                  $1200.00
-                </h4>
-              </div>
-            </div>
-          </div>
-          {/* card 02 */}
-          <div className="drop-shadow-xl bg-white">
-            <Image src={property01} alt="property01"></Image>
-            <div className="p-5">
-              <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                South seller court
-              </h4>
-              <div className="flex gap-3 items-center text-[#2A4766]">
-                <FaLocationDot /> <span>Uttor Kashipur, Narayanganj</span>
-              </div>
-              <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                <li className="flex items-center">
-                  <span>
-                    <b>3</b> Beds
-                  </span>
-                  <span className="ps-3 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <span>
-                    <b>2</b> Baths
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t">
-              <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                <span className="text-xl">
-                  <b>150</b> Sqft
-                </span>
-                <h4 className="text-[#ffac37] text-2xl font-semibold">
-                  $1200.00
-                </h4>
-              </div>
-            </div>
-          </div>
-          {/* card 03 */}
-          <div className="drop-shadow-xl bg-white">
-            <Image src={property01} alt="property01"></Image>
-            <div className="p-5">
-              <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                South seller court
-              </h4>
-              <div className="flex gap-3 items-center text-[#2A4766]">
-                <FaLocationDot /> <span>Uttor Kashipur, Narayanganj</span>
-              </div>
-              <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                <li className="flex items-center">
-                  <span>
-                    <b>3</b> Beds
-                  </span>
-                  <span className="ps-3 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <span>
-                    <b>2</b> Baths
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t">
-              <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                <span className="text-xl">
-                  <b>150</b> Sqft
-                </span>
-                <h4 className="text-[#ffac37] text-2xl font-semibold">
-                  $1200.00
-                </h4>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </Container>
     </div>
