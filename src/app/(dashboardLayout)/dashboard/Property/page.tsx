@@ -3,17 +3,36 @@ import Image from "next/image";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
-import { useGetPropertyQuery } from "../../../../redux/propertyApi/PropertyApi";
+import {
+  useDeletePropertyMutation,
+  useGetPropertyQuery,
+} from "../../../../redux/propertyApi/PropertyApi";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { IoMdClose } from "react-icons/io";
 
 const DashProperty = () => {
-  const { data } = useGetPropertyQuery("");
+  const { data, refetch } = useGetPropertyQuery("");
+  const [deleteProperty] = useDeletePropertyMutation();
+  // delete modal
+  const [isOpen, setIsOpen] = useState(false);
+  const handleDelete = (id) => {
+    deleteProperty(id);
+    refetch();
+    toast.success("Product deleted successed", { position: "top-right" });
+    setIsOpen(false);
+  };
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="px-10 p-5 text-[#2A4766]">
       <div className="mt-10">
         <h5 className="bg-white p-5 border capitalize font-semibold text-[#2A4766]">
           All Properties List
         </h5>
-        {/* users table*/}
+        {/* property table*/}
         <table className="w-full border-collapse">
           <thead className="bg-[#f2f2f3]">
             <tr className="flex justify-between font-medium p-2 px-5 pr-16 border-s border-r">
@@ -65,10 +84,51 @@ const DashProperty = () => {
                     <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
                       <CiEdit />
                     </button>
-                    <button className="bg-red-400 text-white p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button
+                      onClick={toggleModal}
+                      className="bg-red-400 text-white p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      id="deleteBtn"
+                    >
                       <AiOutlineDelete />
                     </button>
+                    <Toaster />
                   </div>
+                </td>
+                {/* Delete modal */}
+                <td className="flex justify-center items-center">
+                  {isOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-5 z-50">
+                      <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-sm relative">
+                        {/* Close button */}
+                        <button
+                          onClick={toggleModal}
+                          className="text-2xl absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                        >
+                          <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                        </button>
+                        <div className="flex justify-center mb-4 text-red-500 text-4xl">
+                          <AiOutlineDelete />
+                        </div>
+                        <p className="text-center text-gray-700 font-medium mb-6">
+                          Are you sure you want to delete this product?
+                        </p>
+                        <div className="flex justify-center space-x-4">
+                          <button
+                            onClick={toggleModal}
+                            className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none"
+                          >
+                            No, cancel
+                          </button>
+                          <button
+                            onClick={() => handleDelete(property._id)}
+                            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none"
+                          >
+                            Yes, I,m sure
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}
@@ -78,5 +138,4 @@ const DashProperty = () => {
     </div>
   );
 };
-
 export default DashProperty;

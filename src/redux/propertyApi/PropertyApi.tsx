@@ -19,6 +19,17 @@ const PropertyApi = BaseApi.injectEndpoints({
         cache: "no-store",
       }),
     }),
+    deleteProperty: builder.mutation({
+      query: (query) => ({
+        url: `/property/${query}`,
+        method: "DELETE",
+        cache: "no-store",
+      }),
+    }),
   }),
 });
-export const { usePostPropertyMutation, useGetPropertyQuery } = PropertyApi;
+export const {
+  usePostPropertyMutation,
+  useGetPropertyQuery,
+  useDeletePropertyMutation,
+} = PropertyApi;
