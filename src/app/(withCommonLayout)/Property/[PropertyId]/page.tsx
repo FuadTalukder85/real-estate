@@ -30,7 +30,7 @@ const PropertyDetails = async ({ params }) => {
                 </li>
                 <li>
                   <button className="text-[#2A4766] font-semibold px-3 py-1 rounded-md shadow-md">
-                    For sale
+                    For {singleProperty.propertyFor}
                   </button>
                 </li>
                 <li>

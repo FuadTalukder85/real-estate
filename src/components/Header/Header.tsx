@@ -110,12 +110,17 @@ const Header = () => {
                   <span className="ps-8 border-r h-3"></span>
                 </li>
                 {user ? (
-                  <button
-                    onClick={handleLogout}
-                    className="ps-5 text-sm font-semibold"
-                  >
-                    Logout
-                  </button>
+                  <>
+                    <button
+                      onClick={handleLogout}
+                      className="ps-5 text-sm font-semibold"
+                    >
+                      Logout
+                    </button>
+                    <button className="ps-5 text-sm font-semibold">
+                      <Link href="/dashboard">Dashboard</Link>
+                    </button>
+                  </>
                 ) : (
                   <>
                     <div className="flex">
