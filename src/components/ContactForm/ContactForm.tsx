@@ -9,27 +9,27 @@ const ContactForm = () => {
       <Container>
         <div className="grid grid-cols-12 gap-10">
           <div className="col-span-8 bg-white back p-10">
-            <h5 className="text-xl font-semibold pb-2 border-b-2 border-[#F7F7F7]">
+            <h5 className="text-xl font-semibold pb-2 border-b border-gray-300">
               Fillup The Form
             </h5>
             <div className="mt-10">
               <div className="flex gap-5">
                 <div className="text-[#2A4766] w-full">
                   <p>Name</p>
-                  <input className="mt-2 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"></input>
+                  <input className="mt-2 py-2 w-full border border-gray-300 outline-none rounded-md"></input>
                 </div>
                 <div className="text-[#2A4766] w-full">
                   <p>Email</p>
-                  <input className="mt-2 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"></input>
+                  <input className="mt-2 py-2 w-full border border-gray-300 outline-none rounded-md"></input>
                 </div>
               </div>
               <div className="text-[#2A4766] mt-5">
                 <p>Subject</p>
-                <input className="mt-2 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"></input>
+                <input className="mt-2 py-2 w-full border border-gray-300 outline-none rounded-md"></input>
               </div>
               <div className="text-[#2A4766] mt-5">
                 <p>Message</p>
-                <textarea className="mt-2 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"></textarea>
+                <textarea className="mt-2 py-2 w-full border border-gray-300 outline-none rounded-md"></textarea>
               </div>
             </div>
             {/* submit button  */}
@@ -38,7 +38,7 @@ const ContactForm = () => {
             </button>
           </div>
           <div className="col-span-4 bg-white p-10">
-            <h5 className="text-xl font-semibold pb-2 border-b-2 border-[#F7F7F7]">
+            <h5 className="text-xl font-semibold pb-2 border-b border-gray-300">
               Reach out
             </h5>
             <p className="mt-10 font-semibold text-[#2A4766] text-2xl">

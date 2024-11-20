@@ -58,7 +58,7 @@ const FeaturedListing = () => {
                 </li>
               </ul>
             </div>
-            <div className="mt-7 border-t text-[#ABACB0]">
+            <div className="mt-7 border-t text-[#2A4766] font-semibold">
               <p className="flex gap-3 items-center px-5 py-3">
                 <FaLocationDot />
                 London, United Kingdom
@@ -97,7 +97,7 @@ const FeaturedListing = () => {
                 </li>
               </ul>
             </div>
-            <div className="mt-7 border-t text-[#ABACB0]">
+            <div className="mt-7 border-t text-[#2A4766] font-semibold">
               <p className="flex gap-3 items-center px-5 py-3">
                 <FaLocationDot />
                 London, United Kingdom
