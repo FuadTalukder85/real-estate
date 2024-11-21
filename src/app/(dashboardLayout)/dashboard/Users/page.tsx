@@ -5,10 +5,34 @@ import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
 import { useGetUserQuery } from "../../../../redux/userApi/UserApi";
+import toast, { Toaster } from "react-hot-toast";
 
 const Users = () => {
   const { data } = useGetUserQuery("");
-  console.log(data);
+  // handle user role
+  const handleRoleChange = async ({ e, users }) => {
+    const selectedRole = e.target.value;
+    if (!selectedRole) return;
+    try {
+      const res = await fetch(`http://localhost:4900/user/role/${users._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role: selectedRole }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to update tole");
+      }
+      const data = await res.json();
+      console.log("Role updated successfully", data);
+      toast.success("Successfully updated user role", {
+        position: "top-right",
+      });
+    } catch (error) {
+      console.error("Error updating role", error);
+    }
+  };
   return (
     <div className="px-10 p-5 text-[#2A4766]">
       <div className="mt-10">
@@ -47,7 +71,20 @@ const Users = () => {
                 </td>
                 <td className="w-1/6">{users.email}</td>
                 <td className="w-1/6">{users.date}</td>
-                <td className="w-1/6">User</td>
+                <td className="w-1/6">
+                  <select
+                    className="bg-[#ececec] rounded-md"
+                    onChange={(e) => handleRoleChange({ e, users })}
+                  >
+                    <option value="">
+                      {users.role ? `${users.role}` : "User"}
+                    </option>
+                    <option value="Agent">Make Agent</option>
+                    <option value="Admin">Make Admin</option>
+                    <option value="User">Make User</option>
+                  </select>
+                  <Toaster />
+                </td>
                 <td className="w-1/6">
                   <div className="flex gap-5">
                     <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
