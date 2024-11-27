@@ -10,10 +10,14 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { TiMessages } from "react-icons/ti";
 import { GoPeople } from "react-icons/go";
 import { PiUsersThree } from "react-icons/pi";
+import { useGetUserQuery } from "../../redux/userApi/UserApi";
 
 const Sidebar = () => {
   const [activeLink, setActiveLink] = useState("");
-
+  const { data } = useGetUserQuery("");
+  // const role = data?.filter((dt) => dt.role === "Admin" || dt.role === "Agent");
+  // console.log("role pai nai", role);
+  console.log(data);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const { pathname } = window.location;
@@ -32,96 +36,191 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar h-screen px-5 py-3">
-      <ul className="text-[#2A4766] font-semibold">
-        <li>
-          <Link href="/">
-            <Image
-              className="mx-auto"
-              src={logo}
-              alt="logo"
-              width={150}
-            ></Image>
-          </Link>
-        </li>
-        <li
-          className={`mt-10 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard" ? "bg-[#fffadc]" : ""
-          }`}
-        >
-          <Link
-            className="flex items-center gap-3"
-            href="/dashboard"
-            onClick={() => handleLinkClick("/dashboard")}
+      {data?.role === "Admin" ? (
+        <ul className="text-[#2A4766] font-semibold">
+          <li>
+            <Link href="/">
+              <Image
+                className="mx-auto"
+                src={logo}
+                alt="logo"
+                width={150}
+              ></Image>
+            </Link>
+          </li>
+          <li
+            className={`mt-10 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard" ? "bg-[#fffadc]" : ""
+            }`}
           >
-            <MdOutlineSpaceDashboard className="text-xl" /> Dashboard
-          </Link>
-        </li>
-        <li
-          className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
-          }`}
-        >
-          <Link
-            className="flex items-center gap-3"
-            href="/dashboard/Property"
-            onClick={() => handleLinkClick("/dashboard/Property")}
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard"
+              onClick={() => handleLinkClick("/dashboard")}
+            >
+              <MdOutlineSpaceDashboard className="text-xl" />
+              Admin Dashboard
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+            }`}
           >
-            <BsHouseCheck className="text-xl" /> Property
-          </Link>
-        </li>
-        <li
-          className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/AddProperty" ? "bg-[#fffadc]" : ""
-          }`}
-        >
-          <Link
-            className="flex items-center gap-3"
-            href="/dashboard/AddProperty"
-            onClick={() => handleLinkClick("/dashboard/AddProperty")}
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Property"
+              onClick={() => handleLinkClick("/dashboard/Property")}
+            >
+              <BsHouseCheck className="text-xl" /> Property
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/AddProperty" ? "bg-[#fffadc]" : ""
+            }`}
           >
-            <IoMdAddCircleOutline className="text-xl" /> Add Property
-          </Link>
-        </li>
-        <li
-          className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
-          }`}
-        >
-          <Link
-            className="flex items-center gap-3"
-            href="/dashboard/Property"
-            onClick={() => handleLinkClick("/dashboard/Property")}
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/AddProperty"
+              onClick={() => handleLinkClick("/dashboard/AddProperty")}
+            >
+              <IoMdAddCircleOutline className="text-xl" /> Add Property
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+            }`}
           >
-            <TiMessages className="text-xl" /> Message
-          </Link>
-        </li>
-        <li
-          className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
-          }`}
-        >
-          <Link
-            className="flex items-center gap-3"
-            href="/dashboard/Property"
-            onClick={() => handleLinkClick("/dashboard/Property")}
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Property"
+              onClick={() => handleLinkClick("/dashboard/Property")}
+            >
+              <TiMessages className="text-xl" /> Message
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+            }`}
           >
-            <GoPeople className="text-xl" /> Agents
-          </Link>
-        </li>
-        <li
-          className={`mt-2 p-2 px-4 rounded-md ${
-            activeLink === "/dashboard/Users" ? "bg-[#fffadc]" : ""
-          }`}
-        >
-          <Link
-            className="flex items-center gap-3"
-            href="/dashboard/Users"
-            onClick={() => handleLinkClick("/dashboard/Users")}
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Property"
+              onClick={() => handleLinkClick("/dashboard/Property")}
+            >
+              <GoPeople className="text-xl" /> Agents
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Users" ? "bg-[#fffadc]" : ""
+            }`}
           >
-            <PiUsersThree className="text-xl" /> Users
-          </Link>
-        </li>
-      </ul>
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Users"
+              onClick={() => handleLinkClick("/dashboard/Users")}
+            >
+              <PiUsersThree className="text-xl" /> Users
+            </Link>
+          </li>
+        </ul>
+      ) : (
+        <ul className="text-[#2A4766] font-semibold">
+          <li>
+            <Link href="/">
+              <Image
+                className="mx-auto"
+                src={logo}
+                alt="logo"
+                width={150}
+              ></Image>
+            </Link>
+          </li>
+          <li
+            className={`mt-10 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard" ? "bg-[#fffadc]" : ""
+            }`}
+          >
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard"
+              onClick={() => handleLinkClick("/dashboard")}
+            >
+              <MdOutlineSpaceDashboard className="text-xl" />
+              Agent Dashboard
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+            }`}
+          >
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Property"
+              onClick={() => handleLinkClick("/dashboard/Property")}
+            >
+              <BsHouseCheck className="text-xl" /> Property
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/AddProperty" ? "bg-[#fffadc]" : ""
+            }`}
+          >
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/AddProperty"
+              onClick={() => handleLinkClick("/dashboard/AddProperty")}
+            >
+              <IoMdAddCircleOutline className="text-xl" /> Add Property
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+            }`}
+          >
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Property"
+              onClick={() => handleLinkClick("/dashboard/Property")}
+            >
+              <TiMessages className="text-xl" /> Message
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+            }`}
+          >
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Property"
+              onClick={() => handleLinkClick("/dashboard/Property")}
+            >
+              <GoPeople className="text-xl" /> Agents
+            </Link>
+          </li>
+          <li
+            className={`mt-2 p-2 px-4 rounded-md ${
+              activeLink === "/dashboard/Users" ? "bg-[#fffadc]" : ""
+            }`}
+          >
+            <Link
+              className="flex items-center gap-3"
+              href="/dashboard/Users"
+              onClick={() => handleLinkClick("/dashboard/Users")}
+            >
+              <PiUsersThree className="text-xl" /> Users
+            </Link>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
