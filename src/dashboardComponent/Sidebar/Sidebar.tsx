@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import logo from "../../assets/images/real-estate-logo.png";
-import "./Sidebar.css";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { BsHouseCheck } from "react-icons/bs";
 import { IoMdAddCircleOutline } from "react-icons/io";
@@ -11,12 +10,14 @@ import { TiMessages } from "react-icons/ti";
 import { GoPeople } from "react-icons/go";
 import { PiUsersThree } from "react-icons/pi";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
+import { AuthContext } from "../../Provider/AuthProvider";
+import "./Sidebar.css";
 
 const Sidebar = () => {
-  const [activeLink, setActiveLink] = useState("");
   const { data } = useGetUserQuery("");
-  // const role = data?.filter((dt) => dt.role === "Admin" || dt.role === "Agent");
-  // console.log("role pai nai", role);
+  const { user } = useContext(AuthContext);
+  const [activeLink, setActiveLink] = useState("");
+  const currentUser = data?.find((dt) => dt.email === user?.email);
   console.log(data);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -36,7 +37,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar h-screen px-5 py-3">
-      {data?.role === "Admin" ? (
+      {currentUser?.role === "Admin" ? (
         <ul className="text-[#2A4766] font-semibold">
           <li>
             <Link href="/">
@@ -164,7 +165,7 @@ const Sidebar = () => {
               href="/dashboard/Property"
               onClick={() => handleLinkClick("/dashboard/Property")}
             >
-              <BsHouseCheck className="text-xl" /> Property
+              <BsHouseCheck className="text-xl" /> My Property
             </Link>
           </li>
           <li
@@ -192,33 +193,7 @@ const Sidebar = () => {
             >
               <TiMessages className="text-xl" /> Message
             </Link>
-          </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
-            }`}
-          >
-            <Link
-              className="flex items-center gap-3"
-              href="/dashboard/Property"
-              onClick={() => handleLinkClick("/dashboard/Property")}
-            >
-              <GoPeople className="text-xl" /> Agents
-            </Link>
-          </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Users" ? "bg-[#fffadc]" : ""
-            }`}
-          >
-            <Link
-              className="flex items-center gap-3"
-              href="/dashboard/Users"
-              onClick={() => handleLinkClick("/dashboard/Users")}
-            >
-              <PiUsersThree className="text-xl" /> Users
-            </Link>
-          </li>
+          </li>{" "}
         </ul>
       )}
     </div>
