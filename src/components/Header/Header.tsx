@@ -113,11 +113,11 @@ const Header = () => {
                   <>
                     <button
                       onClick={handleLogout}
-                      className="ps-5 text-sm font-semibold"
+                      className="ps-5 text-sm font-semibold uppercase"
                     >
                       Logout
                     </button>
-                    <button className="ps-5 text-sm font-semibold">
+                    <button className="ps-5 text-sm font-semibold uppercase">
                       <Link href="/dashboard">Dashboard</Link>
                     </button>
                   </>
