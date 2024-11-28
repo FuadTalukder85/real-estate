@@ -7,7 +7,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import AgentHome from "../../../dashboardComponent/AgentHome";
 
-const page = () => {
+const AdminPage = () => {
   const { user } = useContext(AuthContext);
   const { data } = useGetUserQuery("");
   const currentUser = data?.find((dt) => dt?.email === user?.email);
@@ -26,7 +26,7 @@ const page = () => {
           </div>
         </div>
       ) : (
-        <div className="">
+        <div className="px-10 mt-10">
           <AgentHome></AgentHome>
         </div>
       )}
@@ -34,4 +34,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AdminPage;
