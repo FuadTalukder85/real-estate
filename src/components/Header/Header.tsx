@@ -74,8 +74,6 @@ const Header = () => {
     };
 
     document.addEventListener("click", handleClickOutside);
-
-    // Cleanup event listener on component unmount
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
@@ -143,32 +141,22 @@ const Header = () => {
                       {isDropdownVisible && (
                         <ul
                           ref={dropdownRef}
-                          className="absolute w-36 right-0 bg-white text-black px-3 py-2 rounded-md shadow-md mt-2 z-10"
+                          className="absolute w-44 right-0 bg-white text-[#2A4766] font-semibold rounded-md shadow-md mt-2"
                         >
                           <li
                             onClick={() => {
                               handleShowModal();
                               setDropdownVisible(false);
                             }}
-                            className="text-sm font-semibold block hover:text-[#ffac37] cursor-pointer"
+                            className="px-4 py-2 border-b border-b-[#ffac37]  hover:bg-gray-100 hover:rounded-t-md hover:text-[#ffac37] transition-all duration-700 ease-in-out cursor-pointer"
                           >
                             Update Profile
                           </li>
-                          <li>
-                            <button
-                              onClick={handleLogout}
-                              className="text-sm font-semibold block hover:text-[#ffac37] cursor-pointer"
-                            >
-                              Logout
-                            </button>
+                          <li className="px-4 py-2 border-b border-b-[#ffac37]  hover:bg-gray-100 hover:rounded-t-md hover:text-[#ffac37] transition-all duration-700 ease-in-out cursor-pointer">
+                            <Link href="/dashboard">Dashboard</Link>
                           </li>
-                          <li>
-                            <Link
-                              href="/dashboard"
-                              className="text-sm font-semibold block hover:text-[#ffac37] cursor-pointer"
-                            >
-                              Dashboard
-                            </Link>
+                          <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-t-md hover:text-[#ffac37] transition-all duration-700 ease-in-out cursor-pointer">
+                            <button onClick={handleLogout}>Logout</button>
                           </li>
                         </ul>
                       )}

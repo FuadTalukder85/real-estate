@@ -19,6 +19,13 @@ const PropertyApi = BaseApi.injectEndpoints({
         cache: "no-store",
       }),
     }),
+    updateUser: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/user/${id}`,
+        method: "PUT",
+        body,
+      }),
+    }),
     deleteProperty: builder.mutation({
       query: (query) => ({
         url: `/property/${query}`,
@@ -31,5 +38,6 @@ const PropertyApi = BaseApi.injectEndpoints({
 export const {
   usePostPropertyMutation,
   useGetPropertyQuery,
+  useUpdateUserMutation,
   useDeletePropertyMutation,
 } = PropertyApi;

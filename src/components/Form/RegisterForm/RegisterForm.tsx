@@ -11,11 +11,12 @@ type Inputs = {
 
 const RegisterForm = () => {
   const [postUser] = usePostUserMutation();
-  const { createUser } = useContext(AuthContext); // Get createUser from context
+  const { createUser } = useContext(AuthContext);
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    postUser(data);
+    const userData = { ...data, image: "", number: "", address: "" };
+    postUser(userData);
     const { email, password } = data;
     createUser(email, password)
       .then((userCredential) => {

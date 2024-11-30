@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import proImg from "../../assets/images/profileImg01.jpg";
 import {
   IoIosArrowDown,
@@ -23,17 +23,8 @@ const DashboardHeader = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (!event.target.closest(".dropdown-container")) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener("click", handleOutsideClick);
-    return () => document.removeEventListener("click", handleOutsideClick);
-  }, []);
 
-  // handle show profile update modal
+  // Handle showing the modal
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
@@ -71,18 +62,18 @@ const DashboardHeader = () => {
               <IoIosArrowDown />
             </h5>
             {isDropdownOpen && (
-              <div className="absolute top-full mt-3 right-0 bg-white border border-gray-200 rounded-md shadow-lg w-40">
-                <ul className="text-sm text-gray-700">
+              <div className="absolute top-full mt-3 right-0 bg-white border border-gray-200 rounded-md shadow-lg w-36">
+                <ul className="text-white font-semibold">
                   <li
                     onClick={() => {
                       handleShowModal();
                       setIsDropdownOpen(false);
                     }}
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    className="bg-[#ffac37] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     Update Profile
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="bg-[#2A4766] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer">
                     Logout
                   </li>
                 </ul>
