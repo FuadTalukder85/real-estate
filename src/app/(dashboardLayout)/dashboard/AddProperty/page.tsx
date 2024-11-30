@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { usePostPropertyMutation } from "../../../../redux/propertyApi/PropertyApi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
+import useCurrentUser from "../../../../hooks/CurrentUser";
 type Inputs = {
   propertyName: string;
   propertyImage01: string;
@@ -26,6 +27,7 @@ type Inputs = {
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
   const { user } = useContext(AuthContext);
+  const currentUser = useCurrentUser();
   const {
     register,
     handleSubmit,
@@ -34,8 +36,9 @@ const AddProperty: React.FC = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const postBy = user.email;
-      const postedData = { ...data, postBy };
+      const postBy = currentUser.role;
+      const email = user.email;
+      const postedData = { ...data, postBy, email };
       await postProperty(postedData);
       reset();
     } catch (error) {

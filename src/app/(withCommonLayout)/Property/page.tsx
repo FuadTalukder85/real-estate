@@ -20,7 +20,6 @@ const PropertyPage = () => {
         <Container>
           <ul className="flex gap-2 py-7">
             <li className="flex items-center gap-3 p-3 pr-16 bg-white">
-              {" "}
               <FaSearch />
               <input
                 className="outline-none text-sm"
@@ -28,7 +27,6 @@ const PropertyPage = () => {
               />
             </li>
             <li className="flex items-center gap-3 p-3 pr-16 bg-white">
-              {" "}
               <FaLocationDot />
               <input
                 className="outline-none text-sm"
@@ -36,7 +34,6 @@ const PropertyPage = () => {
               />
             </li>
             <li className="flex items-center gap-3 p-3 pr-16 bg-white">
-              {" "}
               <MdCategory />
               <input
                 className="outline-none text-sm"
@@ -44,12 +41,10 @@ const PropertyPage = () => {
               />
             </li>
             <li className="flex items-center gap-3 p-3 pr-16 bg-white">
-              {" "}
               <FaBed />
               <input className="outline-none text-sm" placeholder="Bedroom" />
             </li>
             <button className="flex items-center gap-3 p-3 px-7 bg-[#ffac37] text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700">
-              {" "}
               Search
             </button>
           </ul>
@@ -70,15 +65,18 @@ const PropertyPage = () => {
         <div className="mt-16 grid grid-cols-3 gap-5">
           {data?.map((property, index) => (
             <Link href={`/Property/${property._id}`} key={index}>
-              <div className="drop-shadow-xl bg-white">
+              <div className="relative drop-shadow-xl bg-white">
                 <Image
                   src={property.propertyImage01}
                   alt="property01"
                   width={400}
                   height={400}
+                  className="rounded-t-lg"
                 ></Image>
                 <div className="p-5">
-                  <h5 className="text-[#ffac37] font-semibold">For Sale</h5>
+                  <h5 className="absolute top-3 right-3 bg-white py-1 px-3 rounded-lg text-[#2A4766] uppercase font-semibold">
+                    For {property?.propertyFor}
+                  </h5>
                   <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
                     {property.propertyName}
                   </h4>
