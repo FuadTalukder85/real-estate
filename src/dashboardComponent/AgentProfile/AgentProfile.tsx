@@ -1,10 +1,13 @@
 import Image from "next/image";
-import React from "react";
 import profileBanner from "../../assets/images/house01.jpg";
-import profileImg from "../../assets/images/profileImg.jpg";
+import useCurrentUser from "../../hooks/CurrentUser";
 const AgentProfile = () => {
+  const currentUser = useCurrentUser();
+  if (!currentUser) {
+    <p>Loading...</p>;
+  }
   return (
-    <div className="bg-white w-96 pb-5 rounded-t-3xl">
+    <div className="bg-white shadow-md w-96 pb-7 rounded-3xl">
       <Image
         className="h-40 rounded-t-3xl"
         src={profileBanner}
@@ -14,16 +17,18 @@ const AgentProfile = () => {
         <div className="-mt-16 flex justify-center rounded-3xl">
           <Image
             className="w-40 rounded-3xl bg-white p-2"
-            src={profileImg}
+            src={currentUser?.image}
             alt="profileImg"
+            width={60}
+            height={60}
           ></Image>
         </div>
         <ul className="text-[#2A4766] text-center">
           <li className="font-semibold text-lg">
-            <p>Fuad Talukder</p>
+            <p>{currentUser?.name}</p>
           </li>
-          <li>webfuadtk@gmail.com</li>
-          <li>Uttor Kashipur, Narayanganj</li>
+          <li>{currentUser?.email}</li>
+          <li>{currentUser?.address}</li>
         </ul>
         <div className="flex gap-3 mt-5 justify-center text-[#2A4766] font-semibold">
           <button className="px-3 py-1 text-white rounded-lg bg-[#FFAC37]">

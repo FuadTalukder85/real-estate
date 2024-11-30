@@ -1,25 +1,25 @@
 "use client";
 import Image from "next/image";
 import React, { useContext, useState } from "react";
-import proImg from "../../assets/images/profileImg01.jpg";
 import {
   IoIosArrowDown,
   IoIosSearch,
   IoMdAddCircleOutline,
 } from "react-icons/io";
 import Link from "next/link";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
-import { AuthContext } from "../../Provider/AuthProvider";
 import UpdateProfileModal from "../../components/Modal/UpdateProfileModal";
+import useCurrentUser from "../../hooks/CurrentUser";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const DashboardHeader = () => {
-  const { data } = useGetUserQuery("");
-  const { user } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const currentUser = useCurrentUser();
 
-  const currentUser = data?.find((dt) => dt.email === user?.email);
-
+  if (!currentUser) {
+    <p>Loading...</p>;
+  }
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
@@ -28,7 +28,12 @@ const DashboardHeader = () => {
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
-
+  // handle log out
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] flex justify-between items-center px-10 py-3">
       <div className="w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-[#f0f0f5] rounded-md">
@@ -45,10 +50,11 @@ const DashboardHeader = () => {
         </button>
         <div className="flex items-center gap-2 relative dropdown-container">
           <Image
-            className="rounded-full"
-            src={proImg}
+            className="rounded-lg"
+            src={currentUser?.image}
             alt="proImg"
             width={40}
+            height={40}
           />
           <div>
             <h5 className="text-[#2A4766] font-semibold">
@@ -73,7 +79,10 @@ const DashboardHeader = () => {
                   >
                     Update Profile
                   </li>
-                  <li className="bg-[#2A4766] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer">
+                  <li
+                    onClick={handleLogout}
+                    className="bg-[#2A4766] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer"
+                  >
                     Logout
                   </li>
                 </ul>

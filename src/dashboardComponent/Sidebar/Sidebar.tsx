@@ -91,26 +91,26 @@ const Sidebar = () => {
           </li>
           <li
             className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+              activeLink === "/dashboard/Message" ? "bg-[#fffadc]" : ""
             }`}
           >
             <Link
               className="flex items-center gap-3"
-              href="/dashboard/Property"
-              onClick={() => handleLinkClick("/dashboard/Property")}
+              href="/dashboard/Message"
+              onClick={() => handleLinkClick("/dashboard/Message")}
             >
               <TiMessages className="text-xl" /> Message
             </Link>
           </li>
           <li
             className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
+              activeLink === "/dashboard/AllAgent" ? "bg-[#fffadc]" : ""
             }`}
           >
             <Link
               className="flex items-center gap-3"
-              href="/dashboard/Property"
-              onClick={() => handleLinkClick("/dashboard/Property")}
+              href="/dashboard/AllAgent"
+              onClick={() => handleLinkClick("/dashboard/AllAgent")}
             >
               <GoPeople className="text-xl" /> Agents
             </Link>
@@ -125,7 +125,7 @@ const Sidebar = () => {
               href="/dashboard/Users"
               onClick={() => handleLinkClick("/dashboard/Users")}
             >
-              <PiUsersThree className="text-xl" /> Users
+              <PiUsersThree className="text-xl" /> Users & Role
             </Link>
           </li>
         </ul>
