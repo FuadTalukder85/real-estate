@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import TopHeader from "./TopHeader";
 import Container from "../Container/Container";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
@@ -10,60 +10,81 @@ import gsap from "gsap";
 import LoginForm from "../Form/LoginForm/LoginForm";
 import RegisterForm from "../Form/RegisterForm/RegisterForm";
 import { AuthContext } from "../../Provider/AuthProvider";
+import UpdateProfileModal from "../Modal/UpdateProfileModal";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  // Dropdown visibility state
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  // Reference for dropdown container
+  const dropdownRef = useRef(null);
+  const profileBtnRef = useRef(null);
 
   const handleLogout = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
   };
-  // for sign up
+
+  // GSAP animations for modals
   useEffect(() => {
-    const loginBtn = document.querySelector("#login");
-    const signupForm = document.querySelector("#loginForm");
-    const closeLoginForm = document.querySelector("#loginForm i");
-    if (loginBtn && signupForm) {
-      const tl = gsap.timeline({ paused: true });
-      tl.fromTo(
-        "#loginForm",
-        { opacity: 0, visibility: "hidden" },
-        { opacity: 1, visibility: "visible", duration: 0.5 }
-      );
-      loginBtn.addEventListener("click", function () {
-        tl.play();
-      });
-      if (closeLoginForm) {
-        closeLoginForm.addEventListener("click", function () {
-          tl.reverse();
-        });
+    const initAnimation = (triggerSelector, modalSelector, closeSelector) => {
+      const trigger = document.querySelector(triggerSelector);
+      const modal = document.querySelector(modalSelector);
+      const close = document.querySelector(closeSelector);
+
+      if (trigger && modal) {
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo(
+          modal,
+          { opacity: 0, visibility: "hidden", y: -50 },
+          { opacity: 1, visibility: "visible", y: 0, duration: 0.5 }
+        );
+        trigger.addEventListener("click", () => tl.play());
+        if (close) {
+          close.addEventListener("click", () => tl.reverse());
+        }
       }
-    }
+    };
+
+    // Initialize GSAP animations for login and register modals
+    initAnimation("#login", "#loginForm", "#loginForm i");
+    initAnimation("#register", "#registerForm", "#registerClose");
   }, []);
 
-  // for register
+  // Toggle Profile dropdown visibility
+  const toggleDropdown = () => {
+    setDropdownVisible((prev) => !prev);
+  };
+
+  // Close dropdown if clicked outside
   useEffect(() => {
-    const registerBtn = document.querySelector("#register");
-    const registerForm = document.querySelector("#registerForm");
-    const closeRegisterForm = document.querySelector("#registerClose");
-    if (registerBtn && registerForm) {
-      const tl = gsap.timeline({ paused: true });
-      tl.fromTo(
-        "#registerForm",
-        { opacity: 0, visibility: "hidden" },
-        { opacity: 1, visibility: "visible" }
-      );
-      registerBtn.addEventListener("click", function () {
-        tl.play();
-      });
-      if (closeRegisterForm) {
-        closeRegisterForm.addEventListener("click", function () {
-          tl.reverse();
-        });
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !profileBtnRef.current.contains(event.target)
+      ) {
+        setDropdownVisible(false); // Close dropdown
       }
-    }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
+
+  // handle show profile update modal
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <div>
@@ -111,15 +132,47 @@ const Header = () => {
                 </li>
                 {user ? (
                   <>
-                    <button
-                      onClick={handleLogout}
-                      className="ps-5 text-sm font-semibold uppercase"
-                    >
-                      Logout
-                    </button>
-                    <button className="ps-5 text-sm font-semibold uppercase">
-                      <Link href="/dashboard">Dashboard</Link>
-                    </button>
+                    <div className="relative">
+                      <button
+                        className="uppercase font-semibold"
+                        onClick={toggleDropdown}
+                        ref={profileBtnRef}
+                      >
+                        Profile
+                      </button>
+                      {isDropdownVisible && (
+                        <ul
+                          ref={dropdownRef}
+                          className="absolute w-36 right-0 bg-white text-black px-3 py-2 rounded-md shadow-md mt-2 z-10"
+                        >
+                          <li
+                            onClick={() => {
+                              handleShowModal();
+                              setDropdownVisible(false);
+                            }}
+                            className="text-sm font-semibold block hover:text-[#ffac37] cursor-pointer"
+                          >
+                            Update Profile
+                          </li>
+                          <li>
+                            <button
+                              onClick={handleLogout}
+                              className="text-sm font-semibold block hover:text-[#ffac37] cursor-pointer"
+                            >
+                              Logout
+                            </button>
+                          </li>
+                          <li>
+                            <Link
+                              href="/dashboard"
+                              className="text-sm font-semibold block hover:text-[#ffac37] cursor-pointer"
+                            >
+                              Dashboard
+                            </Link>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
                   </>
                 ) : (
                   <>
@@ -192,6 +245,18 @@ const Header = () => {
             </div>
           </div>
         </Container>
+      </div>
+      <div className="relative">
+        {/* your content */}
+        {showModal && (
+          <div className="absolute right-96 top-20 z-50">
+            <UpdateProfileModal
+              onClose={() => {
+                setShowModal(false);
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
