@@ -79,7 +79,7 @@ const PropertyPage = () => {
                     {property.propertyName}
                   </h4>
                   <div className="flex gap-3 items-center text-[#2A4766]">
-                    <FaLocationDot />{" "}
+                    <FaLocationDot />
                     <span>
                       {property.address}, {property.city}
                     </span>

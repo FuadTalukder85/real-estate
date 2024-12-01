@@ -22,7 +22,7 @@ const Footer = () => {
               There are many variations of pass Ipsum available, but the
               majority alteration in some form, by inject randomized words.
             </p>
-            <ul className="flex gap-3 mt-7">
+            <ul className="flex gap-3 mt-7 text-xl">
               <li>
                 <FaFacebook />
               </li>
@@ -58,7 +58,6 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-span-2">
-            {" "}
             <h3 className="text-2xl font-semibold">Services</h3>
             <ul className="mt-8">
               <li className="hover:text-[#ffac37] transition-all duration-700">
@@ -79,7 +78,6 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-span-3">
-            {" "}
             <h3 className="text-2xl font-semibold">Get In Touch</h3>
             <ul className="mt-8">
               <li className="flex gap-3 items-center hover:text-[#ffac37] transition-all duration-700">
