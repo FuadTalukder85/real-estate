@@ -17,7 +17,7 @@ const AgentProfile = () => {
         <div className="-mt-16 flex justify-center rounded-3xl">
           <Image
             className="w-40 rounded-3xl bg-white p-2"
-            src={currentUser?.image}
+            src={currentUser?.image || "/image"}
             alt="profileImg"
             width={60}
             height={60}
