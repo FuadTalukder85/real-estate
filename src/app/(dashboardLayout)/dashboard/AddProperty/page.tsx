@@ -154,6 +154,7 @@ const AddProperty: React.FC = () => {
             <option value="">Sale / Rent</option>
             <option value="Sale">Sale</option>
             <option value="Rent">Rent</option>
+            <option value="Featured">Featured</option>
           </select>
           {errors.propertyFor && (
             <span className="text-red-600">This field is required</span>

@@ -8,12 +8,10 @@ import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import Link from "next/link";
 
 const PropertyPage = () => {
-  const { data, refetch } = useGetPropertyQuery("");
-  function handleRefetching() {
-    refetch();
-  }
-
-  console.log(data);
+  const { data } = useGetPropertyQuery("");
+  const property = data?.filter(
+    (dt) => dt.propertyFor === "Sale" || dt.propertyFor === "Rent"
+  );
   return (
     <div>
       <div className="bg-[#F7F7F7] mt-10">
@@ -63,7 +61,7 @@ const PropertyPage = () => {
           </span>
         </div>
         <div className="mt-16 grid grid-cols-3 gap-5">
-          {data?.map((property, index) => (
+          {property?.map((property, index) => (
             <Link href={`/Property/${property._id}`} key={index}>
               <div className="relative drop-shadow-xl bg-white">
                 <Image

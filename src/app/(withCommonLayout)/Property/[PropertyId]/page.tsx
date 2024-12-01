@@ -181,7 +181,7 @@ const PropertyDetails = async ({ params }) => {
             </div>
           </div>
           <div className="col-span-5 over">
-            <ContactSeller></ContactSeller>
+            <ContactSeller singleProperty={singleProperty}></ContactSeller>
           </div>
         </div>
       </Container>

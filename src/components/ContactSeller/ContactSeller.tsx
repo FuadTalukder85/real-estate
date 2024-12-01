@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
-import proImg from "../../assets/images/profileImg01.jpg";
 import { useEffect, useState } from "react";
+import { useGetUserQuery } from "../../redux/userApi/UserApi";
 
-const ContactSeller = () => {
+const ContactSeller = ({ singleProperty }) => {
+  const { data } = useGetUserQuery("");
   const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -19,28 +20,38 @@ const ContactSeller = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  // find property agent
+  const listedBy = data?.find((dt) => dt?.email === singleProperty?.email);
+
   return (
     <div className={`w-[480px] ${isFixed ? "fixed top-0 " : ""}`}>
       <div className="w-full mx-auto bg-white border shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Contact Sellers
+        <h2 className="text-xl font-semibold text-[#2A4766] mb-4 uppercase">
+          Listed By
         </h2>
         <div className="flex items-center mb-4">
           <Image
-            src={proImg}
-            alt="Seller"
-            className="w-16 h-16 rounded-full mr-4 object-cover"
+            src={listedBy?.image || "/image"}
+            width={40}
+            height={40}
+            alt="seller"
+            className="w-16 h-16 rounded-lg mr-4 object-cover"
           />
           <div>
-            <p className="font-medium text-gray-800">Sn Jack</p>
-            <p className="text-sm text-gray-600">01756-867585</p>
-            <p className="text-sm text-gray-600">snjack1920@gmail.com</p>
+            <p className="font-medium text-[#2A4766]">{listedBy?.name}</p>
+            <p className="text-sm text-[#2A4766]">{listedBy?.number}</p>
+            <p className="text-sm text-[#2A4766]">{listedBy?.email}</p>
           </div>
+        </div>
+        <div>
+          <h3 className="text-center font-semibold text-xl text-[#2A4766] uppercase">
+            Contact Agent
+          </h3>
         </div>
         <form>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-[#2A4766] mb-1"
               htmlFor="fullName"
             >
               Full Name:
@@ -55,7 +66,7 @@ const ContactSeller = () => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-[#2A4766] mb-1"
               htmlFor="phoneNumber"
             >
               Phone Number:
@@ -70,7 +81,7 @@ const ContactSeller = () => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-[#2A4766] mb-1"
               htmlFor="emailAddress"
             >
               Email Address:
@@ -85,7 +96,7 @@ const ContactSeller = () => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-[#2A4766] mb-1"
               htmlFor="message"
             >
               Your Message:
