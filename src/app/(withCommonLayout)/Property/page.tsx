@@ -72,7 +72,7 @@ const PropertyPage = () => {
                   className="rounded-t-lg"
                 ></Image>
                 <div className="p-5">
-                  <h5 className="absolute top-3 right-3 bg-white py-1 px-3 rounded-lg text-[#2A4766] uppercase font-semibold">
+                  <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-white uppercase font-semibold">
                     For {property?.propertyFor}
                   </h5>
                   <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">

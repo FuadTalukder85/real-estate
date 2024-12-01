@@ -101,6 +101,10 @@ const Header = () => {
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
+                  <Link href="/Featured">Featured</Link>
+                  <span className="ps-5 border-r h-3"></span>
+                </li>
+                <li className="flex items-center">
                   <Link href="/Agent">Agent</Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
