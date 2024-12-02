@@ -10,6 +10,7 @@ import {
 } from "react-icons/md";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
+import Link from "next/link";
 
 const AgentPage = () => {
   const { data } = useGetUserQuery("");
@@ -46,18 +47,21 @@ const AgentPage = () => {
         <div className="grid grid-cols-4 gap-5 mt-10">
           {allAgent?.map((agent) => (
             <div key={agent._id}>
-              <div className="relative group overflow-hidden flex items-center justify-center rounded-xl">
-                <Image
-                  src={agent?.image}
-                  alt={agent?.name}
-                  width={300}
-                  height={300}
-                  className="rounded-xl hover:scale-105 transition-all duration-700 ease-in-out"
-                ></Image>
-                <button className="opacity-0 absolute bottom-0 w-40 h-7 rounded-t-md flex items-center justify-center mx-auto p-5 text-lg font-semibold text-[#2A4766] bg-[#ffffff9c] backdrop-blur-sm group-hover:opacity-100 scale-105 transition-all duration-700 ease-in-out">
-                  More Details
-                </button>
-              </div>
+              <Link href={`/Agent/${agent._id}`}>
+                <div className="relative group overflow-hidden flex items-center justify-center rounded-xl">
+                  <Image
+                    src={agent?.image}
+                    alt={agent?.name}
+                    width={300}
+                    height={300}
+                    className="rounded-xl hover:scale-105 transition-all duration-700 ease-in-out"
+                  ></Image>
+
+                  <button className="opacity-0 absolute bottom-0 w-40 h-7 rounded-t-md flex items-center justify-center mx-auto p-5 text-lg font-semibold text-[#2A4766] bg-[#ffffff9c] backdrop-blur-sm group-hover:opacity-100 scale-105 transition-all duration-700 ease-in-out">
+                    More Details
+                  </button>
+                </div>
+              </Link>
               <div className="flex justify-between items-center mt-5">
                 <div>
                   <p className="text-xl font-semibold text-[#2A4766]">

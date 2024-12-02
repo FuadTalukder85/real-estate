@@ -3,9 +3,8 @@ import { FaBed, FaChevronDown, FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container/Container";
-import Image from "next/image";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
-import Link from "next/link";
+import PropertyCard from "../../../reusableCard/PropertyCard";
 
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");
@@ -62,54 +61,19 @@ const PropertyPage = () => {
         </div>
         <div className="mt-16 grid grid-cols-3 gap-5">
           {property?.map((property, index) => (
-            <Link href={`/Property/${property._id}`} key={index}>
-              <div className="relative drop-shadow-xl bg-white">
-                <Image
-                  src={property.propertyImage01}
-                  alt="property01"
-                  width={400}
-                  height={400}
-                  className="rounded-t-lg"
-                ></Image>
-                <div className="p-5">
-                  <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-white uppercase font-semibold">
-                    For {property?.propertyFor}
-                  </h5>
-                  <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
-                    {property.propertyName}
-                  </h4>
-                  <div className="flex gap-3 items-center text-[#2A4766]">
-                    <FaLocationDot />
-                    <span>
-                      {property.address}, {property.city}
-                    </span>
-                  </div>
-                  <ul className="flex gap-3 mt-2 text-[#2A4766]">
-                    <li className="flex items-center">
-                      <span>
-                        <b>{property.bedroom}</b> Beds
-                      </span>
-                      <span className="ps-3 border-r h-3"></span>
-                    </li>
-                    <li className="flex items-center">
-                      <span>
-                        <b>{property.bathroom}</b> Baths
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="border-t">
-                  <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
-                    <span className="text-xl">
-                      <b>{property.squareFoot}</b> Sqft
-                    </span>
-                    <h4 className="text-[#ffac37] text-2xl font-semibold">
-                      ${property.price}.00
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <PropertyCard
+              key={index}
+              propertyId={property?._id}
+              propertyImage={property?.propertyImage01}
+              propertyFor={property?.propertyFor}
+              propertyName={property.propertyName}
+              address={property.address}
+              city={property.city}
+              bedroom={property.bedroom}
+              bathroom={property.bathroom}
+              squareFoot={property.squareFoot}
+              price={property.price}
+            />
           ))}
         </div>
       </Container>
