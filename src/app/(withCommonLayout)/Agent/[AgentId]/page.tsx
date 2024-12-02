@@ -75,6 +75,7 @@ const AgentDetails = async ({ params }) => {
         </h3>
         {/* card */}
         <ListingByAgent email={agent?.email}></ListingByAgent>
+        {/* todo review */}
       </div>
     </Container>
   );

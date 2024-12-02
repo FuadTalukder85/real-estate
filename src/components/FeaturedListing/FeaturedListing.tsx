@@ -25,9 +25,11 @@ const FeaturedListing = () => {
           </p>
         </div>
         <div>
-          <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-sm">
-            View all featured
-          </button>
+          <Link href="/Featured">
+            <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-lg hover:bg-[#2A4766] transition-all duration-700">
+              View all featured
+            </button>
+          </Link>
         </div>
       </div>
       {/* featured card */}

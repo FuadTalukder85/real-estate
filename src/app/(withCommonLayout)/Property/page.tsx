@@ -5,6 +5,8 @@ import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import PropertyCard from "../../../reusableCard/PropertyCard";
+import Image from "next/image";
+import Link from "next/link";
 
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");
@@ -74,6 +76,60 @@ const PropertyPage = () => {
               squareFoot={property.squareFoot}
               price={property.price}
             />
+            // <div
+            //   key={index}
+            //   className="relative drop-shadow-xl bg-white overflow-hidden"
+            // >
+            //   <Link
+            //     href={`/Property/${property._id}`}
+            //     className="overflow-hidden"
+            //   >
+            //     <Image
+            //       src={property.propertyImage01 || "/image"}
+            //       alt="property01"
+            //       width={400}
+            //       height={400}
+            //       className="rounded-t-lg hover:scale-125"
+            //     ></Image>
+            //   </Link>
+            //   <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-red-500 uppercase font-semibold">
+            //     For {property.propertyFor}
+            //   </h5>
+            //   <div className="p-5">
+            //     <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
+            //       {property.propertyName}
+            //     </h4>
+            //     <div className="flex gap-3 items-center text-[#2A4766]">
+            //       <FaLocationDot />
+            //       <span>
+            //         {property.address}, {property.city}
+            //       </span>
+            //     </div>
+            //     <ul className="flex gap-3 mt-2 text-[#2A4766]">
+            //       <li className="flex items-center">
+            //         <span>
+            //           <b>{property.bedroom}</b> Beds
+            //         </span>
+            //         <span className="ps-3 border-r h-3"></span>
+            //       </li>
+            //       <li className="flex items-center">
+            //         <span>
+            //           <b>{property.bathroom}</b> Baths
+            //         </span>
+            //       </li>
+            //     </ul>
+            //   </div>
+            //   <div className="border-t">
+            //     <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
+            //       <span className="text-xl">
+            //         <b>{property.squareFoot}</b> Sqft
+            //       </span>
+            //       <h4 className="text-[#ffac37] text-2xl font-semibold">
+            //         ${property.price}.00
+            //       </h4>
+            //     </div>
+            //   </div>
+            // </div>
           ))}
         </div>
       </Container>

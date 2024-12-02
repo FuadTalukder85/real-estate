@@ -26,6 +26,43 @@ const DashProperty = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleApproved = async (propertyId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:4900/property/${propertyId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            status: "approved", // Set the status to "approved"
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        // If response is not OK, handle the error
+        const errorText = await response.text();
+        console.error("Error:", errorText); // Log the error for debugging
+        toast.error("Failed to update property status", {
+          position: "top-right",
+        });
+        return;
+      }
+
+      const data = await response.json();
+
+      toast.success(`Property status updated to approved`, {
+        position: "top-right",
+      });
+      refetch(); // Refetch the data to reflect the status change
+    } catch (error) {
+      console.error("Error updating property status:", error);
+      toast.error("Error updating property status", { position: "top-right" });
+    }
+  };
+
   return (
     <div className="px-10 p-5 text-[#2A4766]">
       <div className="mt-10">
@@ -37,7 +74,7 @@ const DashProperty = () => {
           <thead className="bg-[#f2f2f3]">
             <tr className="flex justify-between font-medium p-2 px-5 pr-16 border-s border-r">
               <th className="py-2 text-left font-medium">*</th>
-              <th className="w-3/12 py-2 text-left font-medium">
+              <th className="w-2/12 py-2 text-left font-medium">
                 Property Photo and Name
               </th>
               <th className="w-1/12 py-2 text-left font-medium">Size</th>
@@ -49,6 +86,7 @@ const DashProperty = () => {
               <th className="w-1/12 py-2 text-left font-medium">Bathrooms</th>
               <th className="w-1/12 py-2 text-left font-medium">Location</th>
               <th className="w-1/12 py-2 text-left font-medium">Price</th>
+              <th className="w-1/12 py-2 text-left font-medium">Status</th>
               <th className="w-1/12 py-2 text-left font-medium">Action</th>
             </tr>
           </thead>
@@ -59,7 +97,7 @@ const DashProperty = () => {
                 className="flex justify-between items-center p-2 border-s border-r border-b bg-white px-5 pr-16"
               >
                 <td className="">{index + 1}.</td>
-                <td className="w-3/12 flex items-center space-x-3">
+                <td className="w-2/12 flex items-center space-x-3">
                   <Image
                     className="rounded-lg"
                     src={property.propertyImage01}
@@ -67,7 +105,7 @@ const DashProperty = () => {
                     width={60}
                     height={60}
                   ></Image>
-                  <span className=" font-medium">{property.propertyName}</span>
+                  <span className="font-medium">{property.propertyName}</span>
                 </td>
                 <td className="w-1/12">{property.squareFoot} SqFt</td>
                 <td className="w-1/12">{property.propertyCategory}</td>
@@ -76,6 +114,20 @@ const DashProperty = () => {
                 <td className="w-1/12">0{property.bathroom}</td>
                 <td className="w-1/12">{property.city}</td>
                 <td className="w-1/12">${property.price}.00</td>
+                <td className="w-1/12">
+                  {property?.status === "approved" ? (
+                    <button className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                      {property?.status}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleApproved(property._id)}
+                      className="bg-red-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                    >
+                      {property?.status}
+                    </button>
+                  )}
+                </td>
                 <td className="w-1/12">
                   <div className="flex gap-5">
                     <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
