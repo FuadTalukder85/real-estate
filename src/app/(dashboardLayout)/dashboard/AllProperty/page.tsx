@@ -7,13 +7,29 @@ import {
   useDeletePropertyMutation,
   useGetPropertyQuery,
 } from "../../../../redux/propertyApi/PropertyApi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose, IoIosSearch } from "react-icons/io";
+type Property = {
+  _id: string;
+  propertyName: string;
+  propertyImage01: string;
+  squareFoot: number;
+  propertyCategory: string;
+  propertyFor: string;
+  bedroom: number;
+  bathroom: number;
+  city: string;
+  price: number;
+  postBy: string;
+  status: "approved" | "pending";
+};
 
 const DashProperty = () => {
   const { data, refetch } = useGetPropertyQuery("");
   const [deleteProperty] = useDeletePropertyMutation();
+  const [searchQuery, setSearchQuery] = useState([]);
+  const [filteredData, setFilteredData] = useState<Property[]>([]);
   // delete modal
   const [isOpen, setIsOpen] = useState(false);
   const handleDelete = (id) => {
@@ -25,9 +41,10 @@ const DashProperty = () => {
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-
-  const handleApproved = async (propertyId) => {
+  // handle property approved - pending
+  const handleApproved = async (propertyId, currentStatus) => {
     try {
+      const newStatus = currentStatus === "approved" ? "pending" : "approved";
       const response = await fetch(
         `http://localhost:4900/property/${propertyId}`,
         {
@@ -36,43 +53,62 @@ const DashProperty = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            status: "approved", // Set the status to "approved"
+            status: newStatus,
           }),
         }
       );
-
       if (!response.ok) {
-        // If response is not OK, handle the error
         const errorText = await response.text();
-        console.error("Error:", errorText); // Log the error for debugging
+        console.error("Error:", errorText);
         toast.error("Failed to update property status", {
           position: "top-right",
         });
         return;
       }
-
       const data = await response.json();
-
       toast.success(`Property status updated to approved`, {
         position: "top-right",
       });
-      refetch(); // Refetch the data to reflect the status change
+      refetch();
     } catch (error) {
       console.error("Error updating property status:", error);
       toast.error("Error updating property status", { position: "top-right" });
     }
   };
+  // handle search
+  const handleSearch = () => {
+    const filtered = data?.filter((property) =>
+      property.propertyName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredData(filtered || []);
+  };
+  useEffect(() => {
+    setFilteredData(data || []);
+  }, [data]);
 
   return (
     <div className="px-10 p-5 text-[#2A4766]">
       <div className="mt-10">
-        <h5 className="bg-white p-5 border capitalize font-semibold text-[#2A4766]">
-          All Properties List
-        </h5>
+        <div className="flex justify-between items-center bg-white p-5 border capitalize font-semibold text-[#2A4766]">
+          <h5 className="text-xl">All Properties List</h5>
+          <div className="flex items-center justify-between gap-3 px-4 font-semibold bg-[#ffac37] rounded-md">
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-[500px] py-3 ps-3 bg-[#f0f0f5] outline-none text-sm"
+              placeholder="Search by property Title..."
+            />
+            <IoIosSearch
+              onClick={handleSearch}
+              className="text-xl font-bold text-white"
+            />
+          </div>
+        </div>
+
         {/* property table*/}
         <table className="w-full border-collapse">
           <thead className="bg-[#f2f2f3]">
-            <tr className="flex justify-between font-medium p-2 px-5 pr-16 border-s border-r">
+            <tr className="flex justify-between font-medium p-2 px-5 border-s border-r">
               <th className="py-2 text-left font-medium">*</th>
               <th className="w-2/12 py-2 text-left font-medium">
                 Property Photo and Name
@@ -86,17 +122,18 @@ const DashProperty = () => {
               <th className="w-1/12 py-2 text-left font-medium">Bathrooms</th>
               <th className="w-1/12 py-2 text-left font-medium">Location</th>
               <th className="w-1/12 py-2 text-left font-medium">Price</th>
+              <th className="w-1/12 py-2 text-left font-medium">Post By</th>
               <th className="w-1/12 py-2 text-left font-medium">Status</th>
               <th className="w-1/12 py-2 text-left font-medium">Action</th>
             </tr>
           </thead>
           <tbody>
-            {data?.map((property, index) => (
+            {filteredData?.map((property, index) => (
               <tr
                 key={index}
-                className="flex justify-between items-center p-2 border-s border-r border-b bg-white px-5 pr-16"
+                className="flex justify-between items-center p-2 border-s border-r border-b bg-white px-5"
               >
-                <td className="">{index + 1}.</td>
+                <td className="pr-2">{index + 1}.</td>
                 <td className="w-2/12 flex items-center space-x-3">
                   <Image
                     className="rounded-lg"
@@ -115,13 +152,31 @@ const DashProperty = () => {
                 <td className="w-1/12">{property.city}</td>
                 <td className="w-1/12">${property.price}.00</td>
                 <td className="w-1/12">
-                  {property?.status === "approved" ? (
+                  {property.postBy === "Admin" ? (
                     <button className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                      {property.postBy}
+                    </button>
+                  ) : (
+                    <button className="bg-red-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                      {property.postBy}
+                    </button>
+                  )}
+                </td>
+                <td className="w-1/12">
+                  {property?.status === "approved" ? (
+                    <button
+                      onClick={() =>
+                        handleApproved(property._id, property.status)
+                      }
+                      className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                    >
                       {property?.status}
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleApproved(property._id)}
+                      onClick={() =>
+                        handleApproved(property._id, property.status)
+                      }
                       className="bg-red-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
                     >
                       {property?.status}

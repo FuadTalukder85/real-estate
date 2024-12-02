@@ -38,7 +38,7 @@ const DashboardHeader = () => {
     <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] flex justify-between items-center px-10 py-3">
       <div className="w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-[#f0f0f5] rounded-md">
         <input
-          className="py-2 bg-[#f0f0f5] outline-none text-sm"
+          className="py-3 bg-[#f0f0f5] outline-none text-sm"
           placeholder="Type to Search..."
         />
         <IoIosSearch />
