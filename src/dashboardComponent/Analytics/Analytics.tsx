@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { BsHouseCheck } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
@@ -6,8 +7,10 @@ import {
   MdOutlineReviews,
   MdPendingActions,
 } from "react-icons/md";
+import { useGetAllStatsQuery } from "../../redux/allStatsApi/AllStatsApi";
 
 const Analytics = () => {
+  const { data } = useGetAllStatsQuery("");
   return (
     <div className="px-10 mt-10 text-[#2A4766]">
       <h5 className="font-semibold">Analytics</h5>
@@ -17,7 +20,9 @@ const Analytics = () => {
           <BsHouseCheck className="text-5xl text-[#ffac37]" />
           <div>
             <p className="text-[#2A4766]">No. of Property</p>
-            <span className="text-2xl font-semibold text-[#2A4766]">2500</span>
+            <span className="text-2xl font-semibold text-[#2A4766]">
+              {data?.totalProperty}
+            </span>
           </div>
         </div>
         {/* card 02 */}
@@ -25,15 +30,19 @@ const Analytics = () => {
           <MdOutlineAppRegistration className="text-5xl text-[#ffac37]" />
           <div>
             <p className="text-[#2A4766]">Regi. Agents</p>
-            <span className="text-2xl font-semibold text-[#2A4766]">150</span>
+            <span className="text-2xl font-semibold text-[#2A4766]">
+              {data?.totalAgent}
+            </span>
           </div>
         </div>
         {/* card 03 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
           <MdPendingActions className="text-5xl text-[#ffac37]" />
           <div>
-            <p className="text-[#2A4766]">Pending</p>
-            <span className="text-2xl font-semibold text-[#2A4766]">15</span>
+            <p className="text-[#2A4766]">Pending Property</p>
+            <span className="text-2xl font-semibold text-[#2A4766]">
+              {data?.pendingProperty}
+            </span>
           </div>
         </div>
         {/* card 04 */}
