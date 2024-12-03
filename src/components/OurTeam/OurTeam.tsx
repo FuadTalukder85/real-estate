@@ -90,6 +90,13 @@ const OurTeam = () => {
           </div>
         ))}
       </div>
+      <div className="flex justify-center mt-10">
+        <Link href="/Agent">
+          <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-lg hover:bg-[#2A4766] transition-all duration-700">
+            View all Agent
+          </button>
+        </Link>
+      </div>
     </Container>
   );
 };
