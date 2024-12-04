@@ -19,13 +19,6 @@ const PropertyApi = BaseApi.injectEndpoints({
         cache: "no-store",
       }),
     }),
-    updateUser: builder.mutation({
-      query: ({ id, body }) => ({
-        url: `/user/${id}`,
-        method: "PUT",
-        body,
-      }),
-    }),
     deleteProperty: builder.mutation({
       query: (query) => ({
         url: `/property/${query}`,
@@ -33,11 +26,25 @@ const PropertyApi = BaseApi.injectEndpoints({
         cache: "no-store",
       }),
     }),
+    getSingleProperty: builder.query({
+      query: (_id) => ({
+        url: `/property/${_id}`,
+        method: "GET",
+      }),
+    }),
+    updateProperty: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/property/${id}`,
+        method: "PUT",
+        body,
+      }),
+    }),
   }),
 });
 export const {
   usePostPropertyMutation,
   useGetPropertyQuery,
-  useUpdateUserMutation,
   useDeletePropertyMutation,
+  useGetSinglePropertyQuery,
+  useUpdatePropertyMutation,
 } = PropertyApi;

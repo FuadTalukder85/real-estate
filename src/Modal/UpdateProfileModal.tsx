@@ -1,10 +1,13 @@
 "use client";
 import React, { useContext } from "react";
 import { MdClose } from "react-icons/md";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
-import { AuthContext } from "../../Provider/AuthProvider";
+import {
+  useGetUserQuery,
+  useUpdateUserMutation,
+} from "../redux/userApi/UserApi";
+import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
-import { useUpdateUserMutation } from "../../redux/propertyApi/PropertyApi";
+
 import toast, { Toaster } from "react-hot-toast";
 
 const UpdateProfileModal = ({ onClose }) => {
@@ -39,7 +42,7 @@ const UpdateProfileModal = ({ onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 backdrop-blur-[3px] z-50">
+      <div className="fixed inset-0 backdrop-blur-sm z-50">
         <Toaster />
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg w-96 p-6 z-60">
           <div className="flex justify-between items-center mb-4">
@@ -48,7 +51,7 @@ const UpdateProfileModal = ({ onClose }) => {
             </button>
             <button
               onClick={onClose}
-              className="text-white bg-red-500 hover:bg-red-600 rounded px-2 py-1"
+              className="text-white bg-red-500 hover:bg-gray-200 hover:text-black transition-all duration-700 rounded px-2 py-1"
             >
               <MdClose />
             </button>

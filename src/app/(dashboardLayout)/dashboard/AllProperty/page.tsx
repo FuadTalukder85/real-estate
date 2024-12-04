@@ -10,6 +10,7 @@ import {
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { IoMdClose, IoIosSearch } from "react-icons/io";
+import UpdatePropertyModal from "../../../../Modal/UpdatePropertyModal";
 type Property = {
   _id: string;
   propertyName: string;
@@ -28,6 +29,8 @@ type Property = {
 const DashProperty = () => {
   const { data, refetch } = useGetPropertyQuery("");
   const [deleteProperty] = useDeletePropertyMutation();
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [editById, setEditByid] = useState(null);
   const [searchQuery, setSearchQuery] = useState([]);
   const [filteredData, setFilteredData] = useState<Property[]>([]);
   // delete modal
@@ -40,6 +43,10 @@ const DashProperty = () => {
   };
   const toggleModal = () => {
     setIsOpen(!isOpen);
+  };
+  // handle property update modal
+  const handleUpdateModal = () => {
+    setShowUpdateModal(!showUpdateModal);
   };
   // handle property approved - pending
   const handleApproved = async (propertyId, currentStatus) => {
@@ -188,7 +195,13 @@ const DashProperty = () => {
                     <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
                       <FiEye />
                     </button>
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button
+                      onClick={() => {
+                        setEditByid(property._id);
+                        handleUpdateModal();
+                      }}
+                      className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                    >
                       <CiEdit />
                     </button>
                     <button
@@ -200,7 +213,16 @@ const DashProperty = () => {
                     </button>
                     <Toaster />
                   </div>
+                  {showUpdateModal && (
+                    <UpdatePropertyModal
+                      onClose={() => {
+                        setShowUpdateModal(false);
+                      }}
+                      propertyId={editById}
+                    />
+                  )}
                 </td>
+
                 {/* Delete modal */}
                 <td className="flex justify-center items-center">
                   {isOpen && (
@@ -209,9 +231,9 @@ const DashProperty = () => {
                         {/* Close button */}
                         <button
                           onClick={toggleModal}
-                          className="text-2xl absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                          className="text-2xl absolute top-2 right-2 text-white"
                         >
-                          <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                          <IoMdClose className="p-1 rounded-md cursor-pointer bg-red-500 hover:bg-gray-200 hover:text-black transition-all duration-700" />
                         </button>
                         <div className="flex justify-center mb-4 text-red-500 text-4xl">
                           <AiOutlineDelete />
