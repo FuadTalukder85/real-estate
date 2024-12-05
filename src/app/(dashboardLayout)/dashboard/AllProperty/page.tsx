@@ -10,7 +10,7 @@ import {
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { IoMdClose, IoIosSearch } from "react-icons/io";
-import UpdatePropertyModal from "../../../../Modal/UpdatePropertyModal";
+import UpdatePropertyModal from "../../../../components/Modal/UpdatePropertyModal";
 type Property = {
   _id: string;
   propertyName: string;
@@ -49,13 +49,13 @@ const DashProperty = () => {
     setShowUpdateModal(!showUpdateModal);
   };
   // handle property approved - pending
-  const handleApproved = async (propertyId, currentStatus) => {
+  const handleApproved = async (statusId, currentStatus) => {
     try {
       const newStatus = currentStatus === "approved" ? "pending" : "approved";
       const response = await fetch(
-        `http://localhost:4900/property/${propertyId}`,
+        `http://localhost:4900/property/${statusId}`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
@@ -73,7 +73,7 @@ const DashProperty = () => {
         return;
       }
       const data = await response.json();
-      toast.success(`Property status updated to approved`, {
+      toast.success(`Property status updated`, {
         position: "top-right",
       });
       refetch();
@@ -92,7 +92,12 @@ const DashProperty = () => {
   useEffect(() => {
     setFilteredData(data || []);
   }, [data]);
-
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetch();
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, [refetch]);
   return (
     <div className="px-10 p-5 text-[#2A4766]">
       <div className="mt-10">
@@ -144,7 +149,7 @@ const DashProperty = () => {
                 <td className="w-2/12 flex items-center space-x-3">
                   <Image
                     className="rounded-lg"
-                    src={property.propertyImage01}
+                    src={property.propertyImage01 || "/image"}
                     alt="propertyImage01"
                     width={60}
                     height={60}

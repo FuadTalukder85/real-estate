@@ -1,16 +1,13 @@
+"use client";
 import { useForm } from "react-hook-form";
-
 import { MdClose } from "react-icons/md";
 import {
   useGetSinglePropertyQuery,
   useUpdatePropertyMutation,
-} from "../redux/propertyApi/PropertyApi";
+} from "../../redux/propertyApi/PropertyApi";
 import toast from "react-hot-toast";
-
 const UpdatePropertyModal = ({ onClose, propertyId }) => {
-  const { data: property, refetch } = useGetSinglePropertyQuery(
-    propertyId ?? ""
-  );
+  const { data: property } = useGetSinglePropertyQuery(propertyId ?? "");
   const [updateProperty] = useUpdatePropertyMutation();
   const {
     register,
@@ -28,8 +25,9 @@ const UpdatePropertyModal = ({ onClose, propertyId }) => {
         body: formData,
       }).unwrap();
       console.log("Property updated successfully:", result);
-      toast.success("Property updated successfully!");
-      refetch();
+      toast.success("Property updated successfully!", {
+        position: "top-right",
+      });
       onClose();
     } catch (error) {
       console.error("Failed to update Property:", error);
@@ -38,8 +36,8 @@ const UpdatePropertyModal = ({ onClose, propertyId }) => {
   };
 
   return (
-    <div className="fixed bg-black bg-opacity-5 inset-0 z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <div className="md:w-[1200px] fixed bg-white rounded-lg">
+    <div className="fixed bg-black bg-opacity-5 inset-0 z-50">
+      <div className="md:w-[1200px] fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg">
         <div className="flex justify-between items-center mb-4 p-5">
           <button className="text-lg font-bold text-gray-700">
             Update your property

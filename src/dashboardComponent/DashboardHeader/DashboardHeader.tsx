@@ -7,7 +7,7 @@ import {
   IoMdAddCircleOutline,
 } from "react-icons/io";
 import Link from "next/link";
-import UpdateProfileModal from "../../Modal/UpdateProfileModal";
+import UpdateProfileModal from "../../components/Modal/UpdateProfileModal";
 import useCurrentUser from "../../hooks/CurrentUser";
 import { AuthContext } from "../../Provider/AuthProvider";
 

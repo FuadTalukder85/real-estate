@@ -4,8 +4,8 @@ import { MdClose } from "react-icons/md";
 import {
   useGetUserQuery,
   useUpdateUserMutation,
-} from "../redux/userApi/UserApi";
-import { AuthContext } from "../Provider/AuthProvider";
+} from "../../redux/userApi/UserApi";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 
 import toast, { Toaster } from "react-hot-toast";

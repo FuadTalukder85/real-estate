@@ -10,7 +10,7 @@ import gsap from "gsap";
 import LoginForm from "../Form/LoginForm/LoginForm";
 import RegisterForm from "../Form/RegisterForm/RegisterForm";
 import { AuthContext } from "../../Provider/AuthProvider";
-import UpdateProfileModal from "../../Modal/UpdateProfileModal";
+import UpdateProfileModal from "../Modal/UpdateProfileModal";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
