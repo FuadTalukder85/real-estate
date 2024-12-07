@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { BsHouseCheck } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
 import {
@@ -10,7 +10,13 @@ import {
 import { useGetAllStatsQuery } from "../../redux/allStatsApi/AllStatsApi";
 
 const Analytics = () => {
-  const { data } = useGetAllStatsQuery("");
+  const { data, refetch } = useGetAllStatsQuery("");
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetch();
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, [refetch]);
   return (
     <div className="px-10 mt-10 text-[#2A4766]">
       <h5 className="font-semibold">Analytics</h5>
