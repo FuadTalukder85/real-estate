@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import profileBanner from "../../assets/images/house01.jpg";
 import useCurrentUser from "../../hooks/CurrentUser";

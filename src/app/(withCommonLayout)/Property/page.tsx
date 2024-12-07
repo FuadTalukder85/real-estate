@@ -5,9 +5,6 @@ import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import PropertyCard from "../../../reusableCard/PropertyCard";
-import Image from "next/image";
-import Link from "next/link";
-
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");
   const property = data?.filter(

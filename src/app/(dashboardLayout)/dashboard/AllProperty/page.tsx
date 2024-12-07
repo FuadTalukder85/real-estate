@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { IoMdClose, IoIosSearch } from "react-icons/io";
 import UpdatePropertyModal from "../../../../components/Modal/UpdatePropertyModal";
+import Link from "next/link";
 type Property = {
   _id: string;
   propertyName: string;
@@ -103,17 +104,19 @@ const DashProperty = () => {
       <div className="mt-10">
         <div className="flex justify-between items-center bg-white p-5 border capitalize font-semibold text-[#2A4766]">
           <h5 className="text-xl">All Properties List</h5>
-          <div className="flex items-center justify-between gap-3 px-4 font-semibold bg-[#ffac37] rounded-md">
+          <div className="flex items-center justify-between ps-4 font-semibold bg-[#ffac37] rounded-md">
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-[500px] py-3 ps-3 bg-[#f0f0f5] outline-none text-sm"
               placeholder="Search by property Title..."
             />
-            <IoIosSearch
-              onClick={handleSearch}
-              className="text-xl font-bold text-white"
-            />
+            <div className="bg-[#ffac37] py-3 px-5 rounded-r-md hover:bg-[#2A4766] transition-all duration-700 cursor-pointer">
+              <IoIosSearch
+                onClick={handleSearch}
+                className="text-xl font-bold text-white"
+              />
+            </div>
           </div>
         </div>
 
@@ -197,9 +200,11 @@ const DashProperty = () => {
                 </td>
                 <td className="w-1/12">
                   <div className="flex gap-5">
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
-                      <FiEye />
-                    </button>
+                    <Link href={`/dashboard/AllProperty/${property?._id}`}>
+                      <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                        <FiEye />
+                      </button>
+                    </Link>
                     <button
                       onClick={() => {
                         setEditByid(property._id);
