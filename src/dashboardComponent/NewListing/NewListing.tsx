@@ -2,6 +2,8 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { useGetPropertyQuery } from "../../redux/propertyApi/PropertyApi";
 import toast, { Toaster } from "react-hot-toast";
+import Link from "next/link";
+import { FiEye } from "react-icons/fi";
 
 const NewListing = () => {
   const { data, refetch } = useGetPropertyQuery("");
@@ -94,23 +96,25 @@ const NewListing = () => {
               {listing?.status === "approved" ? (
                 <button
                   onClick={() => handleApproved(listing._id, listing.status)}
-                  className="px-2 py-1 rounded-md tex-sm bg-green-400 text-white"
+                  className="px-2 py-1 rounded-md tex-sm bg-green-400 text-white hover:bg-[#2A4766] hover:text-white transition-all duration-700"
                 >
                   {listing?.status}
                 </button>
               ) : (
                 <button
                   onClick={() => handleApproved(listing._id, listing.status)}
-                  className="px-2 py-1 rounded-md tex-sm bg-red-400 text-white"
+                  className="px-2 py-1 rounded-md tex-sm bg-red-400 text-white hover:bg-[#2A4766] hover:text-white transition-all duration-700"
                 >
                   {listing?.status}
                 </button>
               )}
             </div>
             <div className="col-span-2 border h-full flex items-center justify-center">
-              <button className="px-2 py-1 rounded-md tex-sm bg-[#198754] text-white">
-                Edit
-              </button>
+              <Link href={`/dashboard/AllProperty/${listing?._id}`}>
+                <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                  <FiEye />
+                </button>
+              </Link>
             </div>
           </div>
         ))}

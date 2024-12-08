@@ -7,6 +7,7 @@ import agentImg from "../../../../assets/images/teamImg/agent01.jpg";
 import { FaFacebook, FaLinkedinIn, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import ListingByAgent from "../../../../components/ListingByAgent/ListingByAgent";
+import Review from "../../../../components/Review/Review";
 
 const AgentDetails = async ({ params }) => {
   const { AgentId } = await params;
@@ -75,7 +76,8 @@ const AgentDetails = async ({ params }) => {
         </h3>
         {/* card */}
         <ListingByAgent email={agent?.email}></ListingByAgent>
-        {/* todo review */}
+        {/* review */}
+        <Review email={agent?.email}></Review>
       </div>
     </Container>
   );
