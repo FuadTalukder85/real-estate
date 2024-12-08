@@ -96,7 +96,7 @@ const DashProperty = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       refetch();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (

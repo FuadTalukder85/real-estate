@@ -14,7 +14,7 @@ const Analytics = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       refetch();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
@@ -64,7 +64,9 @@ const Analytics = () => {
           <MdOutlineReviews className="text-5xl text-[#ffac37]" />
           <div>
             <p className="text-[#2A4766]">Reviews</p>
-            <span className="text-2xl font-semibold text-[#2A4766]">13</span>
+            <span className="text-2xl font-semibold text-[#2A4766]">
+              {data?.totalReview}
+            </span>
           </div>
         </div>
       </div>

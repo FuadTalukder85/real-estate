@@ -48,22 +48,22 @@ const NewListing = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       refetch();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(intervalId);
   }, [refetch]);
 
   return (
-    <div className="mt-10 text-[#2A4766] bg-white p-5">
+    <div className="mt-10 text-[#2A4766] bg-white p-5 shadow-md">
       <Toaster />
       <h5 className="font-semibold">New Listing</h5>
       <div className="border mt-5 rounded-md">
-        <div className="grid grid-cols-12 bg-[#F9F9FC] p-3 px-5 font-semibold">
+        <div className="grid grid-cols-12 bg-gray-50 p-3 px-5 font-semibold">
           <div className="col-span-8">
             <p>Listing</p>
           </div>
           <div className="col-span-4 flex justify-evenly gap-16">
             <p>Status</p>
-            <p>Action</p>
+            <p>View</p>
           </div>
         </div>
         {/* card */}

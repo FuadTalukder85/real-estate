@@ -33,7 +33,7 @@ const Review = ({ email }) => {
                 ></Image>
               </div>
               <div>
-                <h3 className="text-xl font-bold">{review.name}</h3>
+                <h3 className="text-lg font-semibold">{review.name}</h3>
                 <p className="text-sm">{review.date}</p>
                 <p className="mt-3">
                   Cras sit amet nibh libero, in gravida nulla. Nulla vel metus

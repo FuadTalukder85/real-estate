@@ -29,7 +29,7 @@ const Login = () => {
 
   return (
     <Container>
-      <div className="flex justify-between items-center gap-10 p-10 bg-[#F9F9FC] mt-10">
+      <div className="flex justify-between items-center gap-10 p-10 bg-gray-50 mt-10">
         <div className="w-full">
           <Image src={loginImg} alt="loginImg"></Image>
         </div>
