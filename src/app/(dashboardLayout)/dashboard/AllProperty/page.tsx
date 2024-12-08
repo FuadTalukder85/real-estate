@@ -85,14 +85,22 @@ const DashProperty = () => {
   };
   // handle search
   const handleSearch = () => {
+    if (typeof searchQuery !== "string" || searchQuery.trim() === "") {
+      setFilteredData(data || []); // Show all data when searchQuery is empty
+      return;
+    }
+
     const filtered = data?.filter((property) =>
       property.propertyName.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredData(filtered || []);
   };
   useEffect(() => {
-    setFilteredData(data || []);
+    if (data) {
+      setFilteredData(data);
+    }
   }, [data]);
+  // refetch
   useEffect(() => {
     const intervalId = setInterval(() => {
       refetch();
@@ -111,11 +119,11 @@ const DashProperty = () => {
               className="w-[500px] py-3 ps-3 bg-[#f0f0f5] outline-none text-sm"
               placeholder="Search by property Title..."
             />
-            <div className="bg-[#ffac37] py-3 px-5 rounded-r-md hover:bg-[#2A4766] transition-all duration-700 cursor-pointer">
-              <IoIosSearch
-                onClick={handleSearch}
-                className="text-xl font-bold text-white"
-              />
+            <div
+              onClick={handleSearch}
+              className="bg-[#ffac37] py-3 px-5 rounded-r-md hover:bg-[#2A4766] transition-all duration-700 cursor-pointer"
+            >
+              <IoIosSearch className="text-xl font-bold text-white" />
             </div>
           </div>
         </div>
