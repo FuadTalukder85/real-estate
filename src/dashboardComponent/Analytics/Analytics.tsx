@@ -4,6 +4,7 @@ import { BsHouseCheck } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
 import {
   MdOutlineAppRegistration,
+  MdOutlineContactMail,
   MdOutlineReviews,
   MdPendingActions,
 } from "react-icons/md";
@@ -53,10 +54,13 @@ const Analytics = () => {
         </div>
         {/* card 04 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
-          <GrFavorite className="text-5xl text-[#ffac37]" />
+          <MdOutlineContactMail className="text-5xl text-[#ffac37]" />
           <div>
-            <p className="text-[#2A4766]">Favorite</p>
-            <span className="text-2xl font-semibold text-[#2A4766]">1100</span>
+            <p className="text-[#2A4766]">Contact</p>
+            <span className="flex items-center gap-2 text-2xl font-semibold text-[#2A4766]">
+              {data?.totalContact}
+              <span className="font-normal text-base">person</span>
+            </span>
           </div>
         </div>
         {/* card 05 */}
@@ -64,8 +68,9 @@ const Analytics = () => {
           <MdOutlineReviews className="text-5xl text-[#ffac37]" />
           <div>
             <p className="text-[#2A4766]">Reviews</p>
-            <span className="text-2xl font-semibold text-[#2A4766]">
+            <span className="flex items-center gap-2 text-2xl font-semibold text-[#2A4766]">
               {data?.totalReview}
+              <span className="font-normal text-base">person</span>
             </span>
           </div>
         </div>

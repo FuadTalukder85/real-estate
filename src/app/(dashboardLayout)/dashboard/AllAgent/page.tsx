@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import proImg from "../../../../assets/images/profileImg01.jpg";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
