@@ -85,7 +85,7 @@ const ContactForm = () => {
               {/* submit button  */}
               <button
                 type="submit"
-                className="mt-10 bg-[#ffac37] text-white font-semibold py-3 px-7 rounded-md hover:bg-[#2A4766] transition-all duration-500"
+                className="mt-10 bg-[#ffac37] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#2A4766] transition-all duration-500"
               >
                 Submit Request
               </button>

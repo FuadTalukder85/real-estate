@@ -5,7 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
-import PropertyCard from "../../../reusableCard/PropertyCard";
+import PropertyCard from "../../../components/reusableCard/PropertyCard";
 
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");
@@ -14,9 +14,8 @@ const PropertyPage = () => {
   const [categoryQuery, setCategoryQuery] = useState("");
   const [bedroomQuery, setBedroomQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
-  const [sortOption, setSortOption] = useState(""); // State for the selected sort option
-
-  // Filter properties for sale or rent
+  const [sortOption, setSortOption] = useState("");
+  // filter properties for sale or rent
   const property = useMemo(
     () =>
       data?.filter(
@@ -24,8 +23,7 @@ const PropertyPage = () => {
       ),
     [data]
   );
-
-  // Handle search
+  // handle search
   const handleSearch = () => {
     const filtered = property?.filter((prop) => {
       const matchesGeneral =
@@ -62,16 +60,14 @@ const PropertyPage = () => {
         (property || []).filter((prop) => prop.propertyFor === "Rent")
       );
     } else {
-      setFilteredData(property || []); // Default to all properties if no specific sort option
+      setFilteredData(property || []);
     }
   };
 
-  // Watch for sortOption changes
   useEffect(() => {
     handleSort(sortOption);
   }, [sortOption, property]);
 
-  // Initialize filtered data when properties are loaded
   useEffect(() => {
     if (property) {
       setFilteredData(property);

@@ -86,7 +86,7 @@ const FeaturedListing = () => {
         </div>
         <div>
           <Link href="/Featured">
-            <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-lg hover:bg-[#2A4766] transition-all duration-700">
+            <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-md hover:bg-[#2A4766] transition-all duration-700">
               View all featured
             </button>
           </Link>

@@ -16,7 +16,7 @@ const PropertyCard = ({
   price,
 }) => {
   return (
-    <div className="relative drop-shadow-xl bg-white">
+    <div className="relative drop-shadow-xl bg-white rounded-lg">
       <Link href={`/Property/${propertyId}`}>
         <Image
           src={propertyImage}
@@ -54,11 +54,11 @@ const PropertyCard = ({
         </ul>
       </div>
       <div className="border-t">
-        <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766]">
+        <div className="py-2 px-5 flex gap-3 items-center justify-between text-[#2A4766] font-semibold">
           <span className="text-xl">
-            <b>{squareFoot}</b> Sqft
+            <span>{squareFoot}</span> Sqft
           </span>
-          <h4 className="text-[#ffac37] text-2xl font-semibold">${price}.00</h4>
+          <h4 className="text-xl">${price}.00</h4>
         </div>
       </div>
     </div>
