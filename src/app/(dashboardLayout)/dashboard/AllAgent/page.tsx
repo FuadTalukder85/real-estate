@@ -4,6 +4,7 @@ import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
 import { useGetUserQuery } from "../../../../redux/userApi/UserApi";
+import Link from "next/link";
 
 const AllAgent = () => {
   const { data } = useGetUserQuery("");
@@ -57,9 +58,11 @@ const AllAgent = () => {
                 <td className="w-2/12">10</td>
                 <td className="w-2/12">
                   <div className="flex gap-5">
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
-                      <FiEye />
-                    </button>
+                    <Link href={`/dashboard/AllAgent/${users?._id}`}>
+                      <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                        <FiEye />
+                      </button>
+                    </Link>
                     <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
                       <CiEdit />
                     </button>
