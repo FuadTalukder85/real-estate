@@ -1,11 +1,12 @@
 "use client";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { MdClose } from "react-icons/md";
 import {
   useGetSinglePropertyQuery,
   useUpdatePropertyMutation,
 } from "../../redux/propertyApi/PropertyApi";
 import toast from "react-hot-toast";
+import { PropertyTypes } from "../../types/types";
 const UpdatePropertyModal = ({ onClose, propertyId }) => {
   const { data: property } = useGetSinglePropertyQuery(propertyId ?? "");
   const [updateProperty] = useUpdatePropertyMutation();
@@ -13,8 +14,8 @@ const UpdatePropertyModal = ({ onClose, propertyId }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = async (formData) => {
+  } = useForm<PropertyTypes>();
+  const onSubmit: SubmitHandler<PropertyTypes> = async (formData) => {
     try {
       if (!propertyId) {
         console.log("Property ID is missing, cannot update Property");

@@ -2,28 +2,23 @@ import React, { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { usePostUserMutation } from "../../../redux/userApi/UserApi";
-
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-};
+import { LoginInputs } from "../../../types/types";
 
 const RegisterForm = () => {
   const [postUser] = usePostUserMutation();
   const { createUser } = useContext(AuthContext);
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<LoginInputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     const userData = { ...data, image: "", number: "", address: "" };
     postUser(userData);
     const { email, password } = data;
     createUser(email, password)
-      .then((userCredential) => {
+      .then((userCredential: any) => {
         // Handle successful registration
         console.log("User created:", userCredential.user);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         // Handle registration errors
         console.error("Error creating user:", error.message);
       });

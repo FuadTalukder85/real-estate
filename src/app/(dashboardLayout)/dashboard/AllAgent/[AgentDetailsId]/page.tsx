@@ -4,7 +4,11 @@ import { FaFacebook, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import ListingByAgent from "../../../../../components/ListingByAgent/ListingByAgent";
 
-const AgentDetailsPage = async ({ params }) => {
+const AgentDetailsPage = async ({
+  params,
+}: {
+  params: { AgentDetailsId: string };
+}) => {
   const { AgentDetailsId } = await params;
   const res = await fetch(`http://localhost:4900/users/${AgentDetailsId}`);
   const singleAgent = await res.json();

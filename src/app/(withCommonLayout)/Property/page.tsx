@@ -47,6 +47,10 @@ const PropertyPage = () => {
     });
 
     setFilteredData(filtered || []);
+    setGeneralQuery("");
+    setLocationQuery("");
+    setCategoryQuery("");
+    setBedroomQuery("");
   };
 
   // handle sort

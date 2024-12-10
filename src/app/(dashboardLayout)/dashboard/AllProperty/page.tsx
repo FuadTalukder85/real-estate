@@ -12,20 +12,21 @@ import toast, { Toaster } from "react-hot-toast";
 import { IoMdClose, IoIosSearch } from "react-icons/io";
 import UpdatePropertyModal from "../../../../components/Modal/UpdatePropertyModal";
 import Link from "next/link";
-type Property = {
-  _id: string;
-  propertyName: string;
-  propertyImage01: string;
-  squareFoot: number;
-  propertyCategory: string;
-  propertyFor: string;
-  bedroom: number;
-  bathroom: number;
-  city: string;
-  price: number;
-  postBy: string;
-  status: "approved" | "pending";
-};
+import { PropertyTypes } from "../../../../types/types";
+// type Property = {
+//   _id: string;
+//   propertyName: string;
+//   propertyImage01: string;
+//   squareFoot: number;
+//   propertyCategory: string;
+//   propertyFor: string;
+//   bedroom: number;
+//   bathroom: number;
+//   city: string;
+//   price: number;
+//   postBy: string;
+//   status: "approved" | "pending";
+// };
 
 const DashProperty = () => {
   const { data, refetch } = useGetPropertyQuery("");
@@ -33,10 +34,10 @@ const DashProperty = () => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [editById, setEditByid] = useState(null);
   const [searchQuery, setSearchQuery] = useState([]);
-  const [filteredData, setFilteredData] = useState<Property[]>([]);
+  const [filteredData, setFilteredData] = useState<PropertyTypes[]>([]);
   // delete modal
   const [isOpen, setIsOpen] = useState(false);
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     deleteProperty(id);
     refetch();
     toast.success("Product deleted successed", { position: "top-right" });
@@ -50,7 +51,7 @@ const DashProperty = () => {
     setShowUpdateModal(!showUpdateModal);
   };
   // handle property approved - pending
-  const handleApproved = async (statusId, currentStatus) => {
+  const handleApproved = async (statusId: string, currentStatus: string) => {
     try {
       const newStatus = currentStatus === "approved" ? "pending" : "approved";
       const response = await fetch(
@@ -86,11 +87,11 @@ const DashProperty = () => {
   // handle search
   const handleSearch = () => {
     if (typeof searchQuery !== "string" || searchQuery.trim() === "") {
-      setFilteredData(data || []); // Show all data when searchQuery is empty
+      setFilteredData(data || []);
       return;
     }
 
-    const filtered = data?.filter((property) =>
+    const filtered = data?.filter((property: any) =>
       property.propertyName.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredData(filtered || []);
@@ -100,7 +101,6 @@ const DashProperty = () => {
       setFilteredData(data);
     }
   }, [data]);
-  // refetch
   useEffect(() => {
     const intervalId = setInterval(() => {
       refetch();

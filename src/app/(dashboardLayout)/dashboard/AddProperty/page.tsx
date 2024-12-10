@@ -4,26 +4,8 @@ import { usePostPropertyMutation } from "../../../../redux/propertyApi/PropertyA
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import useCurrentUser from "../../../../hooks/CurrentUser";
-type Inputs = {
-  propertyName: string;
-  propertyImage01: string;
-  propertyImage02: string;
-  propertyImage03: string;
-  propertyImage04: string;
-  price: number;
-  propertyFor: string;
-  propertyCategory: string;
-  bedroom: number;
-  bathroom: number;
-  squareFoot: number;
-  floor: number;
-  buildYear: number;
-  address: string;
-  zipCode: string;
-  city: string;
-  country: string;
-  description: string;
-};
+import { PropertyTypes } from "../../../../types/types";
+
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
   const { user } = useContext(AuthContext);
@@ -33,11 +15,11 @@ const AddProperty: React.FC = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  } = useForm<PropertyTypes>();
+  const onSubmit: SubmitHandler<PropertyTypes> = async (data) => {
     try {
       const postBy = currentUser.role;
-      const email = user.email;
+      const email = user?.email;
       const postedData = { ...data, postBy, email };
       await postProperty(postedData);
       reset();
@@ -326,7 +308,6 @@ const AddProperty: React.FC = () => {
       </div>
       <textarea
         {...register("description", { required: true })}
-        type="text"
         placeholder="Description"
         className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
       ></textarea>
