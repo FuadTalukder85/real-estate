@@ -3,12 +3,9 @@ import proImg from "../../../../../assets/images/profileImg01.jpg";
 import { FaFacebook, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import ListingByAgent from "../../../../../components/ListingByAgent/ListingByAgent";
+import { TParams } from "../../../../../types/types";
 
-const AgentDetailsPage = async ({
-  params,
-}: {
-  params: { AgentDetailsId: string };
-}) => {
+const AgentDetailsPage = async ({ params }: { params: TParams }) => {
   const { AgentDetailsId } = await params;
   const res = await fetch(`http://localhost:4900/users/${AgentDetailsId}`);
   const singleAgent = await res.json();

@@ -11,8 +11,12 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Link from "next/link";
 import Slider from "react-slick";
 import "./FeaturedListing.css";
+import { TPropertyTypes } from "../../types/types";
+type TArrowProps = {
+  onClick: () => void;
+};
 // custom button
-const NextArrow = ({ onClick }) => {
+const NextArrow = ({ onClick }: TArrowProps) => {
   return (
     <div className="flex justify-end absolute -bottom-24 right-0 px-6 md:px-0 ">
       <div
@@ -24,7 +28,7 @@ const NextArrow = ({ onClick }) => {
     </div>
   );
 };
-const PrevArrow = ({ onClick }) => {
+const PrevArrow = ({ onClick }: TArrowProps) => {
   return (
     <div className="absolute flex -bottom-24 right-0 mr-10 md:mr-14 px-5 md:px-0 z-10">
       <div
@@ -43,8 +47,8 @@ const FeaturedListing = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow onClick={() => {}} />,
+    prevArrow: <PrevArrow onClick={() => {}} />,
     responsive: [
       {
         breakpoint: 1024,
@@ -53,8 +57,8 @@ const FeaturedListing = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+          prevArrow: <PrevArrow onClick={() => {}} />,
         },
       },
       {
@@ -64,15 +68,17 @@ const FeaturedListing = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+          prevArrow: <PrevArrow onClick={() => {}} />,
         },
       },
     ],
   };
 
   const { data } = useGetPropertyQuery("");
-  const featuredProperty = data?.filter((dt) => dt.propertyFor === "Featured");
+  const featuredProperty = data?.filter(
+    (dt: TPropertyTypes) => dt.propertyFor === "Featured"
+  );
   return (
     <Container>
       <div className="mt-28 flex text-[#2A4766] items-center justify-between">
@@ -94,68 +100,60 @@ const FeaturedListing = () => {
       </div>
       {/* featured card */}
       <Slider {...settings}>
-        {featuredProperty?.map((featured) => (
-          <div
-            key={featured._id}
-            className="drop-shadow-md bg-white rounded-lg mt-10"
-          >
-            <div className="flex gap-5 items-center">
-              <Link href={`/Property/${featured._id}`}>
-                <Image
-                  src={featured.propertyImage02 || "/image"}
-                  alt="feautredImg"
-                  width={300}
-                  height={300}
-                  className="rounded-s-lg"
-                ></Image>
-              </Link>
-              <div className="p-3 pr-5">
-                <div className="flex gap-5 items-center text-[#ffac37]">
-                  <h5 className="text-xl font-semibold">
-                    ${featured.price}.00
-                  </h5>
-                  <span className="">Asking pice</span>
+        {featuredProperty?.map((featured: TPropertyTypes) => (
+          <Link href={`/Property/${featured._id}`} key={featured._id}>
+            <div
+              key={featured._id}
+              className="flex drop-shadow-md bg-white rounded-lg mt-10"
+            >
+              <Image
+                src={featured.propertyImage02 || "/image"}
+                alt="feautredImg"
+                width={300}
+                height={300}
+                className="rounded-s-lg"
+              ></Image>
+              <div>
+                <div className="p-5 pr-5">
+                  <div className="flex gap-5 items-center text-[#ffac37]">
+                    <h5 className="text-xl font-semibold">
+                      ${featured.price}.00
+                    </h5>
+                    <span className="">Asking pice</span>
+                  </div>
+                  <h3 className="mt-1 text-xl font-semibold text-[#2A4766]">
+                    {featured.propertyName}
+                  </h3>
+                  <ul className="text-[#ABACB0] mt-3">
+                    <li className="flex gap-5 items-center">
+                      <FaBed /> <span className="w-20">Bedrooms</span>
+                      <span>{featured.bedroom}</span>
+                    </li>
+                    <li className="flex gap-5 items-center">
+                      <FaBath /> <span className="w-20">Bathrooms</span>
+                      <span>{featured.bathroom}</span>
+                    </li>
+                    <li className="flex gap-5 items-center">
+                      <BiSolidCarGarage /> <span className="w-20">Garage</span>
+                      <span>1</span>
+                    </li>
+                    <li className="flex gap-5 items-center">
+                      <RxSize /> <span className="w-20">SqFt</span>
+                      <span>{featured.squareFoot}</span>
+                    </li>
+                  </ul>
                 </div>
-                <h3 className="text-xl font-semibold text-[#2A4766]">
-                  {featured.title}
-                </h3>
-                <ul className="text-[#ABACB0] my-3">
-                  <li className="flex gap-5 items-center">
-                    <FaBed /> <span className="w-20">Bedrooms</span>
-                    <span>{featured.bedroom}</span>
-                  </li>
-                  <li className="flex gap-5 items-center">
-                    <FaBath /> <span className="w-20">Bathrooms</span>
-                    <span>{featured.bathroom}</span>
-                  </li>
-                  <li className="flex gap-5 items-center">
-                    <BiSolidCarGarage /> <span className="w-20">Garage</span>
-                    <span>1</span>
-                  </li>
-                  <li className="flex gap-5 items-center">
-                    <RxSize /> <span className="w-20">SqFt</span>
-                    <span>{featured.squareFoot}</span>
-                  </li>
-                </ul>
-                <div className="border-t text-[#2A4766] font-semibold">
-                  <p className="flex gap-3 items-center py-3">
+                <div className="mt-7 border-t text-[#2A4766] font-semibold">
+                  <p className="flex gap-3 items-center px-5 py-3">
                     <FaLocationDot />
                     {featured.address}, {featured.city}
                   </p>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </Slider>
-      {/* <div className="flex gap-3 mt-16 justify-end">
-        <button className="bg-white border border-gray-200 p-3 rounded-md shadow-md">
-          <MdChevronLeft className="text-2xl text-[#ffac37]" />
-        </button>
-        <button className="bg-[#ffac37] p-3 rounded-md shadow-md">
-          <MdChevronRight className="text-2xl text-white" />
-        </button>
-      </div> */}
     </Container>
   );
 };

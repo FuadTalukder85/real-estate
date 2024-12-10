@@ -6,19 +6,14 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Image from "next/image";
 import loginImg from "../../../assets/images/loginImg.png";
 import Container from "../../../components/Container/Container";
-
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-};
+import { LoginInputs } from "../../../types/types";
 
 const Login = () => {
   const [loggedUser] = usePostUserMutation();
-  const { signIn } = useContext(AuthContext); // Get createUser from context
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { signIn } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm<LoginInputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     const { email, password } = data;
     signIn(email, password).then((result) => {
       const user = result.user;

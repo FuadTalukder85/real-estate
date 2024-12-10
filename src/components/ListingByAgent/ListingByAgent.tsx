@@ -2,13 +2,14 @@
 import Link from "next/link";
 import { useGetPropertyQuery } from "../../redux/propertyApi/PropertyApi";
 import ListingCard from "../reusableCard/ListingCard";
+import { LoginInputs, TPropertyTypes } from "../../types/types";
 
-const ListingByAgent = ({ email }) => {
+const ListingByAgent = ({ email }: LoginInputs) => {
   const { data } = useGetPropertyQuery("");
-  const agentListing = data?.filter((dt) => dt.email === email);
+  const agentListing = data?.filter((dt: TPropertyTypes) => dt.email === email);
   return (
     <div className="grid grid-cols-3 gap-5 mt-10">
-      {agentListing?.map((listing) => (
+      {agentListing?.map((listing: TPropertyTypes) => (
         <Link href={`/Property/${listing._id}`} key={listing._id}>
           <ListingCard
             cardImg={listing?.propertyImage01}

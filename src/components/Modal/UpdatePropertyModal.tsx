@@ -6,16 +6,24 @@ import {
   useUpdatePropertyMutation,
 } from "../../redux/propertyApi/PropertyApi";
 import toast from "react-hot-toast";
-import { PropertyTypes } from "../../types/types";
-const UpdatePropertyModal = ({ onClose, propertyId }) => {
+import { TPropertyTypes } from "../../types/types";
+
+type UpdatePropertyModalProps = {
+  onClose: () => void;
+  propertyId: string | null;
+};
+const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
+  onClose,
+  propertyId,
+}) => {
   const { data: property } = useGetSinglePropertyQuery(propertyId ?? "");
   const [updateProperty] = useUpdatePropertyMutation();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<PropertyTypes>();
-  const onSubmit: SubmitHandler<PropertyTypes> = async (formData) => {
+  } = useForm<TPropertyTypes>();
+  const onSubmit: SubmitHandler<TPropertyTypes> = async (formData) => {
     try {
       if (!propertyId) {
         console.log("Property ID is missing, cannot update Property");
@@ -347,7 +355,6 @@ const UpdatePropertyModal = ({ onClose, propertyId }) => {
           </div>
           <textarea
             {...register("description", { required: true })}
-            type="text"
             placeholder="Description"
             className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
             defaultValue={property?.description}

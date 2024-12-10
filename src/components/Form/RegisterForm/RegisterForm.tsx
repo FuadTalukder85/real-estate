@@ -14,11 +14,11 @@ const RegisterForm = () => {
     postUser(userData);
     const { email, password } = data;
     createUser(email, password)
-      .then((userCredential: any) => {
+      .then((userCredential) => {
         // Handle successful registration
         console.log("User created:", userCredential.user);
       })
-      .catch((error: any) => {
+      .catch((error) => {
         // Handle registration errors
         console.error("Error creating user:", error.message);
       });

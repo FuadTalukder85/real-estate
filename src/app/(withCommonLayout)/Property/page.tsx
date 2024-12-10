@@ -6,7 +6,8 @@ import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import PropertyCard from "../../../components/reusableCard/PropertyCard";
-
+import { TPropertyTypes } from "../../../types/types";
+type TShortOption = "Sale" | "Rent" | string;
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");
   const [generalQuery, setGeneralQuery] = useState("");
@@ -19,13 +20,14 @@ const PropertyPage = () => {
   const property = useMemo(
     () =>
       data?.filter(
-        (dt) => dt.propertyFor === "Sale" || dt.propertyFor === "Rent"
+        (dt: TPropertyTypes) =>
+          dt.propertyFor === "Sale" || dt.propertyFor === "Rent"
       ),
     [data]
   );
   // handle search
   const handleSearch = () => {
-    const filtered = property?.filter((prop) => {
+    const filtered = property?.filter((prop: TPropertyTypes) => {
       const matchesGeneral =
         generalQuery.trim() === "" ||
         prop.propertyName.toLowerCase().includes(generalQuery.toLowerCase());
@@ -45,7 +47,6 @@ const PropertyPage = () => {
         matchesGeneral && matchesLocation && matchesCategory && matchesBedroom
       );
     });
-
     setFilteredData(filtered || []);
     setGeneralQuery("");
     setLocationQuery("");
@@ -54,20 +55,23 @@ const PropertyPage = () => {
   };
 
   // handle sort
-  const handleSort = (option) => {
+  const handleSort = (option: TShortOption) => {
     if (option === "Sale") {
       setFilteredData(
-        (property || []).filter((prop) => prop.propertyFor === "Sale")
+        (property || []).filter(
+          (prop: TPropertyTypes) => prop.propertyFor === "Sale"
+        )
       );
     } else if (option === "Rent") {
       setFilteredData(
-        (property || []).filter((prop) => prop.propertyFor === "Rent")
+        (property || []).filter(
+          (prop: TPropertyTypes) => prop.propertyFor === "Rent"
+        )
       );
     } else {
       setFilteredData(property || []);
     }
   };
-
   useEffect(() => {
     handleSort(sortOption);
   }, [sortOption, property]);
@@ -147,7 +151,7 @@ const PropertyPage = () => {
         </div>
         <div className="mt-16 grid grid-cols-3 gap-5">
           {filteredData.length > 0 ? (
-            filteredData.map((property, index) => (
+            filteredData.map((property: TPropertyTypes, index) => (
               <PropertyCard
                 key={index}
                 propertyId={property?._id}

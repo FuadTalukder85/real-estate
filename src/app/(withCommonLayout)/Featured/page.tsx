@@ -9,10 +9,13 @@ import { RxSize } from "react-icons/rx";
 import Image from "next/image";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import Link from "next/link";
+import { TPropertyTypes } from "../../../types/types";
 
 const FeaturedPage = () => {
   const { data } = useGetPropertyQuery("");
-  const featuredProperty = data?.filter((dt) => dt.propertyFor === "Featured");
+  const featuredProperty = data?.filter(
+    (dt: TPropertyTypes) => dt.propertyFor === "Featured"
+  );
   return (
     <div>
       <div className="bg-[#F7F7F7] mt-10">
@@ -51,7 +54,7 @@ const FeaturedPage = () => {
       </div>
       <Container>
         <div className="grid grid-cols-2 gap-7 mt-10">
-          {featuredProperty?.map((featured) => (
+          {featuredProperty?.map((featured: TPropertyTypes) => (
             <Link href={`/Property/${featured._id}`} key={featured._id}>
               <div
                 key={featured._id}
@@ -72,10 +75,10 @@ const FeaturedPage = () => {
                       </h5>
                       <span className="">Asking pice</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-[#2A4766]">
-                      {featured.title}
+                    <h3 className="mt-1 text-xl font-semibold text-[#2A4766]">
+                      {featured.propertyName}
                     </h3>
-                    <ul className="text-[#ABACB0] mt-5">
+                    <ul className="text-[#ABACB0] mt-3">
                       <li className="flex gap-5 items-center">
                         <FaBed /> <span className="w-20">Bedrooms</span>
                         <span>{featured.bedroom}</span>

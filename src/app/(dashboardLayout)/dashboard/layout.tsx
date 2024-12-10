@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Sidebar from "../../../dashboardComponent/Sidebar/Sidebar";
 import DashboardHeader from "../../../dashboardComponent/DashboardHeader/DashboardHeader";
 import PrivateRoute from "../../../privateRoute/PrivateRoute";
 
-const layout = ({ children }) => {
+const layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <PrivateRoute>
       <div className="flex">

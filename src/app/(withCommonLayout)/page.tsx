@@ -8,12 +8,10 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import OurTeam from "../../components/OurTeam/OurTeam";
 import PopularPlace from "../../components/PopularPlace/PopularPlace";
 import RecentSell from "../../components/RecentSell/RecentSell";
-// import HomePage from "./HomePage/page";
 
 const page = () => {
   return (
     <div>
-      {/* <HomePage></HomePage> */}
       <Banner></Banner>
       <TrustedCompany></TrustedCompany>
       <FeaturedListing></FeaturedListing>

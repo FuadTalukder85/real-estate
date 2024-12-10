@@ -5,10 +5,11 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
 import { useGetUserQuery } from "../../../../redux/userApi/UserApi";
 import Link from "next/link";
+import { LoginInputs } from "../../../../types/types";
 
 const AllAgent = () => {
   const { data } = useGetUserQuery("");
-  const agent = data?.filter((dt: any) => dt?.role === "Agent");
+  const agent = data?.filter((dt: LoginInputs) => dt?.role === "Agent");
 
   return (
     <div className="px-10 p-5 text-[#2A4766]">
@@ -35,7 +36,7 @@ const AllAgent = () => {
             </tr>
           </thead>
           <tbody>
-            {agent?.map((users: any, index: number) => (
+            {agent?.map((users: LoginInputs, index: number) => (
               <tr
                 key={index}
                 className="flex gap-3 justify-between items-center p-2 border-s border-r border-b bg-white px-5 pr-16"

@@ -11,16 +11,17 @@ import {
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
+import { LoginInputs } from "../../../types/types";
 
 const AgentPage = () => {
   const { data } = useGetUserQuery("");
-  const allAgent = data?.filter((dt) => dt.role === "Agent");
+  const allAgent = data?.filter((dt: LoginInputs) => dt.role === "Agent");
 
   // modal state
-  const [isOpen, setIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [modalContent, setModalContent] = useState<string | null>(null);
 
-  const toggleModal = (content) => {
+  const toggleModal = (content: string | null) => {
     if (isOpen && modalContent === content) {
       setIsOpen(false);
       setModalContent(null);
@@ -45,7 +46,7 @@ const AgentPage = () => {
       </div>
       <Container>
         <div className="grid grid-cols-4 gap-5 mt-10">
-          {allAgent?.map((agent) => (
+          {allAgent?.map((agent: LoginInputs) => (
             <div key={agent._id}>
               <Link href={`/Agent/${agent._id}`}>
                 <div className="relative group overflow-hidden flex items-center justify-center rounded-xl">

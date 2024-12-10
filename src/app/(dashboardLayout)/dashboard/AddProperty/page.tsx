@@ -4,7 +4,7 @@ import { usePostPropertyMutation } from "../../../../redux/propertyApi/PropertyA
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import useCurrentUser from "../../../../hooks/CurrentUser";
-import { PropertyTypes } from "../../../../types/types";
+import { TPropertyTypes } from "../../../../types/types";
 
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
@@ -15,8 +15,8 @@ const AddProperty: React.FC = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<PropertyTypes>();
-  const onSubmit: SubmitHandler<PropertyTypes> = async (data) => {
+  } = useForm<TPropertyTypes>();
+  const onSubmit: SubmitHandler<TPropertyTypes> = async (data) => {
     try {
       const postBy = currentUser.role;
       const email = user?.email;

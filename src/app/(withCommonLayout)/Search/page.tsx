@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import Container from "../../../components/Container/Container";
 import PropertyCard from "../../../components/reusableCard/PropertyCard";
+import { TPropertyTypes } from "../../../types/types";
 const SearchPage = () => {
   const { data: properties } = useGetPropertyQuery("");
   const [filteredData, setFilteredData] = useState([]);
@@ -14,7 +15,7 @@ const SearchPage = () => {
     const category = searchParams.get("category") || "";
     const bedroom = searchParams.get("bedroom") || "";
 
-    const filtered = properties?.filter((prop) => {
+    const filtered = properties?.filter((prop: TPropertyTypes) => {
       const matchesGeneral =
         general.trim() === "" ||
         prop.propertyName.toLowerCase().includes(general.toLowerCase());
@@ -38,10 +39,10 @@ const SearchPage = () => {
   return (
     <Container>
       {filteredData.length > 0 ? (
-        <div key={filteredData._id}>
+        <div>
           <div className="mt-16 grid grid-cols-3 gap-5">
             {filteredData.length > 0 ? (
-              filteredData.map((property, index) => (
+              filteredData.map((property: TPropertyTypes, index) => (
                 <PropertyCard
                   key={index}
                   propertyId={property?._id}

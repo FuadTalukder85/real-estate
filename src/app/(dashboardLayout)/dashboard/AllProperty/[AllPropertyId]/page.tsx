@@ -7,8 +7,9 @@ import { RxSize } from "react-icons/rx";
 import { MdOutlineReviews } from "react-icons/md";
 import { GiCheckMark } from "react-icons/gi";
 import PropertyAgent from "../../../../../dashboardComponent/PropertyAgent/PropertyAgent";
+import { TParams } from "../../../../../types/types";
 
-const DashPropertyDetails = async ({ params }) => {
+const DashPropertyDetails = async ({ params }: { params: TParams }) => {
   const { AllPropertyId } = await params;
   const res = await fetch(`http://localhost:4900/property/${AllPropertyId}`);
   const singleProperty = await res.json();

@@ -6,8 +6,9 @@ import Container from "../../../../components/Container/Container";
 import { IoLocationOutline } from "react-icons/io5";
 import { GiCheckMark } from "react-icons/gi";
 import ContactSeller from "../../../../components/ContactSeller/ContactSeller";
+import { TParams } from "../../../../types/types";
 
-const PropertyDetails = async ({ params }) => {
+const PropertyDetails = async ({ params }: { params: TParams }) => {
   const { PropertyId } = await params;
   const res = await fetch(`http://localhost:4900/property/${PropertyId}`);
   const singleProperty = await res.json();
@@ -181,7 +182,7 @@ const PropertyDetails = async ({ params }) => {
             </div>
           </div>
           <div className="col-span-5 over">
-            <ContactSeller singleProperty={singleProperty}></ContactSeller>
+            <ContactSeller contactSeller={singleProperty}></ContactSeller>
           </div>
         </div>
       </Container>

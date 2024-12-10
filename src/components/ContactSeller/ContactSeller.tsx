@@ -2,8 +2,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
+import { LoginInputs } from "../../types/types";
+type ContactSellerProps = {
+  contactSeller: LoginInputs;
+};
 
-const ContactSeller = ({ singleProperty }) => {
+const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
   const { data } = useGetUserQuery("");
   const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
@@ -21,7 +25,9 @@ const ContactSeller = ({ singleProperty }) => {
     };
   }, []);
   // find property agent
-  const listedBy = data?.find((dt) => dt?.email === singleProperty?.email);
+  const listedBy = data?.find(
+    (dt: LoginInputs) => dt?.email === contactSeller?.email
+  );
 
   return (
     <div className={`w-[480px] ${isFixed ? "fixed top-0 " : ""}`}>

@@ -6,22 +6,23 @@ import {
   useUpdateUserMutation,
 } from "../../redux/userApi/UserApi";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 import toast, { Toaster } from "react-hot-toast";
+import { LoginInputs, UpdateProfileModalProps } from "../../types/types";
 
-const UpdateProfileModal = ({ onClose }) => {
+const UpdateProfileModal: React.FC<UpdateProfileModalProps> = ({ onClose }) => {
   const { user } = useContext(AuthContext);
   const { data, refetch } = useGetUserQuery("");
   const [updateUser] = useUpdateUserMutation();
-  const currentUser = data?.find((dt) => dt.email === user.email);
+  const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = async (formData) => {
+  } = useForm<LoginInputs>();
+  const onSubmit: SubmitHandler<LoginInputs> = async (formData) => {
     try {
       if (!currentUser?._id) {
         console.log("User ID is missing, cannot update profile");

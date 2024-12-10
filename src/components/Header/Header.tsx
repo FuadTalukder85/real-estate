@@ -20,8 +20,8 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
 
   // Reference for dropdown container
-  const dropdownRef = useRef(null);
-  const profileBtnRef = useRef(null);
+  const dropdownRef = useRef<HTMLUListElement | null>(null);
+  const profileBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const handleLogout = () => {
     logOut()
@@ -31,7 +31,11 @@ const Header = () => {
 
   // GSAP animations for modals
   useEffect(() => {
-    const initAnimation = (triggerSelector, modalSelector, closeSelector) => {
+    const initAnimation = (
+      triggerSelector: string,
+      modalSelector: string,
+      closeSelector: string
+    ) => {
       const trigger = document.querySelector(triggerSelector);
       const modal = document.querySelector(modalSelector);
       const close = document.querySelector(closeSelector);
@@ -63,11 +67,12 @@ const Header = () => {
 
   // Close dropdown if clicked outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.target) &&
-        !profileBtnRef.current.contains(event.target)
+        !dropdownRef.current.contains(event.target as Node) &&
+        profileBtnRef.current &&
+        !profileBtnRef.current.contains(event.target as Node)
       ) {
         setDropdownVisible(false); // Close dropdown
       }

@@ -6,11 +6,14 @@ import RecentReview from "../../../dashboardComponent/RecentReview/RecentReview"
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import AgentHome from "../../../dashboardComponent/AgentHome";
+import { LoginInputs } from "../../../types/types";
 
 const AdminPage = () => {
   const { user } = useContext(AuthContext);
   const { data } = useGetUserQuery("");
-  const currentUser = data?.find((dt) => dt?.email === user?.email);
+  const currentUser = data?.find(
+    (dt: LoginInputs) => dt?.email === user?.email
+  );
   return (
     <div>
       {currentUser.role === "Admin" ? (

@@ -6,6 +6,7 @@ import { PiEnvelopeOpenThin, PiPhoneCallThin } from "react-icons/pi";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { usePostContactMutation } from "../../redux/contactApi/ContactApi";
 import toast, { Toaster } from "react-hot-toast";
+import { LoginInputs } from "../../types/types";
 
 const ContactForm = () => {
   const [postContact] = usePostContactMutation();
@@ -14,8 +15,8 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
-  const onSubmit: SubmitHandler = async (data) => {
+  } = useForm<LoginInputs>();
+  const onSubmit: SubmitHandler<LoginInputs> = async (data) => {
     try {
       await postContact(data);
       toast.success("Message send successfully!", { position: "top-right" });

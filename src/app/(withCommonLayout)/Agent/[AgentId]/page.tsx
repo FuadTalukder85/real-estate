@@ -8,8 +8,9 @@ import { FaFacebook, FaLinkedinIn, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import ListingByAgent from "../../../../components/ListingByAgent/ListingByAgent";
 import Review from "../../../../components/Review/Review";
+import { TParams } from "../../../../types/types";
 
-const AgentDetails = async ({ params }) => {
+const AgentDetails = async ({ params }: { params: TParams }) => {
   const { AgentId } = await params;
   const res = await fetch(`http://localhost:4900/users/${AgentId}`);
   const agent = await res.json();

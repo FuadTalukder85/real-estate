@@ -9,15 +9,19 @@ import {
 } from "../../../../redux/contactApi/ContactApi";
 import proImg from "../../../../assets/images/profileImg01.jpg";
 import { MdClose } from "react-icons/md";
+import { LoginInputs } from "../../../../types/types";
+
 const MessagePage = () => {
   const [showModal, setShowModal] = useState(false);
-  const [selectedContactId, setSelectedContactId] = useState(null);
+  const [selectedContactId, setSelectedContactId] = useState<string | null>(
+    null
+  );
   const { data } = useGetContactQuery("");
   const { data: singleContact } = useGetSingleContactQuery(selectedContactId, {
     skip: !selectedContactId,
   });
   //   handle show modal
-  const handleShowModal = (id) => {
+  const handleShowModal = (id: string) => {
     setSelectedContactId(id);
     setShowModal(!showModal);
   };
@@ -42,7 +46,7 @@ const MessagePage = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((contact, index) => (
+            {data?.map((contact: LoginInputs, index: number) => (
               <tr
                 key={index}
                 className="flex gap-3 justify-between items-center p-2 border-s border-r border-b bg-white px-5 pr-16"

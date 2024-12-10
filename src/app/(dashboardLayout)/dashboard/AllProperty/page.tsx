@@ -12,29 +12,19 @@ import toast, { Toaster } from "react-hot-toast";
 import { IoMdClose, IoIosSearch } from "react-icons/io";
 import UpdatePropertyModal from "../../../../components/Modal/UpdatePropertyModal";
 import Link from "next/link";
-import { PropertyTypes } from "../../../../types/types";
-// type Property = {
-//   _id: string;
-//   propertyName: string;
-//   propertyImage01: string;
-//   squareFoot: number;
-//   propertyCategory: string;
-//   propertyFor: string;
-//   bedroom: number;
-//   bathroom: number;
-//   city: string;
-//   price: number;
-//   postBy: string;
-//   status: "approved" | "pending";
-// };
+import { TPropertyTypes } from "../../../../types/types";
+
+type Property = {
+  propertyName: string;
+};
 
 const DashProperty = () => {
   const { data, refetch } = useGetPropertyQuery("");
   const [deleteProperty] = useDeletePropertyMutation();
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [editById, setEditByid] = useState(null);
-  const [searchQuery, setSearchQuery] = useState([]);
-  const [filteredData, setFilteredData] = useState<PropertyTypes[]>([]);
+  const [editById, setEditByid] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [filteredData, setFilteredData] = useState<TPropertyTypes[]>([]);
   // delete modal
   const [isOpen, setIsOpen] = useState(false);
   const handleDelete = (id: string) => {
@@ -74,7 +64,7 @@ const DashProperty = () => {
         });
         return;
       }
-      const data = await response.json();
+      // const data = await response.json();
       toast.success(`Property status updated`, {
         position: "top-right",
       });
@@ -91,7 +81,7 @@ const DashProperty = () => {
       return;
     }
 
-    const filtered = data?.filter((property: any) =>
+    const filtered = data?.filter((property: Property) =>
       property.propertyName.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredData(filtered || []);

@@ -6,11 +6,18 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
 import { useGetUserQuery } from "../../../../redux/userApi/UserApi";
 import toast, { Toaster } from "react-hot-toast";
+import { LoginInputs } from "../../../../types/types";
 
 const Users = () => {
   const { data } = useGetUserQuery("");
   // handle user role
-  const handleRoleChange = async ({ e, users }) => {
+  const handleRoleChange = async ({
+    e,
+    users,
+  }: {
+    e: React.ChangeEvent<HTMLSelectElement>;
+    users: LoginInputs;
+  }) => {
     const selectedRole = e.target.value;
     if (!selectedRole) return;
     try {
@@ -54,7 +61,7 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((users, index) => (
+            {data?.map((users: LoginInputs, index: number) => (
               <tr
                 key={index}
                 className="flex justify-between items-center p-2 border-s border-r border-b bg-white px-5"
