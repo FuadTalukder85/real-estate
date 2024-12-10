@@ -6,7 +6,7 @@ import ListingByAgent from "../../../../../components/ListingByAgent/ListingByAg
 import { TParams } from "../../../../../types/types";
 
 const AgentDetailsPage = async ({ params }: { params: TParams }) => {
-  const { AgentDetailsId } = await params;
+  const { AgentDetailsId } = params;
   const res = await fetch(`http://localhost:4900/users/${AgentDetailsId}`);
   const singleAgent = await res.json();
   return (

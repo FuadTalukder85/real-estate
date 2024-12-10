@@ -13,7 +13,7 @@ const NewListing = () => {
       )
     : [];
   // handle property approved - pending
-  const handleApproved = async (statusId, currentStatus) => {
+  const handleApproved = async (statusId: string, currentStatus: string) => {
     try {
       const newStatus = currentStatus === "approved" ? "pending" : "approved";
       const response = await fetch(
@@ -36,7 +36,7 @@ const NewListing = () => {
         });
         return;
       }
-      const data = await response.json();
+      // const data = await response.json();
       toast.success(`Property status updated`, {
         position: "top-right",
       });

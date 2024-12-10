@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
+import { PropertyCard } from "../../types/types";
 
 const PropertyCard = ({
   propertyId,
@@ -14,7 +15,7 @@ const PropertyCard = ({
   bathroom,
   squareFoot,
   price,
-}) => {
+}: PropertyCard) => {
   return (
     <div className="relative drop-shadow-xl bg-white rounded-lg">
       <Link href={`/Property/${propertyId}`}>

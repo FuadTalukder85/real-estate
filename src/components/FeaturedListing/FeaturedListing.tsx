@@ -11,10 +11,8 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Link from "next/link";
 import Slider from "react-slick";
 import "./FeaturedListing.css";
-import { TPropertyTypes } from "../../types/types";
-type TArrowProps = {
-  onClick: () => void;
-};
+import { TArrowProps, TPropertyTypes } from "../../types/types";
+
 // custom button
 const NextArrow = ({ onClick }: TArrowProps) => {
   return (

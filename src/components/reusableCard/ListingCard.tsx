@@ -1,6 +1,14 @@
 import Image from "next/image";
+import { TListingCard } from "../../types/types";
 
-const ListingCard = ({ cardImg, title, price, bed, bathroom, sf }) => {
+const ListingCard = ({
+  cardImg,
+  title,
+  price,
+  bed,
+  bathroom,
+  sf,
+}: TListingCard) => {
   return (
     <div className="relative group rounded-lg overflow-hidden">
       <Image

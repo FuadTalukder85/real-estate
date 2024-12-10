@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useGetPropertyQuery } from "../../redux/propertyApi/PropertyApi";
 import ListingCard from "../reusableCard/ListingCard";
-import { LoginInputs, TPropertyTypes } from "../../types/types";
+import { TPropertyTypes } from "../../types/types";
 
-const ListingByAgent = ({ email }: LoginInputs) => {
+const ListingByAgent = ({ email }: { email: string }) => {
   const { data } = useGetPropertyQuery("");
   const agentListing = data?.filter((dt: TPropertyTypes) => dt.email === email);
   return (

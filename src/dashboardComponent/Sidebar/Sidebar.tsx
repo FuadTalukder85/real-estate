@@ -12,12 +12,13 @@ import { PiUsersThree } from "react-icons/pi";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { AuthContext } from "../../Provider/AuthProvider";
 import "./Sidebar.css";
+import { LoginInputs } from "../../types/types";
 
 const Sidebar = () => {
   const { data } = useGetUserQuery("");
   const { user } = useContext(AuthContext);
   const [activeLink, setActiveLink] = useState("");
-  const currentUser = data?.find((dt) => dt.email === user?.email);
+  const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
   console.log(data);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -30,7 +31,7 @@ const Sidebar = () => {
     }
   }, []);
 
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link: string) => {
     setActiveLink(link);
     localStorage.setItem("activeLink", link);
   };

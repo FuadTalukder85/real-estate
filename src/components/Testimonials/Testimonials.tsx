@@ -6,8 +6,9 @@ import profileImg from "../../assets/images/profileImg01.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { TArrowProps } from "../../types/types";
 // custom button
-const NextArrow = ({ onClick }) => {
+const NextArrow = ({ onClick }: TArrowProps) => {
   return (
     <div className="absolute flex bottom-0 -left-80 px-6 md:px-0 ">
       <div
@@ -19,7 +20,7 @@ const NextArrow = ({ onClick }) => {
     </div>
   );
 };
-const PrevArrow = ({ onClick }) => {
+const PrevArrow = ({ onClick }: TArrowProps) => {
   return (
     <div className="absolute flex bottom-0 -left-96 px-5 md:px-0 z-10">
       <div
@@ -38,8 +39,8 @@ const Testimonials = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow onClick={() => {}} />,
+    prevArrow: <PrevArrow onClick={() => {}} />,
     responsive: [
       {
         breakpoint: 1024,
@@ -48,8 +49,8 @@ const Testimonials = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+          prevArrow: <PrevArrow onClick={() => {}} />,
         },
       },
       {
@@ -59,8 +60,8 @@ const Testimonials = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+          prevArrow: <PrevArrow onClick={() => {}} />,
         },
       },
     ],

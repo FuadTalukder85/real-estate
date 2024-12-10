@@ -14,7 +14,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const DashboardHeader = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const { user, logOut } = useContext(AuthContext);
+  const { logOut } = useContext(AuthContext);
   const currentUser = useCurrentUser();
 
   if (!currentUser) {

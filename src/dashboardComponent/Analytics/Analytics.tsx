@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { BsHouseCheck } from "react-icons/bs";
-import { GrFavorite } from "react-icons/gr";
 import {
   MdOutlineAppRegistration,
   MdOutlineContactMail,

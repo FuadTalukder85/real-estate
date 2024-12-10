@@ -3,15 +3,17 @@ import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useRouter } from "next/navigation";
 import { useGetUserQuery } from "../redux/userApi/UserApi";
+import { LoginInputs } from "../types/types";
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const router = useRouter();
   const { user, loading } = useContext(AuthContext);
   const { data, isLoading } = useGetUserQuery("");
 
   // Find the current user based on email
-  const currentUser = data?.find((dt) => dt.email === user?.email);
-  console.log("nai", currentUser);
+  const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
 
   useEffect(() => {
     if (!loading && !isLoading) {

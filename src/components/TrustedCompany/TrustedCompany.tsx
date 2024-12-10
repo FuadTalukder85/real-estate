@@ -21,7 +21,7 @@ const TrustedCompany = () => {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 2,
-    appendDots: (dots) => (
+    appendDots: (dots: React.ReactNode) => (
       <div
         style={{
           display: "flex",

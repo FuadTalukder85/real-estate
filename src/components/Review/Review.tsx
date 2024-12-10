@@ -3,10 +3,11 @@ import Image from "next/image";
 import proImg from "../../assets/images/profileImg01.jpg";
 import ReviewForm from "./ReviewForm";
 import { useGetReviewQuery } from "../../redux/reviewApi/reviewApi";
+import { TReview } from "../../types/types";
 
-const Review = ({ email }) => {
+const Review = ({ email }: { email: string }) => {
   const { data } = useGetReviewQuery("");
-  const matchReview = data?.filter((dt) => dt.reviewGet === email);
+  const matchReview = data?.filter((dt: TReview) => dt.reviewGet === email);
   return (
     <div>
       <div className="text-2xl font-bold text-[#2A4766] mt-16">
@@ -21,7 +22,7 @@ const Review = ({ email }) => {
       </div>
       <div className="grid grid-cols-12 gap-10 mt-5 text-[#2A4766]">
         <div className="col-span-7">
-          {matchReview?.map((review) => (
+          {matchReview?.map((review: TReview) => (
             <div key={review._id} className="flex gap-3 mt-5">
               <div>
                 <Image

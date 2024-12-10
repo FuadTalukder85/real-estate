@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { usePostReviewMutation } from "../../redux/reviewApi/reviewApi";
 import toast, { Toaster } from "react-hot-toast";
+import { TReview } from "../../types/types";
 
-const ReviewForm = ({ email }) => {
+const ReviewForm = ({ email }: { email: string }) => {
   const [postReview] = usePostReviewMutation();
   const [rating, setRating] = useState(0);
   const {
@@ -13,8 +14,8 @@ const ReviewForm = ({ email }) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
-  const onSubmit: SubmitHandler = async (data) => {
+  } = useForm<TReview>();
+  const onSubmit: SubmitHandler<TReview> = async (data) => {
     try {
       const reviewGet = email;
       const postedData = { ...data, reviewGet, rating };
@@ -76,7 +77,6 @@ const ReviewForm = ({ email }) => {
           <textarea
             {...register("review", { required: true })}
             rows={4}
-            type="text"
             placeholder="Write your review here..."
             className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
           />

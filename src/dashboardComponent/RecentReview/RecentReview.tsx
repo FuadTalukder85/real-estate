@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useEffect } from "react";
+import { TArrowProps } from "../../types/types";
+
 const RecentReview = () => {
   const { data, refetch } = useGetReviewQuery("");
   const recentReview = data
@@ -16,7 +18,7 @@ const RecentReview = () => {
       )
     : [];
   // custom button
-  const NextArrow = ({ onClick }) => {
+  const NextArrow = ({ onClick }: TArrowProps) => {
     return (
       <div className="absolute -bottom-20 right-0 flex md:px-0 ">
         <div
@@ -28,7 +30,7 @@ const RecentReview = () => {
       </div>
     );
   };
-  const PrevArrow = ({ onClick }) => {
+  const PrevArrow = ({ onClick }: TArrowProps) => {
     return (
       <div className="absolute -bottom-20 right-16 flex md:px-0 z-10">
         <div
@@ -48,8 +50,8 @@ const RecentReview = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     rows: 2,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow onClick={() => {}} />,
+    prevArrow: <PrevArrow onClick={() => {}} />,
     responsive: [
       {
         breakpoint: 1024,
@@ -58,8 +60,8 @@ const RecentReview = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+          prevArrow: <PrevArrow onClick={() => {}} />,
         },
       },
       {
@@ -69,8 +71,8 @@ const RecentReview = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />,
+          nextArrow: <NextArrow onClick={() => {}} />,
+          prevArrow: <PrevArrow onClick={() => {}} />,
         },
       },
     ],

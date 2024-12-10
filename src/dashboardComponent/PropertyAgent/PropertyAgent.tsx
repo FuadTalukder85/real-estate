@@ -4,11 +4,20 @@ import proImg from "../../assets/images/profileImg01.jpg";
 import { FaFacebook, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
-
-const PropertyAgent = ({ singleProperty }) => {
+import { LoginInputs } from "../../types/types";
+type SingleProperty = {
+  email: string;
+};
+const PropertyAgent = ({
+  singleProperty,
+}: {
+  singleProperty: SingleProperty;
+}) => {
   const { data } = useGetUserQuery("");
   //   find property agent
-  const agent = data?.find((dt) => dt.email === singleProperty.email);
+  const agent = data?.find(
+    (dt: LoginInputs) => dt?.email === singleProperty?.email
+  );
   return (
     <div className="">
       <p className="text-[#2A4766] font-semibold bg-gray-100 p-5 rounded-t-md">
