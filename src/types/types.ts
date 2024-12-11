@@ -64,7 +64,7 @@ export type TListingCard = {
   bathroom: number;
   sf: number;
 };
-export type PropertyCard = {
+export type TPropertyCard = {
   propertyId: string;
   propertyImage: string;
   propertyFor: string;
@@ -75,4 +75,6 @@ export type PropertyCard = {
   bathroom: number;
   squareFoot: number;
   price: number;
+  userImage: string;
+  userName: string;
 };

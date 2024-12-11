@@ -117,7 +117,6 @@ const DashProperty = () => {
             </div>
           </div>
         </div>
-
         {/* property table*/}
         <table className="w-full border-collapse">
           <thead className="bg-[#f2f2f3]">

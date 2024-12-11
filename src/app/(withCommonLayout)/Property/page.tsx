@@ -7,9 +7,11 @@ import Container from "../../../components/Container/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import PropertyCard from "../../../components/reusableCard/PropertyCard";
 import { TPropertyTypes } from "../../../types/types";
+import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 type TShortOption = "Sale" | "Rent" | string;
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");
+  const { data: userData } = useGetUserQuery("");
   const [generalQuery, setGeneralQuery] = useState("");
   const [locationQuery, setLocationQuery] = useState("");
   const [categoryQuery, setCategoryQuery] = useState("");
@@ -151,21 +153,28 @@ const PropertyPage = () => {
         </div>
         <div className="mt-16 grid grid-cols-3 gap-5">
           {filteredData.length > 0 ? (
-            filteredData.map((property: TPropertyTypes, index) => (
-              <PropertyCard
-                key={index}
-                propertyId={property?._id}
-                propertyImage={property?.propertyImage01}
-                propertyFor={property?.propertyFor}
-                propertyName={property.propertyName}
-                address={property.address}
-                city={property.city}
-                bedroom={property.bedroom}
-                bathroom={property.bathroom}
-                squareFoot={property.squareFoot}
-                price={property.price}
-              />
-            ))
+            filteredData.map((property: TPropertyTypes, index) => {
+              const user = userData?.find(
+                (user: any) => user.email === property.email
+              );
+              return (
+                <PropertyCard
+                  key={index}
+                  propertyId={property?._id}
+                  propertyImage={property?.propertyImage01}
+                  propertyFor={property?.propertyFor}
+                  propertyName={property.propertyName}
+                  address={property.address}
+                  city={property.city}
+                  bedroom={property.bedroom}
+                  bathroom={property.bathroom}
+                  squareFoot={property.squareFoot}
+                  price={property.price}
+                  userName={user?.name || "Unknown"}
+                  userImage={user?.image || "/default-profile.png"}
+                />
+              );
+            })
           ) : (
             <div className="col-span-3 text-center text-xl text-gray-500">
               No data found

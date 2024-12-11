@@ -13,7 +13,7 @@ const TopHeader = () => {
         </Link>
         <div className="flex gap-10 items-center">
           <div>
-            <p className="text-[#9e9fa3] font-semibold text-sm">
+            <p className="text-[#687f8a] font-semibold text-sm">
               Call for Enquiry
             </p>
             <b className="text-lg text-[#2A4766]">01756-867585</b>
