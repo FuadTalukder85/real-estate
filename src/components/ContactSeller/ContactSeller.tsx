@@ -1,36 +1,19 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { LoginInputs } from "../../types/types";
+import logo from "../../assets/images/real-estate-logo.png";
 type ContactSellerProps = {
   contactSeller: LoginInputs;
 };
-
 const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
   const { data } = useGetUserQuery("");
-  const [isFixed, setIsFixed] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 800) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  // find property agent
   const listedBy = data?.find(
     (dt: LoginInputs) => dt?.email === contactSeller?.email
   );
 
   return (
-    <div className={`w-[480px] ${isFixed ? "fixed top-0 " : ""}`}>
+    <div className="w-[480px]">
       <div className="w-full mx-auto bg-white border shadow-md rounded-lg p-6">
         <h2 className="text-xl font-semibold text-[#2A4766] mb-4 uppercase">
           Listed By
@@ -117,11 +100,31 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#ffac37] text-white py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            className="w-full bg-[#ffac37] text-white py-2 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
             Send Message
           </button>
         </form>
+      </div>
+      {/*  */}
+      <div
+        className="relative mt-10 shadow-md bg-cover bg-center bg-no-repeat rounded-lg w-full h-[560px] p-10 text-white"
+        style={{ backgroundImage: "url('/ads.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-lg group-hover:scale-125 transition-all duration-700 ease-in-out"></div>
+        <div className="relative z-10">
+          <Image src={logo} alt="logo" width={150} height={150} />
+          <h5 className="mt-52 text-3xl font-bold">
+            We can help you find a local real estate agent
+          </h5>
+          <p className="mt-3">
+            Connect with a trusted agent who knows the market inside out -
+            whether you,re buying or selling.
+          </p>
+          <button className="mt-5 w-full bg-[#ffac37] text-white py-2 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2">
+            Connect with an agent
+          </button>
+        </div>
       </div>
     </div>
   );

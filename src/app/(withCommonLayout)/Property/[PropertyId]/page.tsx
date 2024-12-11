@@ -7,6 +7,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { GiCheckMark } from "react-icons/gi";
 import ContactSeller from "../../../../components/ContactSeller/ContactSeller";
 import { TParams } from "../../../../types/types";
+import Review from "../../../../components/Review/Review";
 
 const PropertyDetails = async ({ params }: { params: TParams }) => {
   const { PropertyId } = await params;
@@ -22,47 +23,48 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
       <Container>
         <div className="grid grid-cols-12 gap-20 mt-12">
           <div className="col-span-7">
-            <div className="flex justify-between">
-              <ul className="flex items-center gap-5">
-                <li>
-                  <button className="bg-[#ffac37] text-white font-semibold px-3 py-1 rounded-md">
-                    Featured
-                  </button>
-                </li>
-                <li>
-                  <button className="text-[#2A4766] font-semibold px-3 py-1 rounded-md shadow-md">
-                    For {singleProperty.propertyFor}
-                  </button>
-                </li>
-                <li>
-                  <button className="text-[#2A4766] font-semibold">
-                    Build year :
-                    <span className="text-[#ffac37] font-bold text-lg ps-2">
-                      {singleProperty.buildYear}
-                    </span>
-                  </button>
-                </li>
-              </ul>
-              <div>
-                <p className="text-[#2A4766] font-semibold text-2xl">
-                  ${singleProperty.price}.00
-                </p>
-                <p className="text-end font-semibold text-[#ABACB0]">
-                  {singleProperty.squareFoot} / SqFt
-                </p>
+            <div className="shadow-md p-5 rounded-lg">
+              <div className="flex justify-between">
+                <ul className="flex items-center gap-5">
+                  <li>
+                    <button className="bg-[#ffac37] text-white font-semibold px-3 py-1 rounded-md">
+                      Featured
+                    </button>
+                  </li>
+                  <li>
+                    <button className="text-[#2A4766] font-semibold px-3 py-1 rounded-md shadow-md">
+                      For {singleProperty.propertyFor}
+                    </button>
+                  </li>
+                  <li>
+                    <button className="text-[#2A4766] font-semibold">
+                      Build year :
+                      <span className="text-[#ffac37] font-bold text-lg ps-2">
+                        {singleProperty.buildYear}
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+                <div>
+                  <p className="text-[#2A4766] font-semibold text-2xl">
+                    ${singleProperty.price}.00
+                  </p>
+                  <p className="text-end font-semibold text-[#ABACB0]">
+                    {singleProperty.squareFoot} / SqFt
+                  </p>
+                </div>
               </div>
-            </div>
-            <h3 className="mt-10 text-4xl font-semibold text-[#2A4766]">
-              {singleProperty.propertyName}
-            </h3>
-            <div className="mt-7 font-semibold text-xl text-[#2A4766]">
-              <li className="flex gap-3 items-center">
-                <IoLocationOutline className="text-[#ffac37] text-2xl" />
-                {singleProperty.address}, {singleProperty.city}
-              </li>
-            </div>
-            {/* description */}
-            <div>
+              <h3 className="mt-10 text-4xl font-semibold text-[#2A4766]">
+                {singleProperty.propertyName}
+              </h3>
+              <div className="mt-7 font-semibold text-xl text-[#2A4766]">
+                <li className="flex gap-3 items-center">
+                  <IoLocationOutline className="text-[#ffac37] text-2xl" />
+                  {singleProperty.address}, {singleProperty.city}
+                </li>
+              </div>
+              {/* description */}
+
               <h5 className="mt-10 text-[#2A4766] text-2xl font-semibold capitalize">
                 description:
               </h5>
@@ -71,8 +73,8 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               </p>
             </div>
             {/* property details */}
-            <div>
-              <h5 className="mt-10 text-[#2A4766] text-2xl font-semibold capitalize">
+            <div className="mt-10 shadow-md p-5 rounded-lg">
+              <h5 className="text-[#2A4766] text-2xl font-semibold capitalize">
                 Properties Details:
               </h5>
               <div className="flex gap-16 justify-between text-[#2A4766]">
@@ -131,8 +133,8 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               </div>
             </div>
             {/* whats nearby */}
-            <div>
-              <h5 className="mt-10 text-[#2A4766] text-2xl font-semibold capitalize">
+            <div className="mt-10 shadow-md p-5 rounded-lg">
+              <h5 className="text-[#2A4766] text-2xl font-semibold capitalize">
                 What,s nearby?
               </h5>
               <p className="mt-2 text-[#ABACB0] pr-2">
@@ -185,6 +187,8 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
             <ContactSeller contactSeller={singleProperty}></ContactSeller>
           </div>
         </div>
+        {/* review */}
+        <Review email={singleProperty?.email}></Review>
       </Container>
     </div>
   );

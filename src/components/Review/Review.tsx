@@ -4,24 +4,31 @@ import proImg from "../../assets/images/profileImg01.jpg";
 import ReviewForm from "./ReviewForm";
 import { useGetReviewQuery } from "../../redux/reviewApi/reviewApi";
 import { TReview } from "../../types/types";
+import { useEffect } from "react";
 
 const Review = ({ email }: { email: string }) => {
-  const { data } = useGetReviewQuery("");
+  const { data, refetch } = useGetReviewQuery("");
   const matchReview = data?.filter((dt: TReview) => dt.reviewGet === email);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetch();
+    }, 3000);
+    return () => clearInterval(intervalId);
+  }, [refetch]);
   return (
     <div>
-      <div className="text-2xl font-bold text-[#2A4766] mt-16">
-        {matchReview?.length === 0 ? (
-          <p>
-            <span>{matchReview?.length} Reviews</span>
-            <span>No one has reviewed yet</span>
-          </p>
-        ) : (
-          <p>{matchReview?.length} Reviews</p>
-        )}
-      </div>
-      <div className="grid grid-cols-12 gap-10 mt-5 text-[#2A4766]">
-        <div className="col-span-7">
+      <div className="grid grid-cols-12 gap-10 mt-16 text-[#2A4766]">
+        <div className="col-span-7 shadow-md p-3 rounded-lg">
+          <div className="text-2xl font-bold text-[#2A4766]">
+            {matchReview?.length === 0 ? (
+              <p>
+                <span>{matchReview?.length} Reviews</span>
+                <span>No one has reviewed yet</span>
+              </p>
+            ) : (
+              <p>{matchReview?.length} Reviews</p>
+            )}
+          </div>
           {matchReview?.map((review: TReview) => (
             <div key={review._id} className="flex gap-3 mt-5">
               <div>
@@ -48,7 +55,10 @@ const Review = ({ email }: { email: string }) => {
           ))}
         </div>
         <div className="col-span-5">
-          <ReviewForm email={email}></ReviewForm>
+          <div className="shadow-md p-3 rounded-lg">
+            <h5 className="text-2xl font-bold text-[#2A4766]">Add a review</h5>
+            <ReviewForm email={email}></ReviewForm>
+          </div>
         </div>
       </div>
     </div>

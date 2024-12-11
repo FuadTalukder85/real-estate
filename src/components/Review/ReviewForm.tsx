@@ -88,7 +88,7 @@ const ReviewForm = ({ email }: { email: string }) => {
       <div className="">
         <button
           type="submit"
-          className="mt-5 bg-[#ffac37] text-white py-3 px-6 rounded-md uppercase font-semibold hover:bg-[#2A4766] transition-all duration-700"
+          className="mt-5 bg-[#ffac37] text-white py-2 px-6 rounded-md uppercase font-semibold hover:bg-[#2A4766] transition-all duration-700"
         >
           Post review
         </button>
