@@ -22,7 +22,7 @@ const PropertyCard = ({
 }: TPropertyCard) => {
   return (
     <div className="drop-shadow-xl bg-white rounded-lg">
-      <div className="relative group rounded-t-lg overflow-hidden">
+      <div className="relative group rounded-t-lg overflow-hidden ">
         <Image
           src={propertyImage}
           alt="property01"
@@ -47,7 +47,7 @@ const PropertyCard = ({
         <h4 className="text-xl text-seaBlue py-2 font-semibold capitalize">
           {propertyName}
         </h4>
-        <ul className="flex justify-between mt-2 text-light">
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-7 mt-2 text-light">
           <li className="font-semibold border-r pr-7">
             <span className="flex gap-2 items-center">
               {bedroom} <FaBed />

@@ -28,11 +28,13 @@ const OurTeam = () => {
   };
   return (
     <Container>
-      <div className="text-center mt-28">
+      <div className="text-center mt-10 md:mt-28">
         <b className="uppercase text-yellow">Our Teams</b>
-        <h2 className="text-4xl font-semibold text-seaBlue">Meet Our Agents</h2>
+        <h2 className="text-2xl md:text-4xl font-semibold text-seaBlue">
+          Meet Our Agents
+        </h2>
       </div>
-      <div className="grid grid-cols-4 gap-5 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-3 md:mt-10 p-3 md:p-0">
         {allAgent?.map((agent: LoginInputs) => (
           <div key={agent._id}>
             <Link href={`/Agent/${agent._id}`}>

@@ -19,26 +19,9 @@ const Sidebar = () => {
   const pathname = usePathname();
   const { data } = useGetUserQuery("");
   const { user } = useContext(AuthContext);
-  // const [activeLink, setActiveLink] = useState("");
   const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
   console.log(data);
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const { pathname } = window.location;
-  //     if (pathname === "/dashboard") {
-  //       setActiveLink("/dashboard");
-  //     } else {
-  //       setActiveLink(pathname);
-  //     }
-  //   }
-  // }, []);
-
-  // const handleLinkClick = (link: string) => {
-  //   setActiveLink(link);
-  //   localStorage.setItem("activeLink", link);
-  // };
-
-  const getDynamicLink = (path) => {
+  const getDynamicLink = (path: string) => {
     if (pathname === path) {
       return "bg-[#ffe8d4]";
     }

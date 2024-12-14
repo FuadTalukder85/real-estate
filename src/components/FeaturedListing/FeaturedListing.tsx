@@ -29,7 +29,7 @@ const NextArrow = ({ onClick }: TArrowProps) => {
 };
 const PrevArrow = ({ onClick }: TArrowProps) => {
   return (
-    <div className="absolute flex -bottom-24 right-0 mr-10 md:mr-14 px-5 md:px-0 z-10">
+    <div className="absolute flex -bottom-24 right-6 md:right-1 mr-10 md:mr-14 px-5 md:px-0 z-10">
       <div
         className="custom-arrow next-arrow bg-white border border-gray-200 p-3 rounded-md shadow-md cursor-pointer hover:bg-seaBlue transition-all duration-700 z-10"
         onClick={onClick}
@@ -80,16 +80,18 @@ const FeaturedListing = () => {
   );
   return (
     <Container>
-      <div className="mt-28 flex text-seaBlue items-center justify-between">
-        <div className="w-[550px]">
-          <h2 className="text-4xl font-semibold">Featured properties</h2>
+      <div className="mt-10 md:mt-28 md:flex p-5 md:p-5 text-seaBlue items-center justify-between">
+        <div className="md:w-[550px]">
+          <h2 className="text-2xl md:text-4xl font-semibold">
+            Featured properties
+          </h2>
           <p className="mt-2 text-light">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
             modi ad, autem quia commodi quisquam deserunt asperiores rerum vero
             fugiat nobis ex voluptatibus.
           </p>
         </div>
-        <div>
+        <div className="mt-5 md:mt-0">
           <Link href="/Featured">
             <ReusableBtn>View all featured</ReusableBtn>
           </Link>

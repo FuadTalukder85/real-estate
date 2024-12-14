@@ -11,7 +11,7 @@ import { BiSolidCarGarage } from "react-icons/bi";
 const RecentSell = () => {
   return (
     <Container>
-      <div className="grid grid-cols-12 gap-12 items-center mt-28">
+      <div className="md:grid grid-cols-12 gap-12 items-center mt-10 md:mt-28 p-3 md:p-0">
         <div className="col-span-6">
           <div className="flex gap-5">
             <div className="overflow-hidden rounded-md">
@@ -41,8 +41,10 @@ const RecentSell = () => {
         </div>
         <div className="col-span-6">
           <div className="text-seaBlue">
-            <h2 className="text-4xl font-semibold">Recent Sells Properties</h2>
-            <p className="mt-5 text-light">
+            <h2 className="text-2xl md:text-4xl font-semibold mt-3 md:mt-0">
+              Recent Sells Properties
+            </h2>
+            <p className="mt-1 md:mt-5 text-light">
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
               injected humour, or randomised words which don,t look even
@@ -50,31 +52,45 @@ const RecentSell = () => {
             </p>
           </div>
           {/*  */}
-          <div className="mt-10 text-light">
+          <div className="mt-5 md:mt-10 text-light">
             <li>Live Music Cocerts at Luviana</li>
-            <li className="mt-5">Our SecretIsland Boat Tour is Just for You</li>
-            <li className="mt-5">Publishing packages and web page editors</li>
-            <li className="mt-5">Nemo enim ipsam voluptatem quia voluptas</li>
+            <li className="mt-2 md:mt-5">
+              Our SecretIsland Boat Tour is Just for You
+            </li>
+            <li className="mt-2 md:mt-5">
+              Publishing packages and web page editors
+            </li>
+            <li className="mt-2 md:mt-5">
+              Nemo enim ipsam voluptatem quia voluptas
+            </li>
           </div>
           {/*  */}
-          <div className="flex gap-10 mt-16 text-light">
-            <div className="border-r">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-11 mt-3 md:mt-16 text-light">
+            <div className="border-r border-light">
               <span className="flex gap-3 items-center">
                 2100 <RxSize />
               </span>
-              <p className="pr-10">square Ft</p>
+              <p className="">square Ft</p>
             </div>
-            <div className="border-r">
+            <div className="hidden md:block border-r border-light">
               <span className="flex gap-3 items-center">
                 5 <FaBed />
               </span>
-              <p className="pr-10">Bedrooms</p>
+              <p className="">Bedrooms</p>
             </div>
-            <div className="border-r">
+            {/* for responsive */}
+            <div className="md:hidden">
+              <span className="flex gap-3 items-center">
+                5 <FaBed />
+              </span>
+              <p className="">Bedrooms</p>
+            </div>
+            {/*  */}
+            <div className="border-r border-light">
               <span className="flex gap-3 items-center">
                 4 <FaBath />
               </span>
-              <p className="pr-10">Bathrooms</p>
+              <p className="">Bathrooms</p>
             </div>
             <div className="">
               <span className="flex gap-3 items-center">

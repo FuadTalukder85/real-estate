@@ -4,7 +4,6 @@ import Container from "../Container/Container";
 import { FaSearch, FaBed } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { MdCategory, MdOutlineEventNote } from "react-icons/md";
-import "./Banner.css";
 import { FaLocationDot } from "react-icons/fa6";
 
 const Banner = () => {
@@ -26,16 +25,24 @@ const Banner = () => {
   };
 
   return (
-    <div className="banner-img">
+    <div
+      className=""
+      style={{
+        backgroundImage: "url('/banner01.jpg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <Container>
-        <div className="py-32 font-semibold">
-          <h5 className="text-white text-5xl w-[600px]">
+        <div className="py-16 md:py-32 font-semibold p-3 md:p-0">
+          <h5 className="text-white text-2xl md:text-5xl md:w-[600px]">
             Find your dream house!
           </h5>
           <p className="text-white text-2xl">
             We are offering the best Real Estate Deals
           </p>
-          <ul className="text-white text-lg mt-10">
+          <ul className="text-white text-lg mt-5 md:mt-10">
             <li className="flex gap-3 items-center">
               <span className="border-2 border-yellow p-1 text-sm rounded-full">
                 <FaLocationDot />
@@ -57,10 +64,10 @@ const Banner = () => {
           </ul>
           {/* Search */}
           <div className="mt-14 mb-10">
-            <h5 className="p-5 text-white text-2xl font-semibold capitalize bg-seaBlue w-[350px]">
+            <h5 className="p-5 text-white text-2xl font-semibold capitalize bg-seaBlue md:w-[350px]">
               Search best home
             </h5>
-            <ul className="flex gap-2 p-5 bg-seaBlue">
+            <ul className="md:flex gap-2 p-3 bg-seaBlue">
               <li className="flex items-center gap-3 p-3 bg-white">
                 <FaSearch />
                 <input
@@ -70,7 +77,7 @@ const Banner = () => {
                   onChange={(e) => setGeneralQuery(e.target.value)}
                 />
               </li>
-              <li className="flex items-center gap-3 p-3 bg-white">
+              <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
                 <FaLocationDot />
                 <input
                   className="w-52 outline-none text-sm"
@@ -79,7 +86,7 @@ const Banner = () => {
                   onChange={(e) => setLocationQuery(e.target.value)}
                 />
               </li>
-              <li className="flex items-center gap-3 p-3 bg-white">
+              <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
                 <MdCategory />
                 <input
                   className="w-52 outline-none text-sm"
@@ -88,7 +95,7 @@ const Banner = () => {
                   onChange={(e) => setCategoryQuery(e.target.value)}
                 />
               </li>
-              <li className="flex items-center gap-3 p-3 bg-white">
+              <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
                 <FaBed />
                 <input
                   className="w-52 outline-none text-sm"
@@ -99,7 +106,7 @@ const Banner = () => {
               </li>
               <button
                 onClick={handleSearch}
-                className="flex items-center gap-3 p-3 px-6 bg-yellow text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700"
+                className=" gap-3 p-3 w-full bg-yellow text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700 mt-2 md:mt-0"
               >
                 Search
               </button>

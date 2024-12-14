@@ -16,15 +16,17 @@ const LatestSale = () => {
   console.log(recentProperty);
   return (
     <Container>
-      <div className="mx-auto w-[550px] text-center text-seaBlue">
-        <h2 className="mt-28 text-4xl font-semibold">LATEST FOR SALE</h2>
+      <div className="mx-auto md:w-[550px] text-center text-seaBlue p-3 md:p-0">
+        <h2 className="mt-10 md:mt-28 text-2xl md:text-4xl font-semibold">
+          LATEST FOR SALE
+        </h2>
         <p className="mt-2 text-light">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           modi ad, autem quia commodi quisquam deserunt asperiores rerum vero
           fugiat nobis ex voluptatibus.
         </p>
       </div>
-      <div className="mt-16 grid grid-cols-3 gap-5">
+      <div className="mt-3 md:mt-16 md:grid grid-cols-3 gap-5 p-3 md:p-0">
         {recentProperty?.slice(0, 3).map((property, index) => {
           const user = userData?.find(
             (user: any) => user.email === property.email

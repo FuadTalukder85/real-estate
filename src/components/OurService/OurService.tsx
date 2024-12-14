@@ -9,15 +9,17 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const OurService = () => {
   return (
     <Container>
-      <div className="w-[550px] mt-28">
+      <div className="md:w-[550px] mt-28 p-5 md:p-0">
         <b className="uppercase text-yellow">Our services</b>
-        <h2 className="text-4xl font-semibold text-seaBlue">What We Do?</h2>
+        <h2 className="text-2xl md:text-4xl font-semibold text-seaBlue">
+          What We Do?
+        </h2>
       </div>
-      <div className="flex gap-10 mt-10">
+      <div className="md:flex gap-10 md:mt-10 p-5 md:p-0">
         {/* Card 01 */}
         <div className="">
           <Image src={icon01} alt="icon01"></Image>
-          <h5 className="text-seaBlue text-xl font-semibold mt-5">
+          <h5 className="text-seaBlue text-xl font-semibold md:mt-5">
             Buy A New Home
           </h5>
           <p className="text-light mt-3">
@@ -29,9 +31,9 @@ const OurService = () => {
           </button>
         </div>
         {/* Card 02 */}
-        <div className="">
+        <div className="mt-3 md:mt-0">
           <Image src={icon02} alt="icon01"></Image>
-          <h5 className="text-seaBlue text-xl font-semibold mt-5">
+          <h5 className="text-seaBlue text-xl font-semibold md:mt-5">
             Rent a home
           </h5>
           <p className="text-light mt-3">
@@ -43,9 +45,9 @@ const OurService = () => {
           </button>
         </div>
         {/* Card 03 */}
-        <div className="">
+        <div className="mt-3 md:mt-0">
           <Image src={icon03} alt="icon01"></Image>
-          <h5 className="text-seaBlue text-xl font-semibold mt-5">
+          <h5 className="text-seaBlue text-xl font-semibold md:mt-5">
             Sell a home
           </h5>
           <p className="text-light mt-3">

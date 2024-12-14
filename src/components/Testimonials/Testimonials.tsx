@@ -68,11 +68,11 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-[#F7F7F7] py-28 mt-28">
-      <div className="grid grid-cols-8 gap-10 items-center ml-[360px]">
+    <div className="bg-[#F7F7F7] py-5 md:py-28 mt-10 md:mt-28 p-3 md:p-0">
+      <div className="md:grid grid-cols-8 gap-10 items-center md:ml-[360px]">
         <div className="col-span-2">
           <b className="uppercase text-yellow">Top Properties</b>
-          <h2 className="text-4xl font-semibold text-seaBlue">
+          <h2 className="text-2xl md:text-4xl font-semibold text-seaBlue">
             What’s people say’s
           </h2>
           <p className="mt-5 text-light">
