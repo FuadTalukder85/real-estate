@@ -117,7 +117,7 @@ const Header = () => {
         <Container>
           <div className="flex justify-between items-center py-2">
             <div>
-              <ul className="gap-5 flex uppercase font-semibold text-sm">
+              <ul className="gap-2 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">
                   <Link
                     href="/"
@@ -127,7 +127,7 @@ const Header = () => {
                   >
                     Home
                   </Link>
-                  <span className="ps-5 border-r h-3"></span>
+                  <span className="ps-2 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
                   <Link
@@ -138,7 +138,7 @@ const Header = () => {
                   >
                     Property
                   </Link>
-                  <span className="ps-5 border-r h-3"></span>
+                  <span className="ps-2 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
                   <Link
@@ -149,7 +149,7 @@ const Header = () => {
                   >
                     Featured
                   </Link>
-                  <span className="ps-5 border-r h-3"></span>
+                  <span className="ps-2 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
                   <Link
@@ -160,7 +160,7 @@ const Header = () => {
                   >
                     Agent
                   </Link>
-                  <span className="ps-5 border-r h-3"></span>
+                  <span className="ps-2 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
                   <Link
@@ -171,7 +171,18 @@ const Header = () => {
                   >
                     Blog
                   </Link>
-                  <span className="ps-5 border-r h-3"></span>
+                  <span className="ps-2 border-r h-3"></span>
+                </li>
+                <li className="flex items-center">
+                  <Link
+                    href="/AboutUs"
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/AboutUs"
+                    )}`}
+                  >
+                    About Us
+                  </Link>
+                  <span className="ps-2 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
                   <Link

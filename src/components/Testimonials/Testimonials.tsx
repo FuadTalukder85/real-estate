@@ -79,14 +79,6 @@ const Testimonials = () => {
             Our seasoned team excels in real estate with years of successful
             market navigation, offering informed decisions and optimal results.
           </p>
-          {/* <div className="flex gap-3 mt-10">
-            <button className="bg-white border border-gray-200 p-3 rounded-md shadow-md">
-              <MdChevronLeft className="text-2xl text-[#F1913D]" />
-            </button>
-            <button className="bg-[#F1913D] p-3 rounded-md shadow-md">
-              <MdChevronRight className="text-2xl text-white" />
-            </button>
-          </div> */}
         </div>
         <div className="col-span-6">
           <Slider {...settings}>
