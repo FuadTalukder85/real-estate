@@ -32,16 +32,16 @@ const PropertyAgent = ({
           <p className="font-normal">( {agent?.role} )</p>
         </div>
         <div className="flex gap-3 justify-center mt-3">
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
             <FaFacebook />
           </p>
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
             <FaTwitterSquare />
           </p>
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
             <IoLogoYoutube />
           </p>
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
             <FaLinkedin />
           </p>
         </div>

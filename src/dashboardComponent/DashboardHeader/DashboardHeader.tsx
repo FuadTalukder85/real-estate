@@ -44,7 +44,7 @@ const DashboardHeader = () => {
         <IoIosSearch />
       </div>
       <div className="flex gap-5 items-center">
-        <button className="flex gap-3 items-center bg-[#ffac37] py-2 px-4 rounded-md font-semibold text-white hover:bg-[#ffb958] hover:text-white transition-all duration-700">
+        <button className="flex gap-3 items-center bg-[#F1913D] py-3 px-4 rounded-md font-semibold text-white hover:bg-[#2A4766] hover:text-white transition-all duration-700">
           <Link href="/dashboard/AddProperty">Add Property</Link>
           <IoMdAddCircleOutline className="text-xl" />
         </button>
@@ -75,7 +75,7 @@ const DashboardHeader = () => {
                       handleShowModal();
                       setIsDropdownOpen(false);
                     }}
-                    className="bg-[#ffac37] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer"
+                    className="bg-[#F1913D] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     Update Profile
                   </li>

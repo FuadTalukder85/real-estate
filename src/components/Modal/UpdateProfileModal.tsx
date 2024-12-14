@@ -96,7 +96,7 @@ const UpdateProfileModal: React.FC<UpdateProfileModalProps> = ({ onClose }) => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="mt-5 bg-[#ffac37] text-white py-2 px-6 rounded-lg w-full uppercase font-semibold hover:bg-[#ffb958] transition-all duration-700"
+                className="mt-5 bg-[#F1913D] text-white py-2 px-6 rounded-lg w-full uppercase font-semibold hover:bg-[#ffb958] transition-all duration-700"
               >
                 Update
               </button>

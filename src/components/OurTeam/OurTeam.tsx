@@ -8,6 +8,7 @@ import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import { LoginInputs } from "../../types/types";
+import ReusableBtn from "../reusableBtn/reusableBtn";
 const OurTeam = () => {
   const { data } = useGetUserQuery("");
   const allAgent = data?.filter((dt: LoginInputs) => dt.role === "Agent");
@@ -28,7 +29,7 @@ const OurTeam = () => {
   return (
     <Container>
       <div className="text-center mt-28">
-        <b className="uppercase text-[#ffac37]">Our Teams</b>
+        <b className="uppercase text-[#F1913D]">Our Teams</b>
         <h2 className="text-4xl font-semibold text-[#2A4766]">
           Meet Our Agents
         </h2>
@@ -56,18 +57,20 @@ const OurTeam = () => {
                 <p className="text-lg font-semibold text-[#2A4766]">
                   {agent?.name}
                 </p>
-                <span className="text-[#ABACB0]">Administrative Staff</span>
+                <span className="font-semibold text-sm text-[#687f8a]">
+                  Administrative Staff
+                </span>
               </div>
-              <ul className="flex gap-3 text-[#ABACB0] text-lg">
+              <ul className="flex gap-3 text-[#2A4766] text-lg">
                 <li
                   onClick={() => toggleModal(`Call: ${agent?.number}`)}
-                  className="p-3 border rounded-full hover:text-white hover:bg-[#ffac37] transition-all duration-700 cursor-pointer"
+                  className="p-3 border border-[#2A4766] rounded-full hover:text-white hover:bg-[#2A4766] transition-all duration-700 cursor-pointer"
                 >
                   <FiPhoneCall />
                 </li>
                 <li
                   onClick={() => toggleModal(`Email: ${agent?.email}`)}
-                  className="p-3 border rounded-full hover:text-white hover:bg-[#ffac37] transition-all duration-700 cursor-pointer"
+                  className="p-3 border border-[#2A4766] rounded-full hover:text-white hover:bg-[#2A4766] transition-all duration-700 cursor-pointer"
                 >
                   <MdOutlineAttachEmail />
                 </li>
@@ -82,7 +85,7 @@ const OurTeam = () => {
                     onClick={() => toggleModal(null)}
                     className="text-2xl absolute top-2 right-2 text-gray-500 hover:text-gray-700"
                   >
-                    <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                    <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#77797a]" />
                   </button>
                   <p className="text-center">{modalContent}</p>
                 </div>
@@ -93,9 +96,7 @@ const OurTeam = () => {
       </div>
       <div className="flex justify-center mt-10">
         <Link href="/Agent">
-          <button className="bg-[#ffac37] text-white py-2 px-6 font-semibold uppercase rounded-lg hover:bg-[#2A4766] transition-all duration-700">
-            View all Agent
-          </button>
+          <ReusableBtn>View all Agent</ReusableBtn>
         </Link>
       </div>
     </Container>

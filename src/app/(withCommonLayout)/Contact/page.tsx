@@ -14,7 +14,7 @@ const ContactPage = () => {
       <Container>
         <div className="flex gap-5 justify-between mt-28">
           <div className="text-center bg-[#F7F7F7] px-16 py-10 w-full rounded-xl">
-            <CiShoppingCart className="text-[#ffac37] text-8xl mx-auto" />
+            <CiShoppingCart className="text-[#F1913D] text-8xl mx-auto" />
             <p className="text-[#2A4766] font-semibold text-2xl">
               Contact Sales
             </p>
@@ -22,7 +22,7 @@ const ContactPage = () => {
             <p className="text-[#2A4766]">+8801756867585</p>
           </div>
           <div className="text-center bg-[#F7F7F7] px-16 py-10 w-full rounded-xl">
-            <CiHome className="text-[#ffac37] text-8xl mx-auto" />
+            <CiHome className="text-[#F1913D] text-8xl mx-auto" />
             <p className="text-[#2A4766] font-semibold text-2xl">
               Contact Rents
             </p>
@@ -30,7 +30,7 @@ const ContactPage = () => {
             <p className="text-[#2A4766]">+8801756867585</p>
           </div>
           <div className="text-center bg-[#F7F7F7] px-16 py-10 w-full rounded-xl">
-            <PiPhoneCallThin className="text-[#ffac37] text-8xl mx-auto" />
+            <PiPhoneCallThin className="text-[#F1913D] text-8xl mx-auto" />
             <p className="text-[#2A4766] font-semibold text-2xl">Contact Buy</p>
             <p className="text-[#2A4766] mt-3">sales@gmail.com</p>
             <p className="text-[#2A4766]">+8801756867585</p>

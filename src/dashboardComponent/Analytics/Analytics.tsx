@@ -23,7 +23,7 @@ const Analytics = () => {
       <div className="flex gap-5 justify-between mt-5">
         {/* card 01 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
-          <BsHouseCheck className="text-5xl text-[#ffac37]" />
+          <BsHouseCheck className="text-5xl text-[#F1913D]" />
           <div>
             <p className="text-[#2A4766]">No. of Property</p>
             <span className="text-2xl font-semibold text-[#2A4766]">
@@ -33,7 +33,7 @@ const Analytics = () => {
         </div>
         {/* card 02 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
-          <MdOutlineAppRegistration className="text-5xl text-[#ffac37]" />
+          <MdOutlineAppRegistration className="text-5xl text-[#F1913D]" />
           <div>
             <p className="text-[#2A4766]">Regi. Agents</p>
             <span className="text-2xl font-semibold text-[#2A4766]">
@@ -43,7 +43,7 @@ const Analytics = () => {
         </div>
         {/* card 03 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
-          <MdPendingActions className="text-5xl text-[#ffac37]" />
+          <MdPendingActions className="text-5xl text-[#F1913D]" />
           <div>
             <p className="text-[#2A4766]">Pending Property</p>
             <span className="text-2xl font-semibold text-[#2A4766]">
@@ -53,7 +53,7 @@ const Analytics = () => {
         </div>
         {/* card 04 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
-          <MdOutlineContactMail className="text-5xl text-[#ffac37]" />
+          <MdOutlineContactMail className="text-5xl text-[#F1913D]" />
           <div>
             <p className="text-[#2A4766]">Contact</p>
             <span className="flex items-center gap-2 text-2xl font-semibold text-[#2A4766]">
@@ -64,7 +64,7 @@ const Analytics = () => {
         </div>
         {/* card 05 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
-          <MdOutlineReviews className="text-5xl text-[#ffac37]" />
+          <MdOutlineReviews className="text-5xl text-[#F1913D]" />
           <div>
             <p className="text-[#2A4766]">Reviews</p>
             <span className="flex items-center gap-2 text-2xl font-semibold text-[#2A4766]">

@@ -29,7 +29,7 @@ const ReviewForm = ({ email }: { email: string }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Toaster />
-      <div className="space-y-4">
+      <div className="space-y-4 mt-5">
         <div className="flex gap-3">
           <div>
             <label className="font-semibold text-sm" htmlFor="">
@@ -88,7 +88,7 @@ const ReviewForm = ({ email }: { email: string }) => {
       <div className="">
         <button
           type="submit"
-          className="mt-5 bg-[#ffac37] text-white py-2 px-6 rounded-md uppercase font-semibold hover:bg-[#2A4766] transition-all duration-700"
+          className="mt-5 bg-[#F1913D] text-white py-3 px-4 rounded-md uppercase text-sm font-semibold hover:bg-[#2A4766] transition-all duration-700"
         >
           Post review
         </button>

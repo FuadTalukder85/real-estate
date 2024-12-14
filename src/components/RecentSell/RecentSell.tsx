@@ -42,7 +42,7 @@ const RecentSell = () => {
         <div className="col-span-6">
           <div className="text-[#2A4766]">
             <h2 className="text-4xl font-semibold">Recent Sells Properties</h2>
-            <p className="mt-5 text-[#ABACB0]">
+            <p className="mt-5 text-[#77797a]">
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
               injected humour, or randomised words which don,t look even

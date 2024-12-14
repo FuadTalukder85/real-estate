@@ -35,70 +35,70 @@ const AddProperty: React.FC = () => {
       <h5 className="font-semibold">Property Details</h5>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Name*
           </label>
           <input
             {...register("propertyName", { required: true })}
             type="text"
             placeholder="Name"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 outline-none"
           />
           {errors.propertyName && (
             <span className="text-red-600">This field is required</span>
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Image 01*
           </label>
           <input
             {...register("propertyImage01", { required: true })}
             type="text"
             placeholder="Property Image"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 outline-none"
           />
           {errors.propertyImage01 && (
             <span className="text-red-600">This field is required</span>
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Image 02*
           </label>
           <input
             {...register("propertyImage02", { required: true })}
             type="text"
             placeholder="Property Image"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 outline-none"
           />
           {errors.propertyImage02 && (
             <span className="text-red-600">This field is required</span>
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Image 03*
           </label>
           <input
             {...register("propertyImage03", { required: true })}
             type="text"
             placeholder="Property Image"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 outline-none"
           />
           {errors.propertyImage03 && (
             <span className="text-red-600">This field is required</span>
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Image 04*
           </label>
           <input
             {...register("propertyImage04", { required: true })}
             type="text"
             placeholder="Property Image"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 outline-none"
           />
           {errors.propertyImage04 && (
             <span className="text-red-600">This field is required</span>
@@ -106,7 +106,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Price*
           </label>
           <div className="relative mt-1 rounded-md shadow-sm">
@@ -117,7 +117,7 @@ const AddProperty: React.FC = () => {
               {...register("price", { required: true })}
               type="number"
               placeholder="000"
-              className="block w-full pl-7 p-2 border border-gray-300 rounded-md"
+              className="block w-full pl-7 p-2 outline-none border border-gray-300 rounded-md"
             />
           </div>
           {errors.price && (
@@ -126,12 +126,12 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property For*
           </label>
           <select
             {...register("propertyFor", { required: true })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Sale / Rent</option>
             <option value="Sale">Sale</option>
@@ -144,12 +144,12 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Categories*
           </label>
           <select
             {...register("propertyCategory", { required: true })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Select property</option>
             <option value="Apartment">Apartment</option>
@@ -162,14 +162,14 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Bedroom*
           </label>
           <input
             {...register("bedroom", { required: true })}
             type="number"
             placeholder="Bedroom"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.bedroom && (
             <span className="text-red-600">This field is required</span>
@@ -177,14 +177,14 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Bathroom*
           </label>
           <input
             {...register("bathroom", { required: true })}
             type="number"
             placeholder="Bathroom"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.bathroom && (
             <span className="text-red-600">This field is required</span>
@@ -192,14 +192,14 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Square Foot*
           </label>
           <input
             {...register("squareFoot", { required: true })}
             type="number"
             placeholder="Square Foot"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.squareFoot && (
             <span className="text-red-600">This field is required</span>
@@ -207,14 +207,14 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Floor*
           </label>
           <input
             {...register("floor", { required: true })}
             type="number"
             placeholder="Floor"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.floor && (
             <span className="text-red-600">This field is required</span>
@@ -224,28 +224,28 @@ const AddProperty: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Build year*
           </label>
           <input
             {...register("buildYear", { required: true })}
             type="number"
             placeholder="Build year"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.floor && (
             <span className="text-red-600">This field is required</span>
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Property Address*
           </label>
           <input
             {...register("address", { required: true })}
             type="text"
             placeholder="Enter address"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.address && (
             <span className="text-red-600">This field is required</span>
@@ -255,14 +255,14 @@ const AddProperty: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Zip-Code*
           </label>
           <input
             {...register("zipCode", { required: true })}
             type="text"
             placeholder="zip-code"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           />
           {errors.zipCode && (
             <span className="text-red-600">This field is required</span>
@@ -270,12 +270,12 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             City*
           </label>
           <select
             {...register("city", { required: true })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Choose a city</option>
             <option value="Faridpur">Faridpur</option>
@@ -290,12 +290,12 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-[#2A4766]">
             Country*
           </label>
           <select
             {...register("country", { required: true })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            className="mt-1 block w-full p-2 outline-none border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Choose a country</option>
             <option value="Bangladesh">Bangladesh</option>
@@ -309,7 +309,7 @@ const AddProperty: React.FC = () => {
       <textarea
         {...register("description", { required: true })}
         placeholder="Description"
-        className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
+        className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 outline-none row-span-5"
       ></textarea>
       {errors.description && (
         <span className="text-red-600">This field is required</span>
@@ -318,13 +318,13 @@ const AddProperty: React.FC = () => {
       <div className="flex justify-end space-x-4 mt-4">
         <button
           type="submit"
-          className="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700"
+          className="bg-[#2A4766] text-white py-3 px-4 rounded-md hover:bg-[#F1913D] transition-all duration-700"
         >
           Create Product
         </button>
         <button
           type="button"
-          className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700"
+          className="bg-[#F1913D] text-white py-2 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-700"
           onClick={() => console.log("Canceled")}
         >
           Cancel

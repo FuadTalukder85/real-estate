@@ -18,7 +18,7 @@ const LatestSale = () => {
     <Container>
       <div className="mx-auto w-[550px] text-center text-[#2A4766]">
         <h2 className="mt-28 text-4xl font-semibold">LATEST FOR SALE</h2>
-        <p className="mt-2 text-[#ABACB0]">
+        <p className="mt-2 text-[#77797a]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           modi ad, autem quia commodi quisquam deserunt asperiores rerum vero
           fugiat nobis ex voluptatibus.

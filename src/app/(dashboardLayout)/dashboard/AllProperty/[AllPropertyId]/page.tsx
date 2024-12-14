@@ -26,8 +26,8 @@ const DashPropertyDetails = async ({ params }: { params: TParams }) => {
           <h3 className="text-[#2A4766] font-semibold text-xl mt-5">
             {singleProperty?.propertyName}
           </h3>
-          <li className="flex gap-2 items-center mt-2 text-[#2A4766] font-medium hover:text-[#ffac37] transition-all duration-700">
-            <IoLocationOutline className="text-[#ffac37] text-lg" />{" "}
+          <li className="flex gap-2 items-center mt-2 text-[#2A4766] font-medium hover:text-[#F1913D] transition-all duration-700">
+            <IoLocationOutline className="text-[#F1913D] text-lg" />{" "}
             {singleProperty?.address}, {singleProperty?.city}
           </li>
           <p className="flex items-center justify-between text-[#2A4766] font-semibold text-xl mt-5">
@@ -39,7 +39,7 @@ const DashPropertyDetails = async ({ params }: { params: TParams }) => {
           <ul className="flex justify-between bg-white text-[#2A4766] font-semibold p-3 px-8 mt-5 rounded-md">
             <li className="flex gap-8 items-center">
               <p className="flex gap-2 items-center">
-                <FaBed className="text-[#ffac37]" />{" "}
+                <FaBed className="text-[#F1913D]" />{" "}
                 <span>{singleProperty?.bedroom}</span>
                 <span>Bedroom</span>
               </p>
@@ -47,7 +47,7 @@ const DashPropertyDetails = async ({ params }: { params: TParams }) => {
             </li>
             <li className="flex gap-8 items-center">
               <p className="flex gap-2 items-center">
-                <FaBath className="text-[#ffac37]" />
+                <FaBath className="text-[#F1913D]" />
                 <span>{singleProperty?.bathroom}</span>
                 <span>Bathroom</span>
               </p>
@@ -55,14 +55,14 @@ const DashPropertyDetails = async ({ params }: { params: TParams }) => {
             </li>
             <li className="flex gap-8 items-center">
               <p className="flex gap-2 items-center">
-                <RxSize className="text-[#ffac37]" /> <span>2</span>
+                <RxSize className="text-[#F1913D]" /> <span>2</span>
                 <span>sqft</span>
               </p>
               <span className="border-r h-3"></span>
             </li>
             <li className="flex gap-8 items-center">
               <p className="flex gap-2 items-center">
-                <RxSize className="text-[#ffac37]" />
+                <RxSize className="text-[#F1913D]" />
                 <span>{singleProperty?.buildYear}</span>
                 <span>Build year</span>
               </p>
@@ -70,14 +70,14 @@ const DashPropertyDetails = async ({ params }: { params: TParams }) => {
             </li>
             <li className="flex gap-8 items-center">
               <p className="flex gap-2 items-center">
-                <MdOutlineReviews className="text-[#ffac37]" /> <span>2</span>
+                <MdOutlineReviews className="text-[#F1913D]" /> <span>2</span>
                 <span>Review</span>
               </p>
               <span className="border-r h-3"></span>
             </li>
             <li className="">
               <p className="flex gap-2 items-center">
-                <GiCheckMark className="text-[#ffac37]" /> <span>2</span>
+                <GiCheckMark className="text-[#F1913D]" /> <span>2</span>
                 <span>For Sale</span>
               </p>
             </li>

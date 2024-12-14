@@ -100,7 +100,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#ffac37] text-white py-2 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            className="w-full bg-[#F1913D] text-white uppercase font-semibold text-sm py-3 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
             Send Message
           </button>
@@ -121,7 +121,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
             Connect with a trusted agent who knows the market inside out -
             whether you,re buying or selling.
           </p>
-          <button className="mt-5 w-full bg-[#ffac37] text-white py-2 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <button className="mt-5 w-full bg-[#F1913D] text-white text-sm font-semibold uppercase py-3 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2">
             Connect with an agent
           </button>
         </div>

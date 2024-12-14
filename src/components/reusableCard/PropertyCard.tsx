@@ -22,30 +22,28 @@ const PropertyCard = ({
 }: TPropertyCard) => {
   return (
     <div className="drop-shadow-xl bg-white rounded-lg">
-      <div className="relative">
-        <Link href={`/Property/${propertyId}`}>
-          <Image
-            src={propertyImage}
-            alt="property01"
-            width={400}
-            height={400}
-            className="rounded-t-lg"
-          ></Image>
+      <div className="relative group rounded-t-lg overflow-hidden">
+        <Image
+          src={propertyImage}
+          alt="property01"
+          width={400}
+          height={400}
+          className="rounded-t-lg group-hover:scale-125 transition-all duration-700 ease-in-out"
+        ></Image>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-lg group-hover:scale-125 transition-all duration-700 ease-in-out"></div>
-          <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-white uppercase font-semibold">
-            For {propertyFor}
-          </h5>
-          <div className="absolute bottom-3 left-3 flex gap-3 items-center text-white">
-            <FaLocationDot />
-            <span>
-              {address}, {city}
-            </span>
-          </div>
-        </Link>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-t-lg group-hover:scale-125 transition-all duration-700 ease-in-out"></div>
+        <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-white uppercase font-semibold">
+          For {propertyFor}
+        </h5>
+        <div className="absolute bottom-3 left-3 flex gap-3 items-center text-white">
+          <FaLocationDot />
+          <span>
+            {address}, {city}
+          </span>
+        </div>
       </div>
       <div className="p-5">
-        <h4 className="text-[#ffac37] text-xl font-semibold">${price}.00</h4>
+        <h4 className="text-[#F1913D] text-xl font-semibold">${price}.00</h4>
         <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
           {propertyName}
         </h4>
@@ -70,17 +68,28 @@ const PropertyCard = ({
           </li>
         </ul>
       </div>
-      <div className="flex gap-3 items-center p-5 border-t">
-        <Image
-          src={userImage}
-          alt="userImage"
-          width={50}
-          height={50}
-          className="rounded-2xl"
-        ></Image>
-        <div>
-          <p className="text-[#2A4766] font-semibold">{userName}</p>
-          <p className="text-[#687f8a] text-sm">Property Agent</p>
+      <div className="flex justify-between items-center p-5 border-t">
+        <div className="flex gap-3">
+          <Image
+            src={userImage}
+            alt="userImage"
+            width={50}
+            height={50}
+            className="rounded-2xl"
+          ></Image>
+          <div>
+            <p className="text-[#2A4766] font-semibold">{userName}</p>
+            <p className="text-[#687f8a] text-sm font-semibold">
+              Property Agent
+            </p>
+          </div>
+        </div>
+        <div className="">
+          <Link href={`/Property/${propertyId}`}>
+            <button className="border border-[#F1913D] text-[#F1913D] py-1 px-4 font-semibold rounded-lg hover:text-white hover:border-[#2A4766] hover:bg-[#2A4766] transition-all duration-700">
+              Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -56,7 +56,9 @@ const Review = ({ email }: { email: string }) => {
         </div>
         <div className="col-span-5">
           <div className="shadow-md p-3 rounded-lg">
-            <h5 className="text-2xl font-bold text-[#2A4766]">Add a review</h5>
+            <h5 className="text-2xl font-bold text-[#2A4766]">
+              Leave a review
+            </h5>
             <ReviewForm email={email}></ReviewForm>
           </div>
         </div>

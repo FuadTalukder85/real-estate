@@ -49,6 +49,12 @@ const Sidebar = () => {
     ) {
       return "bg-[#fffadc]";
     }
+    if (
+      pathname.startsWith("/dashboard/AllAgent") &&
+      (path === "/dashboard/AllAgent" || path === "/dashboard/AllAgent/[id]")
+    ) {
+      return "bg-[#fffadc]";
+    }
   };
 
   return (

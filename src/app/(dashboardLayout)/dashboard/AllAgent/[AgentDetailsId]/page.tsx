@@ -6,7 +6,7 @@ import ListingByAgent from "../../../../../components/ListingByAgent/ListingByAg
 import { TParams } from "../../../../../types/types";
 
 const AgentDetailsPage = async ({ params }: { params: TParams }) => {
-  const { AgentDetailsId } = params;
+  const { AgentDetailsId } = await params;
   const res = await fetch(`http://localhost:4900/users/${AgentDetailsId}`);
   const singleAgent = await res.json();
   return (
@@ -18,7 +18,13 @@ const AgentDetailsPage = async ({ params }: { params: TParams }) => {
           </p>
           <div className="bg-white p-5 rounded-md py-10">
             <div className="flex justify-center">
-              <Image className="rounded-xl" src={proImg} alt="proImg"></Image>
+              <Image
+                className="rounded-xl"
+                src={singleAgent?.image}
+                alt="image"
+                width={100}
+                height={100}
+              ></Image>
             </div>
             <div className="text-[#2A4766] font-semibold text-center mt-3">
               {singleAgent?.name}
@@ -34,16 +40,16 @@ const AgentDetailsPage = async ({ params }: { params: TParams }) => {
               Address : {singleAgent?.address}
             </p>
             <div className="flex gap-3 justify-center mt-3">
-              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
                 <FaFacebook />
               </p>
-              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
                 <FaTwitterSquare />
               </p>
-              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
                 <IoLogoYoutube />
               </p>
-              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#ffac37] transition-all duration-700 cursor-pointer">
+              <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
                 <FaLinkedin />
               </p>
             </div>

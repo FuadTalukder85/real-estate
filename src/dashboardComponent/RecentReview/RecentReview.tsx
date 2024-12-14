@@ -22,7 +22,7 @@ const RecentReview = () => {
     return (
       <div className="absolute -bottom-20 right-0 flex md:px-0 ">
         <div
-          className="custom-arrow prev-arrow bg-[#ffac37] p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700"
+          className="custom-arrow prev-arrow bg-[#F1913D] p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700"
           onClick={onClick}
         >
           <MdChevronRight className="text-2xl text-white" />
@@ -37,7 +37,7 @@ const RecentReview = () => {
           className="custom-arrow next-arrow bg-white border border-gray-200 p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700 z-10"
           onClick={onClick}
         >
-          <MdChevronLeft className="text-2xl text-[#ffac37]" />
+          <MdChevronLeft className="text-2xl text-[#F1913D]" />
         </div>
       </div>
     );
@@ -113,9 +113,9 @@ const RecentReview = () => {
 
       {/* <div className="flex gap-3 mt-5 justify-end">
         <button className="bg-white border border-gray-200 p-3 rounded-md shadow-md">
-          <MdChevronLeft className="text-2xl text-[#ffac37]" />
+          <MdChevronLeft className="text-2xl text-[#F1913D]" />
         </button>
-        <button className="bg-[#ffac37] p-3 rounded-md shadow-md">
+        <button className="bg-[#F1913D] p-3 rounded-md shadow-md">
           <MdChevronRight className="text-2xl text-white" />
         </button>
       </div> */}

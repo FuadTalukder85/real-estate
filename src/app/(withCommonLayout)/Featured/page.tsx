@@ -46,7 +46,7 @@ const FeaturedPage = () => {
               <FaBed />
               <input className="outline-none text-sm" placeholder="Bedroom" />
             </li>
-            <button className="flex items-center gap-3 p-3 px-7 bg-[#ffac37] text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700">
+            <button className="flex items-center gap-3 p-3 px-7 bg-[#F1913D] text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700">
               Search
             </button>
           </ul>
@@ -55,11 +55,8 @@ const FeaturedPage = () => {
       <Container>
         <div className="grid grid-cols-2 gap-7 mt-10">
           {featuredProperty?.map((featured: TPropertyTypes) => (
-            <Link href={`/Property/${featured._id}`} key={featured._id}>
-              <div
-                key={featured._id}
-                className="flex drop-shadow-md bg-white rounded-lg"
-              >
+            <div key={featured._id}>
+              <div className="flex drop-shadow-md bg-white rounded-lg mt-10">
                 <Image
                   src={featured.propertyImage02 || "/image"}
                   alt="feautredImg"
@@ -67,46 +64,53 @@ const FeaturedPage = () => {
                   height={300}
                   className="rounded-s-lg"
                 ></Image>
-                <div>
-                  <div className="p-5 pr-5">
-                    <div className="flex gap-5 items-center text-[#ffac37]">
+                <div className="w-full p-5">
+                  <h3 className="mt-1 text-xl font-semibold text-[#2A4766]">
+                    {featured.propertyName}
+                  </h3>
+                  <p className="mt-2 text-[#77797a] font-semibold flex gap-3 items-center">
+                    <FaLocationDot />
+                    {featured.address}, {featured.city}
+                  </p>
+                  <ul className="w-full grid grid-cols-2 gap-3 text-[#77797a] mt-3">
+                    <li className="flex gap-2 items-center">
+                      <FaBed /> <span>Beds</span>
+                      <span className="text-[#2A4766] font-semibold">
+                        {featured.bedroom}
+                      </span>
+                    </li>
+                    <li className="flex gap-2 items-center">
+                      <FaBath /> <span>Baths</span>
+                      <span className="text-[#2A4766] font-semibold">
+                        {featured.bathroom}
+                      </span>
+                    </li>
+                    <li className="flex gap-2 items-center">
+                      <BiSolidCarGarage /> <span>Garage</span>
+                      <span className="text-[#2A4766] font-semibold">1</span>
+                    </li>
+                    <li className="flex gap-2 items-center">
+                      <RxSize /> <span>SqFt</span>
+                      <span className="text-[#2A4766] font-semibold">
+                        {featured.squareFoot}
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="mt-5 border-t text-[#F1913D]">
+                    <div className="mt-5 flex gap-5 items-center justify-between">
                       <h5 className="text-xl font-semibold">
                         ${featured.price}.00
                       </h5>
-                      <span className="">Asking pice</span>
+                      <Link href={`/Property/${featured._id}`}>
+                        <button className="border border-[#F1913D] text-[#F1913D] py-1 px-4 font-semibold rounded-lg hover:text-white hover:bg-[#F1913D] transition-all duration-700">
+                          Details
+                        </button>
+                      </Link>
                     </div>
-                    <h3 className="mt-1 text-xl font-semibold text-[#2A4766]">
-                      {featured.propertyName}
-                    </h3>
-                    <ul className="text-[#ABACB0] mt-3">
-                      <li className="flex gap-5 items-center">
-                        <FaBed /> <span className="w-20">Bedrooms</span>
-                        <span>{featured.bedroom}</span>
-                      </li>
-                      <li className="flex gap-5 items-center">
-                        <FaBath /> <span className="w-20">Bathrooms</span>
-                        <span>{featured.bathroom}</span>
-                      </li>
-                      <li className="flex gap-5 items-center">
-                        <BiSolidCarGarage />{" "}
-                        <span className="w-20">Garage</span>
-                        <span>1</span>
-                      </li>
-                      <li className="flex gap-5 items-center">
-                        <RxSize /> <span className="w-20">SqFt</span>
-                        <span>{featured.squareFoot}</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="mt-7 border-t text-[#2A4766] font-semibold">
-                    <p className="flex gap-3 items-center px-5 py-3">
-                      <FaLocationDot />
-                      {featured.address}, {featured.city}
-                    </p>
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </Container>

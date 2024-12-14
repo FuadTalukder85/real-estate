@@ -3,15 +3,12 @@ import React, { useState } from "react";
 import Container from "../../../components/Container/Container";
 import Image from "next/image";
 import { FiPhoneCall } from "react-icons/fi";
-import {
-  MdChevronLeft,
-  MdChevronRight,
-  MdOutlineAttachEmail,
-} from "react-icons/md";
+import { MdOutlineAttachEmail } from "react-icons/md";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import { LoginInputs } from "../../../types/types";
+import ReusableBtn from "../../../components/reusableBtn/reusableBtn";
 
 const AgentPage = () => {
   const { data } = useGetUserQuery("");
@@ -53,7 +50,7 @@ const AgentPage = () => {
         </Container>
       </div>
       <div className="text-center mt-16">
-        <b className="uppercase text-[#ffac37]">Our Teams</b>
+        <b className="uppercase text-[#F1913D]">Our Teams</b>
         <h2 className="text-4xl font-semibold text-[#2A4766]">
           Meet Our Agents
         </h2>
@@ -82,9 +79,11 @@ const AgentPage = () => {
                   <p className="text-lg font-semibold text-[#2A4766]">
                     {agent?.name}
                   </p>
-                  <span className="text-[#ABACB0]">Administrative Staff</span>
+                  <span className="font-semibold text-sm text-[#687f8a]">
+                    Administrative Staff
+                  </span>
                 </div>
-                <ul className="flex gap-3 text-[#ABACB0] text-lg">
+                <ul className="flex gap-3 text-[#77797a] text-lg">
                   <li
                     onClick={() => toggleModal(`Call: ${agent?.number}`)}
                     className="text-[#2A4766] border border-[#2A4766] p-3 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
@@ -108,7 +107,7 @@ const AgentPage = () => {
                       onClick={() => toggleModal(null)}
                       className="text-2xl absolute top-2 right-2 text-gray-500 hover:text-gray-700"
                     >
-                      <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#ABACB0]" />
+                      <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#77797a]" />
                     </button>
                     <p className="text-center">{modalContent}</p>
                   </div>
@@ -117,13 +116,8 @@ const AgentPage = () => {
             </div>
           ))}
         </div>
-        <div className="flex gap-3 mt-16 justify-end">
-          <button className="bg-white border border-gray-200 p-3 rounded-md shadow-md">
-            <MdChevronLeft className="text-2xl text-[#ffac37]" />
-          </button>
-          <button className="bg-[#ffac37] p-3 rounded-md shadow-md">
-            <MdChevronRight className="text-2xl text-white" />
-          </button>
+        <div className="flex justify-center mt-10">
+          <ReusableBtn>Load more</ReusableBtn>
         </div>
       </Container>
     </div>

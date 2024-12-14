@@ -32,7 +32,7 @@ const page = () => {
               <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
                 How to be a Great Host
               </h4>
-              <div className="flex gap-3 items-center text-[#ABACB0]">
+              <div className="flex gap-3 items-center text-[#77797a]">
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod
@@ -40,7 +40,7 @@ const page = () => {
               </div>
             </div>
             <div className="border-t">
-              <div className="py-4 px-5 flex gap-3 items-center justify-between text-[#ABACB0]">
+              <div className="py-4 px-5 flex gap-3 items-center justify-between text-[#77797a]">
                 <span className="flex gap-3 items-center">
                   <CgProfile />
                   Admin
@@ -67,7 +67,7 @@ const page = () => {
               <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
                 How to be a Great Host
               </h4>
-              <div className="flex gap-3 items-center text-[#ABACB0]">
+              <div className="flex gap-3 items-center text-[#77797a]">
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod
@@ -75,7 +75,7 @@ const page = () => {
               </div>
             </div>
             <div className="border-t">
-              <div className="py-4 px-5 flex gap-3 items-center justify-between text-[#ABACB0]">
+              <div className="py-4 px-5 flex gap-3 items-center justify-between text-[#77797a]">
                 <span className="flex gap-3 items-center">
                   <CgProfile />
                   Admin
@@ -94,7 +94,7 @@ const page = () => {
                 className="-mr-10 border-2 w-96 py-3 px-4 outline-none text-sm"
                 placeholder="Search"
               />
-              <FaSearch className="text-[#ABACB0]" />
+              <FaSearch className="text-[#77797a]" />
             </li>
             {/* resent post */}
             <h5 className="text-xl font-bold text-[#2A4766] mt-10">

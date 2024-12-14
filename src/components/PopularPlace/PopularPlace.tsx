@@ -11,7 +11,7 @@ const PopularPlace = () => {
   return (
     <Container>
       <div className="text-center mt-28">
-        <b className="uppercase text-[#ffac37]">Find your city</b>
+        <b className="uppercase text-[#F1913D]">Find your city</b>
         <h2 className="text-4xl font-semibold text-[#2A4766]">
           Popular Places
         </h2>

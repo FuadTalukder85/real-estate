@@ -32,10 +32,10 @@ const AgentProfile = () => {
           <li>{currentUser?.address}</li>
         </ul>
         <div className="flex gap-3 mt-5 justify-center text-[#2A4766] font-semibold">
-          <button className="px-3 py-1 text-white rounded-lg bg-[#FFAC37]">
+          <button className="px-3 py-1 text-white rounded-lg bg-[#F1913D]">
             My Property : 21
           </button>
-          <button className="px-3 py-1 text-white rounded-lg bg-[#FFAC37]">
+          <button className="px-3 py-1 text-white rounded-lg bg-[#F1913D]">
             Total Review : 61
           </button>
         </div>

@@ -27,7 +27,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               <div className="flex justify-between">
                 <ul className="flex items-center gap-5">
                   <li>
-                    <button className="bg-[#ffac37] text-white font-semibold px-3 py-1 rounded-md">
+                    <button className="bg-[#F1913D] text-white font-semibold px-3 py-1 rounded-md">
                       Featured
                     </button>
                   </li>
@@ -39,7 +39,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                   <li>
                     <button className="text-[#2A4766] font-semibold">
                       Build year :
-                      <span className="text-[#ffac37] font-bold text-lg ps-2">
+                      <span className="text-[#F1913D] font-bold text-lg ps-2">
                         {singleProperty.buildYear}
                       </span>
                     </button>
@@ -49,7 +49,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                   <p className="text-[#2A4766] font-semibold text-2xl">
                     ${singleProperty.price}.00
                   </p>
-                  <p className="text-end font-semibold text-[#ABACB0]">
+                  <p className="text-end font-semibold text-[#77797a]">
                     {singleProperty.squareFoot} / SqFt
                   </p>
                 </div>
@@ -59,7 +59,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               </h3>
               <div className="mt-7 font-semibold text-xl text-[#2A4766]">
                 <li className="flex gap-3 items-center">
-                  <IoLocationOutline className="text-[#ffac37] text-2xl" />
+                  <IoLocationOutline className="text-[#F1913D] text-2xl" />
                   {singleProperty.address}, {singleProperty.city}
                 </li>
               </div>
@@ -68,7 +68,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               <h5 className="mt-10 text-[#2A4766] text-2xl font-semibold capitalize">
                 description:
               </h5>
-              <p className="mt-2 text-[#ABACB0] pr-2">
+              <p className="mt-2 text-[#77797a] pr-2">
                 {singleProperty.description}
               </p>
             </div>
@@ -81,25 +81,25 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                 <ul className="w-full">
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Property type : </span>
-                    <span className="text-[#ABACB0]">
+                    <span className="text-[#77797a]">
                       {singleProperty.propertyCategory}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Area Size : </span>
-                    <span className="text-[#ABACB0]">
+                    <span className="text-[#77797a]">
                       {singleProperty.squareFoot} SqFt
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Bedroom : </span>
-                    <span className="text-[#ABACB0]">
+                    <span className="text-[#77797a]">
                       0{singleProperty.bedroom}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Garadge : </span>
-                    <span className="text-[#ffac37]">
+                    <span className="text-[#F1913D]">
                       <GiCheckMark />
                     </span>
                   </li>
@@ -107,25 +107,25 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                 <ul className="w-full">
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Build year : </span>
-                    <span className="text-[#ABACB0]">
+                    <span className="text-[#77797a]">
                       {singleProperty.buildYear}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Price : </span>
-                    <span className="text-[#ABACB0]">
+                    <span className="text-[#77797a]">
                       ${singleProperty.price}.00
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Bathroom : </span>
-                    <span className="text-[#ABACB0]">
+                    <span className="text-[#77797a]">
                       0{singleProperty.bathroom}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Security : </span>
-                    <span className="text-[#ffac37]">
+                    <span className="text-[#F1913D]">
                       <GiCheckMark />
                     </span>
                   </li>
@@ -137,7 +137,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               <h5 className="text-[#2A4766] text-2xl font-semibold capitalize">
                 What,s nearby?
               </h5>
-              <p className="mt-2 text-[#ABACB0] pr-2">
+              <p className="mt-2 text-[#77797a] pr-2">
                 Explore nearby amenities to precisely locate your property and
                 identify surrounding conveniences, providing a comprehensive
                 overview of the living environment and the property,s
@@ -147,37 +147,37 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                 <ul className="w-full">
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">School : </span>
-                    <span className="text-[#ABACB0]">0.07 km</span>
+                    <span className="text-[#77797a]">0.07 km</span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">University : </span>
-                    <span className="text-[#ABACB0]">2.3 km</span>
+                    <span className="text-[#77797a]">2.3 km</span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Grocery center : </span>
-                    <span className="text-[#ABACB0]">0.3 km</span>
+                    <span className="text-[#77797a]">0.3 km</span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Market : </span>
-                    <span className="text-[#ABACB0]">1.3 km</span>
+                    <span className="text-[#77797a]">1.3 km</span>
                   </li>
                 </ul>
                 <ul className="w-full">
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Hospital : </span>
-                    <span className="text-[#ABACB0]">2.3 km</span>
+                    <span className="text-[#77797a]">2.3 km</span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Metro station : </span>
-                    <span className="text-[#ABACB0]">1.1 km</span>
+                    <span className="text-[#77797a]">1.1 km</span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Gym, wellness : </span>
-                    <span className="text-[#ABACB0]">0.9 km</span>
+                    <span className="text-[#77797a]">0.9 km</span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">River : </span>
-                    <span className="text-[#ABACB0]">3.3 km</span>
+                    <span className="text-[#77797a]">3.3 km</span>
                   </li>
                 </ul>
               </div>

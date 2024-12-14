@@ -3,7 +3,7 @@ import Container from "../Container/Container";
 
 const Question = () => {
   return (
-    <div className="bg-[#ffac37] py-14 mt-28">
+    <div className="bg-[#F1913D] py-14 mt-28">
       <Container>
         <div className="flex justify-between">
           <div className="text-white">

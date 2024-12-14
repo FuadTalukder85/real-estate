@@ -102,7 +102,7 @@ const DashProperty = () => {
       <div className="mt-10">
         <div className="flex justify-between items-center bg-white p-5 border capitalize font-semibold text-[#2A4766]">
           <h5 className="text-xl">All Properties List</h5>
-          <div className="flex items-center justify-between ps-4 font-semibold bg-[#ffac37] rounded-md">
+          <div className="flex items-center justify-between ps-4 font-semibold bg-[#F1913D] rounded-md">
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -111,7 +111,7 @@ const DashProperty = () => {
             />
             <div
               onClick={handleSearch}
-              className="bg-[#ffac37] py-3 px-5 rounded-r-md hover:bg-[#2A4766] transition-all duration-700 cursor-pointer"
+              className="bg-[#F1913D] py-3 px-5 rounded-r-md hover:bg-[#2A4766] transition-all duration-700 cursor-pointer"
             >
               <IoIosSearch className="text-xl font-bold text-white" />
             </div>
@@ -165,11 +165,11 @@ const DashProperty = () => {
                 <td className="w-1/12">${property.price}.00</td>
                 <td className="w-1/12">
                   {property.postBy === "Admin" ? (
-                    <button className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button className="bg-[#2A4766] text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
                       {property.postBy}
                     </button>
                   ) : (
-                    <button className="bg-red-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button className="bg-[#F1913D] text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
                       {property.postBy}
                     </button>
                   )}
@@ -189,7 +189,7 @@ const DashProperty = () => {
                       onClick={() =>
                         handleApproved(property._id, property.status)
                       }
-                      className="bg-red-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      className="bg-[#F1913D] text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
                     >
                       {property?.status}
                     </button>
@@ -213,7 +213,7 @@ const DashProperty = () => {
                     </button>
                     <button
                       onClick={toggleModal}
-                      className="bg-red-400 text-white p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      className="bg-[#F1913D] text-white p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
                       id="deleteBtn"
                     >
                       <AiOutlineDelete />

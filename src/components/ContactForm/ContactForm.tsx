@@ -86,7 +86,7 @@ const ContactForm = () => {
               {/* submit button  */}
               <button
                 type="submit"
-                className="mt-10 bg-[#ffac37] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#2A4766] transition-all duration-500"
+                className="mt-10 bg-[#F1913D] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#2A4766] transition-all duration-500"
               >
                 Submit Request
               </button>
@@ -103,7 +103,7 @@ const ContactForm = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             </p>
             <div className="grid grid-cols-12 items-center gap-5 mt-5">
-              <CiHome className="col-span-3 text-[#ffac37] w-16 text-8xl" />
+              <CiHome className="col-span-3 text-[#F1913D] w-16 text-8xl" />
               <div className="col-span-9 text-[#2A4766]">
                 <h5 className="font-semibold">Reach Us</h5>
                 <p className="font-semibold text-sm">
@@ -112,14 +112,14 @@ const ContactForm = () => {
               </div>
             </div>
             <div className="grid grid-cols-12 items-center gap-5">
-              <PiEnvelopeOpenThin className="col-span-3 text-[#ffac37] w-16 text-8xl" />
+              <PiEnvelopeOpenThin className="col-span-3 text-[#F1913D] w-16 text-8xl" />
               <div className="col-span-9 text-[#2A4766]">
                 <h5 className="font-semibold">Email Us</h5>
                 <p className="font-semibold text-sm">webfuadtk@gmail.com</p>
               </div>
             </div>
             <div className="grid grid-cols-12 items-center gap-5">
-              <PiPhoneCallThin className="col-span-3 text-[#ffac37] w-16 text-8xl" />
+              <PiPhoneCallThin className="col-span-3 text-[#F1913D] w-16 text-8xl" />
               <div className="col-span-9 text-[#2A4766]">
                 <h5 className="font-semibold">Call Us</h5>
                 <p className="font-semibold text-sm">+8801756867585</p>

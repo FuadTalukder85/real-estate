@@ -37,19 +37,19 @@ const Banner = () => {
           </p>
           <ul className="text-white text-lg mt-10">
             <li className="flex gap-3 items-center">
-              <span className="border-2 border-[#ffac37] p-1 text-sm rounded-full">
+              <span className="border-2 border-[#F1913D] p-1 text-sm rounded-full">
                 <FaLocationDot />
               </span>
               We sell a property every 45 minutes
             </li>
             <li className="flex gap-3 items-center mt-3">
-              <span className="border-2 border-[#ffac37] p-1 text-sm rounded-full">
+              <span className="border-2 border-[#F1913D] p-1 text-sm rounded-full">
                 <IoMdCheckmark />
               </span>
               We abide by the strictest codes of practice
             </li>
             <li className="flex gap-3 items-center mt-3">
-              <span className="border-2 border-[#ffac37] p-1 text-sm rounded-full">
+              <span className="border-2 border-[#F1913D] p-1 text-sm rounded-full">
                 <MdOutlineEventNote />
               </span>
               12,300 buyers registered each month
@@ -99,7 +99,7 @@ const Banner = () => {
               </li>
               <button
                 onClick={handleSearch}
-                className="flex items-center gap-3 p-3 px-6 bg-[#ffac37] text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700"
+                className="flex items-center gap-3 p-3 px-6 bg-[#F1913D] text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700"
               >
                 Search
               </button>

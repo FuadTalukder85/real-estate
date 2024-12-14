@@ -93,13 +93,19 @@ const Header = () => {
 
   const getDynamicLink = (path: string) => {
     if (pathName === path) {
-      return "text-[#2A4766] bg-white px-2 rounded-md font-bold";
+      return "text-[#2A4766] bg-white px-2 rounded-sm font-bold";
     }
     if (
       pathName.startsWith("/Property") &&
       (path === "/Property" || path === "/Property/[id]")
     ) {
-      return "text-[#2A4766]";
+      return "text-[#2A4766] bg-white px-2 rounded-sm font-bold";
+    }
+    if (
+      pathName.startsWith("/Agent") &&
+      (path === "/Agent" || path === "/Agent/[id]")
+    ) {
+      return "text-[#2A4766] bg-white px-2 rounded-sm font-bold";
     }
     return "text-white";
   };
@@ -109,11 +115,16 @@ const Header = () => {
       <TopHeader />
       <div className="bg-[#2A4766]">
         <Container>
-          <div className="flex justify-between items-center py-3">
+          <div className="flex justify-between items-center py-2">
             <div>
               <ul className="gap-5 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">
-                  <Link href="/" className={getDynamicLink("/")}>
+                  <Link
+                    href="/"
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/"
+                    )}`}
+                  >
                     Home
                   </Link>
                   <span className="ps-5 border-r h-3"></span>
@@ -121,7 +132,9 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Property"
-                    className={getDynamicLink("/Property")}
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/Property"
+                    )}`}
                   >
                     Property
                   </Link>
@@ -130,26 +143,43 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Featured"
-                    className={getDynamicLink("/Featured")}
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/Featured"
+                    )}`}
                   >
                     Featured
                   </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Agent" className={getDynamicLink("/Agent")}>
+                  <Link
+                    href="/Agent"
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/Agent"
+                    )}`}
+                  >
                     Agent
                   </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Blog" className={getDynamicLink("/Blog")}>
+                  <Link
+                    href="/Blog"
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/Blog"
+                    )}`}
+                  >
                     Blog
                   </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Contact" className={getDynamicLink("/Contact")}>
+                  <Link
+                    href="/Contact"
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                      "/Contact"
+                    )}`}
+                  >
                     Contact
                   </Link>
                 </li>
