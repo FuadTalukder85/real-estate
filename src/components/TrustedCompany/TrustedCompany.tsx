@@ -56,7 +56,7 @@ const TrustedCompany = () => {
   return (
     <Container>
       <div className="-mt-16">
-        <h5 className="font-bold bg-white p-5 w-[350px] text-[#2A4766]">
+        <h5 className="font-bold bg-white p-5 w-[350px] text-seaBlue">
           Trusted by over 150+ major companies
         </h5>
         <Slider {...settings} className="py-5">

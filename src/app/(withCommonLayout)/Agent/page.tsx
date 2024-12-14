@@ -50,10 +50,8 @@ const AgentPage = () => {
         </Container>
       </div>
       <div className="text-center mt-16">
-        <b className="uppercase text-[#F1913D]">Our Teams</b>
-        <h2 className="text-4xl font-semibold text-[#2A4766]">
-          Meet Our Agents
-        </h2>
+        <b className="uppercase text-yellow">Our Teams</b>
+        <h2 className="text-4xl font-semibold text-seaBlue">Meet Our Agents</h2>
       </div>
       <Container>
         <div className="grid grid-cols-4 gap-5 mt-10">
@@ -69,30 +67,30 @@ const AgentPage = () => {
                     className="rounded-xl hover:scale-105 transition-all duration-700 ease-in-out"
                   ></Image>
 
-                  <button className="opacity-0 absolute bottom-0 w-40 h-7 rounded-t-md flex items-center justify-center mx-auto p-5 text-lg font-semibold text-[#2A4766] bg-[#ffffff9c] backdrop-blur-sm group-hover:opacity-100 scale-105 transition-all duration-700 ease-in-out">
+                  <button className="opacity-0 absolute bottom-0 w-40 h-7 rounded-t-md flex items-center justify-center mx-auto p-5 text-lg font-semibold text-seaBlue bg-[#ffffff9c] backdrop-blur-sm group-hover:opacity-100 scale-105 transition-all duration-700 ease-in-out">
                     More Details
                   </button>
                 </div>
               </Link>
               <div className="flex justify-between items-center mt-5">
                 <div>
-                  <p className="text-lg font-semibold text-[#2A4766]">
+                  <p className="text-lg font-semibold text-seaBlue">
                     {agent?.name}
                   </p>
-                  <span className="font-semibold text-sm text-[#687f8a]">
+                  <span className="font-semibold text-sm text-light">
                     Administrative Staff
                   </span>
                 </div>
-                <ul className="flex gap-3 text-[#77797a] text-lg">
+                <ul className="flex gap-3 text-light text-lg">
                   <li
                     onClick={() => toggleModal(`Call: ${agent?.number}`)}
-                    className="text-[#2A4766] border border-[#2A4766] p-3 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
+                    className="text-seaBlue border border-seaBlue p-3 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     <FiPhoneCall />
                   </li>
                   <li
                     onClick={() => toggleModal(`Email: ${agent?.email}`)}
-                    className="text-[#2A4766] border border-[#2A4766] p-3 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
+                    className="text-seaBlue border border-seaBlue p-3 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     <MdOutlineAttachEmail />
                   </li>
@@ -107,7 +105,7 @@ const AgentPage = () => {
                       onClick={() => toggleModal(null)}
                       className="text-2xl absolute top-2 right-2 text-gray-500 hover:text-gray-700"
                     >
-                      <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-[#77797a]" />
+                      <IoMdClose className="p-1 rounded-md cursor-pointer hover:bg-light" />
                     </button>
                     <p className="text-center">{modalContent}</p>
                   </div>

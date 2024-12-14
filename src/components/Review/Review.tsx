@@ -17,9 +17,9 @@ const Review = ({ email }: { email: string }) => {
   }, [refetch]);
   return (
     <div>
-      <div className="grid grid-cols-12 gap-10 mt-16 text-[#2A4766]">
+      <div className="grid grid-cols-12 gap-10 mt-16 text-seaBlue">
         <div className="col-span-7 shadow-md p-3 rounded-lg">
-          <div className="text-2xl font-bold text-[#2A4766]">
+          <div className="text-2xl font-bold text-seaBlue">
             {matchReview?.length === 0 ? (
               <p>
                 <span>{matchReview?.length} Reviews</span>
@@ -56,9 +56,7 @@ const Review = ({ email }: { email: string }) => {
         </div>
         <div className="col-span-5">
           <div className="shadow-md p-3 rounded-lg">
-            <h5 className="text-2xl font-bold text-[#2A4766]">
-              Leave a review
-            </h5>
+            <h5 className="text-2xl font-bold text-seaBlue">Leave a review</h5>
             <ReviewForm email={email}></ReviewForm>
           </div>
         </div>

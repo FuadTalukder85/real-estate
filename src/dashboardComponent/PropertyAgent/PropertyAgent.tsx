@@ -20,35 +20,33 @@ const PropertyAgent = ({
   );
   return (
     <div className="">
-      <p className="text-[#2A4766] font-semibold bg-gray-100 p-5 rounded-t-md">
+      <p className="text-seaBlue font-semibold bg-gray-100 p-5 rounded-t-md">
         Property Agents Details
       </p>
       <div className="bg-white p-5 rounded-md">
         <div className="flex justify-center mt-5">
           <Image className="rounded-xl" src={proImg} alt="proImg"></Image>
         </div>
-        <div className="text-[#2A4766] font-semibold text-center mt-3">
+        <div className="text-seaBlue font-semibold text-center mt-3">
           {agent?.name}
           <p className="font-normal">( {agent?.role} )</p>
         </div>
         <div className="flex gap-3 justify-center mt-3">
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
+          <p className="bg-seaBlue text-white p-2 rounded-md hover:bg-yellow transition-all duration-700 cursor-pointer">
             <FaFacebook />
           </p>
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
+          <p className="bg-seaBlue text-white p-2 rounded-md hover:bg-yellow transition-all duration-700 cursor-pointer">
             <FaTwitterSquare />
           </p>
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
+          <p className="bg-seaBlue text-white p-2 rounded-md hover:bg-yellow transition-all duration-700 cursor-pointer">
             <IoLogoYoutube />
           </p>
-          <p className="bg-[#2A4766] text-white p-2 rounded-md hover:bg-[#F1913D] transition-all duration-700 cursor-pointer">
+          <p className="bg-seaBlue text-white p-2 rounded-md hover:bg-yellow transition-all duration-700 cursor-pointer">
             <FaLinkedin />
           </p>
         </div>
-        <p className="mt-5 text-center text-[#2A4766]">
-          Email : {agent?.email}
-        </p>
-        <p className="text-center text-[#2A4766]">Number : {agent?.number}</p>
+        <p className="mt-5 text-center text-seaBlue">Email : {agent?.email}</p>
+        <p className="text-center text-seaBlue">Number : {agent?.number}</p>
       </div>
     </div>
   );

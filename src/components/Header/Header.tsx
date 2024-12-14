@@ -93,19 +93,19 @@ const Header = () => {
 
   const getDynamicLink = (path: string) => {
     if (pathName === path) {
-      return "text-[#2A4766] bg-white px-2 rounded-sm font-bold";
+      return "text-seaBlue bg-white px-2 rounded-sm font-bold";
     }
     if (
       pathName.startsWith("/Property") &&
       (path === "/Property" || path === "/Property/[id]")
     ) {
-      return "text-[#2A4766] bg-white px-2 rounded-sm font-bold";
+      return "text-seaBlue bg-white px-2 rounded-sm font-bold";
     }
     if (
       pathName.startsWith("/Agent") &&
       (path === "/Agent" || path === "/Agent/[id]")
     ) {
-      return "text-[#2A4766] bg-white px-2 rounded-sm font-bold";
+      return "text-seaBlue bg-white px-2 rounded-sm font-bold";
     }
     return "text-white";
   };
@@ -113,15 +113,15 @@ const Header = () => {
   return (
     <div>
       <TopHeader />
-      <div className="bg-[#2A4766]">
+      <div className="bg-seaBlue">
         <Container>
-          <div className="flex justify-between items-center py-2">
+          <div className="flex justify-between items-center py-3">
             <div>
               <ul className="gap-2 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">
                   <Link
                     href="/"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/"
                     )}`}
                   >
@@ -132,7 +132,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Property"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Property"
                     )}`}
                   >
@@ -143,7 +143,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Featured"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Featured"
                     )}`}
                   >
@@ -154,7 +154,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Agent"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Agent"
                     )}`}
                   >
@@ -165,7 +165,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Blog"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Blog"
                     )}`}
                   >
@@ -176,7 +176,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/AboutUs"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/AboutUs"
                     )}`}
                   >
@@ -187,7 +187,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Contact"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-[#2A4766] transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Contact"
                     )}`}
                   >
@@ -224,21 +224,21 @@ const Header = () => {
                       {isDropdownVisible && (
                         <ul
                           ref={dropdownRef}
-                          className="absolute w-44 right-0 bg-white text-[#2A4766] font-semibold rounded-md shadow-md mt-2"
+                          className="absolute w-44 right-0 bg-white text-seaBlue font-semibold rounded-md shadow-md mt-2"
                         >
                           <li
                             onClick={() => {
                               handleShowModal();
                               setDropdownVisible(false);
                             }}
-                            className="px-4 py-2 border-b border-b-[#ffac37]  hover:bg-gray-100 hover:rounded-t-md hover:text-[#ffac37] transition-all duration-700 ease-in-out cursor-pointer"
+                            className="px-4 py-2 border-b border-b-yellow  hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer"
                           >
                             Update Profile
                           </li>
-                          <li className="px-4 py-2 border-b border-b-[#ffac37]  hover:bg-gray-100 hover:rounded-t-md hover:text-[#ffac37] transition-all duration-700 ease-in-out cursor-pointer">
+                          <li className="px-4 py-2 border-b border-b-yellow  hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer">
                             <Link href="/dashboard">Dashboard</Link>
                           </li>
-                          <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-t-md hover:text-[#ffac37] transition-all duration-700 ease-in-out cursor-pointer">
+                          <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer">
                             <button onClick={handleLogout}>Logout</button>
                           </li>
                         </ul>
@@ -250,7 +250,7 @@ const Header = () => {
                     <div className="flex">
                       <li className="ps-5 text-sm font-semibold">
                         <button
-                          className="pe-3 uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
+                          className="pe-3 uppercase hover:text-yellow transition-all duration-700 ease-in-out"
                           id="login"
                         >
                           Sign in
@@ -263,7 +263,7 @@ const Header = () => {
                         >
                           <div>
                             <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
-                              <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
+                              <h5 className="text-yellow text-lg font-semibold pb-2">
                                 Welcome to HD LUXURY
                               </h5>
                               <i className="text-2xl">
@@ -281,7 +281,7 @@ const Header = () => {
                         <div>
                           /
                           <button
-                            className="ps-3 uppercase hover:text-[#ffac37] transition-all duration-700 ease-in-out"
+                            className="ps-3 uppercase hover:text-yellow transition-all duration-700 ease-in-out"
                             id="register"
                           >
                             Register
@@ -294,7 +294,7 @@ const Header = () => {
                           >
                             <div>
                               <div className="flex justify-between items-center border-b-2 border-[#F7F7F7]">
-                                <h5 className="text-[#ffac37] text-lg font-semibold pb-2">
+                                <h5 className="text-yellow text-lg font-semibold pb-2">
                                   Please Register
                                 </h5>
                                 <div id="registerClose" className="text-2xl">

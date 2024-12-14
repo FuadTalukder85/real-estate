@@ -43,11 +43,11 @@ const PropertyCard = ({
         </div>
       </div>
       <div className="p-5">
-        <h4 className="text-[#F1913D] text-xl font-semibold">${price}.00</h4>
-        <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
+        <h4 className="text-yellow text-xl font-semibold">${price}.00</h4>
+        <h4 className="text-xl text-seaBlue py-2 font-semibold capitalize">
           {propertyName}
         </h4>
-        <ul className="flex justify-between mt-2 text-[#687f8a]">
+        <ul className="flex justify-between mt-2 text-light">
           <li className="font-semibold border-r pr-7">
             <span className="flex gap-2 items-center">
               {bedroom} <FaBed />
@@ -78,15 +78,13 @@ const PropertyCard = ({
             className="rounded-2xl"
           ></Image>
           <div>
-            <p className="text-[#2A4766] font-semibold">{userName}</p>
-            <p className="text-[#687f8a] text-sm font-semibold">
-              Property Agent
-            </p>
+            <p className="text-seaBlue font-semibold">{userName}</p>
+            <p className="text-light text-sm font-semibold">Property Agent</p>
           </div>
         </div>
         <div className="">
           <Link href={`/Property/${propertyId}`}>
-            <button className="border border-[#F1913D] text-[#F1913D] py-1 px-4 font-semibold rounded-lg hover:text-white hover:border-[#2A4766] hover:bg-[#2A4766] transition-all duration-700">
+            <button className="border border-yellow text-yellow py-1 px-4 font-semibold rounded-lg hover:text-white hover:border-seaBlue hover:bg-seaBlue transition-all duration-700">
               Details
             </button>
           </Link>

@@ -10,50 +10,50 @@ const OurService = () => {
   return (
     <Container>
       <div className="w-[550px] mt-28">
-        <b className="uppercase text-[#F1913D]">Our services</b>
-        <h2 className="text-4xl font-semibold text-[#2A4766]">What We Do?</h2>
+        <b className="uppercase text-yellow">Our services</b>
+        <h2 className="text-4xl font-semibold text-seaBlue">What We Do?</h2>
       </div>
       <div className="flex gap-10 mt-10">
         {/* Card 01 */}
         <div className="">
           <Image src={icon01} alt="icon01"></Image>
-          <h5 className="text-[#2A4766] text-xl font-semibold mt-5">
+          <h5 className="text-seaBlue text-xl font-semibold mt-5">
             Buy A New Home
           </h5>
-          <p className="text-[#77797a] mt-3">
+          <p className="text-light mt-3">
             Discover your dream home effortlessly. Explore diverse properties
             and expert guidance for a seamless buying experience.
           </p>
           <button className="btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
-            Learn more <FaArrowRightLong className="text-[#F1913D]" />
+            Learn more <FaArrowRightLong className="text-yellow" />
           </button>
         </div>
         {/* Card 02 */}
         <div className="">
           <Image src={icon02} alt="icon01"></Image>
-          <h5 className="text-[#2A4766] text-xl font-semibold mt-5">
+          <h5 className="text-seaBlue text-xl font-semibold mt-5">
             Rent a home
           </h5>
-          <p className="text-[#77797a] mt-3">
+          <p className="text-light mt-3">
             Discover your dream home effortlessly. Explore diverse properties
             and expert guidance for a seamless buying experience.
           </p>
           <button className="flex gap-3 items-center mt-3">
-            Learn more <FaArrowRightLong className="text-[#F1913D]" />
+            Learn more <FaArrowRightLong className="text-yellow" />
           </button>
         </div>
         {/* Card 03 */}
         <div className="">
           <Image src={icon03} alt="icon01"></Image>
-          <h5 className="text-[#2A4766] text-xl font-semibold mt-5">
+          <h5 className="text-seaBlue text-xl font-semibold mt-5">
             Sell a home
           </h5>
-          <p className="text-[#77797a] mt-3">
+          <p className="text-light mt-3">
             Discover your dream home effortlessly. Explore diverse properties
             and expert guidance for a seamless buying experience.
           </p>
           <button className="flex gap-3 items-center mt-3">
-            Learn more <FaArrowRightLong className="text-[#F1913D]" />
+            Learn more <FaArrowRightLong className="text-yellow" />
           </button>
         </div>
       </div>

@@ -44,7 +44,7 @@ const DashboardHeader = () => {
         <IoIosSearch />
       </div>
       <div className="flex gap-5 items-center">
-        <button className="flex gap-3 items-center bg-[#F1913D] py-3 px-4 rounded-md font-semibold text-white hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+        <button className="flex gap-3 items-center bg-yellow py-3 px-4 rounded-md font-semibold text-white hover:bg-seaBlue hover:text-white transition-all duration-700">
           <Link href="/dashboard/AddProperty">Add Property</Link>
           <IoMdAddCircleOutline className="text-xl" />
         </button>
@@ -57,9 +57,7 @@ const DashboardHeader = () => {
             height={40}
           />
           <div>
-            <h5 className="text-[#2A4766] font-semibold">
-              {currentUser?.name}
-            </h5>
+            <h5 className="text-seaBlue font-semibold">{currentUser?.name}</h5>
             <h5
               className="flex items-center gap-1 text-sm text-[#9e9fa3] -mt-1 cursor-pointer"
               onClick={toggleDropdown}
@@ -75,13 +73,13 @@ const DashboardHeader = () => {
                       handleShowModal();
                       setIsDropdownOpen(false);
                     }}
-                    className="bg-[#F1913D] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer"
+                    className="bg-yellow px-4 py-2 hover:bg-gray-100 hover:text-seaBlue transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     Update Profile
                   </li>
                   <li
                     onClick={handleLogout}
-                    className="bg-[#2A4766] px-4 py-2 hover:bg-gray-100 hover:text-[#2A4766] transition-all duration-700 ease-in-out cursor-pointer"
+                    className="bg-seaBlue px-4 py-2 hover:bg-gray-100 hover:text-seaBlue transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     Logout
                   </li>

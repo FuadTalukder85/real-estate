@@ -30,12 +30,12 @@ const AddProperty: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 mx-10 mt-10 text-[#2A4766] bg-white p-5 rounded-md"
+      className="space-y-4 mx-10 mt-10 text-seaBlue bg-white p-5 rounded-md"
     >
       <h5 className="font-semibold">Property Details</h5>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Name*
           </label>
           <input
@@ -49,7 +49,7 @@ const AddProperty: React.FC = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Image 01*
           </label>
           <input
@@ -63,7 +63,7 @@ const AddProperty: React.FC = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Image 02*
           </label>
           <input
@@ -77,7 +77,7 @@ const AddProperty: React.FC = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Image 03*
           </label>
           <input
@@ -91,7 +91,7 @@ const AddProperty: React.FC = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Image 04*
           </label>
           <input
@@ -106,7 +106,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Price*
           </label>
           <div className="relative mt-1 rounded-md shadow-sm">
@@ -126,7 +126,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property For*
           </label>
           <select
@@ -144,7 +144,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Categories*
           </label>
           <select
@@ -162,7 +162,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Bedroom*
           </label>
           <input
@@ -177,7 +177,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Bathroom*
           </label>
           <input
@@ -192,7 +192,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Square Foot*
           </label>
           <input
@@ -207,7 +207,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Floor*
           </label>
           <input
@@ -224,7 +224,7 @@ const AddProperty: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Build year*
           </label>
           <input
@@ -238,7 +238,7 @@ const AddProperty: React.FC = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Property Address*
           </label>
           <input
@@ -255,7 +255,7 @@ const AddProperty: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Zip-Code*
           </label>
           <input
@@ -270,7 +270,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             City*
           </label>
           <select
@@ -290,7 +290,7 @@ const AddProperty: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#2A4766]">
+          <label className="block text-sm font-medium text-seaBlue">
             Country*
           </label>
           <select
@@ -318,13 +318,13 @@ const AddProperty: React.FC = () => {
       <div className="flex justify-end space-x-4 mt-4">
         <button
           type="submit"
-          className="bg-[#2A4766] text-white py-3 px-4 rounded-md hover:bg-[#F1913D] transition-all duration-700"
+          className="bg-seaBlue text-white py-3 px-4 rounded-md hover:bg-yellow transition-all duration-700"
         >
           Create Product
         </button>
         <button
           type="button"
-          className="bg-[#F1913D] text-white py-2 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-700"
+          className="bg-yellow text-white py-2 px-4 rounded-md hover:bg-seaBlue transition-all duration-700"
           onClick={() => console.log("Canceled")}
         >
           Cancel

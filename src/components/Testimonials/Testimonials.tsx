@@ -12,7 +12,7 @@ const NextArrow = ({ onClick }: TArrowProps) => {
   return (
     <div className="absolute flex bottom-0 -left-80 px-6 md:px-0 ">
       <div
-        className="custom-arrow prev-arrow bg-[#F1913D] p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700"
+        className="custom-arrow prev-arrow bg-yellow p-3 rounded-md shadow-md cursor-pointer hover:bg-seaBlue transition-all duration-700"
         onClick={onClick}
       >
         <MdChevronRight className="text-2xl text-white" />
@@ -24,10 +24,10 @@ const PrevArrow = ({ onClick }: TArrowProps) => {
   return (
     <div className="absolute flex bottom-0 -left-96 px-5 md:px-0 z-10">
       <div
-        className="custom-arrow next-arrow bg-white border border-gray-200 p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700 z-10"
+        className="custom-arrow next-arrow bg-white border border-gray-200 p-3 rounded-md shadow-md cursor-pointer hover:bg-seaBlue transition-all duration-700 z-10"
         onClick={onClick}
       >
-        <MdChevronLeft className="text-2xl text-[#F1913D]" />
+        <MdChevronLeft className="text-2xl text-yellow" />
       </div>
     </div>
   );
@@ -71,11 +71,11 @@ const Testimonials = () => {
     <div className="bg-[#F7F7F7] py-28 mt-28">
       <div className="grid grid-cols-8 gap-10 items-center ml-[360px]">
         <div className="col-span-2">
-          <b className="uppercase text-[#F1913D]">Top Properties</b>
-          <h2 className="text-4xl font-semibold text-[#2A4766]">
+          <b className="uppercase text-yellow">Top Properties</b>
+          <h2 className="text-4xl font-semibold text-seaBlue">
             What’s people say’s
           </h2>
-          <p className="mt-5 text-[#77797a]">
+          <p className="mt-5 text-light">
             Our seasoned team excels in real estate with years of successful
             market navigation, offering informed decisions and optimal results.
           </p>

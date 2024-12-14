@@ -3,7 +3,7 @@ import Container from "../Container/Container";
 
 const Question = () => {
   return (
-    <div className="bg-[#F1913D] py-14 mt-28">
+    <div className="bg-yellow py-14 mt-28">
       <Container>
         <div className="flex justify-between">
           <div className="text-white">
@@ -13,7 +13,7 @@ const Question = () => {
             </p>
           </div>
           <div className="bg-[#ff4e3728] p-1 flex items-center rounded-full">
-            <button className="py-5 px-12 rounded-full bg-white font-semibold text-[#2A4766] hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out">
+            <button className="py-5 px-12 rounded-full bg-white font-semibold text-seaBlue hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out">
               Contact Us Today
             </button>
           </div>

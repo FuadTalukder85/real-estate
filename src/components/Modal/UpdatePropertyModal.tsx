@@ -48,12 +48,12 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
     <div className="fixed bg-black bg-opacity-5 inset-0 z-50">
       <div className="md:w-[1200px] fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg">
         <div className="flex justify-between items-center mb-4 p-5">
-          <button className="text-lg font-bold text-[#2A4766]">
+          <button className="text-lg font-bold text-seaBlue">
             Update your property
           </button>
           <button
             onClick={onClose}
-            className="text-white bg-[#F1913D] hover:bg-[#2A4766] hover:text-white transition-all duration-700 rounded px-2 py-1"
+            className="text-white bg-yellow hover:bg-seaBlue hover:text-white transition-all duration-700 rounded px-2 py-1"
           >
             <MdClose />
           </button>
@@ -61,11 +61,11 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
         {/* update property form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-4 mt-5 text-[#2A4766] bg-white p-5 rounded-md"
+          className="space-y-4 mt-5 text-seaBlue bg-white p-5 rounded-md"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Name*
               </label>
               <input
@@ -80,7 +80,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Image 01*
               </label>
               <input
@@ -95,7 +95,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Image 02*
               </label>
               <input
@@ -110,7 +110,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Image 03*
               </label>
               <input
@@ -125,7 +125,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Image 04*
               </label>
               <input
@@ -141,7 +141,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Price*
               </label>
               <div className="relative mt-1 rounded-md shadow-sm">
@@ -162,7 +162,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property For*
               </label>
               <select
@@ -182,7 +182,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Categories*
               </label>
               <select
@@ -202,7 +202,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Bedroom*
               </label>
               <input
@@ -218,7 +218,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Bathroom*
               </label>
               <input
@@ -234,7 +234,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Square Foot*
               </label>
               <input
@@ -250,7 +250,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Floor*
               </label>
               <input
@@ -268,7 +268,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Build year*
               </label>
               <input
@@ -283,7 +283,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Property Address*
               </label>
               <input
@@ -301,7 +301,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Zip-Code*
               </label>
               <input
@@ -317,7 +317,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 City*
               </label>
               <select
@@ -337,7 +337,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#2A4766]">
+              <label className="block text-sm font-medium text-seaBlue">
                 Country*
               </label>
               <select
@@ -366,13 +366,13 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
           <div className="flex justify-end space-x-4 mt-4">
             <button
               type="submit"
-              className="bg-[#2A4766] text-white py-2 px-4 rounded-md hover:bg-[#F1913D] transition-all duration-700"
+              className="bg-seaBlue text-white py-2 px-4 rounded-md hover:bg-yellow transition-all duration-700"
             >
               Update Property
             </button>
             <button
               type="button"
-              className="bg-[#F1913D] text-white py-2 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-700"
+              className="bg-yellow text-white py-2 px-4 rounded-md hover:bg-seaBlue transition-all duration-700"
               onClick={() => onClose()}
             >
               Cancel

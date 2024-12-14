@@ -16,7 +16,7 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
   console.log("agent", agent);
   return (
     <Container>
-      <div className="flex justify-between gap-10 text-[#2A4766] mt-16">
+      <div className="flex justify-between gap-10 text-seaBlue mt-16">
         <div className="w-8/12">
           <h3 className="text-4xl font-bold">{agent?.name}</h3>
           <p className="mt-1">Licensed Associate Real Estate Broker</p>
@@ -27,7 +27,7 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
             <MdOutlineAttachEmail className="text-lg" />
             {agent?.email}
           </li>
-          <button className="py-3 px-5 bg-[#2A4766] text-white font-semibold rounded-md uppercase mt-10">
+          <button className="py-3 px-5 bg-seaBlue text-white font-semibold rounded-md uppercase mt-10">
             Work with {agent?.name}
           </button>
           {/* about */}
@@ -54,16 +54,16 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
           <p className="mt-3">International Buyers and Sellers Investors</p>
           <p className="text-xl font-bold mt-5">Social Media</p>
           <ul className="flex gap-3 mt-3">
-            <li className="border border-[#2A4766] p-2 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
+            <li className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
               <FaFacebook />
             </li>
-            <li className="border border-[#2A4766] p-2 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
+            <li className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
               <IoLogoYoutube />
             </li>
-            <li className="border border-[#2A4766] p-2 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
+            <li className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
               <FaLinkedinIn />
             </li>
-            <li className="border border-[#2A4766] p-2 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
+            <li className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer">
               <FaTwitterSquare />
             </li>
           </ul>
@@ -71,7 +71,7 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
       </div>
       {/* listing by */}
       <div className="">
-        <h3 className="text-2xl font-bold text-[#2A4766]">
+        <h3 className="text-2xl font-bold text-seaBlue">
           Listing by {agent?.name}
         </h3>
         {/* card */}

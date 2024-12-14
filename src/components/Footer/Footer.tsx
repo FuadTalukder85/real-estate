@@ -40,19 +40,19 @@ const Footer = () => {
           <div className="col-span-3">
             <h3 className="text-2xl font-semibold">Quick Links</h3>
             <ul className="mt-8">
-              <li className="hover:text-[#F1913D] transition-all duration-700">
+              <li className="hover:text-yellow transition-all duration-700">
                 Home Page
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 All Listing
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 All location
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 Package
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 Contact
               </li>
             </ul>
@@ -60,19 +60,19 @@ const Footer = () => {
           <div className="col-span-2">
             <h3 className="text-2xl font-semibold">Services</h3>
             <ul className="mt-8">
-              <li className="hover:text-[#F1913D] transition-all duration-700">
+              <li className="hover:text-yellow transition-all duration-700">
                 Duplex House
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 Guest House
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 Apartment
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 Hotels
               </li>
-              <li className="mt-3 hover:text-[#F1913D] transition-all duration-700">
+              <li className="mt-3 hover:text-yellow transition-all duration-700">
                 Plaza
               </li>
             </ul>
@@ -80,21 +80,21 @@ const Footer = () => {
           <div className="col-span-3">
             <h3 className="text-2xl font-semibold">Get In Touch</h3>
             <ul className="mt-8">
-              <li className="flex gap-3 items-center hover:text-[#F1913D] transition-all duration-700">
-                <FiPhoneCall className="text-[#F1913D] text-lg" /> 01756-867585
+              <li className="flex gap-3 items-center hover:text-yellow transition-all duration-700">
+                <FiPhoneCall className="text-yellow text-lg" /> 01756-867585
               </li>
-              <li className="flex gap-3 items-center mt-4 hover:text-[#F1913D] transition-all duration-700">
-                <MdOutlineAttachEmail className="text-[#F1913D] text-lg" />{" "}
+              <li className="flex gap-3 items-center mt-4 hover:text-yellow transition-all duration-700">
+                <MdOutlineAttachEmail className="text-yellow text-lg" />{" "}
                 webfuadtk@gmail.com
               </li>
-              <li className="flex gap-3 items-center mt-4 hover:text-[#F1913D] transition-all duration-700">
-                <CiGlobe className="text-[#F1913D] text-lg" />{" "}
+              <li className="flex gap-3 items-center mt-4 hover:text-yellow transition-all duration-700">
+                <CiGlobe className="text-yellow text-lg" />{" "}
                 <Link href="https://fuad-talukder.vercel.app/">
                   fuad-talukder.vercel.app
                 </Link>
               </li>
-              <li className="flex gap-3 items-center mt-4 hover:text-[#F1913D] transition-all duration-700">
-                <IoLocationOutline className="text-[#F1913D] text-lg" /> Uttor
+              <li className="flex gap-3 items-center mt-4 hover:text-yellow transition-all duration-700">
+                <IoLocationOutline className="text-yellow text-lg" /> Uttor
                 Kashipur, Narayanganj
               </li>
             </ul>

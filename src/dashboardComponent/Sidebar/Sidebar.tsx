@@ -40,27 +40,27 @@ const Sidebar = () => {
 
   const getDynamicLink = (path) => {
     if (pathname === path) {
-      return "bg-[#fffadc]";
+      return "bg-[#ffe8d4]";
     }
     if (
       pathname.startsWith("/dashboard/AllProperty") &&
       (path === "/dashboard/AllProperty" ||
         path === "/dashboard/AllProperty/[id]")
     ) {
-      return "bg-[#fffadc]";
+      return "bg-[#ffe8d4]";
     }
     if (
       pathname.startsWith("/dashboard/AllAgent") &&
       (path === "/dashboard/AllAgent" || path === "/dashboard/AllAgent/[id]")
     ) {
-      return "bg-[#fffadc]";
+      return "bg-[#ffe8d4]";
     }
   };
 
   return (
     <div className="sidebar h-screen px-5 py-3">
       {currentUser?.role === "Admin" ? (
-        <ul className="text-[#2A4766] font-semibold">
+        <ul className="text-seaBlue font-semibold">
           <li>
             <Link href="/">
               <Image
@@ -134,7 +134,7 @@ const Sidebar = () => {
           </li>
         </ul>
       ) : (
-        <ul className="text-[#2A4766] font-semibold">
+        <ul className="text-seaBlue font-semibold">
           <li>
             <Link href="/">
               <Image

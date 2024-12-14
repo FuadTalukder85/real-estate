@@ -47,12 +47,12 @@ const UpdateProfileModal: React.FC<UpdateProfileModalProps> = ({ onClose }) => {
         <Toaster />
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg w-96 p-6 z-60">
           <div className="flex justify-between items-center mb-4">
-            <button className="text-lg font-bold text-gray-700">
+            <button className="text-lg font-bold text-seaBlue">
               Update your profile
             </button>
             <button
               onClick={onClose}
-              className="text-white bg-red-500 hover:bg-gray-200 hover:text-black transition-all duration-700 rounded px-2 py-1"
+              className="text-white bg-yellow hover:bg-seaBlue hover:text-white transition-all duration-700 rounded px-2 py-1"
             >
               <MdClose />
             </button>
@@ -96,7 +96,7 @@ const UpdateProfileModal: React.FC<UpdateProfileModalProps> = ({ onClose }) => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="mt-5 bg-[#F1913D] text-white py-2 px-6 rounded-lg w-full uppercase font-semibold hover:bg-[#ffb958] transition-all duration-700"
+                className="mt-5 bg-yellow text-white text-sm py-2 px-6 rounded-lg w-full uppercase font-semibold hover:bg-seaBlue transition-all duration-700"
               >
                 Update
               </button>

@@ -22,7 +22,7 @@ const RecentReview = () => {
     return (
       <div className="absolute -bottom-20 right-0 flex md:px-0 ">
         <div
-          className="custom-arrow prev-arrow bg-[#F1913D] p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700"
+          className="custom-arrow prev-arrow bg-yellow p-3 rounded-md shadow-md cursor-pointer hover:bg-seaBlue transition-all duration-700"
           onClick={onClick}
         >
           <MdChevronRight className="text-2xl text-white" />
@@ -34,10 +34,10 @@ const RecentReview = () => {
     return (
       <div className="absolute -bottom-20 right-16 flex md:px-0 z-10">
         <div
-          className="custom-arrow next-arrow bg-white border border-gray-200 p-3 rounded-md shadow-md cursor-pointer hover:bg-[#2A4766] transition-all duration-700 z-10"
+          className="custom-arrow next-arrow bg-white border border-gray-200 p-3 rounded-md shadow-md cursor-pointer hover:bg-seaBlue transition-all duration-700 z-10"
           onClick={onClick}
         >
-          <MdChevronLeft className="text-2xl text-[#F1913D]" />
+          <MdChevronLeft className="text-2xl text-yellow" />
         </div>
       </div>
     );
@@ -84,7 +84,7 @@ const RecentReview = () => {
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
-    <div className="mt-10 p-5 text-[#2A4766] bg-white pb-24 shadow-md">
+    <div className="mt-10 p-5 text-seaBlue bg-white pb-24 shadow-md">
       <h5 className="font-semibold">Recent Reviews</h5>
       <Slider {...settings}>
         {recentReview?.map((review) => (
@@ -113,9 +113,9 @@ const RecentReview = () => {
 
       {/* <div className="flex gap-3 mt-5 justify-end">
         <button className="bg-white border border-gray-200 p-3 rounded-md shadow-md">
-          <MdChevronLeft className="text-2xl text-[#F1913D]" />
+          <MdChevronLeft className="text-2xl text-yellow" />
         </button>
-        <button className="bg-[#F1913D] p-3 rounded-md shadow-md">
+        <button className="bg-yellow p-3 rounded-md shadow-md">
           <MdChevronRight className="text-2xl text-white" />
         </button>
       </div> */}

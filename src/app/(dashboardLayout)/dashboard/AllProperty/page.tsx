@@ -98,11 +98,11 @@ const DashProperty = () => {
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
-    <div className="px-10 p-5 text-[#2A4766]">
+    <div className="px-10 p-5 text-seaBlue">
       <div className="mt-10">
-        <div className="flex justify-between items-center bg-white p-5 border capitalize font-semibold text-[#2A4766]">
+        <div className="flex justify-between items-center bg-white p-5 border capitalize font-semibold text-seaBlue">
           <h5 className="text-xl">All Properties List</h5>
-          <div className="flex items-center justify-between ps-4 font-semibold bg-[#F1913D] rounded-md">
+          <div className="flex items-center justify-between ps-4 font-semibold bg-yellow rounded-md">
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -111,7 +111,7 @@ const DashProperty = () => {
             />
             <div
               onClick={handleSearch}
-              className="bg-[#F1913D] py-3 px-5 rounded-r-md hover:bg-[#2A4766] transition-all duration-700 cursor-pointer"
+              className="bg-yellow py-3 px-5 rounded-r-md hover:bg-seaBlue transition-all duration-700 cursor-pointer"
             >
               <IoIosSearch className="text-xl font-bold text-white" />
             </div>
@@ -165,11 +165,11 @@ const DashProperty = () => {
                 <td className="w-1/12">${property.price}.00</td>
                 <td className="w-1/12">
                   {property.postBy === "Admin" ? (
-                    <button className="bg-[#2A4766] text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button className="bg-seaBlue text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
                       {property.postBy}
                     </button>
                   ) : (
-                    <button className="bg-[#F1913D] text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button className="bg-yellow text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
                       {property.postBy}
                     </button>
                   )}
@@ -180,7 +180,7 @@ const DashProperty = () => {
                       onClick={() =>
                         handleApproved(property._id, property.status)
                       }
-                      className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
                     >
                       {property?.status}
                     </button>
@@ -189,7 +189,7 @@ const DashProperty = () => {
                       onClick={() =>
                         handleApproved(property._id, property.status)
                       }
-                      className="bg-[#F1913D] text-white py-1 px-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      className="bg-yellow text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
                     >
                       {property?.status}
                     </button>
@@ -198,7 +198,7 @@ const DashProperty = () => {
                 <td className="w-1/12">
                   <div className="flex gap-5">
                     <Link href={`/dashboard/AllProperty/${property?._id}`}>
-                      <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                      <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
                         <FiEye />
                       </button>
                     </Link>
@@ -207,13 +207,13 @@ const DashProperty = () => {
                         setEditByid(property._id);
                         handleUpdateModal();
                       }}
-                      className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
                     >
                       <CiEdit />
                     </button>
                     <button
                       onClick={toggleModal}
-                      className="bg-[#F1913D] text-white p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                      className="bg-yellow text-white p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
                       id="deleteBtn"
                     >
                       <AiOutlineDelete />
@@ -240,9 +240,9 @@ const DashProperty = () => {
                           onClick={toggleModal}
                           className="text-2xl absolute top-2 right-2 text-white"
                         >
-                          <IoMdClose className="p-1 rounded-md cursor-pointer bg-red-500 hover:bg-gray-200 hover:text-black transition-all duration-700" />
+                          <IoMdClose className="p-1 rounded-md cursor-pointer bg-yellow hover:bg-seaBlue hover:text-white transition-all duration-700" />
                         </button>
-                        <div className="flex justify-center mb-4 text-red-500 text-4xl">
+                        <div className="flex justify-center mb-4 text-yellow text-4xl">
                           <AiOutlineDelete />
                         </div>
                         <p className="text-center text-gray-700 font-medium mb-6">
@@ -251,13 +251,13 @@ const DashProperty = () => {
                         <div className="flex justify-center space-x-4">
                           <button
                             onClick={toggleModal}
-                            className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none"
+                            className="bg-gray-100 text-seaBlue px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
                           >
                             No, cancel
                           </button>
                           <button
                             onClick={() => handleDelete(property._id)}
-                            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none"
+                            className="bg-yellow text-white px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
                           >
                             Yes, I,m sure
                           </button>

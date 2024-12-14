@@ -24,10 +24,18 @@ const ContactApi = BaseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    deleteContact: builder.mutation({
+      query: (query) => ({
+        url: `/contact/${query}`,
+        method: "DELETE",
+        cache: "no-store",
+      }),
+    }),
   }),
 });
 export const {
   usePostContactMutation,
   useGetContactQuery,
   useGetSingleContactQuery,
+  useDeleteContactMutation,
 } = ContactApi;

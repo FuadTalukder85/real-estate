@@ -40,9 +40,9 @@ const RecentSell = () => {
           </div>
         </div>
         <div className="col-span-6">
-          <div className="text-[#2A4766]">
+          <div className="text-seaBlue">
             <h2 className="text-4xl font-semibold">Recent Sells Properties</h2>
-            <p className="mt-5 text-[#77797a]">
+            <p className="mt-5 text-light">
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
               injected humour, or randomised words which don,t look even
@@ -50,14 +50,14 @@ const RecentSell = () => {
             </p>
           </div>
           {/*  */}
-          <div className="mt-10">
+          <div className="mt-10 text-light">
             <li>Live Music Cocerts at Luviana</li>
             <li className="mt-5">Our SecretIsland Boat Tour is Just for You</li>
             <li className="mt-5">Publishing packages and web page editors</li>
             <li className="mt-5">Nemo enim ipsam voluptatem quia voluptas</li>
           </div>
           {/*  */}
-          <div className="flex gap-10 mt-16">
+          <div className="flex gap-10 mt-16 text-light">
             <div className="border-r">
               <span className="flex gap-3 items-center">
                 2100 <RxSize />

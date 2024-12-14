@@ -46,7 +46,7 @@ const FeaturedPage = () => {
               <FaBed />
               <input className="outline-none text-sm" placeholder="Bedroom" />
             </li>
-            <button className="flex items-center gap-3 p-3 px-7 bg-[#F1913D] text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700">
+            <button className="flex items-center gap-3 p-3 px-7 bg-yellow text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700">
               Search
             </button>
           </ul>
@@ -65,44 +65,44 @@ const FeaturedPage = () => {
                   className="rounded-s-lg"
                 ></Image>
                 <div className="w-full p-5">
-                  <h3 className="mt-1 text-xl font-semibold text-[#2A4766]">
+                  <h3 className="mt-1 text-xl font-semibold text-seaBlue">
                     {featured.propertyName}
                   </h3>
-                  <p className="mt-2 text-[#77797a] font-semibold flex gap-3 items-center">
+                  <p className="mt-2 text-light font-semibold flex gap-3 items-center">
                     <FaLocationDot />
                     {featured.address}, {featured.city}
                   </p>
-                  <ul className="w-full grid grid-cols-2 gap-3 text-[#77797a] mt-3">
+                  <ul className="w-full grid grid-cols-2 gap-3 text-light mt-3">
                     <li className="flex gap-2 items-center">
                       <FaBed /> <span>Beds</span>
-                      <span className="text-[#2A4766] font-semibold">
+                      <span className="text-seaBlue font-semibold">
                         {featured.bedroom}
                       </span>
                     </li>
                     <li className="flex gap-2 items-center">
                       <FaBath /> <span>Baths</span>
-                      <span className="text-[#2A4766] font-semibold">
+                      <span className="text-seaBlue font-semibold">
                         {featured.bathroom}
                       </span>
                     </li>
                     <li className="flex gap-2 items-center">
                       <BiSolidCarGarage /> <span>Garage</span>
-                      <span className="text-[#2A4766] font-semibold">1</span>
+                      <span className="text-seaBlue font-semibold">1</span>
                     </li>
                     <li className="flex gap-2 items-center">
                       <RxSize /> <span>SqFt</span>
-                      <span className="text-[#2A4766] font-semibold">
+                      <span className="text-seaBlue font-semibold">
                         {featured.squareFoot}
                       </span>
                     </li>
                   </ul>
-                  <div className="mt-5 border-t text-[#F1913D]">
+                  <div className="mt-5 border-t text-yellow">
                     <div className="mt-5 flex gap-5 items-center justify-between">
                       <h5 className="text-xl font-semibold">
                         ${featured.price}.00
                       </h5>
                       <Link href={`/Property/${featured._id}`}>
-                        <button className="border border-[#F1913D] text-[#F1913D] py-1 px-4 font-semibold rounded-lg hover:text-white hover:bg-[#F1913D] transition-all duration-700">
+                        <button className="border border-yellow text-yellow py-1 px-4 font-semibold rounded-lg hover:text-white hover:bg-yellow transition-all duration-700">
                           Details
                         </button>
                       </Link>

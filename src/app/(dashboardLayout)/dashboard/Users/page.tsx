@@ -1,15 +1,21 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import proImg from "../../../../assets/images/profileImg01.jpg";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
-import { useGetUserQuery } from "../../../../redux/userApi/UserApi";
+import {
+  useDeleteUserMutation,
+  useGetUserQuery,
+} from "../../../../redux/userApi/UserApi";
 import toast, { Toaster } from "react-hot-toast";
 import { LoginInputs } from "../../../../types/types";
+import { IoMdClose } from "react-icons/io";
 
 const Users = () => {
-  const { data } = useGetUserQuery("");
+  const { data, refetch } = useGetUserQuery("");
+  const [deleteUser] = useDeleteUserMutation();
   // handle user role
   const handleRoleChange = async ({
     e,
@@ -40,10 +46,24 @@ const Users = () => {
       console.error("Error updating role", error);
     }
   };
+
+  // delete modal
+  const [isOpen, setIsOpen] = useState(false);
+  const handleDelete = (id: string) => {
+    deleteUser(id);
+    refetch();
+    toast.success("User deleted successed", { position: "top-right" });
+    setIsOpen(false);
+  };
+  //   handle show modal
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <div className="px-10 p-5 text-[#2A4766]">
+    <div className="px-10 p-5 text-seaBlue">
+      <Toaster />
       <div className="mt-10">
-        <h5 className="bg-white p-5 border capitalize font-semibold text-[#2A4766]">
+        <h5 className="bg-white p-5 border capitalize font-semibold text-seaBlue">
           All user list
         </h5>
         {/* users table*/}
@@ -90,19 +110,57 @@ const Users = () => {
                     <option value="Admin">Make Admin</option>
                     <option value="User">Make User</option>
                   </select>
-                  <Toaster />
                 </td>
                 <td className="w-1/6">
                   <div className="flex gap-5">
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
                       <FiEye />
                     </button>
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
                       <CiEdit />
                     </button>
-                    <button className="bg-red-400 text-white p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                    <button
+                      onClick={toggleModal}
+                      className="bg-yellow text-white p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                    >
                       <AiOutlineDelete />
                     </button>
+                  </div>
+                  {/* Delete modal */}
+                  <div className="flex justify-center items-center">
+                    {isOpen && (
+                      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-5 z-50">
+                        <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-sm relative">
+                          {/* Close button */}
+                          <button
+                            onClick={toggleModal}
+                            className="text-2xl absolute top-2 right-2 text-white"
+                          >
+                            <IoMdClose className="p-1 rounded-md cursor-pointer bg-yellow hover:bg-seaBlue hover:text-white transition-all duration-700" />
+                          </button>
+                          <div className="flex justify-center mb-4 text-yellow text-4xl">
+                            <AiOutlineDelete />
+                          </div>
+                          <p className="text-center text-seaBlue font-medium mb-6">
+                            Are you sure you want to delete this agent?
+                          </p>
+                          <div className="flex justify-center space-x-4">
+                            <button
+                              onClick={toggleModal}
+                              className="bg-gray-100 text-seaBlue px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                            >
+                              No, cancel
+                            </button>
+                            <button
+                              onClick={() => handleDelete(users._id)}
+                              className="bg-yellow text-white px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                            >
+                              Yes, I,m sure
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </td>
               </tr>

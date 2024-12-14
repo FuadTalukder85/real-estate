@@ -16,9 +16,9 @@ const LatestSale = () => {
   console.log(recentProperty);
   return (
     <Container>
-      <div className="mx-auto w-[550px] text-center text-[#2A4766]">
+      <div className="mx-auto w-[550px] text-center text-seaBlue">
         <h2 className="mt-28 text-4xl font-semibold">LATEST FOR SALE</h2>
-        <p className="mt-2 text-[#77797a]">
+        <p className="mt-2 text-light">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           modi ad, autem quia commodi quisquam deserunt asperiores rerum vero
           fugiat nobis ex voluptatibus.

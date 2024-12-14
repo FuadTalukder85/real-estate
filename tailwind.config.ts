@@ -12,6 +12,9 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        yellow: "#F1913D",
+        seaBlue: "#2A4766",
+        light: "#687f8a",
       },
     },
   },

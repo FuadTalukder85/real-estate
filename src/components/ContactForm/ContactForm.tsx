@@ -37,7 +37,7 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mt-10">
                 <div className="flex gap-5">
-                  <div className="text-[#2A4766] w-full">
+                  <div className="text-seaBlue w-full">
                     <p>Name</p>
                     <input
                       {...register("name", { required: true })}
@@ -48,7 +48,7 @@ const ContactForm = () => {
                       <p className="text-red-400">This field is required</p>
                     )}
                   </div>
-                  <div className="text-[#2A4766] w-full">
+                  <div className="text-seaBlue w-full">
                     <p>Email</p>
                     <input
                       {...register("email", { required: true })}
@@ -60,7 +60,7 @@ const ContactForm = () => {
                     )}
                   </div>
                 </div>
-                <div className="text-[#2A4766] mt-5">
+                <div className="text-seaBlue mt-5">
                   <p>Subject</p>
                   <input
                     {...register("subject", { required: true })}
@@ -71,7 +71,7 @@ const ContactForm = () => {
                     <p className="text-red-400">This field is required</p>
                   )}
                 </div>
-                <div className="text-[#2A4766] mt-5">
+                <div className="text-seaBlue mt-5">
                   <p>Message</p>
                   <textarea
                     {...register("message", { required: true })}
@@ -86,7 +86,7 @@ const ContactForm = () => {
               {/* submit button  */}
               <button
                 type="submit"
-                className="mt-10 bg-[#F1913D] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#2A4766] transition-all duration-500"
+                className="mt-10 bg-yellow text-white font-semibold py-2 px-6 rounded-md hover:bg-seaBlue transition-all duration-500"
               >
                 Submit Request
               </button>
@@ -96,15 +96,15 @@ const ContactForm = () => {
             <h5 className="text-xl font-semibold pb-2 border-b border-gray-300">
               Reach out
             </h5>
-            <p className="mt-10 font-semibold text-[#2A4766] text-2xl">
+            <p className="mt-10 font-semibold text-seaBlue text-2xl">
               Get In Touch
             </p>
-            <p className="mt-5 text-[#2A4766]">
+            <p className="mt-5 text-seaBlue">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             </p>
             <div className="grid grid-cols-12 items-center gap-5 mt-5">
-              <CiHome className="col-span-3 text-[#F1913D] w-16 text-8xl" />
-              <div className="col-span-9 text-[#2A4766]">
+              <CiHome className="col-span-3 text-yellow w-16 text-8xl" />
+              <div className="col-span-9 text-seaBlue">
                 <h5 className="font-semibold">Reach Us</h5>
                 <p className="font-semibold text-sm">
                   1235, New Market, Eliza Road, Sincher 80 CA, Canada, USA
@@ -112,15 +112,15 @@ const ContactForm = () => {
               </div>
             </div>
             <div className="grid grid-cols-12 items-center gap-5">
-              <PiEnvelopeOpenThin className="col-span-3 text-[#F1913D] w-16 text-8xl" />
-              <div className="col-span-9 text-[#2A4766]">
+              <PiEnvelopeOpenThin className="col-span-3 text-yellow w-16 text-8xl" />
+              <div className="col-span-9 text-seaBlue">
                 <h5 className="font-semibold">Email Us</h5>
                 <p className="font-semibold text-sm">webfuadtk@gmail.com</p>
               </div>
             </div>
             <div className="grid grid-cols-12 items-center gap-5">
-              <PiPhoneCallThin className="col-span-3 text-[#F1913D] w-16 text-8xl" />
-              <div className="col-span-9 text-[#2A4766]">
+              <PiPhoneCallThin className="col-span-3 text-yellow w-16 text-8xl" />
+              <div className="col-span-9 text-seaBlue">
                 <h5 className="font-semibold">Call Us</h5>
                 <p className="font-semibold text-sm">+8801756867585</p>
               </div>

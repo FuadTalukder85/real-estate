@@ -53,7 +53,7 @@ const NewListing = () => {
   }, [refetch]);
 
   return (
-    <div className="mt-10 text-[#2A4766] bg-white p-5 shadow-md">
+    <div className="mt-10 text-seaBlue bg-white p-5 shadow-md">
       <Toaster />
       <h5 className="font-semibold">New Listing</h5>
       <div className="border mt-5 rounded-md">
@@ -96,14 +96,14 @@ const NewListing = () => {
               {listing?.status === "approved" ? (
                 <button
                   onClick={() => handleApproved(listing._id, listing.status)}
-                  className="px-2 py-1 rounded-md tex-sm bg-green-400 text-white hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                  className="px-2 py-1 rounded-md tex-sm bg-green-400 text-white hover:bg-seaBlue hover:text-white transition-all duration-700"
                 >
                   {listing?.status}
                 </button>
               ) : (
                 <button
                   onClick={() => handleApproved(listing._id, listing.status)}
-                  className="px-2 py-1 rounded-md tex-sm bg-red-400 text-white hover:bg-[#2A4766] hover:text-white transition-all duration-700"
+                  className="px-2 py-1 rounded-md tex-sm bg-red-400 text-white hover:bg-seaBlue hover:text-white transition-all duration-700"
                 >
                   {listing?.status}
                 </button>
@@ -111,7 +111,7 @@ const NewListing = () => {
             </div>
             <div className="col-span-2 border h-full flex items-center justify-center">
               <Link href={`/dashboard/AllProperty/${listing?._id}`}>
-                <button className="bg-[#ececec] p-2 rounded-md hover:bg-[#2A4766] hover:text-white transition-all duration-700">
+                <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
                   <FiEye />
                 </button>
               </Link>

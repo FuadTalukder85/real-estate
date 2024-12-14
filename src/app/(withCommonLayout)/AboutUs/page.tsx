@@ -42,52 +42,52 @@ const AboutUs = () => {
             <Image src={aboutus} alt="aboutus"></Image>
           </div>
           <div className="col-span-5">
-            <span className="bg-[#fffadc] text-[#77797a] font-semibold py-2 px-5 rounded-full ">
+            <span className="bg-[#ffe8d4] text-light font-semibold py-2 px-5 rounded-full ">
               About us
             </span>
-            <h3 className="text-[#2A4766] text-4xl font-bold mt-6">
+            <h3 className="text-seaBlue text-4xl font-bold mt-6">
               The Leading Real Estate Rental Marketplace
             </h3>
-            <p className="mt-5 text-[#687f8a]">
+            <p className="mt-5 text-light">
               Over 39,000 people work for us in more than 70 countries all over
               the This breadth of global coverage, combined with specialist
               services
             </p>
             <ul className="grid grid-cols-2 gap-2 mt-10">
               <li className="flex gap-3 items-center">
-                <span className="p-1 border border-[#2A4766] text-[#77797a] rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border border-seaBlue text-light rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <CiLocationArrow1 className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Smart Home Design
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="p-1 border border-[#2A4766] text-[#77797a] rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border border-seaBlue text-light rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <CiLocationArrow1 className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Beautiful Scene Around
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="p-1 border border-[#2A4766] text-[#77797a] rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border border-seaBlue text-light rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <CiLocationArrow1 className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Exceptional Lifestyle
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="p-1 border border-[#2A4766] text-[#77797a] rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border border-seaBlue text-light rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <CiLocationArrow1 className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Complete 24/7 Security
                 </span>
               </li>
             </ul>
-            <p className="border-l-4 border-[#F1913D] bg-[#fffadc] text-[#77797a] mt-10 pl-7 py-6 pr-28">
+            <p className="border-l-4 border-yellow bg-[#ffe8d4] text-light mt-10 pl-7 py-6 pr-28">
               Enimad minim veniam quis nostrud exercitation llamco laboris.
               Lorem ipsum dolor sit amet.
             </p>
@@ -96,13 +96,13 @@ const AboutUs = () => {
         {/* why choose us */}
         <div className="grid grid-cols-2 gap-20 items-center mt-16">
           <div>
-            <span className="bg-[#fffadc] text-[#77797a] font-semibold py-2 px-5 rounded-full ">
+            <span className="bg-[#ffe8d4] text-light font-semibold py-2 px-5 rounded-full ">
               Our main focus
             </span>
-            <h3 className="text-[#2A4766] text-4xl font-bold mt-6">
+            <h3 className="text-seaBlue text-4xl font-bold mt-6">
               Discover What Sets Our Real Estate Expertise Apart
             </h3>
-            <p className="mt-5 text-[#687f8a]">
+            <p className="mt-5 text-light">
               At Homeya, our unwavering commitment lies in crafting unparalleled
               real estate journeys. Our seasoned professionals, armed with
               extensive market knowledge, walk alongside you through every phase
@@ -111,34 +111,34 @@ const AboutUs = () => {
             </p>
             <ul className="grid grid-cols-2 gap-2 mt-10">
               <li className="flex gap-3 items-center">
-                <span className="p-1 border bg-[#2A4766] text-white rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Transparent Partnerships
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="p-1 border bg-[#2A4766] text-white rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Proven Expertise
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="p-1 border bg-[#2A4766] text-white rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Customized Solutions
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="p-1 border bg-[#2A4766] text-white rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-500 cursor-pointer">
+                <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
-                <span className="text-[#77797a] font-semibold">
+                <span className="text-light font-semibold">
                   Local Area Knowledge
                 </span>
               </li>
@@ -161,16 +161,16 @@ const AboutUs = () => {
                 ></Image>
               </div>
               <div>
-                <h5 className="text-[#2A4766] text-xl font-semibold mt-5">
+                <h5 className="text-seaBlue text-xl font-semibold mt-5">
                   Buy A New Home
                 </h5>
-                <p className="text-[#77797a] mt-3">
+                <p className="text-light mt-3">
                   Discover your dream home effortlessly. Explore diverse
                   properties and expert guidance for a seamless buying
                   experience.
                 </p>
-                <button className="text-[#77797a] btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
-                  Learn more <FaArrowRightLong className="text-[#F1913D]" />
+                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+                  Learn more <FaArrowRightLong className="text-yellow" />
                 </button>
               </div>
             </div>
@@ -185,16 +185,16 @@ const AboutUs = () => {
                 ></Image>
               </div>
               <div>
-                <h5 className="text-[#2A4766] text-xl font-semibold mt-5">
+                <h5 className="text-seaBlue text-xl font-semibold mt-5">
                   Rent a home
                 </h5>
-                <p className="text-[#77797a] mt-3">
+                <p className="text-light mt-3">
                   Discover your dream home effortlessly. Explore diverse
                   properties and expert guidance for a seamless buying
                   experience.
                 </p>
-                <button className="text-[#77797a] btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
-                  Learn more <FaArrowRightLong className="text-[#F1913D]" />
+                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+                  Learn more <FaArrowRightLong className="text-yellow" />
                 </button>
               </div>
             </div>
@@ -209,16 +209,16 @@ const AboutUs = () => {
                 ></Image>
               </div>
               <div>
-                <h5 className="text-[#2A4766] text-xl font-semibold mt-5">
+                <h5 className="text-seaBlue text-xl font-semibold mt-5">
                   Sell a home
                 </h5>
-                <p className="text-[#77797a] mt-3">
+                <p className="text-light mt-3">
                   Discover your dream home effortlessly. Explore diverse
                   properties and expert guidance for a seamless buying
                   experience.
                 </p>
-                <button className="text-[#77797a] btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
-                  Learn more <FaArrowRightLong className="text-[#F1913D]" />
+                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+                  Learn more <FaArrowRightLong className="text-yellow" />
                 </button>
               </div>
             </div>

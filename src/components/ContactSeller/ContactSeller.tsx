@@ -15,7 +15,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
   return (
     <div className="w-[480px]">
       <div className="w-full mx-auto bg-white border shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-[#2A4766] mb-4 uppercase">
+        <h2 className="text-xl font-semibold text-seaBlue mb-4 uppercase">
           Listed By
         </h2>
         <div className="flex items-center mb-4">
@@ -27,20 +27,20 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
             className="w-16 h-16 rounded-lg mr-4 object-cover"
           />
           <div>
-            <p className="font-medium text-[#2A4766]">{listedBy?.name}</p>
-            <p className="text-sm text-[#2A4766]">{listedBy?.number}</p>
-            <p className="text-sm text-[#2A4766]">{listedBy?.email}</p>
+            <p className="font-medium text-seaBlue">{listedBy?.name}</p>
+            <p className="text-sm text-seaBlue">{listedBy?.number}</p>
+            <p className="text-sm text-seaBlue">{listedBy?.email}</p>
           </div>
         </div>
         <div>
-          <h3 className="text-center font-semibold text-xl text-[#2A4766] uppercase">
+          <h3 className="text-center font-semibold text-xl text-seaBlue uppercase">
             Contact Agent
           </h3>
         </div>
         <form>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-[#2A4766] mb-1"
+              className="block text-sm font-medium text-seaBlue mb-1"
               htmlFor="fullName"
             >
               Full Name:
@@ -55,7 +55,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-[#2A4766] mb-1"
+              className="block text-sm font-medium text-seaBlue mb-1"
               htmlFor="phoneNumber"
             >
               Phone Number:
@@ -70,7 +70,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-[#2A4766] mb-1"
+              className="block text-sm font-medium text-seaBlue mb-1"
               htmlFor="emailAddress"
             >
               Email Address:
@@ -85,7 +85,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-sm font-medium text-[#2A4766] mb-1"
+              className="block text-sm font-medium text-seaBlue mb-1"
               htmlFor="message"
             >
               Your Message:
@@ -100,7 +100,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#F1913D] text-white uppercase font-semibold text-sm py-3 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            className="w-full bg-yellow text-white uppercase font-semibold text-sm py-3 px-4 rounded-md hover:bg-seaBlue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
             Send Message
           </button>
@@ -121,7 +121,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
             Connect with a trusted agent who knows the market inside out -
             whether you,re buying or selling.
           </p>
-          <button className="mt-5 w-full bg-[#F1913D] text-white text-sm font-semibold uppercase py-3 px-4 rounded-md hover:bg-[#2A4766] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <button className="mt-5 w-full bg-yellow text-white text-sm font-semibold uppercase py-3 px-4 rounded-md hover:bg-seaBlue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2">
             Connect with an agent
           </button>
         </div>

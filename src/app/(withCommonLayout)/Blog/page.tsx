@@ -29,10 +29,10 @@ const page = () => {
               </h5>
             </div>
             <div className="p-5">
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
+              <h4 className="text-xl text-seaBlue py-2 font-semibold capitalize">
                 How to be a Great Host
               </h4>
-              <div className="flex gap-3 items-center text-[#77797a]">
+              <div className="flex gap-3 items-center text-light">
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod
@@ -40,7 +40,7 @@ const page = () => {
               </div>
             </div>
             <div className="border-t">
-              <div className="py-4 px-5 flex gap-3 items-center justify-between text-[#77797a]">
+              <div className="py-4 px-5 flex gap-3 items-center justify-between text-light">
                 <span className="flex gap-3 items-center">
                   <CgProfile />
                   Admin
@@ -64,10 +64,10 @@ const page = () => {
               </h5>
             </div>
             <div className="p-5">
-              <h4 className="text-xl text-[#2A4766] py-2 font-semibold capitalize">
+              <h4 className="text-xl text-seaBlue py-2 font-semibold capitalize">
                 How to be a Great Host
               </h4>
-              <div className="flex gap-3 items-center text-[#77797a]">
+              <div className="flex gap-3 items-center text-light">
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod
@@ -75,7 +75,7 @@ const page = () => {
               </div>
             </div>
             <div className="border-t">
-              <div className="py-4 px-5 flex gap-3 items-center justify-between text-[#77797a]">
+              <div className="py-4 px-5 flex gap-3 items-center justify-between text-light">
                 <span className="flex gap-3 items-center">
                   <CgProfile />
                   Admin
@@ -88,16 +88,16 @@ const page = () => {
           </div>
           {/* search */}
           <div className="col-span-4 ps-5">
-            <h5 className="text-xl font-bold text-[#2A4766]">Search</h5>
+            <h5 className="text-xl font-bold text-seaBlue">Search</h5>
             <li className="flex items-center bg-white mt-5">
               <input
                 className="-mr-10 border-2 w-96 py-3 px-4 outline-none text-sm"
                 placeholder="Search"
               />
-              <FaSearch className="text-[#77797a]" />
+              <FaSearch className="text-light" />
             </li>
             {/* resent post */}
-            <h5 className="text-xl font-bold text-[#2A4766] mt-10">
+            <h5 className="text-xl font-bold text-seaBlue mt-10">
               Recent Posts
             </h5>
             <div className="w-96 mt-5 bg-[#F7F7F7] p-5 rounded-md">
@@ -113,7 +113,7 @@ const page = () => {
                   <h5 className="flex gap-3 items-center">
                     <SlCalender /> Nov 15, 2024
                   </h5>
-                  <p className="font-semibold text-[#2A4766]">
+                  <p className="font-semibold text-seaBlue">
                     Key Real Estate Trends to Watch in 2024
                   </p>
                 </div>
@@ -130,7 +130,7 @@ const page = () => {
                   <h5 className="flex gap-3 items-center">
                     <SlCalender /> Nov 15, 2024
                   </h5>
-                  <p className="font-semibold text-[#2A4766]">
+                  <p className="font-semibold text-seaBlue">
                     Key Real Estate Trends to Watch in 2024
                   </p>
                 </div>
@@ -147,7 +147,7 @@ const page = () => {
                   <h5 className="flex gap-3 items-center">
                     <SlCalender /> Nov 15, 2024
                   </h5>
-                  <p className="font-semibold text-[#2A4766]">
+                  <p className="font-semibold text-seaBlue">
                     Key Real Estate Trends to Watch in 2024
                   </p>
                 </div>

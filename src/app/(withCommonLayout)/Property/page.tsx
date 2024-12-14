@@ -128,7 +128,7 @@ const PropertyPage = () => {
             </li>
             <button
               onClick={handleSearch}
-              className="flex items-center gap-3 p-3 px-7 bg-[#F1913D] text-white text-sm uppercase hover:bg-[#2A4766] transition-all duration-700"
+              className="flex items-center gap-3 p-3 px-7 bg-yellow text-white text-sm uppercase hover:bg-seaBlue transition-all duration-700"
             >
               Search
             </button>
@@ -139,10 +139,10 @@ const PropertyPage = () => {
         {/* Card section */}
         <div className="mt-16 flex justify-between border-b pb-5 font-semibold">
           <div className="flex gap-5">
-            <span className="border-b-2 border-[#F1913D]">All property</span>
+            <span className="border-b-2 border-yellow">All property</span>
           </div>
           <select
-            className="mt-1 block p-2 border-b border-[#F1913D] rounded-md shadow-sm outline-none"
+            className="mt-1 block p-2 border-b border-yellow rounded-md shadow-sm outline-none"
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
           >
