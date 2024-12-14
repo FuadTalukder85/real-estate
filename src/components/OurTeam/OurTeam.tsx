@@ -53,7 +53,7 @@ const OurTeam = () => {
             </Link>
             <div className="flex justify-between items-center mt-5">
               <div>
-                <p className="text-xl font-semibold text-[#2A4766]">
+                <p className="text-lg font-semibold text-[#2A4766]">
                   {agent?.name}
                 </p>
                 <span className="text-[#ABACB0]">Administrative Staff</span>

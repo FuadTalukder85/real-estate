@@ -3,7 +3,6 @@ import Container from "../../../../components/Container/Container";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import Image from "next/image";
-import agentImg from "../../../../assets/images/teamImg/agent01.jpg";
 import { FaFacebook, FaLinkedinIn, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import ListingByAgent from "../../../../components/ListingByAgent/ListingByAgent";
@@ -45,7 +44,7 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
         </div>
         <div className="">
           <Image
-            src={agentImg}
+            src={agent?.image}
             alt="agentImg"
             height={300}
             width={300}

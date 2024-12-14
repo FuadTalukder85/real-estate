@@ -31,17 +31,18 @@ const PropertyCard = ({
             height={400}
             className="rounded-t-lg"
           ></Image>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-lg group-hover:scale-125 transition-all duration-700 ease-in-out"></div>
+          <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-white uppercase font-semibold">
+            For {propertyFor}
+          </h5>
+          <div className="absolute bottom-3 left-3 flex gap-3 items-center text-white">
+            <FaLocationDot />
+            <span>
+              {address}, {city}
+            </span>
+          </div>
         </Link>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-lg group-hover:scale-125 transition-all duration-700 ease-in-out"></div>
-        <h5 className="absolute top-3 right-3 bg-[#2a476670] backdrop-blur-sm py-1 px-3 rounded-lg text-white uppercase font-semibold">
-          For {propertyFor}
-        </h5>
-        <div className="absolute bottom-3 left-3 flex gap-3 items-center text-white">
-          <FaLocationDot />
-          <span>
-            {address}, {city}
-          </span>
-        </div>
       </div>
       <div className="p-5">
         <h4 className="text-[#ffac37] text-xl font-semibold">${price}.00</h4>

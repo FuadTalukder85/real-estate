@@ -11,8 +11,10 @@ import LoginForm from "../Form/LoginForm/LoginForm";
 import RegisterForm from "../Form/RegisterForm/RegisterForm";
 import { AuthContext } from "../../Provider/AuthProvider";
 import UpdateProfileModal from "../Modal/UpdateProfileModal";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathName = usePathname();
   const { user, logOut } = useContext(AuthContext);
 
   // Dropdown visibility state
@@ -89,41 +91,72 @@ const Header = () => {
     setShowModal(!showModal);
   };
 
+  const getDynamicLink = (path: string) => {
+    if (pathName === path) {
+      return "text-[#2A4766] bg-white px-2 rounded-md font-bold";
+    }
+    if (
+      pathName.startsWith("/Property") &&
+      (path === "/Property" || path === "/Property/[id]")
+    ) {
+      return "text-[#2A4766]";
+    }
+    return "text-white";
+  };
+
   return (
     <div>
       <TopHeader />
       <div className="bg-[#2A4766]">
         <Container>
-          <div className="flex justify-between items-center text-white py-3">
+          <div className="flex justify-between items-center py-3">
             <div>
               <ul className="gap-5 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">
-                  <Link href="/">Home</Link>
+                  <Link href="/" className={getDynamicLink("/")}>
+                    Home
+                  </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Property">Property</Link>
+                  <Link
+                    href="/Property"
+                    className={getDynamicLink("/Property")}
+                  >
+                    Property
+                  </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Featured">Featured</Link>
+                  <Link
+                    href="/Featured"
+                    className={getDynamicLink("/Featured")}
+                  >
+                    Featured
+                  </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Agent">Agent</Link>
+                  <Link href="/Agent" className={getDynamicLink("/Agent")}>
+                    Agent
+                  </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Blog">Blog</Link>
+                  <Link href="/Blog" className={getDynamicLink("/Blog")}>
+                    Blog
+                  </Link>
                   <span className="ps-5 border-r h-3"></span>
                 </li>
                 <li className="flex items-center">
-                  <Link href="/Contact">Contact</Link>
+                  <Link href="/Contact" className={getDynamicLink("/Contact")}>
+                    Contact
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <ul className="flex gap-3 items-center">
+              <ul className="flex gap-3 items-center text-white">
                 <li>
                   <FaFacebook />
                 </li>

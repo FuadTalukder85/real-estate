@@ -33,10 +33,24 @@ const AgentPage = () => {
 
   return (
     <div>
-      <div className="miniBanner py-28">
-        <h5 className="text-white text-center font-semibold text-4xl">
-          - Agents -
-        </h5>
+      <div
+        className="py-36"
+        style={{
+          backgroundImage: "url('/agents_hero.jpg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <Container>
+          <h5 className="text-white text-center font-semibold text-4xl">
+            Our All Agents
+          </h5>
+          <p className="text-white text-center">
+            Pairing the industry,s top technology with unsurpassed local
+            expertise.
+          </p>
+        </Container>
       </div>
       <div className="text-center mt-16">
         <b className="uppercase text-[#ffac37]">Our Teams</b>
@@ -65,7 +79,7 @@ const AgentPage = () => {
               </Link>
               <div className="flex justify-between items-center mt-5">
                 <div>
-                  <p className="text-xl font-semibold text-[#2A4766]">
+                  <p className="text-lg font-semibold text-[#2A4766]">
                     {agent?.name}
                   </p>
                   <span className="text-[#ABACB0]">Administrative Staff</span>
@@ -73,13 +87,13 @@ const AgentPage = () => {
                 <ul className="flex gap-3 text-[#ABACB0] text-lg">
                   <li
                     onClick={() => toggleModal(`Call: ${agent?.number}`)}
-                    className="p-3 border rounded-full hover:text-white hover:bg-[#ffac37] transition-all duration-700 cursor-pointer"
+                    className="text-[#2A4766] border border-[#2A4766] p-3 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     <FiPhoneCall />
                   </li>
                   <li
                     onClick={() => toggleModal(`Email: ${agent?.email}`)}
-                    className="p-3 border rounded-full hover:text-white hover:bg-[#ffac37] transition-all duration-700 cursor-pointer"
+                    className="text-[#2A4766] border border-[#2A4766] p-3 rounded-full hover:bg-[#2A4766] hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
                   >
                     <MdOutlineAttachEmail />
                   </li>

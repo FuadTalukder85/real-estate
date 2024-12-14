@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/images/real-estate-logo.png";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { BsHouseCheck } from "react-icons/bs";
@@ -13,27 +13,42 @@ import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { AuthContext } from "../../Provider/AuthProvider";
 import "./Sidebar.css";
 import { LoginInputs } from "../../types/types";
+import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
+  const pathname = usePathname();
   const { data } = useGetUserQuery("");
   const { user } = useContext(AuthContext);
-  const [activeLink, setActiveLink] = useState("");
+  // const [activeLink, setActiveLink] = useState("");
   const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
   console.log(data);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const { pathname } = window.location;
-      if (pathname === "/dashboard") {
-        setActiveLink("/dashboard");
-      } else {
-        setActiveLink(pathname);
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const { pathname } = window.location;
+  //     if (pathname === "/dashboard") {
+  //       setActiveLink("/dashboard");
+  //     } else {
+  //       setActiveLink(pathname);
+  //     }
+  //   }
+  // }, []);
 
-  const handleLinkClick = (link: string) => {
-    setActiveLink(link);
-    localStorage.setItem("activeLink", link);
+  // const handleLinkClick = (link: string) => {
+  //   setActiveLink(link);
+  //   localStorage.setItem("activeLink", link);
+  // };
+
+  const getDynamicLink = (path) => {
+    if (pathname === path) {
+      return "bg-[#fffadc]";
+    }
+    if (
+      pathname.startsWith("/dashboard/AllProperty") &&
+      (path === "/dashboard/AllProperty" ||
+        path === "/dashboard/AllProperty/[id]")
+    ) {
+      return "bg-[#fffadc]";
+    }
   };
 
   return (
@@ -50,81 +65,63 @@ const Sidebar = () => {
               ></Image>
             </Link>
           </li>
-          <li
-            className={`mt-10 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-10">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard"
+              )}`}
               href="/dashboard"
-              onClick={() => handleLinkClick("/dashboard")}
             >
               <MdOutlineSpaceDashboard className="text-xl" />
               Admin Dashboard
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/AllProperty" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3  rounded-md">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/AllProperty"
+              )}`}
               href="/dashboard/AllProperty"
-              onClick={() => handleLinkClick("/dashboard/AllProperty")}
             >
-              <BsHouseCheck className="text-xl" /> Property
+              <BsHouseCheck className="text-xl" /> All Property
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/AddProperty" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/AddProperty"
+              )}`}
               href="/dashboard/AddProperty"
-              onClick={() => handleLinkClick("/dashboard/AddProperty")}
             >
               <IoMdAddCircleOutline className="text-xl" /> Add Property
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Message" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/Message"
+              )}`}
               href="/dashboard/Message"
-              onClick={() => handleLinkClick("/dashboard/Message")}
             >
               <TiMessages className="text-xl" /> Message
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/AllAgent" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/AllAgent"
+              )}`}
               href="/dashboard/AllAgent"
-              onClick={() => handleLinkClick("/dashboard/AllAgent")}
             >
               <GoPeople className="text-xl" /> Agents
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Users" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/Users"
+              )}`}
               href="/dashboard/Users"
-              onClick={() => handleLinkClick("/dashboard/Users")}
             >
               <PiUsersThree className="text-xl" /> Users & Role
             </Link>
@@ -142,55 +139,43 @@ const Sidebar = () => {
               ></Image>
             </Link>
           </li>
-          <li
-            className={`mt-10 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-10">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard"
+              )}`}
               href="/dashboard"
-              onClick={() => handleLinkClick("/dashboard")}
             >
               <MdOutlineSpaceDashboard className="text-xl" />
               Agent Dashboard
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/Property"
+              )}`}
               href="/dashboard/Property"
-              onClick={() => handleLinkClick("/dashboard/Property")}
             >
               <BsHouseCheck className="text-xl" /> My Property
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/AddProperty" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/AddProperty"
+              )}`}
               href="/dashboard/AddProperty"
-              onClick={() => handleLinkClick("/dashboard/AddProperty")}
             >
               <IoMdAddCircleOutline className="text-xl" /> Add Property
             </Link>
           </li>
-          <li
-            className={`mt-2 p-2 px-4 rounded-md ${
-              activeLink === "/dashboard/Property" ? "bg-[#fffadc]" : ""
-            }`}
-          >
+          <li className="mt-3">
             <Link
-              className="flex items-center gap-3"
+              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+                "/dashboard/Property"
+              )}`}
               href="/dashboard/Property"
-              onClick={() => handleLinkClick("/dashboard/Property")}
             >
               <TiMessages className="text-xl" /> Message
             </Link>

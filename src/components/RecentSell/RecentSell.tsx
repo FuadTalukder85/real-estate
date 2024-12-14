@@ -14,24 +14,30 @@ const RecentSell = () => {
       <div className="grid grid-cols-12 gap-12 items-center mt-28">
         <div className="col-span-6">
           <div className="flex gap-5">
+            <div className="overflow-hidden rounded-md">
+              <Image
+                className="rounded-md hover:scale-125 transition-all duration-700"
+                src={recentSell01}
+                alt="recentSell01"
+                width={280}
+              ></Image>
+            </div>
+            <div className="overflow-hidden rounded-md">
+              <Image
+                className="rounded-md hover:scale-125 transition-all duration-700"
+                src={recentSell02}
+                alt="recentSell02"
+                width={280}
+              ></Image>
+            </div>
+          </div>
+          <div className="mt-4 overflow-hidden rounded-md">
             <Image
-              className="rounded-md"
-              src={recentSell01}
-              alt="recentSell01"
-              width={280}
-            ></Image>
-            <Image
-              className="rounded-md"
-              src={recentSell02}
-              alt="recentSell02"
-              width={280}
+              className="rounded-md hover:scale-125 transition-all duration-700"
+              src={recentSell03}
+              alt="recentSell03"
             ></Image>
           </div>
-          <Image
-            className="mt-5 rounded-md"
-            src={recentSell03}
-            alt="recentSell03"
-          ></Image>
         </div>
         <div className="col-span-6">
           <div className="text-[#2A4766]">

@@ -44,9 +44,9 @@ const DashboardHeader = () => {
         <IoIosSearch />
       </div>
       <div className="flex gap-5 items-center">
-        <button className="flex gap-3 items-center bg-[#ffac37] py-2 px-3 rounded-md font-semibold text-white hover:bg-[#ffb958] hover:text-white transition-all duration-700">
-          <IoMdAddCircleOutline className="text-xl" />
+        <button className="flex gap-3 items-center bg-[#ffac37] py-2 px-4 rounded-md font-semibold text-white hover:bg-[#ffb958] hover:text-white transition-all duration-700">
           <Link href="/dashboard/AddProperty">Add Property</Link>
+          <IoMdAddCircleOutline className="text-xl" />
         </button>
         <div className="flex items-center gap-2 relative dropdown-container">
           <Image
