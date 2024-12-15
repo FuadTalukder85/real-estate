@@ -21,7 +21,7 @@ const PropertyCard = ({
   userImage,
 }: TPropertyCard) => {
   return (
-    <div className="drop-shadow-xl bg-white rounded-lg">
+    <div className="drop-shadow-xl bg-white rounded-lg mt-3 md:mt-0">
       <div className="relative group rounded-t-lg overflow-hidden ">
         <Image
           src={propertyImage}

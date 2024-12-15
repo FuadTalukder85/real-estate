@@ -83,7 +83,7 @@ const Testimonials = () => {
         <div className="col-span-6">
           <Slider {...settings}>
             {/* card 01 */}
-            <div className="bg-white shadow-md my-2 px-10 py-16 rounded-2xl">
+            <div className="bg-white shadow-md my-2 px-3 md:px-10 py-5 md:py-16 mt-5 md:mt-0 rounded-2xl">
               <p>
                 My experience with property management services has exceeded
                 expectations. They efficiently manage properties with a
@@ -104,7 +104,7 @@ const Testimonials = () => {
               </div>
             </div>
             {/* card 02 */}
-            <div className="bg-white shadow-md my-2 px-10 py-16 rounded-2xl">
+            <div className="bg-white shadow-md my-2 px-3 md:px-10 py-5 md:py-16 mt-5 md:mt-0 rounded-2xl">
               <p>
                 My experience with property management services has exceeded
                 expectations. They efficiently manage properties with a

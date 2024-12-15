@@ -85,10 +85,10 @@ const PropertyPage = () => {
   }, [property]);
 
   return (
-    <div>
+    <div className="">
       <div className="bg-[#F7F7F7] mt-10">
         <Container>
-          <ul className="flex justify-between gap-2 py-7">
+          <ul className="md:flex justify-between gap-2 py-7 px-3 md:px-0">
             <li className="flex items-center gap-3 p-3 bg-white">
               <FaSearch />
               <input
@@ -98,7 +98,7 @@ const PropertyPage = () => {
                 placeholder="What are you looking for?"
               />
             </li>
-            <li className="flex items-center gap-3 p-3 bg-white">
+            <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
               <FaLocationDot />
               <input
                 value={locationQuery}
@@ -107,7 +107,7 @@ const PropertyPage = () => {
                 placeholder="All Locations"
               />
             </li>
-            <li className="flex items-center gap-3 p-3 bg-white">
+            <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
               <MdCategory />
               <input
                 value={categoryQuery}
@@ -116,7 +116,7 @@ const PropertyPage = () => {
                 placeholder="Categories"
               />
             </li>
-            <li className="flex items-center gap-3 p-3 bg-white">
+            <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
               <FaBed />
               <input
                 type="number"
@@ -128,7 +128,7 @@ const PropertyPage = () => {
             </li>
             <button
               onClick={handleSearch}
-              className="flex items-center gap-3 p-3 px-7 bg-yellow text-white text-sm uppercase hover:bg-seaBlue transition-all duration-700"
+              className="flex items-center gap-3 p-3 px-7 bg-yellow text-white text-sm uppercase hover:bg-seaBlue transition-all duration-700 mt-2 md:mt-0"
             >
               Search
             </button>
@@ -137,7 +137,7 @@ const PropertyPage = () => {
       </div>
       <Container>
         {/* Card section */}
-        <div className="mt-16 flex justify-between border-b pb-5 font-semibold">
+        <div className="mt-16 flex justify-between border-b pb-5 font-semibold px-3 md:px-0">
           <div className="flex gap-5">
             <span className="border-b-2 border-yellow">All property</span>
           </div>
@@ -151,7 +151,7 @@ const PropertyPage = () => {
             <option value="Rent">For Rent</option>
           </select>
         </div>
-        <div className="mt-16 grid grid-cols-3 gap-5">
+        <div className="mt-16 md:grid grid-cols-3 gap-5 p-3 md:p-0">
           {filteredData.length > 0 ? (
             filteredData.map((property: TPropertyTypes, index) => {
               const user = userData?.find(

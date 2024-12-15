@@ -115,7 +115,7 @@ const Header = () => {
       <TopHeader />
       <div className="bg-seaBlue">
         <Container>
-          <div className="flex justify-between items-center py-3">
+          <div className="flex justify-between items-center py-1 md:py-3">
             <div>
               <ul className="gap-2 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">

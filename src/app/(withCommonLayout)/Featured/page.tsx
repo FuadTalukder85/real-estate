@@ -20,49 +20,64 @@ const FeaturedPage = () => {
     <div>
       <div className="bg-[#F7F7F7] mt-10">
         <Container>
-          <ul className="flex gap-2 py-7">
-            <li className="flex items-center gap-3 p-3 pr-16 bg-white">
+          <ul className="md:flex justify-between gap-2 py-7 px-3 md:px-0">
+            <li className="flex items-center gap-3 p-3 bg-white">
               <FaSearch />
               <input
-                className="outline-none text-sm"
+                // value={generalQuery}
+                // onChange={(e) => setGeneralQuery(e.target.value)}
+                className="outline-none text-sm w-52"
                 placeholder="What are you looking for?"
               />
             </li>
-            <li className="flex items-center gap-3 p-3 pr-16 bg-white">
+            <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
               <FaLocationDot />
               <input
-                className="outline-none text-sm"
+                // value={locationQuery}
+                // onChange={(e) => setLocationQuery(e.target.value)}
+                className="outline-none text-sm w-52"
                 placeholder="All Locations"
               />
             </li>
-            <li className="flex items-center gap-3 p-3 pr-16 bg-white">
+            <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
               <MdCategory />
               <input
-                className="outline-none text-sm"
+                // value={categoryQuery}
+                // onChange={(e) => setCategoryQuery(e.target.value)}
+                className="outline-none text-sm w-52"
                 placeholder="Categories"
               />
             </li>
-            <li className="flex items-center gap-3 p-3 pr-16 bg-white">
+            <li className="flex items-center gap-3 p-3 bg-white mt-2 md:mt-0">
               <FaBed />
-              <input className="outline-none text-sm" placeholder="Bedroom" />
+              <input
+                type="number"
+                // value={bedroomQuery}
+                // onChange={(e) => setBedroomQuery(e.target.value)}
+                className="outline-none text-sm w-52"
+                placeholder="Bedroom"
+              />
             </li>
-            <button className="flex items-center gap-3 p-3 px-7 bg-yellow text-white text-sm uppercase hover:bg-[#ffb958] hover:text-white transition-all duration-700">
+            <button
+              // onClick={handleSearch}
+              className="flex items-center gap-3 p-3 px-7 bg-yellow text-white text-sm uppercase hover:bg-seaBlue transition-all duration-700 mt-2 md:mt-0"
+            >
               Search
             </button>
           </ul>
         </Container>
       </div>
       <Container>
-        <div className="grid grid-cols-2 gap-7 mt-10">
+        <div className="md:grid grid-cols-2 gap-7 md:mt-10 p-3 md:p-0">
           {featuredProperty?.map((featured: TPropertyTypes) => (
             <div key={featured._id}>
-              <div className="flex drop-shadow-md bg-white rounded-lg mt-10">
+              <div className="md:flex drop-shadow-md bg-white rounded-lg mt-10">
                 <Image
                   src={featured.propertyImage02 || "/image"}
                   alt="feautredImg"
                   width={300}
                   height={300}
-                  className="rounded-s-lg"
+                  className="rounded-t-lg md:rounded-none md:rounded-s-lg"
                 ></Image>
                 <div className="w-full p-5">
                   <h3 className="mt-1 text-xl font-semibold text-seaBlue">

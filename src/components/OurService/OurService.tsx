@@ -26,7 +26,7 @@ const OurService = () => {
             Discover your dream home effortlessly. Explore diverse properties
             and expert guidance for a seamless buying experience.
           </p>
-          <button className="btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+          <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:text-yellow transition-all duration-700">
             Learn more <FaArrowRightLong className="text-yellow" />
           </button>
         </div>
@@ -40,7 +40,7 @@ const OurService = () => {
             Discover your dream home effortlessly. Explore diverse properties
             and expert guidance for a seamless buying experience.
           </p>
-          <button className="flex gap-3 items-center mt-3">
+          <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:text-yellow transition-all duration-700">
             Learn more <FaArrowRightLong className="text-yellow" />
           </button>
         </div>
@@ -54,7 +54,7 @@ const OurService = () => {
             Discover your dream home effortlessly. Explore diverse properties
             and expert guidance for a seamless buying experience.
           </p>
-          <button className="flex gap-3 items-center mt-3">
+          <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:text-yellow transition-all duration-700">
             Learn more <FaArrowRightLong className="text-yellow" />
           </button>
         </div>

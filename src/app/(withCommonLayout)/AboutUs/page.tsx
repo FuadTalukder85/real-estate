@@ -17,7 +17,7 @@ const AboutUs = () => {
   return (
     <div>
       <div
-        className="py-28"
+        className="py-10 md:py-36"
         style={{
           backgroundImage: "url('/agents_hero.jpg')",
           backgroundRepeat: "no-repeat",
@@ -26,7 +26,7 @@ const AboutUs = () => {
         }}
       >
         <Container>
-          <h5 className="text-white text-center font-semibold text-4xl">
+          <h5 className="text-white text-center font-semibold text-2xl md:text-4xl">
             About us
           </h5>
           <p className="text-white text-center">
@@ -37,15 +37,15 @@ const AboutUs = () => {
       </div>
       <Container>
         {/* about us */}
-        <div className="grid grid-cols-9 gap-10 items-center mt-16">
+        <div className="md:grid grid-cols-9 gap-10 items-center mt-10 md:mt-16">
           <div className="col-span-4">
             <Image src={aboutus} alt="aboutus"></Image>
           </div>
-          <div className="col-span-5">
+          <div className="col-span-5 p-3 md:p-0">
             <span className="bg-[#ffe8d4] text-light font-semibold py-2 px-5 rounded-full ">
               About us
             </span>
-            <h3 className="text-seaBlue text-4xl font-bold mt-6">
+            <h3 className="text-seaBlue text-2xl md:text-4xl font-bold mt-6">
               The Leading Real Estate Rental Marketplace
             </h3>
             <p className="mt-5 text-light">
@@ -87,19 +87,19 @@ const AboutUs = () => {
                 </span>
               </li>
             </ul>
-            <p className="border-l-4 border-yellow bg-[#ffe8d4] text-light mt-10 pl-7 py-6 pr-28">
+            <p className="border-l-4 border-yellow bg-[#ffe8d4] text-light mt-10 pl-7 py-6 md:pr-28">
               Enimad minim veniam quis nostrud exercitation llamco laboris.
               Lorem ipsum dolor sit amet.
             </p>
           </div>
         </div>
         {/* why choose us */}
-        <div className="grid grid-cols-2 gap-20 items-center mt-16">
+        <div className="md:grid grid-cols-2 gap-20 items-center mt-10 md:mt-16 p-3 md:p-0">
           <div>
             <span className="bg-[#ffe8d4] text-light font-semibold py-2 px-5 rounded-full ">
               Our main focus
             </span>
-            <h3 className="text-seaBlue text-4xl font-bold mt-6">
+            <h3 className="text-seaBlue text-2xl md:text-4xl font-bold mt-6">
               Discover What Sets Our Real Estate Expertise Apart
             </h3>
             <p className="mt-5 text-light">
@@ -109,7 +109,7 @@ const AboutUs = () => {
               of your property endeavor. We prioritize understanding your unique
               aspirations, tailoring our expertise to match your vision.
             </p>
-            <ul className="grid grid-cols-2 gap-2 mt-10">
+            <ul className=" md:grid grid-cols-2 gap-2 mt-10">
               <li className="flex gap-3 items-center">
                 <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
@@ -118,7 +118,7 @@ const AboutUs = () => {
                   Transparent Partnerships
                 </span>
               </li>
-              <li className="flex gap-3 items-center">
+              <li className="flex gap-3 items-center mt-3 md:mt-0">
                 <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
@@ -126,7 +126,7 @@ const AboutUs = () => {
                   Proven Expertise
                 </span>
               </li>
-              <li className="flex gap-3 items-center">
+              <li className="flex gap-3 items-center mt-3 md:mt-0">
                 <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
@@ -134,7 +134,7 @@ const AboutUs = () => {
                   Customized Solutions
                 </span>
               </li>
-              <li className="flex gap-3 items-center">
+              <li className="flex gap-3 items-center mt-3 md:mt-0">
                 <span className="p-1 border bg-seaBlue text-white rounded-full hover:bg-seaBlue hover:text-white transition-all duration-500 cursor-pointer">
                   <IoCheckmark className="" />
                 </span>
@@ -151,17 +151,18 @@ const AboutUs = () => {
           </div>
           <div>
             {/* card 01 */}
-            <div className="flex gap-5 items-center">
+            <div className="md:flex gap-5 items-center mt-5 md:mt-0">
               <div>
                 <Image
                   src={icon01}
                   alt="icon01"
                   width={200}
                   height={200}
+                  className="max-w-28 md:max-w-[110px]"
                 ></Image>
               </div>
               <div>
-                <h5 className="text-seaBlue text-xl font-semibold mt-5">
+                <h5 className="text-seaBlue text-xl font-semibold md:mt-5">
                   Buy A New Home
                 </h5>
                 <p className="text-light mt-3">
@@ -169,23 +170,24 @@ const AboutUs = () => {
                   properties and expert guidance for a seamless buying
                   experience.
                 </p>
-                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:text-yellow transition-all duration-700">
                   Learn more <FaArrowRightLong className="text-yellow" />
                 </button>
               </div>
             </div>
             {/* card 02 */}
-            <div className="flex gap-5 items-center">
+            <div className="md:flex gap-5 items-center mt-3 md:mt-0">
               <div>
                 <Image
                   src={icon02}
                   alt="icon01"
                   width={200}
                   height={200}
+                  className="max-w-28 md:max-w-[110px]"
                 ></Image>
               </div>
               <div>
-                <h5 className="text-seaBlue text-xl font-semibold mt-5">
+                <h5 className="text-seaBlue text-xl font-semibold md:mt-5">
                   Rent a home
                 </h5>
                 <p className="text-light mt-3">
@@ -193,23 +195,24 @@ const AboutUs = () => {
                   properties and expert guidance for a seamless buying
                   experience.
                 </p>
-                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:text-yellow transition-all duration-700">
                   Learn more <FaArrowRightLong className="text-yellow" />
                 </button>
               </div>
             </div>
             {/* card 03 */}
-            <div className="flex gap-5 items-center">
+            <div className="md:flex gap-5 items-center mt-3 md:mt-0">
               <div>
                 <Image
                   src={icon03}
                   alt="icon01"
                   width={200}
                   height={200}
+                  className="max-w-28 md:max-w-[110px]"
                 ></Image>
               </div>
               <div>
-                <h5 className="text-seaBlue text-xl font-semibold mt-5">
+                <h5 className="text-seaBlue text-xl font-semibold md:mt-5">
                   Sell a home
                 </h5>
                 <p className="text-light mt-3">
@@ -217,7 +220,7 @@ const AboutUs = () => {
                   properties and expert guidance for a seamless buying
                   experience.
                 </p>
-                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:border-b transition-all duration-700 border-red-600">
+                <button className="text-light btn-learn-more flex gap-3 items-center mt-3 hover:text-yellow transition-all duration-700">
                   Learn more <FaArrowRightLong className="text-yellow" />
                 </button>
               </div>

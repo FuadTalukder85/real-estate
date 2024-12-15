@@ -31,7 +31,7 @@ const AgentPage = () => {
   return (
     <div>
       <div
-        className="py-36"
+        className="py-10 md:py-36"
         style={{
           backgroundImage: "url('/agents_hero.jpg')",
           backgroundRepeat: "no-repeat",
@@ -40,7 +40,7 @@ const AgentPage = () => {
         }}
       >
         <Container>
-          <h5 className="text-white text-center font-semibold text-4xl">
+          <h5 className="text-white text-center font-semibold text-2xl md:text-4xl">
             Our All Agents
           </h5>
           <p className="text-white text-center">
@@ -49,14 +49,16 @@ const AgentPage = () => {
           </p>
         </Container>
       </div>
-      <div className="text-center mt-16">
+      <div className="text-center mt-10 md:mt-16">
         <b className="uppercase text-yellow">Our Teams</b>
-        <h2 className="text-4xl font-semibold text-seaBlue">Meet Our Agents</h2>
+        <h2 className="text-2xl md:text-4xl font-semibold text-seaBlue">
+          Meet Our Agents
+        </h2>
       </div>
       <Container>
-        <div className="grid grid-cols-4 gap-5 mt-10">
+        <div className="md:grid grid-cols-4 gap-5 mt-3 md:mt-10 p-3 md:p-0">
           {allAgent?.map((agent: LoginInputs) => (
-            <div key={agent._id}>
+            <div key={agent._id} className="mt-5 md:mt-0">
               <Link href={`/Agent/${agent._id}`}>
                 <div className="relative group overflow-hidden flex items-center justify-center rounded-xl">
                   <Image

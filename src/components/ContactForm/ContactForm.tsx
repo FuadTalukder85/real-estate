@@ -26,17 +26,17 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="bg-[#F7F7F7] mt-28 py-16">
+    <div className="bg-[#F7F7F7] md:mt-28 md:py-16">
       <Toaster />
       <Container>
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-8 bg-white back p-10">
+        <div className="md:grid grid-cols-12 gap-10 text-seaBlue">
+          <div className="col-span-8 bg-white back p-3 md:p-10 rounded-lg">
             <h5 className="text-xl font-semibold pb-2 border-b border-gray-300">
               Fillup The Form
             </h5>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mt-10">
-                <div className="flex gap-5">
+                <div className="md:flex gap-5">
                   <div className="text-seaBlue w-full">
                     <p>Name</p>
                     <input
@@ -48,7 +48,7 @@ const ContactForm = () => {
                       <p className="text-red-400">This field is required</p>
                     )}
                   </div>
-                  <div className="text-seaBlue w-full">
+                  <div className="text-seaBlue w-full mt-5 md:mt-0">
                     <p>Email</p>
                     <input
                       {...register("email", { required: true })}
@@ -92,14 +92,14 @@ const ContactForm = () => {
               </button>
             </form>
           </div>
-          <div className="col-span-4 bg-white p-10">
+          <div className="col-span-4 bg-white p-3 md:p-10 mt-10 md:mt-0 rounded-lg">
             <h5 className="text-xl font-semibold pb-2 border-b border-gray-300">
               Reach out
             </h5>
-            <p className="mt-10 font-semibold text-seaBlue text-2xl">
+            <p className="mt-3 md:mt-10 font-semibold text-seaBlue text-2xl">
               Get In Touch
             </p>
-            <p className="mt-5 text-seaBlue">
+            <p className="md:mt-5 text-seaBlue">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             </p>
             <div className="grid grid-cols-12 items-center gap-5 mt-5">
