@@ -12,6 +12,7 @@ import RegisterForm from "../Form/RegisterForm/RegisterForm";
 import { AuthContext } from "../../Provider/AuthProvider";
 import UpdateProfileModal from "../Modal/UpdateProfileModal";
 import { usePathname } from "next/navigation";
+import { RiMenuFold2Fill } from "react-icons/ri";
 
 const Header = () => {
   const pathName = usePathname();
@@ -76,7 +77,7 @@ const Header = () => {
         profileBtnRef.current &&
         !profileBtnRef.current.contains(event.target as Node)
       ) {
-        setDropdownVisible(false); // Close dropdown
+        setDropdownVisible(false);
       }
     };
 
@@ -109,13 +110,92 @@ const Header = () => {
     }
     return "text-white";
   };
+  // gsap animation for menu
+  useEffect(() => {
+    const menuBtn = document.querySelector("#menu");
+    const menuStyle = document.querySelector("#menuStyle");
+    const closeMenuBtn = document.querySelector("#menuStyle #closeBtn");
 
+    if (menuBtn && menuStyle) {
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#menuStyle", {
+        left: 0,
+        duration: 0.5,
+        opacity: 1,
+        visibility: "visible",
+      });
+      tl.from("#menuStyle li", {
+        x: 100,
+        duration: 0.6,
+        opacity: 0,
+        stagger: 0.2,
+      });
+      // open menu
+      menuBtn.addEventListener("click", () => {
+        tl.play();
+      });
+      // close menu
+      if (closeMenuBtn) {
+        closeMenuBtn.addEventListener("click", () => {
+          tl.reverse();
+        });
+      }
+    }
+  }, []);
   return (
     <div>
       <TopHeader />
-      <div className="bg-seaBlue">
+      <div className="bg-seaBlue px-3 md:px-0">
         <Container>
-          <div className="flex justify-between items-center py-1 md:py-3">
+          {/* responsive menu */}
+          {/* error */}
+          <div className="flex md:hidden justify-between items-center py-2">
+            <div
+              id="menu"
+              className="bg-white text-2xl px-2 py-1 rounded-md hover:bg-green-200 transition-all duration-500"
+            >
+              <RiMenuFold2Fill />
+            </div>
+            <ul>
+              <li className="text-white">Sign In</li>
+            </ul>
+            <div
+              id="menuStyle"
+              className="absolute h-full w-[320px] left-[-320px] p-5 top-0 bg-green-50"
+            >
+              <div className="flex justify-between items-center">
+                logo
+                <div
+                  id="closeBtn"
+                  className="px-2 bg-primary text-white rounded-md hover:bg-black transition-all duration-500"
+                >
+                  X
+                </div>
+              </div>
+              <ul className="mt-5">
+                <li className="font-normal text-black border-y border-gray-200 py-2">
+                  <span>Home</span>
+                </li>
+                <li className="font-normal text-black border-b border-gray-200 py-2">
+                  <span>For Business</span>
+                </li>
+                <li className="font-normal text-black border-b border-gray-200 py-2">
+                  <span>For Investors</span>
+                </li>
+                <li className="font-normal text-black border-b border-gray-200 py-2">
+                  <span>Financing Rates</span>
+                </li>
+                <li className="font-normal text-black border-b border-gray-200 py-2">
+                  <select className="w-20 outline-none">
+                    <option value="">Others</option>
+                    <option value="Sale">Sale</option>
+                    <option value="Featured">Featured</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="hidden md:flex justify-between items-center py-1 md:py-3">
             <div>
               <ul className="gap-2 flex uppercase font-semibold text-sm">
                 <li className="flex items-center">
@@ -318,7 +398,7 @@ const Header = () => {
         </Container>
       </div>
       <div className="relative">
-        {/* your content */}
+        {/* update profile modal */}
         {showModal && (
           <div className="absolute right-96 top-20 z-50">
             <UpdateProfileModal
