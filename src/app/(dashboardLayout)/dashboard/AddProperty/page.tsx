@@ -30,7 +30,7 @@ const AddProperty: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 mx-10 mt-10 text-seaBlue bg-white p-5 rounded-md"
+      className="space-y-4 md:mx-10 md:mt-10 text-seaBlue bg-white p-5 rounded-md"
     >
       <h5 className="font-semibold">Property Details</h5>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">

@@ -69,6 +69,7 @@ const RecentReview = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          rows: 1,
           infinite: true,
           dots: false,
           nextArrow: <NextArrow onClick={() => {}} />,
@@ -84,12 +85,12 @@ const RecentReview = () => {
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
-    <div className="mt-10 p-5 text-seaBlue bg-white pb-24 shadow-md">
-      <h5 className="font-semibold">Recent Reviews</h5>
+    <div className="w-[290px] md:w-full mt-10 text-seaBlue bg-white pb-24 shadow-md">
+      <h5 className="font-semibold p-5">Recent Reviews</h5>
       <Slider {...settings}>
         {recentReview?.map((review) => (
           <div key={review._id} className="bg-gray-50 p-3 mt-2">
-            <div className="flex justify-between mt-5">
+            <div className="md:flex justify-between">
               <div className="flex gap-3 items-center">
                 <Image
                   className="rounded-full"
@@ -98,11 +99,16 @@ const RecentReview = () => {
                   width={45}
                 ></Image>
                 <div>
-                  <p className="font-semibold">{review?.name}</p>
+                  <div className="flex justify-between">
+                    <p className="font-semibold">{review?.name}</p>
+                    <span className="md:hidden">
+                      <Rating style={{ maxWidth: 90 }} value={review?.rating} />
+                    </span>
+                  </div>
                   <p>{review?.date}</p>
                 </div>
               </div>
-              <span className="">
+              <span className="hidden md:block">
                 <Rating style={{ maxWidth: 90 }} value={review?.rating} />
               </span>
             </div>
@@ -110,15 +116,6 @@ const RecentReview = () => {
           </div>
         ))}
       </Slider>
-
-      {/* <div className="flex gap-3 mt-5 justify-end">
-        <button className="bg-white border border-gray-200 p-3 rounded-md shadow-md">
-          <MdChevronLeft className="text-2xl text-yellow" />
-        </button>
-        <button className="bg-yellow p-3 rounded-md shadow-md">
-          <MdChevronRight className="text-2xl text-white" />
-        </button>
-      </div> */}
     </div>
   );
 };

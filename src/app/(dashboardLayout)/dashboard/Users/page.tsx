@@ -60,113 +60,115 @@ const Users = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="px-10 p-5 text-seaBlue">
+    <div className="md:px-10 md:p-5 text-seaBlue">
       <Toaster />
       <div className="mt-10">
         <h5 className="bg-white p-5 border capitalize font-semibold text-seaBlue">
           All user list
         </h5>
         {/* users table*/}
-        <table className="w-full border-collapse">
-          <thead className="bg-[#f2f2f3]">
-            <tr className="flex justify-between font-medium p-2 px-5 border-s border-r">
-              <th className="py-2 text-left font-medium">*</th>
-              <th className="w-1/6 py-2 text-left font-medium">
-                User Photo and Name
-              </th>
-              <th className="w-1/6 py-2 text-left font-medium">Email</th>
-              <th className="w-1/6 py-2 text-left font-medium">Join Date</th>
-              <th className="w-1/6 py-2 text-left font-medium">Role</th>
-              <th className="w-1/6 py-2 text-left font-medium">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data?.map((users: LoginInputs, index: number) => (
-              <tr
-                key={index}
-                className="flex justify-between items-center p-2 border-s border-r border-b bg-white px-5"
-              >
-                <td className="">{index + 1}</td>
-                <td className="w-1/6 flex items-center space-x-3">
-                  <Image
-                    className="rounded-full"
-                    src={proImg}
-                    alt="proImg"
-                    width={40}
-                  ></Image>
-                  <span className=" font-medium">{users.name}</span>
-                </td>
-                <td className="w-1/6">{users.email}</td>
-                <td className="w-1/6">{users.date}</td>
-                <td className="w-1/6">
-                  <select
-                    className="bg-[#ececec] rounded-md"
-                    onChange={(e) => handleRoleChange({ e, users })}
-                  >
-                    <option value="">
-                      {users.role ? `${users.role}` : "User"}
-                    </option>
-                    <option value="Agent">Make Agent</option>
-                    <option value="Admin">Make Admin</option>
-                    <option value="User">Make User</option>
-                  </select>
-                </td>
-                <td className="w-1/6">
-                  <div className="flex gap-5">
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
-                      <FiEye />
-                    </button>
-                    <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
-                      <CiEdit />
-                    </button>
-                    <button
-                      onClick={toggleModal}
-                      className="bg-yellow text-white p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+        <div className="w-[290px] md:w-full overflow-x-scroll md:overflow-hidden">
+          <table className="w-[1200px] md:w-full border-collapse">
+            <thead className="bg-[#f2f2f3]">
+              <tr className="flex justify-between font-medium p-2 px-5 border-s border-r">
+                <th className="py-2 text-left font-medium">*</th>
+                <th className="w-1/6 py-2 text-left font-medium">
+                  User Photo and Name
+                </th>
+                <th className="w-1/6 py-2 text-left font-medium">Email</th>
+                <th className="w-1/6 py-2 text-left font-medium">Join Date</th>
+                <th className="w-1/6 py-2 text-left font-medium">Role</th>
+                <th className="w-1/6 py-2 text-left font-medium">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((users: LoginInputs, index: number) => (
+                <tr
+                  key={index}
+                  className="flex justify-between items-center p-2 border-s border-r border-b bg-white px-5"
+                >
+                  <td className="">{index + 1}</td>
+                  <td className="w-1/6 flex items-center space-x-3">
+                    <Image
+                      className="rounded-full"
+                      src={proImg}
+                      alt="proImg"
+                      width={40}
+                    ></Image>
+                    <span className=" font-medium">{users.name}</span>
+                  </td>
+                  <td className="w-1/6">{users.email}</td>
+                  <td className="w-1/6">{users.date}</td>
+                  <td className="w-1/6">
+                    <select
+                      className="bg-[#ececec] rounded-md"
+                      onChange={(e) => handleRoleChange({ e, users })}
                     >
-                      <AiOutlineDelete />
-                    </button>
-                  </div>
-                  {/* Delete modal */}
-                  <div className="flex justify-center items-center">
-                    {isOpen && (
-                      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-5 z-50">
-                        <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-sm relative">
-                          {/* Close button */}
-                          <button
-                            onClick={toggleModal}
-                            className="text-2xl absolute top-2 right-2 text-white"
-                          >
-                            <IoMdClose className="p-1 rounded-md cursor-pointer bg-yellow hover:bg-seaBlue hover:text-white transition-all duration-700" />
-                          </button>
-                          <div className="flex justify-center mb-4 text-yellow text-4xl">
-                            <AiOutlineDelete />
-                          </div>
-                          <p className="text-center text-seaBlue font-medium mb-6">
-                            Are you sure you want to delete this agent?
-                          </p>
-                          <div className="flex justify-center space-x-4">
+                      <option value="">
+                        {users.role ? `${users.role}` : "User"}
+                      </option>
+                      <option value="Agent">Make Agent</option>
+                      <option value="Admin">Make Admin</option>
+                      <option value="User">Make User</option>
+                    </select>
+                  </td>
+                  <td className="w-1/6">
+                    <div className="flex gap-5">
+                      <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
+                        <FiEye />
+                      </button>
+                      <button className="bg-[#ececec] p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
+                        <CiEdit />
+                      </button>
+                      <button
+                        onClick={toggleModal}
+                        className="bg-yellow text-white p-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                      >
+                        <AiOutlineDelete />
+                      </button>
+                    </div>
+                    {/* Delete modal */}
+                    <div className="flex justify-center items-center">
+                      {isOpen && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-5 z-50">
+                          <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-sm relative">
+                            {/* Close button */}
                             <button
                               onClick={toggleModal}
-                              className="bg-gray-100 text-seaBlue px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                              className="text-2xl absolute top-2 right-2 text-white"
                             >
-                              No, cancel
+                              <IoMdClose className="p-1 rounded-md cursor-pointer bg-yellow hover:bg-seaBlue hover:text-white transition-all duration-700" />
                             </button>
-                            <button
-                              onClick={() => handleDelete(users._id)}
-                              className="bg-yellow text-white px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
-                            >
-                              Yes, I,m sure
-                            </button>
+                            <div className="flex justify-center mb-4 text-yellow text-4xl">
+                              <AiOutlineDelete />
+                            </div>
+                            <p className="text-center text-seaBlue font-medium mb-6">
+                              Are you sure you want to delete this agent?
+                            </p>
+                            <div className="flex justify-center space-x-4">
+                              <button
+                                onClick={toggleModal}
+                                className="bg-gray-100 text-seaBlue px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                              >
+                                No, cancel
+                              </button>
+                              <button
+                                onClick={() => handleDelete(users._id)}
+                                className="bg-yellow text-white px-4 py-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
+                              >
+                                Yes, I,m sure
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

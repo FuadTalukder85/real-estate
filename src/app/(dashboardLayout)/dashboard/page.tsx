@@ -23,8 +23,8 @@ const AdminPage = () => {
             <div className="col-span-3">
               <NewListing></NewListing>
             </div>
-            <div className="md:col-span-2">
-              {/* <RecentReview></RecentReview> */}
+            <div className="col-span-2">
+              <RecentReview></RecentReview>
             </div>
           </div>
         </div>
