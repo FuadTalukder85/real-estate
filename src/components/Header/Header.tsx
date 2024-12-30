@@ -13,6 +13,9 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import UpdateProfileModal from "../Modal/UpdateProfileModal";
 import { usePathname } from "next/navigation";
 import { RiMenuFold2Fill } from "react-icons/ri";
+import Image from "next/image";
+import logo from "../../assets/images/real-estate-logo.png";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Header = () => {
   const pathName = usePathname();
@@ -120,15 +123,15 @@ const Header = () => {
       const tl = gsap.timeline({ paused: true });
       tl.to("#menuStyle", {
         left: 0,
-        duration: 0.5,
+        duration: 0.4,
         opacity: 1,
         visibility: "visible",
       });
       tl.from("#menuStyle li", {
         x: 100,
-        duration: 0.6,
+        duration: 0.3,
         opacity: 0,
-        stagger: 0.2,
+        stagger: 0.1,
       });
       // open menu
       menuBtn.addEventListener("click", () => {
@@ -143,58 +146,78 @@ const Header = () => {
     }
   }, []);
   return (
-    <div>
-      <TopHeader />
-      <div className="bg-seaBlue px-3 md:px-0">
+    <div className="relative">
+      <div className="hidden md:block">
+        <TopHeader />
+      </div>
+      <div className="bg-seaBlue">
         <Container>
           {/* responsive menu */}
-          {/* error */}
-          <div className="flex md:hidden justify-between items-center py-2">
+          <div className="bg-white flex md:hidden justify-between items-center py-2  px-3 md:px-0">
+            <Link href="/" className="md:hidden">
+              <Image src={logo} alt="logo" width={100}></Image>
+            </Link>
             <div
               id="menu"
-              className="bg-white text-2xl px-2 py-1 rounded-md hover:bg-green-200 transition-all duration-500"
+              className="bg-seaBlue text-white text-2xl px-2 py-1 rounded-md hover:bg-yellow transition-all duration-500"
             >
               <RiMenuFold2Fill />
             </div>
-            <ul>
-              <li className="text-white">Sign In</li>
-            </ul>
             <div
               id="menuStyle"
-              className="absolute h-full w-[320px] left-[-320px] p-5 top-0 bg-green-50"
+              className="absolute h-screen w-[280px] left-[-320px] top-0 overflow-hidden bg-[#F7F7F7] z-50 p-3"
             >
               <div className="flex justify-between items-center">
-                logo
+                <Link href="/" className="md:hidden">
+                  <Image src={logo} alt="logo" width={100}></Image>
+                </Link>
                 <div
                   id="closeBtn"
-                  className="px-2 bg-primary text-white rounded-md hover:bg-black transition-all duration-500"
+                  className="bg-seaBlue text-white text-xl px-2 py-1 rounded-md hover:bg-yellow transition-all duration-500"
                 >
-                  X
+                  <IoCloseSharp />
                 </div>
               </div>
               <ul className="mt-5">
-                <li className="font-normal text-black border-y border-gray-200 py-2">
-                  <span>Home</span>
+                <li className="font-semibold text-seaBlue border-y border-light py-2">
+                  <Link href="/">Home</Link>
                 </li>
-                <li className="font-normal text-black border-b border-gray-200 py-2">
-                  <span>For Business</span>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/Property">Property</Link>
                 </li>
-                <li className="font-normal text-black border-b border-gray-200 py-2">
-                  <span>For Investors</span>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/Featured">Featured</Link>
                 </li>
-                <li className="font-normal text-black border-b border-gray-200 py-2">
-                  <span>Financing Rates</span>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/Agent">Agent</Link>
                 </li>
-                <li className="font-normal text-black border-b border-gray-200 py-2">
-                  <select className="w-20 outline-none">
-                    <option value="">Others</option>
-                    <option value="Sale">Sale</option>
-                    <option value="Featured">Featured</option>
-                  </select>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/Blog">Blog</Link>
+                </li>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/AboutUs">About us</Link>
+                </li>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/Contact">Contact</Link>
+                </li>
+              </ul>
+              <ul className="flex gap-3 justify-center bg-white py-2 text-seaBlue mt-8 text-2xl">
+                <li>
+                  <FaFacebook />
+                </li>
+                <li>
+                  <IoLogoYoutube />
+                </li>
+                <li>
+                  <FaLinkedinIn />
+                </li>
+                <li>
+                  <FaTwitterSquare />
                 </li>
               </ul>
             </div>
           </div>
+          {/* responsive menu end */}
           <div className="hidden md:flex justify-between items-center py-1 md:py-3">
             <div>
               <ul className="gap-2 flex uppercase font-semibold text-sm">

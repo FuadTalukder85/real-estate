@@ -18,7 +18,7 @@ const FeaturedPage = () => {
   );
   return (
     <div>
-      <div className="bg-[#F7F7F7] mt-10">
+      <div className="bg-[#F7F7F7] md:mt-10">
         <Container>
           <ul className="md:flex justify-between gap-2 py-7 px-3 md:px-0">
             <li className="flex items-center gap-3 p-3 bg-white">

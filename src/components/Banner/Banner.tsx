@@ -35,7 +35,7 @@ const Banner = () => {
       }}
     >
       <Container>
-        <div className="py-16 md:py-32 font-semibold p-3 md:p-0">
+        <div className="py-5 md:py-32 font-semibold p-3 md:p-0">
           <h5 className="text-white text-2xl md:text-5xl md:w-[600px]">
             Find your dream house!
           </h5>
