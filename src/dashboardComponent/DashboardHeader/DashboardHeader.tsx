@@ -35,8 +35,8 @@ const DashboardHeader = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] flex justify-between items-center px-10 py-3">
-      <div className="w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-gray-50 rounded-md">
+    <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] md:flex justify-between items-center px-3 md:px-10 py-3">
+      <div className="md:w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-gray-50 rounded-md">
         <input
           className="py-3 bg-gray-50 outline-none text-sm"
           placeholder="Type to Search..."
@@ -44,7 +44,7 @@ const DashboardHeader = () => {
         <IoIosSearch />
       </div>
       <div className="flex gap-5 items-center">
-        <button className="flex gap-3 items-center bg-yellow py-3 px-4 rounded-md font-semibold text-white hover:bg-seaBlue hover:text-white transition-all duration-700">
+        <button className="flex gap-1 md:gap-3 items-center bg-yellow py-2 md:py-3 px-2 md:px-4 rounded-md text-sm md:text-base md:font-semibold text-white hover:bg-seaBlue hover:text-white transition-all duration-700">
           <Link href="/dashboard/AddProperty">Add Property</Link>
           <IoMdAddCircleOutline className="text-xl" />
         </button>

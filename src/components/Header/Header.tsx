@@ -153,6 +153,7 @@ const Header = () => {
       <div className="bg-seaBlue">
         <Container>
           {/* responsive menu */}
+          {/* todo add login, register form */}
           <div className="bg-white flex md:hidden justify-between items-center py-2  px-3 md:px-0">
             <Link href="/" className="md:hidden">
               <Image src={logo} alt="logo" width={100}></Image>
@@ -199,6 +200,9 @@ const Header = () => {
                 </li>
                 <li className="font-semibold text-seaBlue border-b border-light py-2">
                   <Link href="/Contact">Contact</Link>
+                </li>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
+                  <Link href="/dashboard">Dashboard</Link>
                 </li>
               </ul>
               <ul className="flex gap-3 justify-center bg-white py-2 text-seaBlue mt-8 text-2xl">

@@ -18,9 +18,9 @@ const Analytics = () => {
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
-    <div className="px-10 mt-10 text-seaBlue">
+    <div className="px-3 md:px-10 mt-10 text-seaBlue">
       <h5 className="font-semibold">Analytics</h5>
-      <div className="flex gap-5 justify-between mt-5">
+      <div className="md:flex gap-5 justify-between mt-5">
         {/* card 01 */}
         <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
           <BsHouseCheck className="text-5xl text-yellow" />
@@ -32,7 +32,7 @@ const Analytics = () => {
           </div>
         </div>
         {/* card 02 */}
-        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
+        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md mt-2 md:mt-0">
           <MdOutlineAppRegistration className="text-5xl text-yellow" />
           <div>
             <p className="text-seaBlue">Regi. Agents</p>
@@ -42,7 +42,7 @@ const Analytics = () => {
           </div>
         </div>
         {/* card 03 */}
-        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
+        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md mt-2 md:mt-0">
           <MdPendingActions className="text-5xl text-yellow" />
           <div>
             <p className="text-seaBlue">Pending Property</p>
@@ -52,7 +52,7 @@ const Analytics = () => {
           </div>
         </div>
         {/* card 04 */}
-        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
+        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md mt-2 md:mt-0">
           <MdOutlineContactMail className="text-5xl text-yellow" />
           <div>
             <p className="text-seaBlue">Contact</p>
@@ -63,7 +63,7 @@ const Analytics = () => {
           </div>
         </div>
         {/* card 05 */}
-        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md">
+        <div className="w-full flex gap-8 items-center bg-white p-5 shadow-md mt-2 md:mt-0">
           <MdOutlineReviews className="text-5xl text-yellow" />
           <div>
             <p className="text-seaBlue">Reviews</p>
