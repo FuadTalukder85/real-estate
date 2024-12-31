@@ -30,7 +30,7 @@ const ReviewForm = ({ email }: { email: string }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Toaster />
       <div className="space-y-4 mt-5">
-        <div className="flex gap-3">
+        <div className="md:flex gap-3">
           <div>
             <label className="font-semibold text-sm" htmlFor="">
               Your Name
@@ -45,7 +45,7 @@ const ReviewForm = ({ email }: { email: string }) => {
               <p className="text-red-400">This field is required</p>
             )}
           </div>
-          <div>
+          <div className="mt-3 md:mt-0">
             <label className="font-semibold text-sm" htmlFor="">
               Your Email
             </label>

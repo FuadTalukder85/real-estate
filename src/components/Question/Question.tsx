@@ -15,7 +15,7 @@ const Question = () => {
             </p>
           </div>
           <div className="bg-[#ff4e3775] p-1 flex items-center rounded-full mt-5 md:mt-0">
-            <button className="w-full py-5 px-12 rounded-full bg-white font-semibold text-seaBlue hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out">
+            <button className="w-full py-3 md:py-5 px-12 rounded-full bg-white font-semibold text-seaBlue hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out">
               Contact Us Today
             </button>
           </div>

@@ -16,8 +16,8 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
   console.log("agent", agent);
   return (
     <Container>
-      <div className="flex justify-between gap-10 text-seaBlue mt-16">
-        <div className="w-8/12">
+      <div className="md:flex justify-between gap-10 text-seaBlue mt-5 md:mt-16 p-3 md:p-0">
+        <div className="md:w-8/12">
           <h3 className="text-4xl font-bold">{agent?.name}</h3>
           <p className="mt-1">Licensed Associate Real Estate Broker</p>
           <li className="flex gap-3 items-center mt-10">
@@ -42,7 +42,7 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
             Magazine in December 2016.
           </p>
         </div>
-        <div className="">
+        <div className="mt-5 md:mt-0">
           <Image
             src={agent?.image}
             alt="agentImg"
@@ -71,7 +71,7 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
       </div>
       {/* listing by */}
       <div className="">
-        <h3 className="text-2xl font-bold text-seaBlue">
+        <h3 className="text-2xl font-bold text-seaBlue p-3 md:p-0">
           Listing by {agent?.name}
         </h3>
         {/* card */}

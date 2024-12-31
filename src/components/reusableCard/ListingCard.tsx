@@ -10,7 +10,7 @@ const ListingCard = ({
   sf,
 }: TListingCard) => {
   return (
-    <div className="relative group rounded-lg overflow-hidden">
+    <div className="relative group rounded-lg overflow-hidden mt-3 md:mt-0">
       <Image
         src={cardImg}
         alt="cardImg"

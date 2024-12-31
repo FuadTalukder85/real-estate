@@ -63,7 +63,7 @@ const FeaturedListing = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1.04,
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           dots: false,

@@ -177,7 +177,7 @@ const PropertyPage = () => {
             })
           ) : (
             <div className="col-span-3 text-center text-xl text-gray-500">
-              No data found
+              No property found
             </div>
           )}
         </div>

@@ -17,14 +17,14 @@ const Review = ({ email }: { email: string }) => {
   }, [refetch]);
   return (
     <div>
-      <div className="grid grid-cols-12 gap-10 mt-16 text-seaBlue">
-        <div className="col-span-7 shadow-md p-3 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-12 md:gap-10 mt-5 md:mt-16 text-seaBlue">
+        <div className="col-span-7 order-last md:order-first shadow-md p-3 rounded-lg mt-5 md:mt-0">
           <div className="text-2xl font-bold text-seaBlue">
             {matchReview?.length === 0 ? (
-              <p>
-                <span>{matchReview?.length} Reviews</span>
-                <span>No one has reviewed yet</span>
-              </p>
+              <div>
+                <p>{matchReview?.length} Reviews</p>
+                <p>No one has reviewed yet</p>
+              </div>
             ) : (
               <p>{matchReview?.length} Reviews</p>
             )}
@@ -54,7 +54,7 @@ const Review = ({ email }: { email: string }) => {
             </div>
           ))}
         </div>
-        <div className="col-span-5">
+        <div className="col-span-5 order-first md:order-last">
           <div className="shadow-md p-3 rounded-lg">
             <h5 className="text-2xl font-bold text-seaBlue">Leave a review</h5>
             <ReviewForm email={email}></ReviewForm>

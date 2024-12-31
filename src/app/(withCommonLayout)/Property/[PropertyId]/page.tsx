@@ -21,31 +21,31 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
         <Image src={propertyDetails03} alt="propertyDetails03"></Image>
       </div>
       <Container>
-        <div className="grid grid-cols-12 gap-20 mt-12">
+        <div className="md:grid grid-cols-12 gap-20 mt-12">
           <div className="col-span-7">
-            <div className="shadow-md p-5 rounded-lg">
-              <div className="flex justify-between">
-                <ul className="flex items-center gap-5">
+            <div className="bg-white shadow-md p-3 md:p-5 rounded-lg">
+              <div className="md:flex justify-between">
+                <ul className="flex items-center gap-2 md:gap-5">
                   <li>
-                    <button className="bg-yellow text-white font-semibold px-3 py-1 rounded-md">
+                    <button className="bg-yellow text-white font-semibold px-3 py-1 rounded-md text-sm md:text-base">
                       Featured
                     </button>
                   </li>
                   <li>
-                    <button className="text-seaBlue font-semibold px-3 py-1 rounded-md shadow-md">
+                    <button className="text-seaBlue font-semibold px-3 py-1 rounded-md shadow-md text-sm md:text-base">
                       For {singleProperty.propertyFor}
                     </button>
                   </li>
                   <li>
                     <button className="text-seaBlue font-semibold">
                       Build year :
-                      <span className="text-yellow font-bold text-lg ps-2">
+                      <span className="text-yellow font-bold text-sm md:text-base ps-2">
                         {singleProperty.buildYear}
                       </span>
                     </button>
                   </li>
                 </ul>
-                <div>
+                <div className="flex md:flex-col items-center justify-between mt-3 md:mt-0">
                   <p className="text-seaBlue font-semibold text-2xl">
                     ${singleProperty.price}.00
                   </p>
@@ -54,7 +54,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                   </p>
                 </div>
               </div>
-              <h3 className="mt-10 text-4xl font-semibold text-seaBlue">
+              <h3 className="mt-5 md:mt-10 text-2xl md:text-4xl font-semibold text-seaBlue">
                 {singleProperty.propertyName}
               </h3>
               <div className="mt-7 font-semibold text-xl text-seaBlue">
@@ -65,7 +65,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               </div>
               {/* description */}
 
-              <h5 className="mt-10 text-seaBlue text-2xl font-semibold capitalize">
+              <h5 className="mt-5 md:mt-10 text-seaBlue text-2xl font-semibold capitalize">
                 description:
               </h5>
               <p className="mt-2 text-light pr-2">
@@ -73,11 +73,11 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               </p>
             </div>
             {/* property details */}
-            <div className="mt-10 shadow-md p-5 rounded-lg">
+            <div className="mt-5 md:mt-10 shadow-md p-3 md:p-5 rounded-lg">
               <h5 className="text-seaBlue text-2xl font-semibold capitalize">
                 Properties Details:
               </h5>
-              <div className="flex gap-16 justify-between text-seaBlue">
+              <div className="md:flex gap-16 justify-between text-seaBlue">
                 <ul className="w-full">
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Property type : </span>
@@ -133,7 +133,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
               </div>
             </div>
             {/* whats nearby */}
-            <div className="mt-10 shadow-md p-5 rounded-lg">
+            <div className="mt-5 md:mt-10 shadow-md p-3 md:p-5 rounded-lg">
               <h5 className="text-seaBlue text-2xl font-semibold capitalize">
                 What,s nearby?
               </h5>
@@ -143,7 +143,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                 overview of the living environment and the property,s
                 convenience.
               </p>
-              <div className="flex gap-16 justify-between text-seaBlue">
+              <div className="md:flex gap-16 justify-between text-seaBlue">
                 <ul className="w-full">
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">School : </span>
