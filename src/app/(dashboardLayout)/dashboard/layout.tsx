@@ -6,7 +6,7 @@ import PrivateRoute from "../../../privateRoute/PrivateRoute";
 const layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <PrivateRoute>
-      <div className="flex">
+      <div className="md:flex">
         <div className="md:w-[15%]">
           {/* resoonsive sidebar */}
           <div className="md:hidden"></div>

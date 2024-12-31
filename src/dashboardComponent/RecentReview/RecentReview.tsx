@@ -85,7 +85,7 @@ const RecentReview = () => {
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
-    <div className="w-[290px] md:w-full mt-10 text-seaBlue bg-white pb-24 shadow-md">
+    <div className="w-[290px] md:w-full mt-10 text-seaBlue bg-white pb-24 md:p-5 shadow-md">
       <h5 className="font-semibold p-5">Recent Reviews</h5>
       <Slider {...settings}>
         {recentReview?.map((review) => (

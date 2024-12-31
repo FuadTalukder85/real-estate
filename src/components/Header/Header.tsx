@@ -153,9 +153,9 @@ const Header = () => {
       <div className="bg-seaBlue">
         <Container>
           {/* responsive menu */}
-          {/* todo add login, register form */}
-          <div className="bg-white flex md:hidden justify-between items-center py-2  px-3 md:px-0">
-            <Link href="/" className="md:hidden">
+          {/* todo, add login, register form */}
+          <div className="bg-white flex md:hidden justify-between items-center py-2 px-3 md:px-0">
+            <Link href="/">
               <Image src={logo} alt="logo" width={100}></Image>
             </Link>
             <div
@@ -169,7 +169,7 @@ const Header = () => {
               className="absolute h-screen w-[280px] left-[-320px] top-0 overflow-hidden bg-[#F7F7F7] z-50 p-3"
             >
               <div className="flex justify-between items-center">
-                <Link href="/" className="md:hidden">
+                <Link href="/">
                   <Image src={logo} alt="logo" width={100}></Image>
                 </Link>
                 <div

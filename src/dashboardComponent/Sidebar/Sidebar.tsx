@@ -11,7 +11,6 @@ import { GoPeople } from "react-icons/go";
 import { PiUsersThree } from "react-icons/pi";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { AuthContext } from "../../Provider/AuthProvider";
-import "./Sidebar.css";
 import { LoginInputs } from "../../types/types";
 import { usePathname } from "next/navigation";
 
@@ -41,10 +40,10 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar h-screen px-5 py-3">
+    <div className="h-screen px-5 py-3">
       {currentUser?.role === "Admin" ? (
         <ul className="text-seaBlue font-semibold">
-          <li>
+          <li className="hidden md:block">
             <Link href="/">
               <Image
                 className="mx-auto"
@@ -54,7 +53,7 @@ const Sidebar = () => {
               ></Image>
             </Link>
           </li>
-          <li className="mt-10">
+          <li className="md:mt-10">
             <Link
               className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
                 "/dashboard"
