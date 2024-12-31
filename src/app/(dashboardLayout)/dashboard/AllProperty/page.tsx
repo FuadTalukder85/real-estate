@@ -101,11 +101,11 @@ const DashProperty = () => {
     <div>
       <div className="md:hidden bg-white p-5 border capitalize font-semibold text-seaBlue">
         <h5 className="">All Properties List</h5>
-        <div className="mt-3 flex items-center justify-between ps-4 font-semibold bg-yellow rounded-md">
+        <div className="mt-3 flex items-center justify-between font-semibold bg-yellow rounded-md">
           <input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="md:w-[500px] py-3 ps-3 bg-[#f0f0f5] outline-none text-sm"
+            className="w-full md:w-[500px] py-3 ps-3 bg-[#f0f0f5] outline-none text-sm"
             placeholder="Search by property Title..."
           />
           <div
@@ -136,7 +136,7 @@ const DashProperty = () => {
             </div>
           </div>
           {/* property table*/}
-          <table className="overflow-x-scroll w-full border-collapse">
+          <table className="overflow-x-scroll w-[1600px] md:w-full border-collapse">
             <thead className="bg-[#f2f2f3]">
               <tr className=" flex justify-between font-medium p-2 px-5 border-s border-r">
                 <th className="py-2 text-left font-medium">*</th>

@@ -45,8 +45,8 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
   };
 
   return (
-    <div className="fixed bg-black bg-opacity-5 inset-0 z-50">
-      <div className="md:w-[1200px] fixed bg-white md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 rounded-lg">
+    <div className="absolute bg-black bg-opacity-5 inset-0 z-50">
+      <div className="w-full md:w-[1200px] absolute bg-white md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 rounded-lg">
         <div className="flex justify-between items-center mb-4 p-5">
           <button className="text-lg font-bold text-seaBlue">
             Update your property

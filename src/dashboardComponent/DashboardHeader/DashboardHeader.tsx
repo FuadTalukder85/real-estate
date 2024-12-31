@@ -10,7 +10,7 @@ import Link from "next/link";
 import UpdateProfileModal from "../../components/Modal/UpdateProfileModal";
 import useCurrentUser from "../../hooks/CurrentUser";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { RiMenuFoldFill } from "react-icons/ri";
+import { RiMenuFold2Fill } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
 import gsap from "gsap";
 import logo from "../../assets/images/real-estate-logo.png";
@@ -53,8 +53,8 @@ const DashboardHeader = () => {
         opacity: 1,
         visibility: "visible",
       });
-      tl.from("#menuStyle li", {
-        x: 100,
+      tl.from("#menuStyle", {
+        // x: 100,
         duration: 0.3,
         opacity: 1,
         stagger: 0.1,
@@ -83,7 +83,7 @@ const DashboardHeader = () => {
             id="menu"
             className="bg-seaBlue text-white text-2xl px-2 py-1 rounded-md hover:bg-yellow transition-all duration-500"
           >
-            <RiMenuFoldFill />
+            <RiMenuFold2Fill />
           </div>
           <div
             id="menuStyle"
@@ -100,19 +100,16 @@ const DashboardHeader = () => {
                 <IoCloseSharp />
               </div>
             </div>
-            <ul className="bg-red-50">
-              <li>pai nai</li>
-              <li>pai nai</li>
-              <li>pai nai</li>
-            </ul>
-            <Sidebar></Sidebar>
+            <div className="mt-5">
+              <Sidebar></Sidebar>
+            </div>
           </div>
         </div>
       </div>
       {/* responsive sidebar end */}
       <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] md:flex justify-between items-center px-3 md:px-10 py-3">
         <div className="flex justify-between items-center">
-          <div className="md:w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-gray-50 rounded-md">
+          <div className="w-full md:w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-gray-50 rounded-md">
             <input
               className="py-2 md:py-3 bg-gray-50 outline-none text-sm"
               placeholder="Type to Search..."
