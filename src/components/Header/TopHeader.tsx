@@ -21,9 +21,9 @@ const TopHeader = () => {
             </p>
             <b className="hidden md:block text-lg text-seaBlue">01756-867585</b>
           </div>
-          <button className="border-2 border-yellow text-seaBlue py-1 px-6 font-bold uppercase rounded-sm">
+          {/* <button className="border-2 border-yellow text-seaBlue py-1 px-6 font-bold uppercase rounded-sm">
             Live Chat
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="md:hidden flex justify-center items-center gap-5 pb-2">

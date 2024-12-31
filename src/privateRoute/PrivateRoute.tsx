@@ -28,7 +28,11 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   }, [loading, isLoading, currentUser, router]);
 
   if (loading || isLoading) {
-    return <p className="text-center">Loading...</p>;
+    return (
+      <div className="flex items-center mt-36 justify-center">
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   // Render children if the user has a valid role

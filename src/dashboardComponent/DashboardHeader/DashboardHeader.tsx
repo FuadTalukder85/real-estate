@@ -23,7 +23,9 @@ const DashboardHeader = () => {
   const currentUser = useCurrentUser();
 
   if (!currentUser) {
-    <p>Loading...</p>;
+    <div className="flex items-center mt-36 justify-center">
+      <p>Loading...</p>
+    </div>;
   }
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);

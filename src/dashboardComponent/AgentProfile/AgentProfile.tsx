@@ -5,7 +5,9 @@ import useCurrentUser from "../../hooks/CurrentUser";
 const AgentProfile = () => {
   const currentUser = useCurrentUser();
   if (!currentUser) {
-    <p>Loading...</p>;
+    <div className="flex items-center mt-36 justify-center">
+      <p>Loading...</p>
+    </div>;
   }
   return (
     <div className="bg-white shadow-md w-96 pb-7 rounded-3xl">
