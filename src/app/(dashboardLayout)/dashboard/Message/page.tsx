@@ -41,14 +41,14 @@ const MessagePage = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="md:px-10 md:p-5 text-seaBlue">
+    <div className="px-3 md:px-10 md:p-5 text-seaBlue">
       <Toaster />
-      <div className="mt-10">
+      <div className="mt-5 md:mt-10">
         <h5 className="bg-white p-5 border capitalize font-semibold text-seaBlue">
           All message list
         </h5>
         {/* users table*/}
-        <div className="w-[290px] md:w-full overflow-x-scroll md:overflow-hidden">
+        <div className="w-full overflow-x-scroll md:overflow-hidden">
           <table className="w-[1000px] md:w-full overflow-x-scroll md:overflow-hidden border-collapse">
             <thead className="bg-[#f2f2f3]">
               <tr className="flex gap-3 justify-between font-medium p-2 px-5 pr-16 border-s border-r">
@@ -144,7 +144,7 @@ const MessagePage = () => {
           <div className="fixed inset-0 text-seaBlue bg-black bg-opacity-5 z-50">
             <div className="w-[280px] md:w-[580px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg p-6 z-60">
               <div className="flex justify-between items-center mb-4">
-                <p className="font-semibold">{singleContact.name}</p>
+                <p className="font-semibold">{singleContact?.name}</p>
                 <button
                   onClick={() => {
                     setShowModal(false);

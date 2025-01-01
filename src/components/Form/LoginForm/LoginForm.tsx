@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { usePostUserMutation } from "../../../redux/userApi/UserApi";
-import ReusableBtn from "../../reusableBtn/reusableBtn";
 
 type Inputs = {
   name: string;
@@ -12,7 +11,7 @@ type Inputs = {
 
 const LoginForm = () => {
   const [loggedUser] = usePostUserMutation();
-  const { signIn } = useContext(AuthContext); // Get createUser from context
+  const { signIn } = useContext(AuthContext);
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -41,13 +40,11 @@ const LoginForm = () => {
             className="mt-2 px-3 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"
             placeholder="Enter your password"
             {...register("password", { required: true })}
+            type="password"
           ></input>
         </div>
       </div>
       {/* submit button  */}
-      <div className="mt-3 flex justify-end">
-        <a href="">Forgot your password?</a>
-      </div>
       <button className="mt-5 w-full bg-yellow text-white py-3 px-4 text-sm font-semibold uppercase rounded-lg hover:bg-seaBlue transition-all duration-700">
         Sign Up
       </button>

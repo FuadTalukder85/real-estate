@@ -52,9 +52,6 @@ const RegisterForm = () => {
             {...register("password", { required: true })}
           />
         </div>
-        <div className="mt-3 flex justify-end">
-          <a href="#">Forgot your password?</a>
-        </div>
         <button
           type="submit"
           className="mt-5 w-full bg-yellow text-white py-3 px-4 text-sm font-semibold uppercase rounded-lg hover:bg-seaBlue transition-all duration-700"

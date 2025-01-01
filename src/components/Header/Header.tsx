@@ -224,11 +224,11 @@ const Header = () => {
           {/* responsive menu end */}
           <div className="hidden md:flex justify-between items-center py-1 md:py-3">
             <div>
-              <ul className="gap-2 flex uppercase font-semibold text-sm">
+              <ul className="gap-2 flex uppercase font-bold text-sm">
                 <li className="flex items-center">
                   <Link
                     href="/"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/"
                     )}`}
                   >
@@ -239,7 +239,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Property"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Property"
                     )}`}
                   >
@@ -250,7 +250,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Featured"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Featured"
                     )}`}
                   >
@@ -261,7 +261,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Agent"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Agent"
                     )}`}
                   >
@@ -272,7 +272,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Blog"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Blog"
                     )}`}
                   >
@@ -283,7 +283,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/AboutUs"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/AboutUs"
                     )}`}
                   >
@@ -294,7 +294,7 @@ const Header = () => {
                 <li className="flex items-center">
                   <Link
                     href="/Contact"
-                    className={`px-2 rounded-sm font-bold hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
                       "/Contact"
                     )}`}
                   >
@@ -320,9 +320,9 @@ const Header = () => {
                 </li>
                 {user ? (
                   <>
-                    <div className="relative">
+                    <div className="relative text-sm font-bold">
                       <button
-                        className="uppercase font-semibold"
+                        className="uppercase ps-5"
                         onClick={toggleDropdown}
                         ref={profileBtnRef}
                       >

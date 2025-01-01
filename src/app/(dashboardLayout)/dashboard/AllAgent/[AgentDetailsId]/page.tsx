@@ -10,9 +10,9 @@ const AgentDetailsPage = async ({ params }: { params: TParams }) => {
   const res = await fetch(`http://localhost:4900/users/${AgentDetailsId}`);
   const singleAgent = await res.json();
   return (
-    <div className="p-10">
-      <div className="grid grid-cols-12 gap-5">
-        <div className="col-span-3">
+    <div className="md:p-10">
+      <div className="md:grid grid-cols-12 gap-5">
+        <div className="col-span-3 p-3 md:p-0">
           <p className="text-seaBlue font-semibold bg-gray-100 p-5 rounded-t-md">
             Property Agents Details
           </p>
@@ -56,7 +56,7 @@ const AgentDetailsPage = async ({ params }: { params: TParams }) => {
           </div>
         </div>
         <div className="col-span-9">
-          <p className="text-seaBlue font-semibold">
+          <p className="text-seaBlue font-semibold px-3 md:px-0">
             {singleAgent?.name},s property
           </p>
           <ListingByAgent email={singleAgent.email} />

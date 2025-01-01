@@ -13,7 +13,6 @@ const AgentDetails = async ({ params }: { params: TParams }) => {
   const { AgentId } = await params;
   const res = await fetch(`http://localhost:4900/users/${AgentId}`);
   const agent = await res.json();
-  console.log("agent", agent);
   return (
     <Container>
       <div className="md:flex justify-between gap-10 text-seaBlue mt-5 md:mt-16 p-3 md:p-0">

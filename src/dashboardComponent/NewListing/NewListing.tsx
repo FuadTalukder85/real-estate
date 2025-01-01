@@ -59,7 +59,7 @@ const NewListing = () => {
   }, [refetch]);
 
   return (
-    <div className="w-[290px] md:w-full overflow-x-scroll md:overflow-hidden mt-10 text-seaBlue bg-white md:p-5 shadow-md">
+    <div className="w-full overflow-x-scroll md:overflow-hidden mt-10 text-seaBlue bg-white md:p-5 shadow-md">
       <Toaster />
       <h5 className="font-semibold ps-5 md:ps-0 mt-3 md:mt-0">New Listing</h5>
       <div className="border mt-5 rounded-md w-[800px] md:w-full">

@@ -19,7 +19,6 @@ const Sidebar = () => {
   const { data } = useGetUserQuery("");
   const { user } = useContext(AuthContext);
   const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
-  console.log(data);
   const getDynamicLink = (path: string) => {
     if (pathname === path) {
       return "bg-[#ffe8d4]";

@@ -13,7 +13,6 @@ const LatestSale = () => {
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       )
     : [];
-  console.log(recentProperty);
   return (
     <Container>
       <div className="mx-auto md:w-[550px] text-center text-seaBlue p-3 md:p-0">

@@ -12,26 +12,11 @@ import { LoginInputs } from "../../../../types/types";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
-// import { useGetPropertyQuery } from "../../../../redux/propertyApi/PropertyApi";
 
 const AllAgent = () => {
-  // const { data: property } = useGetPropertyQuery("");
   const { data, refetch } = useGetUserQuery("");
   const agent = data?.filter((dt: LoginInputs) => dt?.role === "Agent");
 
-  // Count properties for each unique user email
-  // if (property && data) {
-  //   const userEmails = data.map((user: LoginInputs) => user.email);
-  //   const emailCounts = userEmails.reduce(
-  //     (acc: Record<string, number>, email) => {
-  //       const count = property.filter((prop) => prop.email === email).length;
-  //       acc[email] = count;
-  //       return acc;
-  //     },
-  //     {}
-  //   );
-  //   console.log("Email counts:", emailCounts);
-  // }
   const [deleteUser] = useDeleteUserMutation();
   // delete modal
   const [isOpen, setIsOpen] = useState(false);
@@ -46,14 +31,14 @@ const AllAgent = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="md:px-10 md:p-5 text-seaBlue">
+    <div className="px-3 md:px-10 md:p-5 text-seaBlue">
       <Toaster />
-      <div className="mt-10">
+      <div className="mt-5 md:mt-10">
         <h5 className="bg-white p-5 border capitalize font-semibold text-seaBlue">
           All agent list
         </h5>
         {/* users table*/}
-        <div className="w-[290px] md:w-full overflow-x-scroll md:overflow-hidden">
+        <div className="w-full overflow-x-scroll md:overflow-hidden">
           <table className="w-[1100px] md:w-full border-collapse">
             <thead className="bg-[#f2f2f3]">
               <tr className="flex gap-3 justify-between font-medium p-2 px-5 pr-16 border-s border-r">

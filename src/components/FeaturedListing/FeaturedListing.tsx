@@ -80,7 +80,7 @@ const FeaturedListing = () => {
   );
   return (
     <Container>
-      <div className="mt-10 md:mt-28 md:flex p-5 md:p-5 text-seaBlue items-center justify-between">
+      <div className="mt-10 md:mt-28 md:flex p-3 md:p-5 text-seaBlue items-center justify-between">
         <div className="md:w-[550px]">
           <h2 className="text-2xl md:text-4xl font-semibold">
             Featured properties
@@ -101,13 +101,13 @@ const FeaturedListing = () => {
       <Slider {...settings}>
         {featuredProperty?.map((featured: TPropertyTypes) => (
           <div key={featured._id}>
-            <div className="flex drop-shadow-md bg-white rounded-lg mt-10">
+            <div className="md:flex drop-shadow-md my-3 md:my-0 bg-white rounded-lg mt-10">
               <Image
                 src={featured.propertyImage02 || "/image"}
                 alt="feautredImg"
                 width={300}
                 height={300}
-                className="rounded-s-lg"
+                className=" md:rounded-s-lg"
               ></Image>
               <div className="w-full p-5">
                 <h3 className="mt-1 text-xl font-semibold text-seaBlue">
