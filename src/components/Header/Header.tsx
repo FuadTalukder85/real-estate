@@ -153,7 +153,6 @@ const Header = () => {
       <div className="bg-seaBlue">
         <Container>
           {/* responsive menu */}
-          {/* todo, add login, register form */}
           <div className="bg-white flex md:hidden justify-between items-center py-2 px-3 md:px-0">
             <Link href="/">
               <Image src={logo} alt="logo" width={100}></Image>
@@ -365,7 +364,7 @@ const Header = () => {
                         {/* login modal start */}
                         <div
                           id="loginForm"
-                          className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                          className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3 z-50"
                           style={{ opacity: 0, visibility: "hidden" }}
                         >
                           <div>
@@ -396,7 +395,7 @@ const Header = () => {
                           {/* register modal start */}
                           <div
                             id="registerForm"
-                            className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3"
+                            className="overflow-hidden absolute right-[360px] bg-white drop-shadow-md w-96 text-black px-5 py-5 mt-3 z-50"
                             style={{ opacity: 0, visibility: "hidden" }}
                           >
                             <div>

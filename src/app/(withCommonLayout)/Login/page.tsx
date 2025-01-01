@@ -43,6 +43,7 @@ const Login = () => {
                   placeholder="Enter your email"
                   type="text"
                   {...register("email", { required: true })}
+                  defaultValue={"webfuadtk@gmail.com"}
                 ></input>
               </div>
               <div className="text-light w-full mt-5">
@@ -52,6 +53,7 @@ const Login = () => {
                   placeholder="Enter your password"
                   type="password"
                   {...register("password", { required: true })}
+                  defaultValue={"fuad85"}
                 ></input>
               </div>
             </div>

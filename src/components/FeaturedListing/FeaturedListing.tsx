@@ -101,15 +101,17 @@ const FeaturedListing = () => {
       <Slider {...settings}>
         {featuredProperty?.map((featured: TPropertyTypes) => (
           <div key={featured._id}>
-            <div className="md:flex drop-shadow-md my-3 md:my-0 bg-white rounded-lg mt-10">
-              <Image
-                src={featured.propertyImage02 || "/image"}
-                alt="feautredImg"
-                width={300}
-                height={300}
-                className=" md:rounded-s-lg"
-              ></Image>
-              <div className="w-full p-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 drop-shadow-md my-3 md:my-0 bg-white rounded-lg mt-10">
+              <div className="md:rounded-s-lg overflow-hidden">
+                <Image
+                  src={featured.propertyImage02 || "/image"}
+                  alt="feautredImg"
+                  width={300}
+                  height={300}
+                  className="h-full w-full md:rounded-s-lg hover:scale-125 transition-all duration-700 ease-in-out"
+                ></Image>
+              </div>
+              <div className="p-3">
                 <h3 className="mt-1 text-xl font-semibold text-seaBlue">
                   {featured.propertyName}
                 </h3>
@@ -117,7 +119,7 @@ const FeaturedListing = () => {
                   <FaLocationDot />
                   {featured.address}, {featured.city}
                 </p>
-                <ul className="w-full grid grid-cols-2 gap-3 text-light mt-3">
+                <ul className="grid grid-cols-2 gap-3 text-light mt-3">
                   <li className="flex gap-2 items-center">
                     <FaBed /> <span>Beds</span>
                     <span className="text-seaBlue font-semibold">

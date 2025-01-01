@@ -32,6 +32,7 @@ const LoginForm = () => {
             className="mt-2 px-3 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"
             placeholder="Enter your email"
             {...register("email", { required: true })}
+            defaultValue={"webfuadtk@gmail.com"}
           ></input>
         </div>
         <div className="text-light w-full mt-5">
@@ -40,6 +41,7 @@ const LoginForm = () => {
             className="mt-2 px-3 py-2 w-full border-2 border-[#F7F7F7] outline-none rounded-md"
             placeholder="Enter your password"
             {...register("password", { required: true })}
+            defaultValue={"fuad85"}
             type="password"
           ></input>
         </div>
