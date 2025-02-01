@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import propertyDetails01 from "../../../../assets/images/propertyImg/propertyDetails01.png";
 import propertyDetails02 from "../../../../assets/images/propertyImg/propertyDetails02.png";
@@ -8,17 +9,64 @@ import { GiCheckMark } from "react-icons/gi";
 import ContactSeller from "../../../../components/ContactSeller/ContactSeller";
 import { TParams } from "../../../../types/types";
 import Review from "../../../../components/Review/Review";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
-const PropertyDetails = async ({ params }: { params: TParams }) => {
-  const { PropertyId } = await params;
-  const res = await fetch(`http://localhost:4900/property/${PropertyId}`);
-  const singleProperty = await res.json();
+const PropertyDetails = ({}) => {
+  const params = useParams();
+  const { PropertyId } = params as TParams;
+  const [singleProperty, setSingleProperty] = useState<any>(null);
+  useEffect(() => {
+    const fetchProperty = async () => {
+      try {
+        const res = await fetch(`http://localhost:4900/property/${PropertyId}`);
+        const data = await res.json();
+        setSingleProperty(data);
+      } catch (error) {
+        console.error("Failed to fetch property:", error);
+      }
+    };
+
+    fetchProperty();
+  }, [PropertyId]);
+  const [sliderRef, slider] = useKeenSlider({
+    loop: true,
+    slides: {
+      perView: 2,
+      spacing: 20,
+    },
+    created: (instance) => {
+      setInterval(() => {
+        instance.next();
+      }, 5000);
+    },
+  });
   return (
     <div>
-      <div className="flex gap-5 overflow-hidden">
-        <Image src={propertyDetails01} alt="propertyDetails01"></Image>
-        <Image src={propertyDetails02} alt="propertyDetails02"></Image>
-        <Image src={propertyDetails03} alt="propertyDetails03"></Image>
+      <div className="keen-slider" ref={sliderRef}>
+        <div className="keen-slider__slide number-slide1">
+          <Image
+            className="w-full"
+            src={propertyDetails01}
+            alt="propertyDetails01"
+          ></Image>
+        </div>
+        <div className="keen-slider__slide number-slide2">
+          <Image
+            className="w-full"
+            src={propertyDetails02}
+            alt="propertyDetails02"
+          ></Image>
+        </div>
+        <div className="keen-slider__slide number-slide3">
+          <Image
+            className="w-full"
+            src={propertyDetails03}
+            alt="propertyDetails03"
+          ></Image>
+        </div>
       </div>
       <Container>
         <div className="md:grid grid-cols-12 gap-20 mt-12">
@@ -33,34 +81,34 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                   </li>
                   <li>
                     <button className="text-seaBlue font-semibold px-3 py-1 rounded-md shadow-md text-sm md:text-base">
-                      For {singleProperty.propertyFor}
+                      For {singleProperty?.propertyFor}
                     </button>
                   </li>
                   <li>
                     <button className="text-seaBlue font-semibold">
                       Build year :
                       <span className="text-yellow font-bold text-sm md:text-base ps-2">
-                        {singleProperty.buildYear}
+                        {singleProperty?.buildYear}
                       </span>
                     </button>
                   </li>
                 </ul>
                 <div className="flex md:flex-col items-center justify-between mt-3 md:mt-0">
                   <p className="text-seaBlue font-semibold text-2xl">
-                    ${singleProperty.price}.00
+                    ${singleProperty?.price}.00
                   </p>
                   <p className="text-end font-semibold text-light">
-                    {singleProperty.squareFoot} / SqFt
+                    {singleProperty?.squareFoot} / SqFt
                   </p>
                 </div>
               </div>
               <h3 className="mt-5 md:mt-10 text-2xl md:text-4xl font-semibold text-seaBlue">
-                {singleProperty.propertyName}
+                {singleProperty?.propertyName}
               </h3>
               <div className="mt-7 font-semibold text-xl text-seaBlue">
                 <li className="flex gap-3 items-center">
                   <IoLocationOutline className="text-yellow text-2xl" />
-                  {singleProperty.address}, {singleProperty.city}
+                  {singleProperty?.address}, {singleProperty?.city}
                 </li>
               </div>
               {/* description */}
@@ -69,7 +117,7 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                 description:
               </h5>
               <p className="mt-2 text-light pr-2">
-                {singleProperty.description}
+                {singleProperty?.description}
               </p>
             </div>
             {/* property details */}
@@ -82,19 +130,19 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Property type : </span>
                     <span className="text-light">
-                      {singleProperty.propertyCategory}
+                      {singleProperty?.propertyCategory}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Area Size : </span>
                     <span className="text-light">
-                      {singleProperty.squareFoot} SqFt
+                      {singleProperty?.squareFoot} SqFt
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Bedroom : </span>
                     <span className="text-light">
-                      0{singleProperty.bedroom}
+                      0{singleProperty?.bedroom}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
@@ -108,19 +156,19 @@ const PropertyDetails = async ({ params }: { params: TParams }) => {
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Build year : </span>
                     <span className="text-light">
-                      {singleProperty.buildYear}
+                      {singleProperty?.buildYear}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Price : </span>
                     <span className="text-light">
-                      ${singleProperty.price}.00
+                      ${singleProperty?.price}.00
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
                     <span className="">Bathroom : </span>
                     <span className="text-light">
-                      0{singleProperty.bathroom}
+                      0{singleProperty?.bathroom}
                     </span>
                   </li>
                   <li className="flex justify-between font-semibold border-b py-3 mt-4">
