@@ -22,7 +22,7 @@ const NewListing = () => {
     try {
       const newStatus = currentStatus === "approved" ? "pending" : "approved";
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/property/${statusId}`, // Use environment variable for API URL
+        `http://localhost:4900/property/${statusId}`,
         {
           method: "PATCH",
           headers: {

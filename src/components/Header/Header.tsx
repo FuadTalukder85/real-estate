@@ -16,10 +16,14 @@ import { RiMenuFold2Fill } from "react-icons/ri";
 import Image from "next/image";
 import logo from "../../assets/images/real-estate-logo.png";
 import { IoCloseSharp } from "react-icons/io5";
+import { useGetUserQuery } from "../../redux/userApi/UserApi";
+import { LoginInputs } from "../../types/types";
 
 const Header = () => {
   const pathName = usePathname();
   const { user, logOut } = useContext(AuthContext);
+  const { data } = useGetUserQuery("");
+  const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
 
   // Dropdown visibility state
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -342,7 +346,12 @@ const Header = () => {
                             Update Profile
                           </li>
                           <li className="px-4 py-2 border-b border-b-yellow  hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer">
-                            <Link href="/dashboard">Dashboard</Link>
+                            {currentUser.role === "Admin" ||
+                            currentUser.role === "Agent" ? (
+                              <Link href="/dashboard">Dashboard</Link>
+                            ) : (
+                              <Link href="/dashboard">My Profile</Link>
+                            )}
                           </li>
                           <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer">
                             <button onClick={handleLogout}>Logout</button>
