@@ -11,13 +11,46 @@ import { TParams } from "../../../../types/types";
 import Review from "../../../../components/Review/Review";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
+import { IoIosStarOutline, IoMdClose } from "react-icons/io";
+import { BsBoxArrowRight } from "react-icons/bs";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+import { MdLink } from "react-icons/md";
+import toast from "react-hot-toast";
 
 const PropertyDetails = ({}) => {
   const params = useParams();
   const { PropertyId } = params as TParams;
   const [singleProperty, setSingleProperty] = useState<any>(null);
+
+  // share dropdown
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const shareRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setDropdownVisible((prev) => !prev);
+  };
+
+  // handle copy
+  const handleCoppy = () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      toast.success("Copied Listing URL", { position: "top-right" });
+    });
+  };
+  // handle facebook share
+  const handleFacebookShare = () => {
+    const url = encodeURIComponent(window.location.href);
+    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(fbShareUrl, "target: _blank");
+  };
+  // handle linkedin share
+  const handleLinkedinShare = () => {
+    const url = encodeURIComponent(window.location.href);
+    const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    window.open(linkedinShareUrl, "target: _blank");
+  };
+
   useEffect(() => {
     const fetchProperty = async () => {
       try {
@@ -72,7 +105,7 @@ const PropertyDetails = ({}) => {
         <div className="md:grid grid-cols-12 gap-20 mt-12">
           <div className="col-span-7">
             <div className="bg-white shadow-md p-3 md:p-5 rounded-lg">
-              <div className="md:flex justify-between">
+              <div className="md:flex justify-between relative">
                 <ul className="flex items-center gap-2 md:gap-5">
                   <li>
                     <button className="bg-yellow text-white font-semibold px-3 py-1 rounded-md text-sm md:text-base">
@@ -93,6 +126,60 @@ const PropertyDetails = ({}) => {
                     </button>
                   </li>
                 </ul>
+                <div className="flex gap-2">
+                  <button className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-sm">
+                    <IoIosStarOutline />
+                    Save
+                  </button>
+                  <button
+                    onClick={toggleDropdown}
+                    className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-sm"
+                  >
+                    <BsBoxArrowRight />
+                    Share
+                  </button>
+                  {isDropdownVisible && (
+                    <div
+                      ref={shareRef}
+                      className="absolute right-0 top-10 bg-white shadow-lg py-3 px-5"
+                    >
+                      <div
+                        onClick={toggleDropdown}
+                        className="flex justify-between"
+                      >
+                        <span className="text-seaBlue font-semibold">
+                          Share listing
+                        </span>
+                        <IoMdClose className="text-2xl p-1 rounded-md cursor-pointer hover:text-white hover:bg-seaBlue transition-all duration-700" />
+                      </div>
+                      <ul className="flex gap-3 mt-8 pr-16">
+                        <li
+                          onClick={handleCoppy}
+                          className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
+                        >
+                          <MdLink />
+                        </li>
+                        <li
+                          onClick={handleFacebookShare}
+                          className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
+                        >
+                          <FaFacebook />
+                        </li>
+                        <li
+                          onClick={handleLinkedinShare}
+                          className="border border-seaBlue p-2 rounded-full hover:bg-seaBlue hover:text-white transition-all duration-700 ease-in-out cursor-pointer"
+                        >
+                          <FaLinkedinIn />
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="mt-5 md:mt-10 flex items-center justify-between">
+                <h3 className="text-2xl md:text-4xl font-semibold text-seaBlue">
+                  {singleProperty?.propertyName}
+                </h3>
                 <div className="flex md:flex-col items-center justify-between mt-3 md:mt-0">
                   <p className="text-seaBlue font-semibold text-2xl">
                     ${singleProperty?.price}.00
@@ -102,9 +189,6 @@ const PropertyDetails = ({}) => {
                   </p>
                 </div>
               </div>
-              <h3 className="mt-5 md:mt-10 text-2xl md:text-4xl font-semibold text-seaBlue">
-                {singleProperty?.propertyName}
-              </h3>
               <div className="mt-7 font-semibold text-xl text-seaBlue">
                 <li className="flex gap-3 items-center">
                   <IoLocationOutline className="text-yellow text-2xl" />

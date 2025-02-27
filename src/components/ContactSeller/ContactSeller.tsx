@@ -120,7 +120,7 @@ const ContactSeller = ({ contactSeller }: ContactSellerProps) => {
             whether you,re buying or selling.
           </p>
           <button className="mt-5 w-full bg-yellow text-white text-sm font-semibold uppercase py-3 px-4 rounded-md hover:bg-seaBlue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2">
-            Connect with an agent
+            Make an appointment
           </button>
         </div>
       </div>
