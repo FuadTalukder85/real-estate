@@ -142,7 +142,7 @@ const Footer = () => {
               </li>
               <li className="flex gap-3 items-center mt-4 hover:text-yellow transition-all duration-700">
                 <CiGlobe className="text-yellow text-lg" />{" "}
-                <Link href="https://fuad-talukder.vercel.app/">
+                <Link href="https://fuad-talukder.vercel.app/" target="__blank">
                   fuad-talukder.vercel.app
                 </Link>
               </li>

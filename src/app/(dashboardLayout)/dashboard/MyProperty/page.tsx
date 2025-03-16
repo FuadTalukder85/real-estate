@@ -1,30 +1,42 @@
 "use client";
-import Image from "next/image";
-import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
-import { FiEye } from "react-icons/fi";
+import useCurrentUser from "../../../../hooks/CurrentUser";
 import {
   useDeletePropertyMutation,
   useGetPropertyQuery,
 } from "../../../../redux/propertyApi/PropertyApi";
-import { useState, useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { IoMdClose, IoIosSearch } from "react-icons/io";
+import { IoIosSearch, IoMdClose } from "react-icons/io";
 import UpdatePropertyModal from "../../../../components/Modal/UpdatePropertyModal";
+import toast, { Toaster } from "react-hot-toast";
+import { CiEdit } from "react-icons/ci";
+import { FiEye } from "react-icons/fi";
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { TPropertyTypes } from "../../../../types/types";
 
-type Property = {
-  propertyName: string;
-};
+const MyProperty = () => {
+  const { data: myData, refetch } = useGetPropertyQuery("");
+  const currentUser = useCurrentUser();
+  const data = useMemo(() => {
+    return myData?.filter(
+      (dt: TPropertyTypes) => dt.email === currentUser?.email
+    );
+  }, [myData, currentUser]);
+  if (!currentUser) {
+    <div className="flex items-center mt-36 justify-center">
+      <p>Loading...</p>
+    </div>;
+  }
 
-const DashProperty = () => {
-  const { data, refetch } = useGetPropertyQuery("");
   const [deleteProperty] = useDeletePropertyMutation();
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [editById, setEditByid] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [filteredData, setFilteredData] = useState<TPropertyTypes[]>([]);
+  const [filteredData, setFilteredData] = useState<TPropertyTypes[]>(
+    data || []
+  );
+
   // delete modal
   const [isOpen, setIsOpen] = useState(false);
   const handleDelete = (id: string) => {
@@ -40,40 +52,6 @@ const DashProperty = () => {
   const handleUpdateModal = () => {
     setShowUpdateModal(!showUpdateModal);
   };
-  // handle property approved - pending
-  const handleApproved = async (statusId: string, currentStatus: string) => {
-    try {
-      const newStatus = currentStatus === "approved" ? "pending" : "approved";
-      const response = await fetch(
-        `http://localhost:4900/property/${statusId}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            status: newStatus,
-          }),
-        }
-      );
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Error:", errorText);
-        toast.error("Failed to update property status", {
-          position: "top-right",
-        });
-        return;
-      }
-      // const data = await response.json();
-      toast.success(`Property status updated`, {
-        position: "top-right",
-      });
-      refetch();
-    } catch (error) {
-      console.error("Error updating property status:", error);
-      toast.error("Error updating property status", { position: "top-right" });
-    }
-  };
   // handle search
   const handleSearch = () => {
     if (typeof searchQuery !== "string" || searchQuery.trim() === "") {
@@ -81,7 +59,7 @@ const DashProperty = () => {
       return;
     }
 
-    const filtered = data?.filter((property: Property) =>
+    const filtered = data?.filter((property: TPropertyTypes) =>
       property.propertyName.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredData(filtered || []);
@@ -161,8 +139,6 @@ const DashProperty = () => {
                     Location
                   </th>
                   <th className="w-1/12 py-2 text-left font-medium">Price</th>
-                  <th className="w-1/12 py-2 text-left font-medium">Post By</th>
-                  <th className="w-1/12 py-2 text-left font-medium">Status</th>
                   <th className="w-1/12 py-2 text-left font-medium">Action</th>
                 </tr>
               </thead>
@@ -192,38 +168,6 @@ const DashProperty = () => {
                     <td className="w-1/12">0{property.bathroom}</td>
                     <td className="w-1/12">{property.city}</td>
                     <td className="w-1/12">${property.price}.00</td>
-                    <td className="w-1/12">
-                      {property.postBy === "Admin" ? (
-                        <button className="bg-seaBlue text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
-                          {property.postBy}
-                        </button>
-                      ) : (
-                        <button className="bg-yellow text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700">
-                          {property.postBy}
-                        </button>
-                      )}
-                    </td>
-                    <td className="w-1/12">
-                      {property?.status === "approved" ? (
-                        <button
-                          onClick={() =>
-                            handleApproved(property._id, property.status)
-                          }
-                          className="bg-green-400 text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
-                        >
-                          {property?.status}
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() =>
-                            handleApproved(property._id, property.status)
-                          }
-                          className="bg-yellow text-white py-1 px-2 rounded-md hover:bg-seaBlue hover:text-white transition-all duration-700"
-                        >
-                          {property?.status}
-                        </button>
-                      )}
-                    </td>
                     <td className="w-1/12">
                       <div className="flex gap-5">
                         <Link href={`/dashboard/AllProperty/${property?._id}`}>
@@ -305,4 +249,5 @@ const DashProperty = () => {
     </div>
   );
 };
-export default DashProperty;
+
+export default MyProperty;

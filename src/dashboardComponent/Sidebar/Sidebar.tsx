@@ -41,6 +41,7 @@ const Sidebar = () => {
   return (
     <div className="h-screen px-5 py-3">
       {currentUser?.role === "Admin" ? (
+        // For admin
         <ul className="text-seaBlue font-semibold">
           <li className="hidden md:block">
             <Link href="/">
@@ -115,6 +116,7 @@ const Sidebar = () => {
           </li>
         </ul>
       ) : (
+        // For agent
         <ul className="text-seaBlue font-semibold">
           <li>
             <Link href="/">
@@ -142,7 +144,7 @@ const Sidebar = () => {
               className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
                 "/dashboard/Property"
               )}`}
-              href="/dashboard/Property"
+              href="/dashboard/MyProperty"
             >
               <BsHouseCheck className="text-xl" /> My Property
             </Link>
