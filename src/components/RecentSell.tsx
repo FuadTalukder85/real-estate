@@ -1,9 +1,9 @@
 import React from "react";
-import Container from "../Container/Container";
+import Container from "./Container";
 import Image from "next/image";
-import recentSell01 from "../../assets/images/recentSell/recentSell01.png";
-import recentSell02 from "../../assets/images/recentSell/recentSell02.png";
-import recentSell03 from "../../assets/images/recentSell/recentSell03.png";
+import recentSell01 from "../assets/images/recentSell/recentSell01.png";
+import recentSell02 from "../assets/images/recentSell/recentSell02.png";
+import recentSell03 from "../assets/images/recentSell/recentSell03.png";
 import { RxSize } from "react-icons/rx";
 import { FaBath, FaBed } from "react-icons/fa";
 import { BiSolidCarGarage } from "react-icons/bi";

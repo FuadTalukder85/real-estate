@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import blogImg from "../../../assets/images/blogImg/blog01.jpg";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import { CgProfile } from "react-icons/cg";
 import { VscComment } from "react-icons/vsc";
 import { SlCalender } from "react-icons/sl";

@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState, useRef } from "react";
 import TopHeader from "./TopHeader";
-import Container from "../Container/Container";
+import Container from "../Container";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube, IoMdClose } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";

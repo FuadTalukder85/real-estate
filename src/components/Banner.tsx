@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Container from "../Container/Container";
+import Container from "./Container";
 import { FaSearch, FaBed } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { MdCategory, MdOutlineEventNote } from "react-icons/md";

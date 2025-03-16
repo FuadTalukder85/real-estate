@@ -1,8 +1,8 @@
 "use client";
 import React, { useContext } from "react";
-import Analytics from "../../../dashboardComponent/Analytics/Analytics";
-import NewListing from "../../../dashboardComponent/NewListing/NewListing";
-import RecentReview from "../../../dashboardComponent/RecentReview/RecentReview";
+import Analytics from "../../../dashboardComponent/Analytics";
+import NewListing from "../../../dashboardComponent/NewListing";
+import RecentReview from "../../../dashboardComponent/RecentReview";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import AgentHome from "../../../dashboardComponent/AgentHome";

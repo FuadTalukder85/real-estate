@@ -1,5 +1,5 @@
 import React from "react";
-import AgentProfile from "./AgentProfile/AgentProfile";
+import AgentProfile from "./AgentProfile";
 
 const AgentHome = () => {
   return (

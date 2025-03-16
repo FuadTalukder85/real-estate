@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import proImg from "../../assets/images/profileImg01.jpg";
+import proImg from "../assets/images/profileImg01.jpg";
 import { FaFacebook, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
-import { LoginInputs } from "../../types/types";
+import { useGetUserQuery } from "../redux/userApi/UserApi";
+import { LoginInputs } from "../types/types";
 type SingleProperty = {
   email: string;
 };

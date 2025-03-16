@@ -2,7 +2,7 @@ import Image from "next/image";
 import proImg from "../../../../../assets/images/profileImg01.jpg";
 import { FaFacebook, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import ListingByAgent from "../../../../../components/ListingByAgent/ListingByAgent";
+import ListingByAgent from "../../../../../components/ListingByAgent";
 import { TParams } from "../../../../../types/types";
 
 const AgentDetailsPage = async ({ params }: { params: TParams }) => {

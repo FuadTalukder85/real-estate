@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import Image from "next/image";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlineAttachEmail } from "react-icons/md";

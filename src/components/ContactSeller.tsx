@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
-import { LoginInputs } from "../../types/types";
+import { useGetUserQuery } from "../redux/userApi/UserApi";
+import { LoginInputs } from "../types/types";
 type ContactSellerProps = {
   contactSeller: LoginInputs;
 };

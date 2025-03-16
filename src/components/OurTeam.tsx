@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import Container from "../Container/Container";
+import Container from "./Container";
 import Image from "next/image";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlineAttachEmail } from "react-icons/md";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
+import { useGetUserQuery } from "../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
-import { LoginInputs } from "../../types/types";
-import ReusableBtn from "../reusableBtn/reusableBtn";
+import { LoginInputs } from "../types/types";
+import ReusableBtn from "./reusableBtn/reusableBtn";
 const OurTeam = () => {
   const { data } = useGetUserQuery("");
   const allAgent = data?.filter((dt: LoginInputs) => dt.role === "Agent");

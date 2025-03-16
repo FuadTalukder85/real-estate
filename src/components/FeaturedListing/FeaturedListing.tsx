@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Container from "../Container/Container";
+import Container from "../Container";
 import Image from "next/image";
 import { FaBath, FaBed } from "react-icons/fa";
 import { BiSolidCarGarage } from "react-icons/bi";

@@ -6,7 +6,7 @@ import { SlCalender } from "react-icons/sl";
 import { RxSize } from "react-icons/rx";
 import { MdOutlineReviews } from "react-icons/md";
 import { GiCheckMark } from "react-icons/gi";
-import PropertyAgent from "../../../../../dashboardComponent/PropertyAgent/PropertyAgent";
+import PropertyAgent from "../../../../../dashboardComponent/PropertyAgent";
 import { TParams } from "../../../../../types/types";
 
 const DashPropertyDetails = async ({ params }: { params: TParams }) => {

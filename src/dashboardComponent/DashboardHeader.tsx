@@ -7,14 +7,14 @@ import {
   IoMdAddCircleOutline,
 } from "react-icons/io";
 import Link from "next/link";
-import UpdateProfileModal from "../../components/Modal/UpdateProfileModal";
-import useCurrentUser from "../../hooks/CurrentUser";
-import { AuthContext } from "../../Provider/AuthProvider";
+import UpdateProfileModal from "../components/Modal/UpdateProfileModal";
+import useCurrentUser from "../hooks/CurrentUser";
+import { AuthContext } from "../Provider/AuthProvider";
 import { RiMenuFold2Fill } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
 import gsap from "gsap";
-import logo from "../../assets/images/real-estate-logo.png";
-import Sidebar from "../Sidebar/Sidebar";
+import logo from "../assets/images/real-estate-logo.png";
+import Sidebar from "./Sidebar/Sidebar";
 
 const DashboardHeader = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../Container/Container";
+import Container from "./Container";
 
 const Question = () => {
   return (

@@ -7,7 +7,7 @@ import {
   MdOutlineReviews,
   MdPendingActions,
 } from "react-icons/md";
-import { useGetAllStatsQuery } from "../../redux/allStatsApi/AllStatsApi";
+import { useGetAllStatsQuery } from "../redux/allStatsApi/AllStatsApi";
 
 const Analytics = () => {
   const { data, refetch } = useGetAllStatsQuery("");

@@ -1,13 +1,13 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import LatestSale from "../../components/LatestSale/LatestSale";
+import Banner from "../../components/Banner";
+import LatestSale from "../../components/LatestSale";
 import FeaturedListing from "../../components/FeaturedListing/FeaturedListing";
 import TrustedCompany from "../../components/TrustedCompany/TrustedCompany";
-import OurService from "../../components/OurService/OurService";
-import Testimonials from "../../components/Testimonials/Testimonials";
-import OurTeam from "../../components/OurTeam/OurTeam";
-import PopularPlace from "../../components/PopularPlace/PopularPlace";
-import RecentSell from "../../components/RecentSell/RecentSell";
+import OurService from "../../components/OurService";
+import Testimonials from "../../components/Testimonials";
+import OurTeam from "../../components/OurTeam";
+import PopularPlace from "../../components/PopularPlace";
+import RecentSell from "../../components/RecentSell";
 
 const page = () => {
   return (

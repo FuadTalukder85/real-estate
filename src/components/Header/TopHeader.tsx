@@ -1,7 +1,7 @@
 import Image from "next/image";
 import logo from "../../assets/images/real-estate-logo.png";
 import React from "react";
-import Container from "../Container/Container";
+import Container from "../Container";
 import Link from "next/link";
 
 const TopHeader = () => {

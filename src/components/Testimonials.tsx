@@ -2,11 +2,12 @@
 import React from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Image from "next/image";
-import profileImg from "../../assets/images/profileImg01.jpg";
+import profileImg from "../assets/images/profileImg01.jpg";
+// import idaf from "../"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { TArrowProps } from "../../types/types";
+import { TArrowProps } from "../types/types";
 // custom button
 const NextArrow = ({ onClick }: TArrowProps) => {
   return (

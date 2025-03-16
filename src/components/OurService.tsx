@@ -1,9 +1,9 @@
 import React from "react";
-import Container from "../Container/Container";
+import Container from "./Container";
 import Image from "next/image";
-import icon01 from "../../assets/images/serviceIcon/icon01.png";
-import icon02 from "../../assets/images/serviceIcon/icon02.png";
-import icon03 from "../../assets/images/serviceIcon/icon03.png";
+import icon01 from "../assets/images/serviceIcon/icon01.png";
+import icon02 from "../assets/images/serviceIcon/icon02.png";
+import icon03 from "../assets/images/serviceIcon/icon03.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const OurService = () => {

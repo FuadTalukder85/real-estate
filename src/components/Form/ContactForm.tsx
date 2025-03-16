@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Container from "../Container/Container";
+import Container from "../Container";
 import { CiHome } from "react-icons/ci";
 import { PiEnvelopeOpenThin, PiPhoneCallThin } from "react-icons/pi";
 import { useForm, SubmitHandler } from "react-hook-form";

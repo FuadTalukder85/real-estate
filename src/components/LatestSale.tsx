@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Container from "../Container/Container";
-import { useGetPropertyQuery } from "../../redux/propertyApi/PropertyApi";
-import PropertyCard from "../reusableCard/PropertyCard";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
+import Container from "./Container";
+import { useGetPropertyQuery } from "../redux/propertyApi/PropertyApi";
+import PropertyCard from "./reusableCard/PropertyCard";
+import { useGetUserQuery } from "../redux/userApi/UserApi";
 
 const LatestSale = () => {
   const { data } = useGetPropertyQuery("");

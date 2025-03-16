@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../Container/Container";
+import Container from "../Container";
 import Image from "next/image";
 import logo from "../../assets/images/real-estate-logo.png";
 import { FaFacebook, FaLinkedinIn, FaTwitterSquare } from "react-icons/fa";

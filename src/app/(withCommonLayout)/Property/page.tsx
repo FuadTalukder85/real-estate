@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { FaBed, FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import PropertyCard from "../../../components/reusableCard/PropertyCard";
 import { TPropertyTypes } from "../../../types/types";

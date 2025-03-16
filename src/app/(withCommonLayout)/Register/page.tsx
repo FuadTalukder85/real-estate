@@ -5,7 +5,7 @@ import { usePostUserMutation } from "../../../redux/userApi/UserApi";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Image from "next/image";
 import loginImg from "../../../assets/images/loginImg.png";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import { LoginInputs } from "../../../types/types";
 import Link from "next/link";
 

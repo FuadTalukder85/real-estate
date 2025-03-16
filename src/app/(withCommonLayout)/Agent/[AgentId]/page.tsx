@@ -1,11 +1,11 @@
 import React from "react";
-import Container from "../../../../components/Container/Container";
+import Container from "../../../../components/Container";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import Image from "next/image";
 import { FaFacebook, FaLinkedinIn, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import ListingByAgent from "../../../../components/ListingByAgent/ListingByAgent";
+import ListingByAgent from "../../../../components/ListingByAgent";
 import Review from "../../../../components/Review/Review";
 import { TParams } from "../../../../types/types";
 

@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import proImg from "../../assets/images/profileImg01.jpg";
+import proImg from "../assets/images/profileImg01.jpg";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { useGetReviewQuery } from "../../redux/reviewApi/reviewApi";
+import { useGetReviewQuery } from "../redux/reviewApi/reviewApi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useEffect } from "react";
-import { TArrowProps } from "../../types/types";
+import { TArrowProps } from "../types/types";
 
 const RecentReview = () => {
   const { data, refetch } = useGetReviewQuery("");

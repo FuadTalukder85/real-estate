@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import { FaBath, FaBed, FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";

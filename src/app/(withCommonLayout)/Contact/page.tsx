@@ -1,8 +1,8 @@
 import React from "react";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import { CiHome, CiShoppingCart } from "react-icons/ci";
 import { PiPhoneCallThin } from "react-icons/pi";
-import ContactForm from "../../../components/ContactForm/ContactForm";
+import ContactForm from "../../../components/Form/ContactForm";
 const ContactPage = () => {
   return (
     <div>

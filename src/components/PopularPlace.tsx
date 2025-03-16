@@ -1,11 +1,11 @@
 import React from "react";
-import Container from "../Container/Container";
+import Container from "./Container";
 import Image from "next/image";
-import popularPlaces01 from "../../assets/images/popularPlaceImg/popularPlaces01.jpg";
-import popularPlaces02 from "../../assets/images/popularPlaceImg/popularPlaces02.jpg";
-import popularPlaces03 from "../../assets/images/popularPlaceImg/popularPlaces03.jpg";
-import popularPlaces04 from "../../assets/images/popularPlaceImg/popularPlaces04.jpg";
-import popularPlaces05 from "../../assets/images/popularPlaceImg/popularPlaces05.jpg";
+import popularPlaces01 from "../assets/images/popularPlaceImg/popularPlaces01.jpg";
+import popularPlaces02 from "../assets/images/popularPlaceImg/popularPlaces02.jpg";
+import popularPlaces03 from "../assets/images/popularPlaceImg/popularPlaces03.jpg";
+import popularPlaces04 from "../assets/images/popularPlaceImg/popularPlaces04.jpg";
+import popularPlaces05 from "../assets/images/popularPlaceImg/popularPlaces05.jpg";
 
 const PopularPlace = () => {
   return (

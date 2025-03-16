@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/Container";
 import Image from "next/image";
 import { CiLocationArrow1 } from "react-icons/ci";
 import aboutus from "../../../../public/aboutus.png";
@@ -10,8 +10,8 @@ import icon03 from "../../../assets/images/serviceIcon/icon03.png";
 import { IoCheckmark } from "react-icons/io5";
 import ReusableBtn from "../../../components/reusableBtn/reusableBtn";
 import Link from "next/link";
-import Testimonials from "../../../components/Testimonials/Testimonials";
-import OurTeam from "../../../components/OurTeam/OurTeam";
+import Testimonials from "../../../components/Testimonials";
+import OurTeam from "../../../components/OurTeam";
 
 const AboutUs = () => {
   return (

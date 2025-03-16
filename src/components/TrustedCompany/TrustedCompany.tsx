@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Container from "../Container/Container";
+import Container from "../Container";
 import Image from "next/image";
 import company01 from "../../assets/images/companyLogo/company01.png";
 import company02 from "../../assets/images/companyLogo/company02.png";
