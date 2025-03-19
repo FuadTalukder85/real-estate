@@ -2,16 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
-import logo from "../../assets/images/real-estate-logo.png";
+import logo from "../assets/images/real-estate-logo.png";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { BsHouseCheck } from "react-icons/bs";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { TiMessages } from "react-icons/ti";
 import { GoPeople } from "react-icons/go";
 import { PiUsersThree } from "react-icons/pi";
-import { useGetUserQuery } from "../../redux/userApi/UserApi";
-import { AuthContext } from "../../Provider/AuthProvider";
-import { LoginInputs } from "../../types/types";
+import { useGetUserQuery } from "../redux/userApi/UserApi";
+import { AuthContext } from "../Provider/AuthProvider";
+import { LoginInputs } from "../types/types";
 import { usePathname } from "next/navigation";
 
 const Sidebar = () => {

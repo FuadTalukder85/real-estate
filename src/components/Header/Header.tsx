@@ -2,13 +2,13 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import TopHeader from "./TopHeader";
 import Container from "../Container";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
+import { FaFacebook, FaRegUser, FaTwitterSquare } from "react-icons/fa";
 import { IoLogoYoutube, IoMdClose } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import gsap from "gsap";
-import LoginForm from "../Form/LoginForm/LoginForm";
-import RegisterForm from "../Form/RegisterForm/RegisterForm";
+import LoginForm from "../Form/LoginForm";
+import RegisterForm from "../Form/RegisterForm";
 import { AuthContext } from "../../Provider/AuthProvider";
 import UpdateProfileModal from "../Modal/UpdateProfileModal";
 import { usePathname } from "next/navigation";
@@ -225,7 +225,7 @@ const Header = () => {
             </div>
           </div>
           {/* responsive menu end */}
-          <div className="hidden md:flex justify-between items-center py-1 md:py-3">
+          <div className="hidden md:flex justify-between items-center py-1">
             <div>
               <ul className="gap-2 flex uppercase font-bold text-sm">
                 <li className="flex items-center">
@@ -325,16 +325,16 @@ const Header = () => {
                   <>
                     <div className="relative text-sm font-bold">
                       <button
-                        className="uppercase ps-5"
+                        className="uppercase ms-5 bg-white text-seaBlue p-2 text-lg rounded-[4px] hover:bg-yellow hover:text-white transition-all duration-500"
                         onClick={toggleDropdown}
                         ref={profileBtnRef}
                       >
-                        Profile
+                        <FaRegUser />
                       </button>
                       {isDropdownVisible && (
                         <ul
                           ref={dropdownRef}
-                          className="absolute w-44 right-0 bg-white text-seaBlue font-semibold rounded-md shadow-md mt-2"
+                          className="absolute w-44 right-0 bg-white text-seaBlue font-semibold rounded-md shadow-md mt-1"
                         >
                           <li
                             onClick={() => {
@@ -350,7 +350,7 @@ const Header = () => {
                             currentUser.role === "Agent" ? (
                               <Link href="/dashboard">Dashboard</Link>
                             ) : (
-                              <Link href="/dashboard">My Profile</Link>
+                              <Link href="/account">My Account</Link>
                             )}
                           </li>
                           <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer">
@@ -362,7 +362,7 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <div className="flex">
+                    <div className="flex py-2">
                       <li className="ps-5 text-sm font-semibold">
                         <button
                           className="pe-3 uppercase hover:text-yellow transition-all duration-700 ease-in-out"

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import { usePostUserMutation } from "../../../redux/userApi/UserApi";
-import { LoginInputs } from "../../../types/types";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { usePostUserMutation } from "../../redux/userApi/UserApi";
+import { LoginInputs } from "../../types/types";
 
 const RegisterForm = () => {
   const [postUser] = usePostUserMutation();

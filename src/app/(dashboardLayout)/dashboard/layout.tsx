@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Sidebar from "../../../dashboardComponent/Sidebar/Sidebar";
+import Sidebar from "../../../dashboardComponent/Sidebar";
 import DashboardHeader from "../../../dashboardComponent/DashboardHeader";
 import PrivateRoute from "../../../privateRoute/PrivateRoute";
 

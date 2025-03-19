@@ -14,7 +14,7 @@ import { RiMenuFold2Fill } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
 import gsap from "gsap";
 import logo from "../assets/images/real-estate-logo.png";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "./Sidebar";
 
 const DashboardHeader = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

@@ -18,6 +18,7 @@ import { BsBoxArrowRight } from "react-icons/bs";
 import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 import { MdLink } from "react-icons/md";
 import toast from "react-hot-toast";
+import ReusableBtn from "../../../../components/reusableBtn/reusableBtn";
 
 const PropertyDetails = ({}) => {
   const params = useParams();
@@ -102,42 +103,36 @@ const PropertyDetails = ({}) => {
         </div>
       </div>
       <Container>
-        <div className="md:grid grid-cols-12 gap-20 mt-12">
+        <div className="md:grid grid-cols-12 gap-10 mt-12">
           <div className="col-span-7">
             <div className="bg-white shadow-md p-3 md:p-5 rounded-lg">
               <div className="md:flex justify-between relative">
                 <ul className="flex items-center gap-2 md:gap-5">
                   <li>
-                    <button className="bg-yellow text-white font-semibold px-3 py-1 rounded-md text-sm md:text-base">
-                      Featured
-                    </button>
+                    <ReusableBtn>For {singleProperty?.propertyFor}</ReusableBtn>
                   </li>
                   <li>
-                    <button className="text-seaBlue font-semibold px-3 py-1 rounded-md shadow-md text-sm md:text-base">
-                      For {singleProperty?.propertyFor}
-                    </button>
-                  </li>
-                  <li>
-                    <button className="text-seaBlue font-semibold">
+                    <button className="text-seaBlue font-semibold text-xl border-b-2 pb-1 border-yellow rounded-sm">
                       Build year :
-                      <span className="text-yellow font-bold text-sm md:text-base ps-2">
+                      <span className="text-yellow font-bold text-sm md:text-xl ps-2">
                         {singleProperty?.buildYear}
                       </span>
                     </button>
                   </li>
                 </ul>
                 <div className="flex gap-2">
-                  <button className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-sm">
+                  <button className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-[4px]">
                     <IoIosStarOutline />
                     Save
                   </button>
                   <button
                     onClick={toggleDropdown}
-                    className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-sm"
+                    className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-[4px]"
                   >
                     <BsBoxArrowRight />
                     Share
                   </button>
+                  <ReusableBtn>Rent Now</ReusableBtn>
                   {isDropdownVisible && (
                     <div
                       ref={shareRef}
