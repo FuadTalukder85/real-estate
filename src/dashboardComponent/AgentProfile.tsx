@@ -10,7 +10,7 @@ const AgentProfile = () => {
     </div>;
   }
   return (
-    <div className="bg-white shadow-md w-96 pb-7 rounded-3xl">
+    <div className="bg-white shadow-md md:w-96 p-3 md:pb-7 rounded-3xl">
       <Image
         className="h-40 rounded-t-3xl"
         src={profileBanner}
@@ -26,14 +26,14 @@ const AgentProfile = () => {
             height={60}
           ></Image>
         </div>
-        <ul className="text-seaBlue text-center">
-          <li className="font-semibold text-lg">
+        <ul className="text-light text-center">
+          <li className=" text-seaBlue font-semibold text-lg">
             <p>{currentUser?.name}</p>
           </li>
           <li>{currentUser?.email}</li>
           <li>{currentUser?.address}</li>
         </ul>
-        <div className="flex gap-3 mt-5 justify-center text-seaBlue font-semibold">
+        <div className="flex gap-1 md:gap-3 mt-5 justify-center font-semibold">
           <button className="px-3 py-1 text-white rounded-lg bg-yellow">
             My Property : 21
           </button>

@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import TopHeader from "./TopHeader";
 import Container from "../Container";
 import { FaFacebook, FaRegUser, FaTwitterSquare } from "react-icons/fa";
-import { IoLogoYoutube, IoMdClose } from "react-icons/io";
+import { IoIosLogOut, IoLogoYoutube, IoMdClose } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import gsap from "gsap";
@@ -12,12 +12,14 @@ import RegisterForm from "../Form/RegisterForm";
 import { AuthContext } from "../../Provider/AuthProvider";
 import UpdateProfileModal from "../Modal/UpdateProfileModal";
 import { usePathname } from "next/navigation";
-import { RiMenuFold2Fill } from "react-icons/ri";
+import { RiHome4Line, RiMenuFold2Fill } from "react-icons/ri";
 import Image from "next/image";
 import logo from "../../assets/images/real-estate-logo.png";
 import { IoCloseSharp } from "react-icons/io5";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { LoginInputs } from "../../types/types";
+import ReusableBtn from "../reusableBtn/reusableBtn";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 const Header = () => {
   const pathName = usePathname();
@@ -183,7 +185,41 @@ const Header = () => {
                 </div>
               </div>
               <ul className="mt-5">
-                <li className="font-semibold text-seaBlue border-y border-light py-2">
+                <li className="flex justify-end ">
+                  {user ? (
+                    <>
+                      {currentUser?.role === "Admin" ||
+                      currentUser?.role === "Agent" ? (
+                        <Link
+                          href="/dashboard"
+                          className="flex items-center justify-between w-32 rounded-[4px] font-semibold bg-seaBlue text-white px-3 py-2"
+                        >
+                          <MdOutlineSpaceDashboard className="text-xl" />
+                          Dashboard
+                        </Link>
+                      ) : (
+                        <Link
+                          href="/account"
+                          className="flex items-center justify-between w-32 rounded-[4px] font-semibold bg-seaBlue text-white px-3 py-2"
+                        >
+                          <RiHome4Line className="text-xl" /> My Profile
+                        </Link>
+                      )}
+                    </>
+                  ) : (
+                    <div className="flex gap-3 justify-end font-semibold py-2">
+                      <Link href="/Login">
+                        <ReusableBtn>Sign in</ReusableBtn>
+                      </Link>
+                      <Link href="/Register">
+                        <button className="bg-seaBlue text-white py-2 px-4 text-sm font-semibold uppercase rounded-[4px] hover:bg-seaBlue transition-all duration-700">
+                          Register
+                        </button>
+                      </Link>
+                    </div>
+                  )}
+                </li>
+                <li className="font-semibold text-seaBlue border-b border-light py-2">
                   <Link href="/">Home</Link>
                 </li>
                 <li className="font-semibold text-seaBlue border-b border-light py-2">
@@ -204,24 +240,37 @@ const Header = () => {
                 <li className="font-semibold text-seaBlue border-b border-light py-2">
                   <Link href="/Contact">Contact</Link>
                 </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/dashboard">Dashboard</Link>
-                </li>
               </ul>
-              <ul className="flex gap-3 justify-center bg-white py-2 text-seaBlue mt-8 text-2xl">
-                <li>
-                  <FaFacebook />
-                </li>
-                <li>
-                  <IoLogoYoutube />
-                </li>
-                <li>
-                  <FaLinkedinIn />
-                </li>
-                <li>
-                  <FaTwitterSquare />
-                </li>
-              </ul>
+              <div className=" mt-16">
+                {user ? (
+                  <div className="mt-5">
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center justify-between w-32 rounded-[4px] font-semibold text-seaBlue px-3 border border-seaBlue py-2 hover:bg-seaBlue hover:text-white transition-all duration-500"
+                    >
+                      Logout
+                      <IoIosLogOut className="text-xl" />
+                    </button>
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                <ul className="flex gap-3 justify-center bg-white py-2 text-seaBlue mt-5 text-2xl">
+                  <li>
+                    <FaFacebook />
+                  </li>
+                  <li>
+                    <IoLogoYoutube />
+                  </li>
+                  <li>
+                    <FaLinkedinIn />
+                  </li>
+                  <li>
+                    <FaTwitterSquare />
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           {/* responsive menu end */}
@@ -350,7 +399,7 @@ const Header = () => {
                             currentUser.role === "Agent" ? (
                               <Link href="/dashboard">Dashboard</Link>
                             ) : (
-                              <Link href="/account">My Account</Link>
+                              <Link href="/account">My Profile</Link>
                             )}
                           </li>
                           <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-t-md hover:text-yellow transition-all duration-700 ease-in-out cursor-pointer">

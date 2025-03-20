@@ -107,7 +107,7 @@ const PropertyDetails = ({}) => {
           <div className="col-span-7">
             <div className="bg-white shadow-md p-3 md:p-5 rounded-lg">
               <div className="md:flex justify-between relative">
-                <ul className="flex items-center gap-2 md:gap-5">
+                <ul className="flex items-center justify-between gap-2 md:gap-5">
                   <li>
                     <ReusableBtn>For {singleProperty?.propertyFor}</ReusableBtn>
                   </li>
@@ -120,7 +120,7 @@ const PropertyDetails = ({}) => {
                     </button>
                   </li>
                 </ul>
-                <div className="flex gap-2">
+                <div className="mt-3 md:mt-0 flex justify-between gap-2">
                   <button className="flex items-center gap-1 font-semibold bg-seaBlue text-white p-1 px-3 rounded-[4px]">
                     <IoIosStarOutline />
                     Save
@@ -136,7 +136,7 @@ const PropertyDetails = ({}) => {
                   {isDropdownVisible && (
                     <div
                       ref={shareRef}
-                      className="absolute right-0 top-10 bg-white shadow-lg py-3 px-5"
+                      className="absolute right-0 top-24 md:top-10 bg-white shadow-lg py-3 px-5"
                     >
                       <div
                         onClick={toggleDropdown}
@@ -171,7 +171,7 @@ const PropertyDetails = ({}) => {
                   )}
                 </div>
               </div>
-              <div className="mt-5 md:mt-10 flex items-center justify-between">
+              <div className="mt-5 md:mt-10 md:flex items-center justify-between">
                 <h3 className="text-2xl md:text-4xl font-semibold text-seaBlue">
                   {singleProperty?.propertyName}
                 </h3>

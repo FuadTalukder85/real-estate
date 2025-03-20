@@ -29,7 +29,7 @@ const AdminPage = () => {
           </div>
         </div>
       ) : (
-        <div className="px-10 mt-10">
+        <div className="md:px-10 mt-10">
           <AgentHome></AgentHome>
         </div>
       )}

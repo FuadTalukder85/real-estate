@@ -14,9 +14,9 @@ const account = () => {
   return (
     <div>
       <Container>
-        <div className="py-10 flex gap-16">
+        <div className="py-10 md:flex gap-16">
           <div>
-            <ul className="w-96 text-white font-semibold border">
+            <ul className="md:w-96 text-white font-semibold border">
               <li className="bg-seaBlue border-b py-3">
                 <Link
                   className={`flex items-center justify-between gap-3 py-1 px-3 rounded-md 
@@ -56,7 +56,7 @@ const account = () => {
               </li>
             </ul>
           </div>
-          <div className="flex gap-5 border p-10 w-[752px]">
+          <div className="md:flex gap-5 border p-3 md:p-10 md:w-[752px]">
             <div>
               <Image src={proImg} alt="proImg" width={150} height={100}></Image>
             </div>
