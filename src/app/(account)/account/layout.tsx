@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import Header from "../../../components/Header/Header";
-import Footer from "../../../components/Footer/Footer";
+import Header from "../../../components/common/Header";
+import Footer from "../../../components/common/Footer";
 
 const layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (

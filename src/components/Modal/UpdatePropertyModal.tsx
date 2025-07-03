@@ -1,4 +1,5 @@
 "use client";
+
 import { SubmitHandler, useForm } from "react-hook-form";
 import { MdClose } from "react-icons/md";
 import {
@@ -7,11 +8,14 @@ import {
 } from "../../redux/propertyApi/PropertyApi";
 import toast from "react-hot-toast";
 import { TPropertyTypes } from "../../types/types";
+import FormField from "../ui/FormField";
+import { useEffect } from "react";
 
-type UpdatePropertyModalProps = {
+interface UpdatePropertyModalProps {
   onClose: () => void;
   propertyId: string | null;
-};
+}
+
 const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
   onClose,
   propertyId,
@@ -22,18 +26,17 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TPropertyTypes>();
+    reset,
+  } = useForm<TPropertyTypes>({ defaultValues: property });
+  useEffect(() => {
+    if (property) {
+      reset(property);
+    }
+  }, [property, reset]);
   const onSubmit: SubmitHandler<TPropertyTypes> = async (formData) => {
     try {
-      if (!propertyId) {
-        console.log("Property ID is missing, cannot update Property");
-        return;
-      }
-      const result = await updateProperty({
-        id: propertyId || "",
-        body: formData,
-      }).unwrap();
-      console.log("Property updated successfully:", result);
+      if (!propertyId) return;
+      await updateProperty({ id: propertyId, body: formData }).unwrap();
       toast.success("Property updated successfully!", {
         position: "top-right",
       });
@@ -41,7 +44,6 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
     } catch (error) {
       console.error("Failed to update Property:", error);
     }
-    console.log("formData", formData);
   };
 
   return (
@@ -58,310 +60,179 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             <MdClose />
           </button>
         </div>
-        {/* update property form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-4 mt-5 text-seaBlue bg-white p-5 rounded-md"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Name*
-              </label>
-              <input
-                {...register("propertyName", { required: true })}
-                type="text"
-                placeholder="Name"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                defaultValue={property?.propertyName}
-              />
-              {errors.propertyName && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Image 01*
-              </label>
-              <input
-                {...register("propertyImage01", { required: true })}
-                type="text"
+            <FormField
+              label="Property Name"
+              name="propertyName"
+              placeholder="Name"
+              register={register}
+              error={errors.propertyName}
+              defaultValue={property?.propertyName}
+            />
+            {[
+              "propertyImage01",
+              "propertyImage02",
+              "propertyImage03",
+              "propertyImage04",
+            ].map((field, idx) => (
+              <FormField
+                key={field}
+                label={`Property Image 0${idx + 1}`}
+                name={field}
                 placeholder="Property Image"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                defaultValue={property?.propertyImage01}
+                register={register}
+                error={errors[field as keyof TPropertyTypes]}
+                defaultValue={
+                  property?.[field as keyof TPropertyTypes] as string
+                }
               />
-              {errors.propertyImage01 && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Image 02*
-              </label>
-              <input
-                {...register("propertyImage02", { required: true })}
-                type="text"
-                placeholder="Property Image"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                defaultValue={property?.propertyImage02}
-              />
-              {errors.propertyImage02 && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Image 03*
-              </label>
-              <input
-                {...register("propertyImage03", { required: true })}
-                type="text"
-                placeholder="Property Image"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                defaultValue={property?.propertyImage03}
-              />
-              {errors.propertyImage03 && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Image 04*
-              </label>
-              <input
-                {...register("propertyImage04", { required: true })}
-                type="text"
-                placeholder="Property Image"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                defaultValue={property?.propertyImage04}
-              />
-              {errors.propertyImage04 && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Price*
-              </label>
-              <div className="relative mt-1 rounded-md shadow-sm">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  $
-                </span>
-                <input
-                  {...register("price", { required: true })}
-                  type="number"
-                  placeholder="000"
-                  className="block w-full pl-7 p-2 border border-gray-300 rounded-md"
-                  defaultValue={property?.price}
-                />
-              </div>
-              {errors.price && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property For*
-              </label>
-              <select
-                {...register("propertyFor", { required: true })}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-              >
-                <option value={property?.propertyFor}>
-                  {property?.propertyFor}
-                </option>
-                <option value="Sale">Sale</option>
-                <option value="Rent">Rent</option>
-                <option value="Featured">Featured</option>
-              </select>
-              {errors.propertyFor && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Categories*
-              </label>
-              <select
-                {...register("propertyCategory", { required: true })}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-              >
-                <option value={property?.propertyCategory}>
-                  {property?.propertyCategory}
-                </option>
-                <option value="Apartment">Apartment</option>
-                <option value="House">House</option>
-                <option value="Office">Office</option>
-              </select>
-              {errors.propertyCategory && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Bedroom*
-              </label>
-              <input
-                {...register("bedroom", { required: true })}
-                type="number"
-                placeholder="Bedroom"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.bedroom}
-              />
-              {errors.bedroom && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Bathroom*
-              </label>
-              <input
-                {...register("bathroom", { required: true })}
-                type="number"
-                placeholder="Bathroom"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.bathroom}
-              />
-              {errors.bathroom && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Square Foot*
-              </label>
-              <input
-                {...register("squareFoot", { required: true })}
-                type="number"
-                placeholder="Square Foot"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.squareFoot}
-              />
-              {errors.squareFoot && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Floor*
-              </label>
-              <input
-                {...register("floor", { required: true })}
-                type="number"
-                placeholder="Floor"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.floor}
-              />
-              {errors.floor && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
+            ))}
+            <FormField
+              label="Price"
+              name="price"
+              type="number"
+              placeholder="000"
+              register={register}
+              error={errors.price}
+              defaultValue={property?.price}
+            />
+            <FormField
+              label="Property For"
+              name="propertyFor"
+              type="select"
+              register={register}
+              error={errors.propertyFor}
+              options={[
+                { value: "Sale", label: "Sale" },
+                { value: "Rent", label: "Rent" },
+                { value: "Featured", label: "Featured" },
+              ]}
+            />
+            <FormField
+              label="Property Categories"
+              name="propertyCategory"
+              type="select"
+              register={register}
+              error={errors.propertyCategory}
+              options={[
+                { value: "Apartment", label: "Apartment" },
+                { value: "House", label: "House" },
+                { value: "Office", label: "Office" },
+              ]}
+            />
+            <FormField
+              label="Bedroom"
+              name="bedroom"
+              type="number"
+              register={register}
+              error={errors.bedroom}
+              placeholder="Bedroom"
+              defaultValue={property?.bedroom}
+            />
+            <FormField
+              label="Bathroom"
+              name="bathroom"
+              type="number"
+              register={register}
+              error={errors.bathroom}
+              placeholder="Bathroom"
+              defaultValue={property?.bathroom}
+            />
+            <FormField
+              label="Square Foot"
+              name="squareFoot"
+              type="number"
+              register={register}
+              error={errors.squareFoot}
+              placeholder="Square Foot"
+              defaultValue={property?.squareFoot}
+            />
+            <FormField
+              label="Floor"
+              name="floor"
+              type="number"
+              register={register}
+              error={errors.floor}
+              placeholder="Floor"
+              defaultValue={property?.floor}
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Build year*
-              </label>
-              <input
-                {...register("buildYear", { required: true })}
-                type="number"
-                placeholder="Build year"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.buildYear}
-              />
-              {errors.floor && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Property Address*
-              </label>
-              <input
-                {...register("address", { required: true })}
-                type="text"
-                placeholder="Enter address"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.address}
-              />
-              {errors.address && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
+            <FormField
+              label="Build year"
+              name="buildYear"
+              type="number"
+              register={register}
+              error={errors.buildYear}
+              placeholder="Build year"
+              defaultValue={property?.buildYear}
+            />
+            <FormField
+              label="Property Address"
+              name="address"
+              register={register}
+              error={errors.address}
+              placeholder="Enter address"
+              defaultValue={property?.address}
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Zip-Code*
-              </label>
-              <input
-                {...register("zipCode", { required: true })}
-                type="text"
-                placeholder="zip-code"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                defaultValue={property?.zipCode}
-              />
-              {errors.zipCode && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                City*
-              </label>
-              <select
-                {...register("city", { required: true })}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-              >
-                <option value={property?.city}>{property?.city}</option>
-                <option value="Faridpur">Faridpur</option>
-                <option value="Mirpur">Mirpur</option>
-                <option value="Gazipur">Gazipur</option>
-                <option value="Narayanganj">Narayanganj</option>
-                <option value="Dhaka">Dhaka</option>
-              </select>
-              {errors.city && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-seaBlue">
-                Country*
-              </label>
-              <select
-                {...register("country", { required: true })}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-              >
-                <option value={property?.country}>{property?.country}</option>
-                <option value="Bangladesh">Bangladesh</option>
-                <option value="USA">USA</option>
-              </select>
-              {errors.country && (
-                <span className="text-red-600">This field is required</span>
-              )}
-            </div>
+            <FormField
+              label="Zip-Code"
+              name="zipCode"
+              register={register}
+              error={errors.zipCode}
+              placeholder="Zip-Code"
+              defaultValue={property?.zipCode}
+            />
+            <FormField
+              label="City"
+              name="city"
+              type="select"
+              register={register}
+              error={errors.city}
+              options={[
+                { value: "Faridpur", label: "Faridpur" },
+                { value: "Mirpur", label: "Mirpur" },
+                { value: "Gazipur", label: "Gazipur" },
+                { value: "Narayanganj", label: "Narayanganj" },
+                { value: "Dhaka", label: "Dhaka" },
+              ]}
+            />
+            <FormField
+              label="Country"
+              name="country"
+              type="select"
+              register={register}
+              error={errors.country}
+              options={[
+                { value: "Bangladesh", label: "Bangladesh" },
+                { value: "USA", label: "USA" },
+              ]}
+              defaultValue={property?.country}
+            />
           </div>
-          <textarea
-            {...register("description", { required: true })}
-            placeholder="Description"
-            className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
-            defaultValue={property?.description}
-          ></textarea>
-          {errors.description && (
-            <span className="text-red-600">This field is required</span>
-          )}
+
+          <div>
+            <label className="block text-sm font-medium text-seaBlue">
+              Description
+            </label>
+            <textarea
+              {...register("description")}
+              placeholder="Description"
+              className="w-full border border-gray-300 rounded-md shadow-sm mt-1 p-2 row-span-5"
+              defaultValue={property?.description}
+            ></textarea>
+            {errors.description && (
+              <span className="text-red-600">This field is </span>
+            )}
+          </div>
 
           <div className="flex justify-end space-x-4 mt-4">
             <button
@@ -373,7 +244,7 @@ const UpdatePropertyModal: React.FC<UpdatePropertyModalProps> = ({
             <button
               type="button"
               className="bg-yellow text-white py-2 px-4 rounded-md hover:bg-seaBlue transition-all duration-700"
-              onClick={() => onClose()}
+              onClick={onClose}
             >
               Cancel
             </button>

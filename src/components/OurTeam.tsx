@@ -8,7 +8,7 @@ import { useGetUserQuery } from "../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import { LoginInputs } from "../types/types";
-import ReusableBtn from "./reusableBtn/reusableBtn";
+import ReusableBtn from "./ui/reusableBtn";
 const OurTeam = () => {
   const { data } = useGetUserQuery("");
   const allAgent = data?.filter((dt: LoginInputs) => dt.role === "Agent");

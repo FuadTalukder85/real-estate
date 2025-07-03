@@ -99,7 +99,7 @@ const DashProperty = () => {
   }, [refetch]);
   return (
     <div className="">
-      <div className="md:hidden bg-white p-5 border capitalize font-semibold text-seaBlue">
+      <div className="md:hidden bg-white ps-5 border capitalize font-semibold text-seaBlue">
         <h5 className="">All Properties List</h5>
         <div className="mt-3 flex items-center ps-4 justify-between font-semibold bg-yellow rounded-md">
           <input
@@ -117,7 +117,7 @@ const DashProperty = () => {
         </div>
       </div>
       <div className="px-3 md:px-0">
-        <div className="w-full overflow-x-scroll scrollbar-hide md:px-10 md:p-5 text-seaBlue">
+        <div className="w-full overflow-x-scroll scrollbar-hide md:p-5 text-seaBlue">
           <div className="w-[1200px] md:w-full overflow-x-auto mt-10">
             <div className="hidden md:flex justify-between items-center bg-white p-5 border capitalize font-semibold text-seaBlue">
               <h5 className="">All Properties List</h5>

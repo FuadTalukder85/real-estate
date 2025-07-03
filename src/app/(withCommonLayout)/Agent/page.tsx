@@ -8,7 +8,7 @@ import { useGetUserQuery } from "../../../redux/userApi/UserApi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import { LoginInputs } from "../../../types/types";
-import ReusableBtn from "../../../components/reusableBtn/reusableBtn";
+import ReusableBtn from "../../../components/ui/reusableBtn";
 
 const AgentPage = () => {
   const { data } = useGetUserQuery("");

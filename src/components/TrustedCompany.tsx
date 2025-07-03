@@ -1,17 +1,16 @@
 "use client";
 import React from "react";
-import Container from "../Container";
+import Container from "./Container";
 import Image from "next/image";
-import company01 from "../../assets/images/companyLogo/company01.png";
-import company02 from "../../assets/images/companyLogo/company02.png";
-import company03 from "../../assets/images/companyLogo/company03.png";
-import company04 from "../../assets/images/companyLogo/company04.png";
-import company05 from "../../assets/images/companyLogo/company05.png";
-import company06 from "../../assets/images/companyLogo/company06.png";
+import company01 from "../assets/images/companyLogo/company01.png";
+import company02 from "../assets/images/companyLogo/company02.png";
+import company03 from "../assets/images/companyLogo/company03.png";
+import company04 from "../assets/images/companyLogo/company04.png";
+import company05 from "../assets/images/companyLogo/company05.png";
+import company06 from "../assets/images/companyLogo/company06.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import "./TrustedCompany.css";
 
 const TrustedCompany = () => {
   const settings = {

@@ -5,9 +5,10 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdCategory } from "react-icons/md";
 import Container from "../../../components/Container";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
-import PropertyCard from "../../../components/reusableCard/PropertyCard";
+
 import { TPropertyTypes } from "../../../types/types";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
+import PropertyCard from "../../../components/ui/PropertyCard";
 type TShortOption = "Sale" | "Rent" | string;
 const PropertyPage = () => {
   const { data } = useGetPropertyQuery("");

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useGetPropertyQuery } from "../redux/propertyApi/PropertyApi";
-import ListingCard from "./reusableCard/ListingCard";
+import ListingCard from "./ui/ListingCard";
 import { TPropertyTypes } from "../types/types";
 
 const ListingByAgent = ({ email }: { email: string }) => {

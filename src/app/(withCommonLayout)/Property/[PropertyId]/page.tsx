@@ -18,7 +18,7 @@ import { BsBoxArrowRight } from "react-icons/bs";
 import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 import { MdLink } from "react-icons/md";
 import toast from "react-hot-toast";
-import ReusableBtn from "../../../../components/reusableBtn/reusableBtn";
+import ReusableBtn from "../../../../components/ui/reusableBtn";
 
 const PropertyDetails = ({}) => {
   const params = useParams();

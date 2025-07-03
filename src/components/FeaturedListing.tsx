@@ -1,18 +1,17 @@
 "use client";
 import React from "react";
-import Container from "../Container";
+import Container from "./Container";
 import Image from "next/image";
 import { FaBath, FaBed } from "react-icons/fa";
 import { BiSolidCarGarage } from "react-icons/bi";
 import { RxSize } from "react-icons/rx";
 import { FaLocationDot } from "react-icons/fa6";
-import { useGetPropertyQuery } from "../../redux/propertyApi/PropertyApi";
+import { useGetPropertyQuery } from "../redux/propertyApi/PropertyApi";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Link from "next/link";
 import Slider from "react-slick";
-import "./FeaturedListing.css";
-import { TArrowProps, TPropertyTypes } from "../../types/types";
-import ReusableBtn from "../reusableBtn/reusableBtn";
+import { TArrowProps, TPropertyTypes } from "../types/types";
+import ReusableBtn from "./ui/reusableBtn";
 
 // custom button
 const NextArrow = ({ onClick }: TArrowProps) => {

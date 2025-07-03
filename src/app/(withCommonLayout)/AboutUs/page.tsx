@@ -8,7 +8,7 @@ import icon01 from "../../../assets/images/serviceIcon/icon01.png";
 import icon02 from "../../../assets/images/serviceIcon/icon02.png";
 import icon03 from "../../../assets/images/serviceIcon/icon03.png";
 import { IoCheckmark } from "react-icons/io5";
-import ReusableBtn from "../../../components/reusableBtn/reusableBtn";
+import ReusableBtn from "../../../components/ui/reusableBtn";
 import Link from "next/link";
 import Testimonials from "../../../components/Testimonials";
 import OurTeam from "../../../components/OurTeam";

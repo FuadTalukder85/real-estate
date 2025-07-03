@@ -18,7 +18,7 @@ const Analytics = () => {
     return () => clearInterval(intervalId);
   }, [refetch]);
   return (
-    <div className="px-3 md:px-10 mt-10 text-seaBlue">
+    <div className="px-3 md:px-5 mt-10 text-seaBlue">
       <h5 className="font-semibold">Analytics</h5>
       <div className="md:flex gap-5 justify-between mt-5">
         {/* card 01 */}

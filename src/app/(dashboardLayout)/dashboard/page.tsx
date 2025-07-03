@@ -19,7 +19,7 @@ const AdminPage = () => {
       {currentUser.role === "Admin" ? (
         <div className="">
           <Analytics></Analytics>
-          <div className="md:grid md:grid-cols-5 gap-5 px-3 md:px-10">
+          <div className="md:grid md:grid-cols-5 gap-5 px-3 md:px-5">
             <div className="col-span-3">
               <NewListing></NewListing>
             </div>

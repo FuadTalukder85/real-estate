@@ -2,8 +2,9 @@
 import React from "react";
 import Container from "./Container";
 import { useGetPropertyQuery } from "../redux/propertyApi/PropertyApi";
-import PropertyCard from "./reusableCard/PropertyCard";
+
 import { useGetUserQuery } from "../redux/userApi/UserApi";
+import PropertyCard from "./ui/PropertyCard";
 
 const LatestSale = () => {
   const { data } = useGetPropertyQuery("");

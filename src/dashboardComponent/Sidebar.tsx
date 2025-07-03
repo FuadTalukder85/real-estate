@@ -21,28 +21,28 @@ const Sidebar = () => {
   const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
   const getDynamicLink = (path: string) => {
     if (pathname === path) {
-      return "bg-[#ffe8d4]";
+      return "bg-[#FFFFFF] text-yellow";
     }
     if (
       pathname.startsWith("/dashboard/AllProperty") &&
       (path === "/dashboard/AllProperty" ||
         path === "/dashboard/AllProperty/[id]")
     ) {
-      return "bg-[#ffe8d4]";
+      return "bg-[#FFFFFF] text-yellow";
     }
     if (
       pathname.startsWith("/dashboard/AllAgent") &&
       (path === "/dashboard/AllAgent" || path === "/dashboard/AllAgent/[id]")
     ) {
-      return "bg-[#ffe8d4]";
+      return "bg-[#FFFFFF] text-yellow";
     }
   };
 
   return (
-    <div className="h-screen px-5 py-3">
+    <div className="h-screen px-5 py-3 bg-[#1C252E] border-r-2 border-[#d8dadf]">
       {currentUser?.role === "Admin" ? (
         // For admin
-        <ul className="text-seaBlue font-semibold">
+        <ul className="text-[#687F8A] font-semibold">
           <li className="hidden md:block">
             <Link href="/">
               <Image
@@ -55,7 +55,7 @@ const Sidebar = () => {
           </li>
           <li className="md:mt-10">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard"
               )}`}
               href="/dashboard"
@@ -64,9 +64,9 @@ const Sidebar = () => {
               Admin Dashboard
             </Link>
           </li>
-          <li className="mt-3  rounded-md">
+          <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/AllProperty"
               )}`}
               href="/dashboard/AllProperty"
@@ -76,7 +76,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/AddProperty"
               )}`}
               href="/dashboard/AddProperty"
@@ -86,7 +86,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/Message"
               )}`}
               href="/dashboard/Message"
@@ -96,7 +96,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/AllAgent"
               )}`}
               href="/dashboard/AllAgent"
@@ -106,7 +106,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/Users"
               )}`}
               href="/dashboard/Users"
@@ -130,7 +130,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-10">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard"
               )}`}
               href="/dashboard"
@@ -141,7 +141,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/Property"
               )}`}
               href="/dashboard/MyProperty"
@@ -151,7 +151,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/AddProperty"
               )}`}
               href="/dashboard/AddProperty"
@@ -161,7 +161,7 @@ const Sidebar = () => {
           </li>
           <li className="mt-3">
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-md ${getDynamicLink(
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
                 "/dashboard/Property"
               )}`}
               href="/dashboard/Property"

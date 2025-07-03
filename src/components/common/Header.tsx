@@ -18,7 +18,7 @@ import logo from "../../assets/images/real-estate-logo.png";
 import { IoCloseSharp } from "react-icons/io5";
 import { useGetUserQuery } from "../../redux/userApi/UserApi";
 import { LoginInputs } from "../../types/types";
-import ReusableBtn from "../reusableBtn/reusableBtn";
+import ReusableBtn from "../ui/reusableBtn";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 const Header = () => {
@@ -34,6 +34,15 @@ const Header = () => {
   // Reference for dropdown container
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const profileBtnRef = useRef<HTMLButtonElement | null>(null);
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "Property", path: "/Property" },
+    { name: "Featured", path: "/Featured" },
+    { name: "Agent", path: "/Agent" },
+    { name: "Blog", path: "/Blog" },
+    { name: "About Us", path: "/AboutUs" },
+    { name: "Contact", path: "/Contact" },
+  ];
 
   const handleLogout = () => {
     logOut()
@@ -219,27 +228,11 @@ const Header = () => {
                     </div>
                   )}
                 </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/Property">Property</Link>
-                </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/Featured">Featured</Link>
-                </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/Agent">Agent</Link>
-                </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/Blog">Blog</Link>
-                </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/AboutUs">About us</Link>
-                </li>
-                <li className="font-semibold text-seaBlue border-b border-light py-2">
-                  <Link href="/Contact">Contact</Link>
-                </li>
+                {menuItems.map((item) => (
+                  <li key={item.path} className="py-2 border-b border-light">
+                    <Link href={item.path}>{item.name}</Link>
+                  </li>
+                ))}
               </ul>
               <div className=" mt-16">
                 {user ? (
@@ -277,82 +270,22 @@ const Header = () => {
           <div className="hidden md:flex justify-between items-center py-1">
             <div>
               <ul className="gap-2 flex uppercase font-bold text-sm">
-                <li className="flex items-center">
-                  <Link
-                    href="/"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/"
-                    )}`}
-                  >
-                    Home
-                  </Link>
-                  <span className="ps-2 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <Link
-                    href="/Property"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/Property"
-                    )}`}
-                  >
-                    Property
-                  </Link>
-                  <span className="ps-2 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <Link
-                    href="/Featured"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/Featured"
-                    )}`}
-                  >
-                    Featured
-                  </Link>
-                  <span className="ps-2 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <Link
-                    href="/Agent"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/Agent"
-                    )}`}
-                  >
-                    Agent
-                  </Link>
-                  <span className="ps-2 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <Link
-                    href="/Blog"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/Blog"
-                    )}`}
-                  >
-                    Blog
-                  </Link>
-                  <span className="ps-2 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <Link
-                    href="/AboutUs"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/AboutUs"
-                    )}`}
-                  >
-                    About Us
-                  </Link>
-                  <span className="ps-2 border-r h-3"></span>
-                </li>
-                <li className="flex items-center">
-                  <Link
-                    href="/Contact"
-                    className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
-                      "/Contact"
-                    )}`}
-                  >
-                    Contact
-                  </Link>
-                </li>
+                {menuItems.map((item, index) => (
+                  <li key={item.path} className="flex items-center">
+                    <Link
+                      href={item.path}
+                      className={`px-2 rounded-sm hover:bg-white hover:text-seaBlue transition-all duration-500 ${getDynamicLink(
+                        item.path
+                      )}`}
+                    >
+                      {item.name}
+                    </Link>
+                    {/* Only show divider if not last item */}
+                    {index !== menuItems.length - 1 && (
+                      <span className="ps-2 border-r h-3"></span>
+                    )}
+                  </li>
+                ))}
               </ul>
             </div>
             <div>

@@ -109,7 +109,7 @@ const DashboardHeader = () => {
         </div>
       </div>
       {/* responsive sidebar end */}
-      <div className="bg-white shadow-[rgba(0,0,0,0.2)_3px_3px_3px_0px] md:flex justify-between items-center px-3 md:px-10 py-3">
+      <div className="bg-white shadow-[4px_0_10px_rgba(0,0,0,0.15)] md:flex justify-between items-center px-3 md:px-5 py-3">
         <div className="flex justify-between items-center">
           <div className="w-full md:w-[500px] flex items-center justify-between gap-3 px-4 font-semibold bg-gray-50 rounded-md">
             <input
