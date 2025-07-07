@@ -36,32 +36,34 @@ const Banner = () => {
     >
       <Container>
         <div className="py-5 md:py-32 font-semibold p-3 md:p-0">
-          <h5 className="text-white text-2xl md:text-5xl md:w-[600px]">
-            Find your dream house!
-          </h5>
-          <p className="text-white text-2xl">
-            We are offering the best Real Estate Deals
-          </p>
-          <ul className="text-white text-lg mt-5 md:mt-10">
-            <li className="flex gap-3 items-center">
-              <span className="border-2 border-yellow p-1 text-sm rounded-full">
-                <FaLocationDot />
-              </span>
-              We sell a property every 45 minutes
-            </li>
-            <li className="flex gap-3 items-center mt-3">
-              <span className="border-2 border-yellow p-1 text-sm rounded-full">
-                <IoMdCheckmark />
-              </span>
-              We abide by the strictest codes of practice
-            </li>
-            <li className="flex gap-3 items-center mt-3">
-              <span className="border-2 border-yellow p-1 text-sm rounded-full">
-                <MdOutlineEventNote />
-              </span>
-              12,300 buyers registered each month
-            </li>
-          </ul>
+          <div className="md:w-[600px] bg-[#2a476634] backdrop-blur-md md:p-5 rounded-md">
+            <h5 className="text-white text-2xl md:text-5xl">
+              Find your dream house!
+            </h5>
+            <p className="text-white text-2xl">
+              We are offering the best Real Estate Deals
+            </p>
+            <ul className="text-white text-lg mt-5 md:mt-10">
+              <li className="flex gap-3 items-center">
+                <span className="border-2 border-yellow p-1 text-sm rounded-full">
+                  <FaLocationDot />
+                </span>
+                We sell a property every 45 minutes
+              </li>
+              <li className="flex gap-3 items-center mt-3">
+                <span className="border-2 border-yellow p-1 text-sm rounded-full">
+                  <IoMdCheckmark />
+                </span>
+                We abide by the strictest codes of practice
+              </li>
+              <li className="flex gap-3 items-center mt-3">
+                <span className="border-2 border-yellow p-1 text-sm rounded-full">
+                  <MdOutlineEventNote />
+                </span>
+                12,300 buyers registered each month
+              </li>
+            </ul>
+          </div>
           {/* Search */}
           <div className="mt-14 mb-10">
             <h5 className="p-5 text-white text-2xl font-semibold capitalize bg-seaBlue md:w-[350px]">

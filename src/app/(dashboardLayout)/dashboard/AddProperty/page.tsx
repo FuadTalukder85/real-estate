@@ -7,6 +7,7 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 import useCurrentUser from "../../../../hooks/CurrentUser";
 import { TPropertyTypes } from "../../../../types/types";
 import FormField from "../../../../components/ui/FormField";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddProperty: React.FC = () => {
   const [postProperty] = usePostPropertyMutation();
@@ -26,6 +27,7 @@ const AddProperty: React.FC = () => {
       const email = user?.email;
       const postedData = { ...data, postBy, email };
       await postProperty(postedData);
+      toast.success("Property added successfully", { position: "top-right" });
       reset();
     } catch (error) {
       console.error("Add property failed:", error);
@@ -37,6 +39,7 @@ const AddProperty: React.FC = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-4 md:mx-10 md:mt-10 text-seaBlue bg-white p-5 rounded-md"
     >
+      <Toaster />
       <h5 className="font-semibold">Property Details</h5>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
         <FormField

@@ -19,158 +19,91 @@ const Sidebar = () => {
   const { data } = useGetUserQuery("");
   const { user } = useContext(AuthContext);
   const currentUser = data?.find((dt: LoginInputs) => dt.email === user?.email);
-  const getDynamicLink = (path: string) => {
-    if (pathname === path) {
-      return "bg-[#FFFFFF] text-yellow";
-    }
+
+  const isActive = (path: string) => {
+    if (pathname === path) return "bg-[#FFFFFF] text-yellow";
     if (
       pathname.startsWith("/dashboard/AllProperty") &&
-      (path === "/dashboard/AllProperty" ||
-        path === "/dashboard/AllProperty/[id]")
-    ) {
+      ["/dashboard/AllProperty", "/dashboard/AllProperty/[id]"].includes(path)
+    )
       return "bg-[#FFFFFF] text-yellow";
-    }
     if (
       pathname.startsWith("/dashboard/AllAgent") &&
-      (path === "/dashboard/AllAgent" || path === "/dashboard/AllAgent/[id]")
-    ) {
+      ["/dashboard/AllAgent", "/dashboard/AllAgent/[id]"].includes(path)
+    )
       return "bg-[#FFFFFF] text-yellow";
-    }
+    return "";
   };
 
+  const adminMenu = [
+    {
+      href: "/dashboard",
+      label: "Admin Dashboard",
+      icon: <MdOutlineSpaceDashboard />,
+    },
+    {
+      href: "/dashboard/AllProperty",
+      label: "All Property",
+      icon: <BsHouseCheck />,
+    },
+    {
+      href: "/dashboard/AddProperty",
+      label: "Add Property",
+      icon: <IoMdAddCircleOutline />,
+    },
+    { href: "/dashboard/Message", label: "Message", icon: <TiMessages /> },
+    { href: "/dashboard/AllAgent", label: "Agents", icon: <GoPeople /> },
+    { href: "/dashboard/Users", label: "Users & Role", icon: <PiUsersThree /> },
+  ];
+
+  const agentMenu = [
+    {
+      href: "/dashboard",
+      label: "Agent Dashboard",
+      icon: <MdOutlineSpaceDashboard />,
+    },
+    {
+      href: "/dashboard/MyProperty",
+      label: "My Property",
+      icon: <BsHouseCheck />,
+    },
+    {
+      href: "/dashboard/AddProperty",
+      label: "Add Property",
+      icon: <IoMdAddCircleOutline />,
+    },
+    { href: "/dashboard/Property", label: "Message", icon: <TiMessages /> },
+  ];
+
+  const menu = currentUser?.role === "Admin" ? adminMenu : agentMenu;
+  const textColor =
+    currentUser?.role === "Admin" ? "text-[#687F8A]" : "text-seaBlue";
+
   return (
-    <div className="h-screen px-5 py-3 bg-[#1C252E] border-r-2 border-[#d8dadf]">
-      {currentUser?.role === "Admin" ? (
-        // For admin
-        <ul className="text-[#687F8A] font-semibold">
-          <li className="hidden md:block">
-            <Link href="/">
-              <Image
-                className="mx-auto"
-                src={logo}
-                alt="logo"
-                width={150}
-              ></Image>
-            </Link>
-          </li>
-          <li className="md:mt-10">
+    <div className="h-screen fixed w-[15%] px-5 py-3 bg-[#1C252E] border-r-2 border-[#d8dadf]">
+      <ul className={`font-semibold ${textColor}`}>
+        <li className="hidden md:block">
+          <Link href="/">
+            <Image className="mx-auto" src={logo} alt="logo" width={150} />
+          </Link>
+        </li>
+        {menu.map((item, index) => (
+          <li
+            className={index === 0 ? "md:mt-10 mt-10" : "mt-3"}
+            key={item.href}
+          >
             <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard"
+              href={item.href}
+              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${isActive(
+                item.href
               )}`}
-              href="/dashboard"
             >
-              <MdOutlineSpaceDashboard className="text-xl" />
-              Admin Dashboard
+              <span className="text-xl">{item.icon}</span>
+              {item.label}
             </Link>
           </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/AllProperty"
-              )}`}
-              href="/dashboard/AllProperty"
-            >
-              <BsHouseCheck className="text-xl" /> All Property
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/AddProperty"
-              )}`}
-              href="/dashboard/AddProperty"
-            >
-              <IoMdAddCircleOutline className="text-xl" /> Add Property
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/Message"
-              )}`}
-              href="/dashboard/Message"
-            >
-              <TiMessages className="text-xl" /> Message
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/AllAgent"
-              )}`}
-              href="/dashboard/AllAgent"
-            >
-              <GoPeople className="text-xl" /> Agents
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/Users"
-              )}`}
-              href="/dashboard/Users"
-            >
-              <PiUsersThree className="text-xl" /> Users & Role
-            </Link>
-          </li>
-        </ul>
-      ) : (
-        // For agent
-        <ul className="text-seaBlue font-semibold">
-          <li>
-            <Link href="/">
-              <Image
-                className="mx-auto"
-                src={logo}
-                alt="logo"
-                width={150}
-              ></Image>
-            </Link>
-          </li>
-          <li className="mt-10">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard"
-              )}`}
-              href="/dashboard"
-            >
-              <MdOutlineSpaceDashboard className="text-xl" />
-              Agent Dashboard
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/Property"
-              )}`}
-              href="/dashboard/MyProperty"
-            >
-              <BsHouseCheck className="text-xl" /> My Property
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/AddProperty"
-              )}`}
-              href="/dashboard/AddProperty"
-            >
-              <IoMdAddCircleOutline className="text-xl" /> Add Property
-            </Link>
-          </li>
-          <li className="mt-3">
-            <Link
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${getDynamicLink(
-                "/dashboard/Property"
-              )}`}
-              href="/dashboard/Property"
-            >
-              <TiMessages className="text-xl" /> Message
-            </Link>
-          </li>{" "}
-        </ul>
-      )}
+        ))}
+      </ul>
     </div>
   );
 };

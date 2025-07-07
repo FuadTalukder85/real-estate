@@ -17,9 +17,11 @@ const TrustedCompany = () => {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 400,
     slidesToShow: 6,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     appendDots: (dots: React.ReactNode) => (
       <div
         style={{

@@ -27,7 +27,7 @@ const LatestSale = () => {
         </p>
       </div>
       <div className="mt-3 md:mt-16 md:grid grid-cols-3 gap-5 p-3 md:p-0">
-        {recentProperty?.slice(0, 3).map((property, index) => {
+        {recentProperty?.slice(0, 6).map((property, index) => {
           const user = userData?.find(
             (user: any) => user.email === property.email
           );

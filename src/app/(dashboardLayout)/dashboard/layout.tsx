@@ -8,14 +8,14 @@ const layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     <PrivateRoute>
       <div className="md:flex">
         <div className="md:w-[15%]">
-          {/* resoonsive sidebar */}
+          {/* responsive sidebar */}
           <div className="md:hidden"></div>
-          <div className="hidden md:block">
-            <Sidebar></Sidebar>
+          <div className="hidden md:block w-full">
+            <Sidebar />
           </div>
         </div>
         <div className="md:w-[85%] bg-gray-50">
-          <DashboardHeader></DashboardHeader>
+          <DashboardHeader />
           {children}
         </div>
       </div>
