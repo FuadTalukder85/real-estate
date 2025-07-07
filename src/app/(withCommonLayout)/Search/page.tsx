@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { useGetPropertyQuery } from "../../../redux/propertyApi/PropertyApi";
 import Container from "../../../components/Container";
-import PropertyCard from "../../../components/reusableCard/PropertyCard";
 import { TPropertyTypes } from "../../../types/types";
 import { useGetUserQuery } from "../../../redux/userApi/UserApi";
+import PropertyCard from "../../../components/ui/PropertyCard";
 const SearchPage = () => {
   const { data: properties } = useGetPropertyQuery("");
   const { data: userData } = useGetUserQuery("");
