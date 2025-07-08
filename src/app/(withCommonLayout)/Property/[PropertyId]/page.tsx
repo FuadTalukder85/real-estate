@@ -132,7 +132,12 @@ const PropertyDetails = ({}) => {
                     <BsBoxArrowRight />
                     Share
                   </button>
-                  <ReusableBtn>Rent Now</ReusableBtn>
+                  {singleProperty?.propertyFor === "Sale" ? (
+                    <ReusableBtn>Buy Now</ReusableBtn>
+                  ) : (
+                    <ReusableBtn>Rent Now</ReusableBtn>
+                  )}
+
                   {isDropdownVisible && (
                     <div
                       ref={shareRef}

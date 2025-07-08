@@ -30,7 +30,7 @@ const DashProperty = () => {
   const handleDelete = (id: string) => {
     deleteProperty(id);
     refetch();
-    toast.success("Product deleted successed", { position: "top-right" });
+    toast.success("Product deleted successfully", { position: "top-right" });
     setIsOpen(false);
   };
   const toggleModal = () => {
@@ -118,7 +118,7 @@ const DashProperty = () => {
       </div>
       <div className="px-3 md:px-0">
         <div className="w-full overflow-x-scroll scrollbar-hide md:p-5 text-seaBlue">
-          <div className="w-[1200px] md:w-full overflow-x-auto mt-10">
+          <div className="w-[1200px] md:w-full overflow-x-auto mt-2">
             <div className="hidden md:flex justify-between items-center bg-white p-5 border capitalize font-semibold text-seaBlue">
               <h5 className="">All Properties List</h5>
               <div className="flex items-center justify-between ps-4 font-semibold bg-yellow rounded-md">

@@ -56,7 +56,7 @@ const TrustedCompany = () => {
   };
   return (
     <Container>
-      <div className="-mt-16">
+      <div className="relative -mt-16 z-50">
         <h5 className="font-bold bg-white p-5 md:w-[350px] text-seaBlue">
           Trusted by over 150+ major companies
         </h5>
