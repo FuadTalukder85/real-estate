@@ -30,6 +30,7 @@ const Header = () => {
   // Dropdown visibility state
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Reference for dropdown container
   const dropdownRef = useRef<HTMLUListElement | null>(null);
@@ -50,7 +51,7 @@ const Header = () => {
       .catch((error) => console.log(error));
   };
 
-  // GSAP animations for modals
+  // GSAP animations for modals for login, register
   useEffect(() => {
     const initAnimation = (
       triggerSelector: string,
@@ -129,72 +130,95 @@ const Header = () => {
     return "text-white";
   };
   // gsap animation for menu
-  useEffect(() => {
-    const menuBtn = document.querySelector("#menu");
-    const menuStyle = document.querySelector("#menuStyle");
-    const closeMenuBtn = document.querySelector("#menuStyle #closeBtn");
+  // useEffect(() => {
+  //   const menuBtn = document.querySelector("#menu");
+  //   const menuStyle = document.querySelector("#menuStyle");
+  //   const closeMenuBtn = document.querySelector("#menuStyle #closeBtn");
 
-    if (menuBtn && menuStyle) {
-      const tl = gsap.timeline({ paused: true });
-      tl.to("#menuStyle", {
-        left: 0,
-        duration: 0.4,
-        opacity: 1,
-        visibility: "visible",
-      });
-      tl.from("#menuStyle li", {
-        x: 100,
-        duration: 0.3,
-        opacity: 0,
-        stagger: 0.1,
-      });
-      // open menu
-      menuBtn.addEventListener("click", () => {
-        tl.play();
-      });
-      // close menu
-      if (closeMenuBtn) {
-        closeMenuBtn.addEventListener("click", () => {
-          tl.reverse();
-        });
-      }
+  //   if (menuBtn && menuStyle) {
+  //     const tl = gsap.timeline({ paused: true });
+  //     tl.to("#menuStyle", {
+  //       left: 0,
+  //       duration: 0.4,
+  //       opacity: 1,
+  //       visibility: "visible",
+  //     });
+  //     tl.from("#menuStyle li", {
+  //       x: 100,
+  //       duration: 0.3,
+  //       opacity: 0,
+  //       stagger: 0.1,
+  //     });
+  //     // open menu
+  //     menuBtn.addEventListener("click", () => {
+  //       tl.play();
+  //     });
+  //     // close menu
+  //     if (closeMenuBtn) {
+  //       closeMenuBtn.addEventListener("click", () => {
+  //         tl.reverse();
+  //       });
+  //     }
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
-  }, []);
+
+    // Cleanup on unmount just in case
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <div className="hidden md:block">
         <TopHeader />
       </div>
       <div className="bg-seaBlue">
         <Container>
           {/* responsive menu */}
-          <div className="bg-white flex md:hidden justify-between items-center py-2 px-3 md:px-0">
+          <div className="bg-white flex md:hidden justify-between items-center py-2 px-3 md:px-0 fixed w-full">
             <Link href="/">
-              <Image src={logo} alt="logo" width={100}></Image>
+              <Image src={logo} alt="logo" width={100} />
             </Link>
-            <div
+
+            <button
               id="menu"
               className="bg-seaBlue text-white text-2xl px-2 py-1 rounded-md hover:bg-yellow transition-all duration-500"
+              onClick={() => setIsMenuOpen(true)}
             >
               <RiMenuFold2Fill />
-            </div>
+            </button>
+
+            {/* Sidebar Menu */}
             <div
               id="menuStyle"
-              className="absolute h-screen w-[280px] left-[-320px] top-0 overflow-hidden bg-[#F7F7F7] z-50 p-3"
+              className={`fixed h-screen w-[350px] top-0 z-50 bg-[#F7F7F7] p-3 transition-all duration-500 ${
+                isMenuOpen
+                  ? "left-0 opacity-100 visible"
+                  : "-left-[320px] opacity-0 invisible"
+              }`}
             >
               <div className="flex justify-between items-center">
                 <Link href="/">
-                  <Image src={logo} alt="logo" width={100}></Image>
+                  <Image src={logo} alt="logo" width={100} />
                 </Link>
-                <div
+                <button
                   id="closeBtn"
                   className="bg-seaBlue text-white text-xl px-2 py-1 rounded-md hover:bg-yellow transition-all duration-500"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   <IoCloseSharp />
-                </div>
+                </button>
               </div>
-              <ul className="mt-5">
-                <li className="flex justify-end ">
+
+              <ul className="mt-5 space-y-2">
+                <li className="flex justify-end">
                   {user ? (
                     <>
                       {currentUser?.role === "Admin" ||
@@ -211,7 +235,8 @@ const Header = () => {
                           href="/account"
                           className="flex items-center justify-between w-32 rounded-[4px] font-semibold bg-seaBlue text-white px-3 py-2"
                         >
-                          <RiHome4Line className="text-xl" /> My Profile
+                          <RiHome4Line className="text-xl" />
+                          My Profile
                         </Link>
                       )}
                     </>
@@ -234,36 +259,33 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-              <div className=" mt-16">
-                {user ? (
-                  <div className="mt-5">
-                    <button
-                      onClick={handleLogout}
-                      className="flex items-center justify-between w-32 rounded-[4px] font-semibold text-seaBlue px-3 border border-seaBlue py-2 hover:bg-seaBlue hover:text-white transition-all duration-500"
-                    >
-                      Logout
-                      <IoIosLogOut className="text-xl" />
-                    </button>
-                  </div>
-                ) : (
-                  <></>
-                )}
 
-                <ul className="flex gap-3 justify-center bg-white py-2 text-seaBlue mt-5 text-2xl">
-                  <li>
-                    <FaFacebook />
-                  </li>
-                  <li>
-                    <IoLogoYoutube />
-                  </li>
-                  <li>
-                    <FaLinkedinIn />
-                  </li>
-                  <li>
-                    <FaTwitterSquare />
-                  </li>
-                </ul>
-              </div>
+              {user && (
+                <div className="mt-5">
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center justify-between w-32 rounded-[4px] font-semibold text-seaBlue px-3 border border-seaBlue py-2 hover:bg-seaBlue hover:text-white transition-all duration-500"
+                  >
+                    Logout
+                    <IoLogoYoutube className="text-xl" />
+                  </button>
+                </div>
+              )}
+
+              <ul className="flex gap-3 justify-center bg-white py-2 text-seaBlue mt-5 text-2xl">
+                <li>
+                  <FaFacebook />
+                </li>
+                <li>
+                  <IoLogoYoutube />
+                </li>
+                <li>
+                  <FaLinkedinIn />
+                </li>
+                <li>
+                  <FaTwitterSquare />
+                </li>
+              </ul>
             </div>
           </div>
           {/* responsive menu end */}

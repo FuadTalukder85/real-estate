@@ -80,7 +80,7 @@ const Sidebar = () => {
     currentUser?.role === "Admin" ? "text-[#687F8A]" : "text-seaBlue";
 
   return (
-    <div className="h-screen fixed w-[15%] px-5 py-3 bg-[#1C252E] border-r-2 border-[#d8dadf]">
+    <div className="h-screen fixed w-[250px] md:w-[15%] px-5 py-3 md:bg-[#1C252E] md:border-r-2 border-[#d8dadf]">
       <ul className={`font-semibold ${textColor}`}>
         <li className="hidden md:block">
           <Link href="/">
@@ -94,7 +94,7 @@ const Sidebar = () => {
           >
             <Link
               href={item.href}
-              className={`flex items-center gap-3 py-1 px-3 rounded-[4px] ${isActive(
+              className={`flex items-center gap-3 py-1 md:px-3 rounded-[4px] ${isActive(
                 item.href
               )}`}
             >
