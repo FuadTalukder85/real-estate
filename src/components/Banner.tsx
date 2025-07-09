@@ -1,31 +1,32 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Container from "./Container";
 import { FaSearch, FaBed } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { MdCategory, MdOutlineEventNote } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
-const images = ["/banner01.jpg", "/banner02.jpg"];
+import { useKeenSlider } from "keen-slider/react";
+const images = [
+  "/banner03.jpg",
+  "/banner02.jpg",
+  "/banner01.jpg",
+  "/banner04.jpg",
+  "/banner05.jpg",
+];
 const Banner = () => {
   const [generalQuery, setGeneralQuery] = useState("");
   const [locationQuery, setLocationQuery] = useState("");
   const [categoryQuery, setCategoryQuery] = useState("");
   const [bedroomQuery, setBedroomQuery] = useState("");
-  const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % images.length);
-        setFade(true);
-      }, 1400);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+    created: (slider) => {
+      setInterval(() => {
+        slider.next();
+      }, 5000);
+    },
+  });
 
   const handleSearch = () => {
     const queryParams = new URLSearchParams({
@@ -39,23 +40,25 @@ const Banner = () => {
   };
 
   return (
-    <div className="keen-slider relative h-[80vh]">
-      {/* Slide 1 */}
-      <div
-        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[2000ms] ${
-          fade ? "opacity-100" : "opacity-50"
-        }`}
-        style={{
-          backgroundImage: `url(${images[index]})`,
-        }}
-      ></div>
+    <div className="keen-slider relative h-[120vh] md:h-[80vh]">
+      <div ref={sliderRef} className="keen-slider relative">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className="keen-slider__slide w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+
+        {/* Content Overlay remains unchanged */}
+      </div>
 
       {/* Content Overlay */}
-      <div className="absolute z-50 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+      <div className="absolute z-10 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
         <Container>
           <div className="py-5 md:py-32 font-semibold p-3 md:p-0">
             <div className="md:w-[600px] bg-[#2a476604] backdrop-blur-md md:p-5 rounded-md">
-              <h5 className="text-white text-2xl md:text-5xl drop-shadow-[1px_1px_2px_rgba(0,0,0,0.7)]">
+              <h5 className="text-white text-2xl md:text-5xl drop-shadow-[1px_1px_2px_rgba(0,0,0,0.7)] mt-24 md:mt-0">
                 Find your dream house!
               </h5>
               <p className="text-white text-2xl drop-shadow-[1px_1px_2px_rgba(0,0,0,0.7)]">
